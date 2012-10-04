@@ -57,13 +57,12 @@
 			\begin{enumerate}
 				\item Setup capture system in classroom
 				\item Start the capture system
-				\item Utilize board space
+				\item Use whiteboard during class
 				\item Stop the capture system 
 				\item Browse images on analysis system
 				\item Select desired images
 				\item Export images to desired location
 			\end{enumerate}			
-			\\
 			The analysis system will be designed to ease browsing of images described in step 5 by identifying key frames. The idea behind these frames is that they show the maximum amount of information that is on the board before it is erased and used again. 
 	
 	% Deliverables
@@ -78,24 +77,30 @@
 	\section{System Specifications}
 		
 		\subsection{Setup}
-			
-			\subsubsection{Maximum Steps Required}
-				The maximum number of discrete steps required to prepare the capture system for recording shall not exceed X steps. This requirement exists to ensure that the system is simple to set up.\\
-				\emph{This requirement will be verified by showing that the number of steps for setup in the user manual does not exceed X.}
 				
 			\subsubsection{Maximum Time Required}
-				The maximum time required to prepare the capture system for recording shall not exceed 5? minutes. This is to ensure that setting up the system does not interfere with class time.\\
+				The maximum time required to prepare the capture system for recording shall not exceed 5 minutes. This requirement exists to ensure that setting up the system does not interfere with class time.\\
 				\emph{This requirement will be verified through a demonstration of a third party setting up the system in fewer than 5 minutes.}
 		
 		
 		\subsection{Capabilities}
 		
 			\subsubsection{Information Capture}
-				The ProPANE system shall capture all of the information written on a board provided that there exists a clear line of sight from the capture device to the information for a minimum of X continuous seconds. This requirement exists to ensure that no information is lost.\\
-				\emph{This requirement will be verified through a test of covering a portion of a board for all but X seconds and ensuring that the system captured all of the board. }
+				The ProPANE system shall capture all of the information written on a board and within the capture field provided that there exists a clear line of sight from the capture device to the information for a minimum of 5 continuous seconds. This requirement exists to ensure that no information is lost.\\
+				\emph{This requirement will be verified through a test of covering a portion of a board for all but 5 seconds and ensuring that the system captured all of the board. }
+	
+	
+		\subsection{Operating Specifications}
 			
-			\subsubsection{Key Frames}
+			\subsubsection{Minimum Distance from Board}
+				The minimum operating distance from board for the capture system shall not exceed 220 inches. This requirement exists to insure that the capture system can be used in the majority of rooms in the Dana Engineering and Breakiron buildings on the campus of Bucknell University.\\
+				\emph{This requirement will be verified through an examination of the "Operating Parameters" section of the user manual and determining that the minimum operating distance is no greater than 220 inches.}
+				
+			\subsubsection{Maximum Distance from Board}
+				The maximum operating distance from board for the capture system shall not be less than 60 inches. This requirement exists to insure that the capture system can be used in the majority of rooms in the Dana Engineering and Breakiron buildings on the campus of Bucknell University.\\
+				\emph{This requirement will be verified through an examination of the "Operating Parameters" section of the user manual and determining that the minimum operating distance is no less than 60 inches.}
 			
+				
 			
 	
 	\section{Hardware Specifications}
@@ -103,7 +108,7 @@
 		\subsection{Dimensions}
 			
 			\subsubsection{Maximum Weight}
-				The total weight of the capture device shall not exceed 2.5 kg (current weight of 15' MacBook Pro). This requirement exists to maintain the goal of portability. Professors must be able to carry the device to classes and weight should not be an issue. \\
+				The total weight of the capture device shall not exceed 2.5 kg. This requirement exists to maintain the goal of portability. Professors must be able to carry the device to classes and weight should not be an issue. \\
 				\emph{This requiment will be tested by weighing the system and verifying that its weight is less than 2.5 kg.}
 				
 			\subsubsection{Maximum Size}
@@ -114,9 +119,6 @@
 	\section{Software Specifications}
 	
 		\subsection{Operating System}
-			
-			\subsubsection{Capture System}
-				Is this an app (iOS or Android) or a programmable camera (like Microsoft paper)?
 				
 			\subsubsection{Analysis System}
 				The analysis system shall support the Ubuntu 10.04 operating system. This requirement exists to ensure that the software can be run on a free-of-cost operating system. \\
@@ -143,25 +145,18 @@
 				\emph{This requirement will be verified by having a third party with no special training start the capture system with only the help of the user manual}
 				
 			\subsubsection{Stopping Mechanism}
-				The mechanism for starting the capture system shall be simple enough to use as to require no special training aside from reading the user manual. This requirement exists to ensure that any professor will have the ability to use the system.\\
+				The mechanism for stopping the capture system shall be simple enough to use as to require no special training aside from reading the user manual. This requirement exists to ensure that any professor will have the ability to use the system.\\
 				\emph{This requirement will be verified by having a third party with no special training start the capture system with only the help of the user manual}
 		
 		\subsection{Analysis System}
 		
 			\subsubsection{Image Browsing}
-				The analysis system shall provide a graphical interface for displaying all images captured and generated by the ProPANE system. This requirement is to ensure that images are easily accessible and viewable through more than just a file browser.\\
-				\emph{This requirement will be verified through a demonstration of the system showing that images can be browsed.}
+				The analysis system shall provide a mechanism for accessing the identified key images. This requirement exists to ensure that the end user does not have to browse all of the images taken to find the key images by hand.\\
+				\emph{This requirement will be verified through a demonstration of the system showing that key images were identified and referenced in some fashion.}
 				
 			\subsubsection{Export System}
 				The analysis system shall provide a graphical interface for exporting image files to a specified location. This requirement exists to ensure that the images can be shared without difficulty.\\
 				\emph{This requirement will be verified through a demonstration of the system showing that images can be exported to a specified folder.}
-			
-	\section{Legal Specifications}
-	
-		\subsection{Special Education}
-			Meet all legal criteria (Dr Midkiff)
-	
-
 		
 
 \end{document}
