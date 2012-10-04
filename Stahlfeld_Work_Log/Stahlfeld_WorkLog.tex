@@ -11,7 +11,26 @@
 	
 	% Ninth Entry
 	\section{Group Meeting for PSM 1 10/01/2012}
+		The main issues discussed were the resolution issue and the interface issue that were brought up during the initial panel. The resolution issue was basically the agreement with the clients that there will have to be a certain number of pixels given to a certain portion of the board. The interface issue is that not all professors would feel comfortable using Linux for the analysis system. 
 		
+		\subsection{Resolution Issue}
+			This does not seem like it will be an issue because the Microsoft paper shows that the goals we wish to accomplish were accomplished using a 4 MP camera from 10 years ago. Given that the setup for data collection in the paper is nearly the same as what we are using, the progression in camera technology should not be a problem.\\
+			\\
+			However, this IS an issue because it is an area that could possibly pose legal problems. If the resolution is too poor, then the system would be giving ProPANE reliant students a disadvantage. In my opinion, that would be a complete failure of the project.
+			
+		\subsection{Interface Issue}
+			This issue could pose a problem for the project and will have to be investigated. Given that professors do not want to interact with any of the Linux GUIs (and there is no reason why they should). We will have to find a way to browse/export (key) images through a classic interface (i.e. OS X, Windows 7, Windows Vista). The three options I see for solving this problem are: creating our own GUI, give path names, or make a separate directory. 
+			
+			\subsubsection{ProPANE GUI}
+				Creating a GUI would be an extra step in the project and it seems like it would fall under the category of scope creep (let's save this for version 2, but make initial notes on what it will have to do).\\
+				\\
+				The GUI would have to be cross platform and not require anything special (make it accessible to everyone). To me this sounds like a website. Given my website skills (PHP, Ruby on Rails, MySQL, AJAX etc), this seems like the best way to go. Everyone is comfortable using a browser so it would relatively simple to create the GUI.
+				
+			\subsubsection{Path Names}
+				Theoretically the analysis system would generate key images and know the path to the key images. If everything is kept in an SMB share (where security will already be taken care of), users would be presented clickable links to the key images that would be on the share. This would require an image browser/editor on the client computer, but relatively little work for the group.
+				
+			\subsubsection{Separate Directory}
+				Basically, this would have the analysis system have a directory titled ``All\_Images" and one titled ``Key\_Images". This would make life incredibly easy because a key image would just have to be copied from all images to key images. However, the drawback is that since the key images will not be living near images taken at around the same time. If the key image is wrong, the professor would have to go back to all images and search for the key image and then find the the correct key image. The above system would allow for this with just an arrow key action. 
 	
 	% Eigth Entry
 	\section{Review of Panel 1 Notes 09/28/2012}
