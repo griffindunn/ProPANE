@@ -13,7 +13,7 @@
 
 		\title{\textbf{BU ProPane Project Background}}
 		\author{BU ProPane Team:\\Griffin Dunn\\Colin Madigan\\Phillip Stahlfeld}
-		\date{September 12, 2012}
+		\date{October 12, 2012}
 		\maketitle
 		\noindent
 		The purpose of this document is to introduce the BU ProPANE project to a third party with no prior knowledge concerning the project. The document begins with a high-level discussion of the problems that this project is aiming to solve. Next, the document provides relevant background information regarding current practices and relevant terminology. The document concludes with a technical research section that contains ideas that will prove useful during the implementation phase of the project. 
@@ -144,12 +144,13 @@ All images used in this section are from the source document.
 The Whiteboard Capture System came out of Microsoft Research in 2002.  It was research for a bigger Distributed Meetings project.  It can record all information placed on a whiteboard during a session, as well as the audio in the room, and it provides a platform for users to review key information from the session later from their own computers. 
 	
 		\subsubsection*{Key Features}
-The Whiteboard Capture System (WCS) requires only a camera, microphone, and computer to operate with any existing whiteboard.  It records all information written on the board during a meeting, and all audio in the room during the meeting.  The system then analyzes the data and detects ``key frames'', or pictures of the board which the system determines to contain the most important information.  The key frames are time-stamped so they can be associated with the audio that was recorded at the same point in time.  Users can access the key frames securely via a web-based browsing system.  Audio can be played by clicking on a key frame, and the option exists for the presentation to unfold for the viewer like a movie, where information will appear on their web-based whiteboard as the audio recording talks about it, as shown below in Figure 1.
+The Whiteboard Capture System (WCS) requires only a camera, microphone, and computer to operate with any existing whiteboard.  It records all information written on the board during a meeting, and all audio in the room during the meeting.  The system then analyzes the data and detects ``key frames'', or pictures of the board which the system determines to contain the most important information.  The key frames are time-stamped so they can be associated with the audio that was recorded at the same point in time.  Users can access the key frames securely via a web-based browsing system.  Audio can be played by clicking on a key frame, and the option exists for the presentation to unfold for the viewer like a movie, where information will appear on their web-based whiteboard as the audio recording talks about it, as shown below in Figure \ref{fig:research_mswhiteboard_1}.
     
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.80]{images/research_mswhiteboard_1}
 \caption{Browsing system representation of meeting playback}
+\label{fig:research_mswhiteboard_1}
 \end{figure}
 
 		\subsubsection*{Technical information}
@@ -181,11 +182,13 @@ To analyze the captured images, the WCS first divides the frame into a grid of r
 \caption{Plot of number of stroke cells vs. time.  Key frames are shown at peaks just before stroke count decreases dramatically.}
 \end{figure}
 
-\indent \textbf{7.} Color balance is done to make the background uniformly white and increase the color saturation of the pen strokes.  It also reduces image noise.  A final image is presented in Figure 2, below.
+\indent \textbf{7.} Color balance is done to make the background uniformly white and increase the color saturation of the pen strokes.  It also reduces image noise.  A final image is presented in Figure \ref{fig:research_mswhiteboard_2}, below.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{images/research_mswhiteboard_2}
 \caption{Example of a key frame as processed by the WCS}
+\label{fig:research_mswhiteboard_2}
 \end{figure}
 
 \indent Browsing software allows viewing of key frames and audio playback.  Users can zoom in/out and cut and paste the image to other documents.  Double clicking on pen stroke cells plays audio at the time of the time stamp of the cell.  Stroke cells will then be displayed as time progresses in the audio to their respective time stamps. \\
@@ -206,9 +209,9 @@ ReBoard is a system developed by FX Palo Alto Laboratory, Inc.  It captures whit
 	\subsubsection*{Key Features}
 ReBoard's focus is on the ease of sharing captured data between users.  The User Interface (UI) provides multiple options for data retrieval and sharing.  
 \begin{itemize} \itemsep -2pt
-	\item \emph{Calendar View:} Sorts images by date of capture, color-coded by type of content (blue for personal, violet for collaborative, etc...).  
-	\item \emph{Timeline View:} Arranges captured images chronologically, with a histogram where higher bars mean more content was created or erased for that capture.  Dates at the bottom of the display indicate approximate date of capture.    
-	\item \emph{Heatmap View:} Aggregates changes to the board by location over a given time frame.  The more a region of the board has changed, the warmer the color used to fill the region.
+	\item \emph{Calendar View:} Sorts images by date of capture, color-coded by type of content (blue for personal, violet for collaborative, etc...). See Figure \ref{fig:research_reboard_1} below.  
+	\item \emph{Timeline View:} Arranges captured images chronologically, with a histogram where higher bars mean more content was created or erased for that capture.  Dates at the bottom of the display indicate approximate date of capture. See Figure \ref{fig:research_reboard_2} below.
+	\item \emph{Heatmap View:} Aggregates changes to the board by location over a given time frame.  The more a region of the board has changed, the warmer the color used to fill the region. See Figure \ref{fig:research_reboard_3} below.
 	\item \emph{Summary Pane:} Users can click the ``detail'' button for a particular content record to open in a new browser tab.  This view provides a detailed interface for viewing high-resolution images of the captured content and controls to manipulate the associated metadata. 
 \end{itemize}
 Thanks to these views, users can retrieve data based on who was present during its creation, by a specific region on the whiteboard where it was created, by the time it was created, or by user-assigned labels and descriptions.  \newline
@@ -218,31 +221,36 @@ Thanks to these views, users can retrieve data based on who was present during i
 \centering
 \includegraphics[scale=0.4]{images/research_reboard_1}
 \caption{ReBoard's Calendar View}
+\label{fig:research_reboard_1}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.7]{images/research_reboard_2}
 \caption{ReBoard's Timeline View}
+\label{fig:research_reboard_2}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.7]{images/research_reboard_3}
 \caption{Close-up of ReBoard's Heatmap View}
+\label{fig:research_reboard_3}
 \end{figure}
 
 	\subsubsection*{Technical information}
-The ReBoard system consists of one video camera per whiteboard, an application server, a database to store images and metadata, detectors that sense collaborative activity, detectors that record content changes, and portable user interfaces to manage content and metadata (these are optional).  The video cameras record at 10 fps, with important images captured at times indicated by the detectors and user interfaces.  Cameras are calibrated at installation to correct for geometric distortion due to off-axis camera positioning.  The content change detector is a Java-based service that leverages Java's Media framework and OpenCV's image processing libraries.  The collaboration detector is a C\# Windows Service using the AForge computer vision framework for basic video processing and ``blob'' detection (more information on AForge \href{code.google.com/p/aforge/}{here}).  Event detectors have IDs that link them to a specific camera so they can work independent of each other.  The application server is written in Grails, with the metadata stored in a MySQL database.  The server manages user accounts, sessions and access control, and exposes a set of REST-like web services for AJAX UI clients and for communicating with the event detectors. The persistent UI runs on a portable Chumby device (more information \href{http://en.wikipedia.org/wiki/Chumby}{here}).  It allows for manual image capture, capure disable, and content bookmark.  The persistent UI is not necessary for the system to function.
+The ReBoard system consists of one video camera per whiteboard, an application server, a database to store images and metadata, detectors that sense collaborative activity, detectors that record content changes, and portable user interfaces to manage content and metadata (these are optional).  The video cameras record at 10 fps, with important images captured at times indicated by the detectors and user interfaces.  Cameras are calibrated at installation to correct for geometric distortion due to off-axis camera positioning.  The content change detector is a Java-based service that leverages Java's Media framework and OpenCV's image processing libraries.  The collaboration detector is a C\# Windows Service using the AForge computer vision framework for basic video processing and ``blob'' detection (more information on AForge \href{code.google.com/p/aforge/}{here}).  Event detectors have IDs that link them to a specific camera so they can work independent of each other.  The application server is written in Grails, with the metadata stored in a MySQL database.  The server manages user accounts, sessions and access control, and exposes a set of REST-like web services for AJAX UI clients and for communicating with the event detectors. The persistent UI runs on a portable Chumby device (See Figure \ref{fig:research_reboard_4} below, more information \href{http://en.wikipedia.org/wiki/Chumby}{here}).  It allows for manual image capture, capure disable, and content bookmark.  The persistent UI is not necessary for the system to function.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{images/research_reboard_4}
 \caption{Persistent UI running on a Chumby device}
+\label{fig:research_reboard_4}
 \end{figure}
 
 	\subsubsection*{Relevance to ProPANE}
-While ReBoard is designed for continuous use in the workplace, as opposed to ProPANE's classroom setting, there are still some features of the ReBoard system that could contribute to the ProPANE system.  The portable user interface is an interesting concept, because while the ProPANE system should be fully automatic, the ability to manually capture board images would be useful as a kind of fail-safe if problems arose with automatic detection.  Another strength of ReBoard is its web UI.  The option of multiple views to recover data seems very useful, and some would be particularly useful to ProPANE.  The calendar view would make it easy to sort lectures by date, and a modified timeline view with exact dates would help professors identify lectures with more content than others.  Finally, the heatmap view could be utilized on a smaller scale to track changes during one particular lecture.   
+While ReBoard is designed for continuous use in the workplace, as opposed to ProPANE's classroom setting, there are still some features of the ReBoard system that could contribute to the ProPANE system.  The portable user interface is an interesting concept, because while the ProPANE system should be fully automatic, the ability to manually capture board images would be useful as a kind of fail-safe if problems arose with automatic detection.  Another strength of ReBoard is its web UI.  The option of multiple views to recover data seems very useful, and some would be particularly useful to ProPANE.  The calendar view would make it easy to sort lectures by date, and a modified timeline view with exact dates would help professors identify lectures with more content than others.  Finally, the heatmap view could be utilized on a smaller scale to track changes during one particular lecture.   \\
+\indent Normally, lectures are led by the professor and do not feature collaboration, sometimes students will contribute to the board by answering questions, or in other ways.  It may be useful for the professor to track when board content is authored by a student, and the identity of that student.  ReBoard's collaboration detection could be useful in implementing a feature like this, although probably not in the initial build of the ProPANE system.  \\
 
 
   \subsection*{Cameras we could use in our project}
