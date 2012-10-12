@@ -57,10 +57,10 @@
 			\emph{Phone Apps-}\\
 			Phone apps scan an image of a whiteboard and filter out the unnecessary information (See Figure \ref{fig:wbcp-example-ad}). Several examples of phone apps are listed below.
 			\begin{itemize}
-				\item \href{http://www.beetlebugsoftware.com}{WhiteBoard Capture Pro}
-				\item Qipit WHite
-				\item Genius Scan
-				\item JotNot Scanner Pro
+				\item WhiteBoard Capture Pro
+				\item WBConference
+				\item CamScanner
+				\item Whiteboard Snap
 			\end{itemize} 
 			
 			
@@ -114,9 +114,9 @@ Source: Intsig's Website
 {\color{red} \url{http://www.intsig.com/en/camscanner.html}} \\
 					
 This is the most downloaded ëscannerí app on the market. With it you can take photos of any document, whiteboard, etc that you want. You then go through an editing process in which you can select the important portion of the photograph, change the detail level, contrast, light/darkness etc. It will then save your new document in any number of saved folders. You can make notes about each image and these notes will be saved with the image. You can email, print, fax, or transfer via Bluetooth any of the photos. You can also upload your images to google docs, evernote, skydrive, dropbox, or box.net. These documents get saved as PDFs. There are different enhancement modes: No enhance, low and high enhance, gray mode, and B\&W Document modes. These different modes will be better depending on the environment or object that youíre trying to scan. The B\&W mode is particularly helpful when scanning books/papers because it does a better job of removing the background noise. This app allows for batch photo taking and batch photo scanning, so you can take multiple pictures and it will scan them all at the same time. \\
-				\subsection*{Whiteboard Capture Pro}
-Source: Magnicode's website\\
-{\color{red} \url{http://www.magnicode.com/}} \\
+				\subsection*{Whiteboard Snap}
+Source: Google Play Shop\\
+{\color{red} \url{https://play.google.com/store/apps/details?id=com.magnicode.whiteboard&hl=en}} \\
 					
 This app is a dumbed down version of the previous three. It does the job, it scans and enhances images, it just isnít as well known as the others and thus doesnít have the money/time to invest in extra features. This aside, it does work, it is free, and it does save images as PDFs for later use. You can email these photos to yourself and store them in different photos. You can attach notes to your images and you can enhance the quality of the whiteboard picture with their auto-enhance tool. On the upside, it IS a much smaller program than your avg whiteboard capture app. Over all a smaller lighter free alternative. I installed this app on my phone and I had trouble using it because it kept crashing. \\
 
@@ -139,9 +139,10 @@ By adding these features to the functionality currently found in modern apps we 
 			\subsection*{Microsoft Whiteboard Capture System}
 Source: Microsoft Research Technical Report MSR-TR-2002-89 \\
 {\color{red} \url{ftp://ftp.research.microsoft.com/pub/tr/tr-2002-89.pdf}} \\
-All images used in this section are from the source document.
+All images used in this section are from the source document. \\ \\
+This system accomplishes many of the goals we hope to achieve with the ProPANE system, using methods that seem feasible for our project.  Therefore, we present an extensive look into this project, with analysis of methods used and relevance to our project.
 		\subsubsection*{Summary}
-The Whiteboard Capture System came out of Microsoft Research in 2002.  It was research for a bigger Distributed Meetings project.  It can record all information placed on a whiteboard during a session, as well as the audio in the room, and it provides a platform for users to review key information from the session later from their own computers. 
+The Whiteboard Capture System came out of Microsoft Research in 2002 as research for a bigger Distributed Meetings project.  It can record all information placed on a whiteboard during a session, as well as the audio in the room, and it provides a platform for users to review key information from the session later from their own computers.  
 	
 		\subsubsection*{Key Features}
 The Whiteboard Capture System (WCS) requires only a camera, microphone, and computer to operate with any existing whiteboard.  It records all information written on the board during a meeting, and all audio in the room during the meeting.  The system then analyzes the data and detects ``key frames'', or pictures of the board which the system determines to contain the most important information.  The key frames are time-stamped so they can be associated with the audio that was recorded at the same point in time.  Users can access the key frames securely via a web-based browsing system.  Audio can be played by clicking on a key frame, and the option exists for the presentation to unfold for the viewer like a movie, where information will appear on their web-based whiteboard as the audio recording talks about it, as shown below in Figure \ref{fig:research_mswhiteboard_1}.
@@ -202,8 +203,27 @@ Other problems with the system are less likely.  If a person in a white shirt st
 	\subsubsection*{Relevance to ProPANE}
 This system, as a whole, is very similar to our final goals for the BU ProPANE system.  Especially useful to us is the key frame idea, since professors using the system will not want to sort through hundreds of images in order to find just a few important ones.  The idea of breaking the board up into cells for analysis is also very interesting to us, as it greatly reduces the processing requirements.  However, it is not perfect for our project.  The WCS is purely a {\sl whiteboard} capture system, whereas our system should work for black boards as well.  Additionally, we are not focusing on any audio capture or playback for our system.
 
+	\subsubsection*{Mathematical Processes}
+Presented here are the general methods used by Microsoft Research to implement various features of their design. \\ \\
+	\textbf{1. Clustering Cell Images Over Time} \\  \\
+As the meeting progresses, the WCS groups cell images from the same cell together if it determines that they don't change over a period of time.  This is done using a modified Normalized Cross-Correlation algorithm to determine if two cells are the same or different.  It is demonstrated here for one color, but applies to all RGB components.  \\
+Consider two cell images $I$ and $I'$.  Let $\bar{I}$ and $\bar{I'}$ be their mean colors and $\sigma$ and $\sigma'$ be their standard deviations.  The normalized cross-correlation score is given by \[ c={1 \over N \sigma \sigma'} \sum (I_i - \bar{I})(I_i' - \bar{I'}) \]
+where the summation is over every pixel $i$ and $N$ is the total number of pixels.  The score ranges from -1, for two images not similar at all, to 1, for two identical images.  Since the score is computed after the subtraction of the mean color, it may still give a high value even if two images have very different mean colors.  So a different test is performed on the mean color difference, based on the Mahalanobis distance \href{http://en.wikipedia.org/wiki/Mahalanobis_distance}{(info)}.  The distance is given by 
+\[ d={|\bar{I}-\bar{I'}| \over (\sigma + \sigma')} \]
+Two cells are considered to be identical and are grouped together if and only if $d<T_d$ and $c>T_c$.  In the WCS implementation, $T_d=2$ and $T_c=0.707$. \\ \\
+	\textbf{2. Classifying Cells} \\ \\
+It must be determined whether a cell image is a whiteboard, stroke, or foreground object.  The determination is based on whether or not a cell's color distribution is the same, similar, or very different from that of the whiteboard.  As above, the Mahalanobis distance is used, and calculations are for one component of RGB.  \\
+\indent Let $\bar{I}_w$ be the whiteboard color and $\sigma_w$ be the standard deviation (small since a whiteboard cell is basically uniform).  Then let $\bar{I}$ and $\sigma$ be the mean and standard deviation of the current cell image.  The cell image is classified as a whiteboard cell if and only if \[ {|\bar{I} - \bar{I}_w| \over (\sigma + \sigma_w)}<T_w \quad \textrm{ and } \quad  {\sigma \over \sigma_w }< T_\sigma \] 
+and as a stroke cell if and only if
+\[{|\bar{I}-\bar{I}_w| \over (\sigma + \sigma_w)}<T_w \quad \textrm{ and } \quad {\sigma \over \sigma_w} \geq T_\sigma \] 
+Otherwise, it is classified as a foreground object cell.  In the WCS implementation, $T_w=2$ and $T_\sigma=2$. \\ \\
+	\textbf{3. Key Frame Color Balance} \\ \\ 
+The background must be uniformly color-balanced and the color saturation of the pen strokes must be increased.  The previously-calculated whiteboard color, $\bar{I}_w$ is used to scale the color of each pixel in the cell. \[ I_{out} = \textrm{min} (255, {I_{in} \over I_w} \cdot 255) \]
+Image noise is reduced by remapping the value of each color channel of each pixel in the key frames according to an S-shaped curve.
+	
 	\subsection*{ReBoard}
-Source: {\color{red} \url{http://arxiv.org/ftp/arxiv/papers/0911/0911.0039.pdf}} 
+Source: {\color{red} \url{http://arxiv.org/ftp/arxiv/papers/0911/0911.0039.pdf}} \\
+All images used in this section are from the source document. 
 	\subsubsection*{Summary}
 ReBoard is a system developed by FX Palo Alto Laboratory, Inc.  It captures whiteboard content both actively and passively, while providing a robust platform for data retrieval and sharing.  Users can browse captured data by aspects such as time or location of capture, or who was present for data capture.  
 	\subsubsection*{Key Features}
