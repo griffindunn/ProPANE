@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.1)  11 OCT 2012 00:11
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.1)  11 OCT 2012 23:08
 entering extended mode
 **C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/Dunn_WorkLog.tex
 (C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/Dunn_WorkLog.tex
@@ -286,30 +286,30 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 16.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--26
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--29
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
+ [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--31
+Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--136
 
  []
 
@@ -318,12 +318,12 @@ Missing character: There is no ¨ in font cmr10!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no Æ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 37--39
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
 
  []
 
@@ -334,12 +334,12 @@ Missing character: There is no ≠ in font cmr10!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no ≠ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--44
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
  []
 
@@ -347,245 +347,53 @@ Missing character: There is no √ in font cmr10!
 Missing character: There is no ≠ in font cmr10!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no ≠ in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--53
-
- []
-
-[3]
-Overfull \hbox (4.87663pt too wide) in paragraph at lines 69--70
-[][][]$\OT1/cmtt/m/n/10 http : / / www . amazon . com / Nikon-[]COOLPIX-[]Digit
-al-[]Optical-[]3-[]5-[]inch / dp / B0090SLKUM$[][] 
- []
-
-
-Overfull \hbox (7.62659pt too wide) in paragraph at lines 73--74
-[][][]$\OT1/cmtt/m/n/10 http : / / pdadb . net / index . php ? m = specs&id = 3
-813&c = samsung _ ek-[]gc100 _ galaxy _ camera$[][] 
- []
-
-
-Overfull \hbox (30.1264pt too wide) in paragraph at lines 77--78
-[][][]$\OT1/cmtt/m/n/10 http : / / www . upi . com / Science _ News / 2012 / 01
- / 16 / Polaroid-[]joins-[]digital-[]camera-[]arena /$
- []
-
-
-Overfull \hbox (2.12619pt too wide) in paragraph at lines 85--91
-[][][]$\OT1/cmtt/m/n/10 http : / / www . sfasu . edu / disabilityservices / fac
-ultyandstaff / for _ service _ providers / note _$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--91
-
- []
-
-[4]
-Overfull \hbox (43.72624pt too wide) in paragraph at lines 122--122
-[]\OT1/cmr/bx/n/14.4 Individual Work on Fur-ther Re-search on Phone Apps 09/20/
-2012 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--129
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
-
- []
-
-<images/team1.jpg, id=178, 251.43938pt x 361.35pt>
-File: images/team1.jpg Graphic file (type jpg)
- <use images/team1.jpg>
-Package pdftex.def Info: images/team1.jpg used on input line 137.
-(pdftex.def)             Requested size: 251.43875pt x 361.34912pt.
-
-<images/team2.jpg, id=179, 251.43938pt x 361.35pt>
-File: images/team2.jpg Graphic file (type jpg)
- <use images/team2.jpg>
-Package pdftex.def Info: images/team2.jpg used on input line 138.
-(pdftex.def)             Requested size: 251.43875pt x 361.34912pt.
-
-Overfull \hbox (86.4797pt too wide) in paragraph at lines 137--139
-[][] [] 
- []
-
-[5]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
 
 Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
-
- []
-
-[6 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/team1.jpg> <C
-:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/team2.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 152--155
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-
- []
-
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-
+Overfull \hbox (4.87663pt too wide) in paragraph at lines 171--172
+[][][]$\OT1/cmtt/m/n/10 http : / / www . amazon . com / Nikon-[]COOLPIX-[]Digit
+al-[]Optical-[]3-[]5-[]inch / dp / B0090SLKUM$[][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
-
- []
-
-<images/autoCrop.jpg, id=188, 272.51813pt x 484.05844pt>
-File: images/autoCrop.jpg Graphic file (type jpg)
-
-<use images/autoCrop.jpg>
-Package pdftex.def Info: images/autoCrop.jpg used on input line 163.
-(pdftex.def)             Requested size: 272.51746pt x 484.05725pt.
- [7]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
-
+Overfull \hbox (7.62659pt too wide) in paragraph at lines 175--176
+[][][]$\OT1/cmtt/m/n/10 http : / / pdadb . net / index . php ? m = specs&id = 3
+813&c = samsung _ ek-[]gc100 _ galaxy _ camera$[][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--172
-
- []
-
-[8 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/autoCrop.jpg>
-]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ò in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
- <images/WhiteboardIt.jpg, id=198, 190.2015pt x 253.9305pt>
-File: images/WhiteboardIt.jpg Graphic file (type jpg)
-
-<use images/WhiteboardIt.jpg>
-Package pdftex.def Info: images/WhiteboardIt.jpg used on input line 210.
-(pdftex.def)             Requested size: 190.20103pt x 253.92987pt.
-
-<images/WhiteboardIt2.jpg, id=199, 163.9215pt x 252.945pt>
-File: images/WhiteboardIt2.jpg Graphic file (type jpg)
-
-<use images/WhiteboardIt2.jpg>
-Package pdftex.def Info: images/WhiteboardIt2.jpg used on input line 211.
-(pdftex.def)             Requested size: 163.92108pt x 252.94438pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--212
-
- []
-
-[9]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 213--223
-
+Overfull \hbox (30.1264pt too wide) in paragraph at lines 179--180
+[][][]$\OT1/cmtt/m/n/10 http : / / www . upi . com / Science _ News / 2012 / 01
+ / 16 / Polaroid-[]joins-[]digital-[]camera-[]arena /$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--223
-
+Overfull \hbox (2.12619pt too wide) in paragraph at lines 187--193
+[][][]$\OT1/cmtt/m/n/10 http : / / www . sfasu . edu / disabilityservices / fac
+ultyandstaff / for _ service _ providers / note _$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--223
+Underfull \hbox (badness 10000) in paragraph at lines 187--193
 
  []
 
-<images/Griffin.jpg, id=204, 149.8097pt x 103.88812pt>
-File: images/Griffin.jpg Graphic file (type jpg)
-
-<use images/Griffin.jpg>
-Package pdftex.def Info: images/Griffin.jpg used on input line 238.
-(pdftex.def)             Requested size: 149.80931pt x 103.88786pt.
- <images/Colin.jpg, id=205, 139.27031pt x 149.8097pt>
-File: images/Colin.jpg Graphic file (type jpg)
-
-<use images/Colin.jpg>
-Package pdftex.def Info: images/Colin.jpg used on input line 239.
-(pdftex.def)             Requested size: 139.26996pt x 149.80931pt.
- <images/Phil.jpg, id=206, 131.74219pt x 150.5625pt>
-File: images/Phil.jpg Graphic file (type jpg)
-
-<use images/Phil.jpg>
-Package pdftex.def Info: images/Phil.jpg used on input line 240.
-(pdftex.def)             Requested size: 131.74185pt x 150.56212pt.
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
- [10 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/WhiteboardI
-t.jpg> <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/Whiteboar
-dIt2.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 261--263
-
- []
-
-[11 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/Griffin.jpg>
- <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/Colin.jpg> <C:/
-Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/Phil.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
-
+[6] [7]
+Overfull \hbox (43.72624pt too wide) in paragraph at lines 275--275
+[]\OT1/cmr/bx/n/14.4 Individual Work on Fur-ther Re-search on Phone Apps 09/20/
+2012 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
+Underfull \hbox (badness 10000) in paragraph at lines 280--282
 
  []
 
@@ -594,6 +402,198 @@ Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
+
+ []
+
+<images/team1.jpg, id=228, 251.43938pt x 361.35pt>
+File: images/team1.jpg Graphic file (type jpg)
+ <use images/team1.jpg>
+Package pdftex.def Info: images/team1.jpg used on input line 290.
+(pdftex.def)             Requested size: 251.43875pt x 361.34912pt.
+
+<images/team2.jpg, id=229, 251.43938pt x 361.35pt>
+File: images/team2.jpg Graphic file (type jpg)
+ <use images/team2.jpg>
+Package pdftex.def Info: images/team2.jpg used on input line 291.
+(pdftex.def)             Requested size: 251.43875pt x 361.34912pt.
+
+Overfull \hbox (86.4797pt too wide) in paragraph at lines 290--292
+[][] [] 
+ []
+
+[8]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
+
+ []
+
+[9 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/team1.jpg> <C
+:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/team2.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
+
+ []
+
+<images/autoCrop.jpg, id=238, 272.51813pt x 484.05844pt>
+File: images/autoCrop.jpg Graphic file (type jpg)
+
+<use images/autoCrop.jpg>
+Package pdftex.def Info: images/autoCrop.jpg used on input line 316.
+(pdftex.def)             Requested size: 272.51746pt x 484.05725pt.
+ [10]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 322--325
+
+ []
+
+[11 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/autoCrop.jpg
+>]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ò in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+ <images/WhiteboardIt.jpg, id=247, 190.2015pt x 253.9305pt>
+File: images/WhiteboardIt.jpg Graphic file (type jpg)
+
+<use images/WhiteboardIt.jpg>
+Package pdftex.def Info: images/WhiteboardIt.jpg used on input line 363.
+(pdftex.def)             Requested size: 190.20103pt x 253.92987pt.
+
+<images/WhiteboardIt2.jpg, id=248, 163.9215pt x 252.945pt>
+File: images/WhiteboardIt2.jpg Graphic file (type jpg)
+
+<use images/WhiteboardIt2.jpg>
+Package pdftex.def Info: images/WhiteboardIt2.jpg used on input line 364.
+(pdftex.def)             Requested size: 163.92108pt x 252.94438pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--365
+
+ []
+
+[12]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--376
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--376
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--376
+
+ []
+
+<images/Griffin.jpg, id=253, 149.8097pt x 103.88812pt>
+File: images/Griffin.jpg Graphic file (type jpg)
+
+<use images/Griffin.jpg>
+Package pdftex.def Info: images/Griffin.jpg used on input line 391.
+(pdftex.def)             Requested size: 149.80931pt x 103.88786pt.
+ <images/Colin.jpg, id=254, 139.27031pt x 149.8097pt>
+File: images/Colin.jpg Graphic file (type jpg)
+
+<use images/Colin.jpg>
+Package pdftex.def Info: images/Colin.jpg used on input line 392.
+(pdftex.def)             Requested size: 139.26996pt x 149.80931pt.
+ <images/Phil.jpg, id=255, 131.74219pt x 150.5625pt>
+File: images/Phil.jpg Graphic file (type jpg)
+
+<use images/Phil.jpg>
+Package pdftex.def Info: images/Phil.jpg used on input line 393.
+(pdftex.def)             Requested size: 131.74185pt x 150.56212pt.
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+ [13 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/WhiteboardI
+t.jpg> <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/Whiteboar
+dIt2.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 414--416
+
+ []
+
+[14 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/Griffin.jpg>
+ <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/Colin.jpg> <C:/
+Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/Phil.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 425--426
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 428--429
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
+
+ []
+
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
@@ -604,7 +604,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
@@ -624,17 +624,17 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--311
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
 
  []
 
-[12] <images/logo.jpeg, id=219, 100.375pt x 100.375pt>
+[15] <images/logo.jpeg, id=269, 100.375pt x 100.375pt>
 File: images/logo.jpeg Graphic file (type jpg)
  <use images/logo.jpeg>
-Package pdftex.def Info: images/logo.jpeg used on input line 314.
+Package pdftex.def Info: images/logo.jpeg used on input line 467.
 (pdftex.def)             Requested size: 100.37474pt x 100.37474pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 313--315
+Underfull \hbox (badness 10000) in paragraph at lines 466--468
 
  []
 
@@ -645,43 +645,43 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--323
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 327.
-[13 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/logo.jpeg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 327.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 480.
+[16 <C:/Users/Griffin/Desktop/ProPANE/ProPANE/Dunn_Work_Log/images/logo.jpeg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 480.
 
 (C:\Users\Griffin\Desktop\ProPANE\ProPANE\Dunn_Work_Log\Dunn_WorkLog.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 327.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 327.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 480.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 480.
 Package rerunfilecheck Info: File `Dunn_WorkLog.out' has not changed.
-(rerunfilecheck)             Checksum: 582F242FF4B4EFE661A2C74DA2029FE0;1932.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 327.
+(rerunfilecheck)             Checksum: E9BBB2ED9C6BA7090DAA8DEF7BF25006;2433.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 480.
  ) 
 Here is how much of TeX's memory you used:
- 5152 strings out of 494045
- 77276 string characters out of 3148381
+ 5169 strings out of 494045
+ 77487 string characters out of 3148381
  167915 words of memory out of 3000000
- 8371 multiletter control sequences out of 15000+200000
+ 8378 multiletter control sequences out of 15000+200000
  5672 words of font info for 21 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 29i,6n,28p,1202b,438s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,6n,28p,1202b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Dunn_WorkLog.pdf (13 pages, 621355 bytes).
+Output written on Dunn_WorkLog.pdf (16 pages, 635049 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 48 named destinations out of 1000 (max. 500000)
- 262 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 309 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 318 words of extra memory for PDF output out of 10000 (max. 10000000)
 
