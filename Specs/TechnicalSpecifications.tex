@@ -79,7 +79,7 @@
 		\subsection{Setup}
 				
 			\subsubsection{Maximum Time Required}
-				\textbf{Priority Level: LOW}\\
+				\textbf{Priority Level: MEDIUM}\\
 				The maximum time required to prepare the capture system for recording shall not exceed 5 minutes. This requirement exists to ensure that setting up the system does not interfere with class time.\\
 				\emph{This requirement will be verified through a demonstration of a third party setting up the system in fewer than 5 minutes.}
 		
@@ -127,9 +127,8 @@
 	
 		\subsection{Operating System}
 			
-			
 			\subsubsection{Analysis System}
-				\textbf{Priority Level: MEDIUM}\\
+				\textbf{Priority Level: LOW}\\
 				The analysis system shall support the Ubuntu 10.04 operating system. This requirement exists to ensure that the software can be run on a free-of-cost operating system. \\
 				\emph{This requirement will be verified by developing the analysis system on the Ubuntu 10.04 operating system.}
 				
@@ -137,7 +136,7 @@
 		\subsection{File Formats}
 			
 			\subsubsection{Proprietary Formats}
-				\textbf{Priority Level: MEDIUM}\\
+				\textbf{Priority Level: LOW}\\
 				The ProPANE system shall generate images that are in an open format (no proprietary formats). This requirement exists to ensure that the images can be viewed with free-of-cost software. \\
 				\emph{This requirement will be verified by demonstrating that the output file formats are in an open format.}
 				
@@ -167,7 +166,7 @@
 		
 			
 			\subsubsection{Image Browsing}
-				\textbf{Priority Level: MEDIUM}\\
+				\textbf{Priority Level: HIGH}\\
 				The analysis system shall provide a mechanism for accessing the identified key images. This requirement exists to ensure that the end user does not have to browse all of the images taken to find the key images by hand.\\
 				\emph{This requirement will be verified through a demonstration of the system showing that key images were identified and referenced in some fashion.}
 				
@@ -178,18 +177,31 @@
 				
 				
 	\section{Additional Features}
-		This section contains a collection of features that are not required for the ProPANE project, but are formally requested by the clients.
+		This section contains a collection of features that are not required for the ProPANE project, but have been formally requested by the clients for the next iteration of the project.
 		
 		
-		\subsection{Requested Features}
+		\subsection{Boards}
 			\subsubsection{Multiple Boards}
 				The ProPANE system shall be able to capture information from more than one board in a classroom.
 			
 			\subsubsection{Blackboards}
 				The ProPANE system shall be effective for capturing information on blackboards as well as whiteboards. 
 			
-			\subsubsection{Interface}
-				The ProPANE system shall provide an interface for browsing and editing collected images.
+		\subsection{Interface}
+		
+			\subsubsection{Browsing}
+				The ProPANE system shall provide an interface for browsing collected images.
+				
+			\subsubsection{Editing}
+				The ProPANE system interface shall provide features for image editing.
+		
+		\subsection{Corrective Measures}
+			
+			\subsubsection{Skewing}
+				The ProPANE analysis system shall correct images for off-center viewing angles.
+				
+			\subsubsection{Color}
+				The ProPANE analysis system shall alter images to make the board appear to be a single color set apart from the writing.
 		
 
 \end{document}
