@@ -54,17 +54,31 @@ Signal processing applies to both analog and digital signals.  Analog signals ar
 
 		\subsection*{Image Processing}
 Source: {\color{red} \url{http://www.library.cornell.edu/preservation/tutorial/contents.html}} \\ \\
-Digital images are electronic representations of physical media, such as photographs, texts, artwork and more.  The digital image is sampled and mapped as a grid of pixels.  Each pixel is assigned a tonal value (black, white, shades of gray or color) which is represented in binary.  The bits representing each pixel are stored by a computer and can be compressed via mathematical reduction of some kind.  To view an image, the bits are interpreted and read by the computer to produce an analog version for display. \\ \\
+Digital images are electronic representations of physical media, such as photographs, texts, artwork and more.  The digital image is sampled and mapped as a grid of pixels.  Each pixel is assigned a tonal value (black, white, shades of gray or color) which is represented in binary.  The bits representing each pixel are stored by a computer and can be compressed via mathematical reduction of some kind.  To view an image, the bits are interpreted and read by the computer to produce an analog version for display. \\ 
 
-\noindent Digital images can be displayed with different resolutions.  Resolution is the ability to display fine spatial detail.  In general, resolution increases with sampling frequency.  Common units of resolution are dots-per-inch (dpi) and pixels-per-inch (ppi).   \\ \\
+\begin{figure}[H]
+      			\centering
+      			\includegraphics[scale=0.75]{./images/research_image_processing_1}
+			\caption{A bitonal image, where each pixel is assigned either a 0 or 1 to represent color.}
+			\label{fig:research_image_processing_1}
+   		 \end{figure}
 
-\noindent The number of bits used to define each pixel is defined as the bit depth.  The greater the bit depth, the greater the number of tones can be represented.  Normally, a color image is represented by a bit depth of 8 to 24.  In a 24-bit image, the bits are often divided into red, green and blue, with 8 bits for each color.  Other colors are obtained from combinations of those bits.  In a 24-bit image, there are 16.7 million color values ($2^{24}$).  	\\ \\
+\noindent Digital images can be displayed with different resolutions.  Resolution is the ability to display fine spatial detail.  In general, resolution increases with sampling frequency.  Common units of resolution are dots-per-inch (dpi) and pixels-per-inch (ppi).   \\ 
+
+\noindent The number of bits used to define each pixel is defined as the bit depth.  The greater the bit depth, the greater the number of tones can be represented.  Normally, a color image is represented by a bit depth of 8 to 24.  In a 24-bit image, the bits are often divided into red, green and blue, with 8 bits for each color.  Other colors are obtained from combinations of those bits.  In a 24-bit image, there are 16.7 million color values ($2^{24}$).  	\\ 
 
 \noindent To reduce image file size for storage, processing and transmission, compression is used.  Compression techniques use algorithms to abbreviate the binary code in an uncompressed image.  Both lossless and lossy forms of compression exist. Lossless schemes abbreviate the binary code without discarding any information so that the decompressed image is bit-for-bit identical to the original.  Lossy schemes average and discard the least significant information based on an understanding of visual perception.  JPEG is a common lossy compression scheme.  Some lossy-compressed images may appear identical to the raw image, and are considered ``visually lossless''.  
 
+\begin{figure}[H]
+      			\centering
+      			\includegraphics[scale=0.75]{./images/research_image_processing_2}
+			\caption{Example of a ``visually lossless'' compressed image.  The full images look the same regardless of compression level, but the zoomed in images get blurrier as compression increases.}
+			\label{fig:research_image_processing_2}
+   		 \end{figure}
+
 \subsection*{Image Processing Tools}
 
-Image processing can be implemented using a variety of different tools.  There are programs, such as Adobe Photoshop, which provide users with a graphical user interface and on-screen tools to use to edit their images.  While programs like this can achieve desirable high-quality results, the process can be time-consuming for an individual image, and must be repeated for each subsequent image.  A far better option for similar processing of a large quantity of images is to use a programming language with an image processing library.  The user can write a program which performs desired effecs on any number of images.  A variety of libraries exist to add image processing features to many programming languages.  The libraries listed in this section are for common programming languages and seem to have some or all of the functionality required for the ProPANE project.  \\ \\ 
+Image processing can be implemented using a variety of different tools.  There are programs, such as Adobe Photoshop, which provide users with a graphical user interface and on-screen tools to use to edit their images.  While programs like this can achieve desirable high-quality results, the process can be time-consuming for an individual image, and must be repeated for each subsequent image.  A far better option for similar processing of a large quantity of images is to use a programming language with an image processing library.  The user can write a program which performs desired effecs on any number of images.  A variety of libraries exist to add image processing features to many programming languages.  The libraries listed in this section are for common programming languages and seem to have some or all of the functionality required for the ProPANE project.  \\ 
 
 \noindent {\sl Eutecus Signal and Image Processing Library} \\
 Source: {\color{red} \url{http://www.eutecus.com/ProdServ/InstantVision/SILib.html}} \\ \\
@@ -84,8 +98,17 @@ A free library which adds image processing capabilities to the Python interprete
 
 \noindent {\sl VIPS} \\
 Source: {\color{red} \url{http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS}} \\ \\
+A free image processing system.  Good with large images, with many CPUs.  It needs little memory and runs quickly compared to many libraries.  The library can be used from C, C++, command line, Python, Ruby, JavaScript and others.  Includes a GUI for Photoshop-style editing. Works on Linux/Unix, Windows 7 and MacOS. \\
 
-%%% RESUME WORKING HERE %%%		L 	O 	O 	K 		H 	E 	R 	E
+\noindent {\sl MATLAB Image Processing Toolbox} \\ 
+Source: {\color{red} \url{http://www.mathworks.com/products/image/}} \\ \\ 
+A comprehensive set of reference-standard algorithms and graphical tools.  For image processing, analysis, visualization, and algorithm development.  Features include image enhancement, deblurring, feature detection, noise reduction, segmentation, geometric transformations, and image registration.  Using the Image Acquisition Toolbox, images can be acquired directly from a camera and read into MATLAB or Simulink. \\ 
+(image acquisition source: {\color{red} \url{http://www.mathworks.com/products/imaq/}} ) \\
+
+\noindent {\sl Mathematica} \\
+Source: {\color{red} \url{http://reference.wolfram.com/mathematica/guide/ImageProcessing.html}} \\ \\ 
+Mathematica provides built-in support for programmatic modern industrial-strength image processing, fully integrated with its powerful mathematical and algorithmic capabilities.  Mathematica's symbolic architecture and notebook paradigm allow images in visual form to be included and manipulated directly both interactively and in programs.
+
 
 	\subsection*{Image Processing Techniques}
 Source: {\color{red} \url{http://www.ndt-ed.org/EducationResources/CommunityCollege/Radiography/AdvancedTechniques/Real_Time_Radiography/ImageProcessingTechniques.htm}} \\ 
@@ -170,34 +193,34 @@ Smartboards are full sized, touch sensitive whiteboards. You can project images 
 We chose to seek further information about smartphone apps because they are the technology that most directly competes with our product. While scanners and electronic whilteboards meet the same needs as our product, they do so in ways that are completely different from our own approach, and thus won't provide the numer of insights found in smartphone applications.
 
 			\subsection*{Introduction}
-The following paragraphs are descriptions of several smartphone apps that contain features we wish to emulate in our product. They solve many of the needs of our clients and if modified could be used to help more fully meet their needs. \\
+The following paragraphs are descriptions of several smartphone apps that contain features wish to emulate in our own project. They in many ways solve the needs of our current clients. We therefore hope to take some of these phone-app features and modify them to better meet the needs of our own clients. \\
 				\subsection*{Whiteboard Capture Pro}
 Source: Beetlebug Software's website\\
 {\color{red} \url{http://www.beetlebugsoftware.com/}} \\
 					
-\noindent This is an iPhone app that takes a picture of a white board and then analyzes it for key content. Objects can be removed from the photograph leaving only the writing on the board behind. The App then analyzes the writing and removes the background image of the whiteboard itself. This sometimes leaves fuzz or imperfections on the white background, so there is then a slider available to filter out this extra noise/fuzz that shows up in the end product. The resulting image is a pure white background with handwriting on it.These photos can then be saved, cropped, shared, and organized with in-app tools. \\
+This is an iPhone app that takes a picture of a white board and then analyzes it for key content. The user selects objects to remove from the photograph. This leaves only the writing on the board behind. The App then analyzes the writing and removes the background image of the whiteboard itself. This sometimes leaves fuzz or imperfections in the white background, so there is then a slider available to filter out this extra noise/fuzz that shows up in the end product. The resulting image is a pure white background with handwriting on it.These photos can then be saved, cropped, shared, and organized within-app tools. \\
 				\subsection*{WBConference}
 Source: Elecom'e website\\
 {\color{red} \url{http://app.elecom.co.jp/en/wbcap/ios/manual.html}} \\
 					
-\noindent This is an Android app that competes with ProPANE's product because it is yet another whiteboard capturing device. WBConference differs from Whiteboard Capture Pro in that it is able to automatically recognize which sections of the image are whiteboard. This then allows it to apply its 'imagnified keystone correction' process to remove the excess background imagery. In cases that it cannot recognize the board the user can zoom in manually before capturing the image. The app has contrast adjustment and image rotation as well so that images can be captured from any angle without problems.This app has editing features as well so that postscripts or speech bubbles can be added to the images. The files can then be saved as PDFs along with any note attachments.This app has a widget for the home screen for quick image capturing, and will accept an email address for quick delivery of the images to external sources. \\
+This is an Android app that competes with our product because it is another whiteboard capturing device. WBConference differs from Whiteboard Capture Pro in that it is able to automatically recognize which sections of the board are whiteboard. This then allows it to apply its ìmagnified keystone correctionî to remove the excess background imagery. In cases that it cannot recognize the board you can zoom in on just the board boundaries manually before capturing the image. The app has contrast adjustment and image rotation as well so you can take images from any orientation without problems.This app has editing features as well so you can add postscripts or speech bubbles to the images. The files can then be saved as PDFs along with any notes you want to add to them.This app has a widget for the home screen for quick image capturing, and you can set up an email address for quick delivery of the images to an external source. \\
 				\subsection*{CamScanner -Phone PDF Creator}
 Source: Intsig's Website
 {\color{red} \url{http://www.intsig.com/en/camscanner.html}} \\
 					
-\noindent This is the most downloaded scanner app on the market. The app takes photographs of documents, whiteboards, etc. and then runs through a user prompted editing process in which key portions of the photograph are selected, detail levels are changed, contrast, light/darkness etc are modified as well. It will then save the modified images as new documents in any number of saved folders. Notes can be attached to images they will stay with the image when it is moved. These images can be emaiedl, printed, faxed, or transferred via Bluetooth. The images can also be uploaded to google docs, evernote, skydrive, dropbox, or box.net. These documents are saved as PDFs. There are different enhancement modes: No enhance, low and high enhance, gray mode, and B\&W Document modes. These different modes will do a better job of capturing key information depending on the environment or object photographed. The B\&W mode is particularly helpful when scanning books/papers because it does a better job of removing the background noise. This app allows for batch photo taking and batch photo scanning, so that multiple pictures can be processed at the same time. \\
+This is the most downloaded ëscannerí app on the market. With it you can take photos of any document, whiteboard, etc that you want. You then go through an editing process in which you can select the important portion of the photograph, change the detail level, contrast, light/darkness etc. It will then save your new document in any number of saved folders. You can make notes about each image and these notes will be saved with the image. You can email, print, fax, or transfer via Bluetooth any of the photos. You can also upload your images to google docs, evernote, skydrive, dropbox, or box.net. These documents get saved as PDFs. There are different enhancement modes: No enhance, low and high enhance, gray mode, and B\&W Document modes. These different modes will be better depending on the environment or object that youíre trying to scan. The B\&W mode is particularly helpful when scanning books/papers because it does a better job of removing the background noise. This app allows for batch photo taking and batch photo scanning, so you can take multiple pictures and it will scan them all at the same time. \\
 				\subsection*{Whiteboard Snap}
 Source: Google Play Store\\
 {\color{red} \url{https://play.google.com/store/apps/details?id=com.magnicode.whiteboard&hl=en}} \\
 					
-\noindent This app is a dumbed down version of the previous three. It does the job, it scans and enhances images, it just isnít as well known as the others and thus doesnít have the money or time to invest in extra features. This aside, it does work, it is free, and it saves images as PDFs for later use. The photos can be emailed and stored in different locations. Note attachments are available and enhancement can be used to improfe the quality of the whiteboard imagel.The greatest pro abou this application is its size. it is a much smaller program than the average whiteboard capture app.This app does a decent job as a smaller lighter free alternative. \\
+This app is a dumbed down version of the previous three. It does the job, it scans and enhances images, it just isnít as well known as the others and thus doesnít have the money/time to invest in extra features. This aside, it does work, it is free, and it does save images as PDFs for later use. You can email these photos to yourself and store them in different photos. You can attach notes to your images and you can enhance the quality of the whiteboard picture with their auto-enhance tool. On the upside, it IS a much smaller program than your avg whiteboard capture app. Over all a smaller lighter free alternative. I installed this app on my phone and I had trouble using it because it kept crashing. \\
 
      \subsection*{Conclusion}
-These smart phone apps will be some of the greatest competition for ProPANE because they meet many of our client's needs already. Not only that, they're free applications and our clients wouldnt need to spend money either. The following is a list of features that ProPANE should attempt to emulate when designing its product.
+These smart phone apps will be some of the greatest competition to our project because they meet many of our client's needs already. Not only that, they're free applications so our clients wouldnt need to spend money either. The following is a list of features that we should attempt to emulate when designing our own product.
 
-\noindent All of these applications contain ways to filter out background noise so that whiteboards appear pure white and text looks crisp and clean. This will be an important aspect of our own product because our image capture device will be subject to a wide variety of lighting situations and will need to be able to adapt to any of them.
-Another key feature is the ability of these applications to save and send the images via email, google docs, and other online mediums. This will be an important point in our project as well.
-Another useful feature was the ability for some of the apps (CamScanner for example) to correct for image angles. If the board is photographed from an angle, the smartphone apps will compensate so that the final scanned image looks like it was taken straight on. \\
+All of these applications contain ways to filter out background noise so that whiteboards appear pure white and text looks crisp and clean. This will be an important aspect of our own product because our image capture device will be subject to a wide variety of lighting situations and will need to be able to adapt to any of them.
+Another key feature is the ability of these apps to save and send the images via email, google docs, and other online mediums. This will be an important point in our project as well.
+Another good feature was the ability for some of the apps (CamScanner for example) to correct for image angles. If the board is photographed from an angle, the smartphone apps will compensate so that the final scanned image looks like it was taken straight on. \\
 
         \emph{Desirable features not found in smartphone apps:}
         \begin{itemize} \itemsep -2pt
@@ -342,11 +365,11 @@ The ReBoard system consists of one video camera per whiteboard, an application s
 
 	\subsubsection*{Relevance to ProPANE}
 While ReBoard is designed for continuous use in the workplace, as opposed to ProPANE's classroom setting, there are still some features of the ReBoard system that could contribute to the ProPANE system.  The portable user interface is an interesting concept, because while the ProPANE system should be fully automatic, the ability to manually capture board images would be useful as a kind of fail-safe if problems arose with automatic detection.  Another strength of ReBoard is its web UI.  The option of multiple views to recover data seems very useful, and some would be particularly useful to ProPANE.  The calendar view would make it easy to sort lectures by date, and a modified timeline view with exact dates would help professors identify lectures with more content than others.  Finally, the heatmap view could be utilized on a smaller scale to track changes during one particular lecture.   \\
-\noindent Normally, lectures are led by the professor and do not feature collaboration, sometimes students will contribute to the board by answering questions, or in other ways.  It may be useful for the professor to track when board content is authored by a student, and the identity of that student.  ReBoard's collaboration detection could be useful in implementing a feature like this, although probably not in the initial build of the ProPANE system.  \\
+\indent Normally, lectures are led by the professor and do not feature collaboration, sometimes students will contribute to the board by answering questions, or in other ways.  It may be useful for the professor to track when board content is authored by a student, and the identity of that student.  ReBoard's collaboration detection could be useful in implementing a feature like this, although probably not in the initial build of the ProPANE system.  \\
 
 
-  \subsection*{Camera Candidates}
-Here are the current top three cameras that could help the most when building our image capturing system.
+  \subsection*{Cameras we could use in our project}
+Here are the current top three cameras that we think could help us the most when building our image capturing system.
 
 \begin{itemize}
     \item Nikon COOLPIX S800c 16 MP Digital Camera
@@ -363,11 +386,11 @@ Here are the current top three cameras that could help the most when building ou
     \end{itemize}
 \end{itemize}
 
-\noindent These cameras are interesting because they run the Android operating system. This means that custom applications could be created and run on these devices, greatly simplifying the design process. These cameras would also be useful because they could connect to Bucknell's wifi network. This would  facilitate wireless transfers of information from the cameras to whichever image processing device is chosen. The main drawbacks at the moment with these Android cameras is that two of them haven't been released yet (Samsung and Polaroid). If they are released in time, these cameras would be the most desireable of the various options available.
+We are interested in them because they are cameras running the Android operating system. This means that we could create our own custom application for these devices, greatly simplifying our design process. These cameras would also be useful because they can connect to Bucknell's wifi network. This would allow us to wirelessly transferr information from the cameras to whatever image processing hardware we decide to connect it to. The main drawbacks at the moment with these Android cameras is that two of them haven't been released yet (Samsung and Polaroid). IF they are released in time, they would be the most desireable of the various camera options available.
 
 \subsection*{Details on Learning Disabilaties}
         \subsubsection*{Introduction}
-One of the major motivating factors behind designing this image capturing system is the desire to help meet the needs of students with disabilities. The term "students with disabilities" is a very broad term, however, so the following section was created to help discribe some of the symptoms that mildly disabled students struggle with at Bucknell, and would therefore require alternative systems to capture information presented to them on whiteboards.
+One of the major motivating factors behind designing our image capturing system is to help meet the needs of students with disabilities. The term "students with disabilities" is a very broad term, however, so we would like to use the following section to help discribe some of the things that mildly disabled students have trouble with at Bucknell, and would therefore need our system to capture information presented on the board for them.
 \\
 Source: \\
 {\color{red} \url{http://www.sfasu.edu/disabilityservices/facultyandstaff/for_service_providers/note_q_a.asp}} \\
@@ -400,8 +423,8 @@ Disabilities that students might have that impair their ability to take notes:
         \item Partial or Full loss of hearing
     \end{itemize}
 
-This is just a small portion of the many disabilities faced by students in universities around the world. ProPANE hopes to help them by providing full access all information presented on boards during lectures. By providing easily accessible, easily modifiable images, ProPANE hopes to help even the playing field for students with disabilites.
-Secondary goals of this project will include features that can help to make the learning process for students with disabilities even easier. Some students get distracted if they see more than one line of text at a time. If there is enough time, ProPANE will help these students by providing slide bars that will cover portions of the images that students are not currently viewing. This and many other minor features are things that ProPANE hopes to accomplish after completing its primary objectives.
+This is just a small portion of the many disabilities faced by students in universities around the world. We hope to help them by giving them full access all information presented on boards during lectures. By providing easily accessible, easily modifiable images, we hope to help even the playing field for students with disabilites.
+Secondary goals of our project will help to make the learning process even easier. Some students get distracted if they see more than one line of text at a time. If we have enough time we will help these students by providing slide bars that will cover portions of the images that students are not currently viewing. This and many other minor features are things that we will accomplish if we have free time after completing our primary objectives.
 
 
 \end{document}
