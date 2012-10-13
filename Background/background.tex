@@ -26,7 +26,9 @@
 
 
 	\thispagestyle{empty}
-	\section*{Problem Statement}
+	\tableofcontents
+\newpage
+	\section{Problem Statement}
 		The goal of this project is to create a system that captures all of the information written on a board during a class in a readily accessible manner. The two driving forces behind solving this problem are: autonomous collection of notes for students with disabilities and providing a means for professors to compare their notes with the actual information presented during a lecture.\\
 		\\
 		Current practices at Bucknell rely on the aid of a student volunteer to provide photocopies of his or her notes to students who are incapable of taking notes themselves during the class. This is not an optimal solution because: the student volunteer must be in class every day, turnaround time for the notes is too long, and the quality of the student volunteer notes cannot be guaranteed. In addition, several professors use different colored writing to represent different forms of information. If the student volunteer did not copy the notes in color, then any students using the notes would not have access to the same information.\\
@@ -34,28 +36,97 @@
 		Typically, professors have a lecture planned out before class starts and have notes prepared to follow their plan. However, when students ask unexpected questions or do not fully grasp the material, it is easy to deviate from this plan. For example, civil engineers at Bucknell University plan out their lectures by dividing a piece of paper into sixths and filling in each block with what they want to present (See Figure \ref{fig:cive-notes}). Problems arise when information not included on these pieces of paper are written on the board (due to student questions etc.). When the professor is preparing to give the lecture the following year, he or she will have to remember what the previous year's students struggled with. Using a board capture system, professors could compare previous lectures with previous lecture notes to generate a more effective lecture plan. 
 		
 		% Image of Professor Gabauer's lecture notes
-		\begin{figure}[h]
+		\begin{figure}[H]
       			\centering
       			\includegraphics[scale=0.2]{./images/cive-notes.png}
 			\caption{Image of civil engineering lecture notes. Orange note is an example of how lecture notes are recorded and altered. Image courtesy of Doug Gabauer 2012.}
 			\label{fig:cive-notes}
    		 \end{figure}
 		
-	\section*{Background Information}
-		\subsection*{How are things currently done?}
-			Smart phone apps\\
-			Professional scribes
-			
+	\section{Background Information}
+		\subsection*{Signal Processing}
+Source: {\color{red} \url{http://www.signalprocessingsociety.org/about-sps/scope-mission/}} \\ \\
+According to the IEEE Signal Processing Society, 
+		{\quotation {\sl \noindent Signal processing is the enabling technology for the generation, transformation, and interpretation of information. It comprises the theory, algorithms, architecture, implementation, and applications related to processing information contained in many different formats broadly designated as signals. Signal refers to any abstract, symbolic, or physical manifestation of information with examples that include: audio, music, speech, language, text, image, graphics...  \\
+\indent Signal processing uses mathematical, statistical, computational, heuristic, and/or linguistic representations, formalisms, modeling techniques and algorithms for generating, transforming, transmitting, and learning from analog or digital signals, which may be performed in hardware or software. Signal generation includes sensing, acquisition, extraction, synthesis, rendering, reproduction and display. Signal transformations may involve filtering, recovery, enhancement, translation, detection, and decomposition. The transmission or transfer of information includes coding, compression, securing, detection, and authentication. Learning can involve analysis, estimation, recognition, inference, discovery and/or interpretation.}} \\
+
+Signal processing applies to both analog and digital signals.  Analog signals are sets of continuous values, and can be directly processed using both linear and non-linear electronic circuits.  These signals can be sampled to obtain a signal with the same values, but only at discrete points over an interval in time.  These signals can also be directly processed with electronic circuitry, but they can also be digitized to create digital signals.  Digital signal processing can be done conveniently on computers, or on dedicated digital circuits such as application-specific integrated circuits (ASICs) and field-programmable gate arrays (FPGAs).  For this project, we are interested in digital signal processing, and specifically the field of image processing.\\
+
+		\subsection*{Image Processing}
+Source: {\color{red} \url{http://www.library.cornell.edu/preservation/tutorial/contents.html}} \\ \\
+Digital images are electronic representations of physical media, such as photographs, texts, artwork and more.  The digital image is sampled and mapped as a grid of pixels.  Each pixel is assigned a tonal value (black, white, shades of gray or color) which is represented in binary.  The bits representing each pixel are stored by a computer and can be compressed via mathematical reduction of some kind.  To view an image, the bits are interpreted and read by the computer to produce an analog version for display. \\ \\
+
+\noindent Digital images can be displayed with different resolutions.  Resolution is the ability to display fine spatial detail.  In general, resolution increases with sampling frequency.  Common units of resolution are dots-per-inch (dpi) and pixels-per-inch (ppi).   \\ \\
+
+\noindent The number of bits used to define each pixel is defined as the bit depth.  The greater the bit depth, the greater the number of tones can be represented.  Normally, a color image is represented by a bit depth of 8 to 24.  In a 24-bit image, the bits are often divided into red, green and blue, with 8 bits for each color.  Other colors are obtained from combinations of those bits.  In a 24-bit image, there are 16.7 million color values ($2^{24}$).  	\\ \\
+
+\noindent To reduce image file size for storage, processing and transmission, compression is used.  Compression techniques use algorithms to abbreviate the binary code in an uncompressed image.  Both lossless and lossy forms of compression exist. Lossless schemes abbreviate the binary code without discarding any information so that the decompressed image is bit-for-bit identical to the original.  Lossy schemes average and discard the least significant information based on an understanding of visual perception.  JPEG is a common lossy compression scheme.  Some lossy-compressed images may appear identical to the raw image, and are considered ``visually lossless''.  
+
+\subsection*{Image Processing Tools}
+
+Image processing can be implemented using a variety of different tools.  There are programs, such as Adobe Photoshop, which provide users with a graphical user interface and on-screen tools to use to edit their images.  While programs like this can achieve desirable high-quality results, the process can be time-consuming for an individual image, and must be repeated for each subsequent image.  A far better option for similar processing of a large quantity of images is to use a programming language with an image processing library.  The user can write a program which performs desired effecs on any number of images.  A variety of libraries exist to add image processing features to many programming languages.  The libraries listed in this section are for common programming languages and seem to have some or all of the functionality required for the ProPANE project.  \\ \\ 
+
+\noindent {\sl Eutecus Signal and Image Processing Library} \\
+Source: {\color{red} \url{http://www.eutecus.com/ProdServ/InstantVision/SILib.html}} \\ \\
+A collection of general-purpose, optimized C++ routines and classes, along with utility classes to aid image and video file manipulation.  These routines are usually used in computationally intensive real-time apptications, where optimal execution speed is critical.  For use, licensing rights must be purchased. \\
+
+\noindent {\sl OpenCV} \\
+Source: {\color{red} \url{http://opencv.willowgarage.com/wiki/}} \\ \\ 
+A free library of programming functions for real time computer vision, originally developed by Intel.  It has interfaces for C, C++, Python, and soon Java, running on Windows, Linux, Android and Mac.  There are over 2500 algorithms optimized for image processing.  \\
+
+\noindent {\sl Aforge.NET Framework} \\
+Source: {\color{red} \url{http://code.google.com/p/aforge/}} \\ \\
+A free, open-source C\# framework, containing libraries for image processing, robotics, and more.  The image processing library, AForge.Imaging, contains different image processing routines, aimed to help with image enhancement and processing.  \\
+
+\noindent {\sl Python Imaging Library} \\
+Source: {\color{red} \url{http://www.pythonware.com/products/pil/}} \\ \\
+A free library which adds image processing capabilities to the Python interpreter.  It supports many file formats and provides powerful image processing and graphics capabilities. \\
+
+\noindent {\sl VIPS} \\
+Source: {\color{red} \url{http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS}} \\ \\
+
+%%% RESUME WORKING HERE %%%		L 	O 	O 	K 		H 	E 	R 	E
+
+	\subsection*{Image Processing Techniques}
+Source: {\color{red} \url{http://www.ndt-ed.org/EducationResources/CommunityCollege/Radiography/AdvancedTechniques/Real_Time_Radiography/ImageProcessingTechniques.htm}} \\ 
+
+\noindent Many techniques currently exist for processing images in numerous different ways.  The techniques in this section seem relevant to the image processing necessary for the ProPANE system. \\ \\
+{\sl Image Analysis- \\ \indent Extract information from the image} 
+			\begin{itemize} 
+				\item{\textbf{Image statistics:}} Calculates the maximum, minimum, average, standard deviation, variance, median, and mean-square intensities of the image data					\item{\textbf{Gray-scale mapping:}} Alters the mapping of the intensity of pixels in a file to match the intensity displayed on a computer screen 
+				\item{\textbf{Image extraction:}} Extracts a portion or all of an image and creates a new image with the selected area 
+				\item{\textbf{Slice:}} Plots intensity versus position for any direction. Lists intensity versus pixel location from any point along the slice
+			\end{itemize} 
+{\sl Convolution and Noise Filtering- \\ \indent Decrease noise by diminishing statistical deviations}
+			\begin{itemize}
+				\item{\textbf{High-pass filter:}} Emphasizes regions with rapid intensity changes
+				\item{\textbf{Low-pass filter:}} Smoothes images, blurs regions with rapid change
+				\item{\textbf{Adaptive smoothing filter:}} Sets pixel intensity to a value between original and mean values, corrected by degree of noisiness. Good for decreasing statistical, especiall signal-dependent noise
+				\item{\textbf{Median filter:}} Sets pixel intensity to the median intensity of pixels in a neighborhood. Excellent for eliminating intensity spikes
+				\item{\textbf{Sigma filter:}} Sets pixel intensity equal to the mean of the intensities in a neighborhood within two of the mean.  Good for signal-independent noise
+			\end{itemize}
+{\sl Edge Detection- \\ \indent Sharpen intensity-transition regions}	
+			\begin{itemize}
+				\item{\textbf{First-difference:}} Subtracts intensities of adjacent pixels.  Emphasizes noise as well as desired changes. 
+				\item{\textbf{Sobel operator:}} Weighs inner pixels twice as heavily as corner values.  Calculates intensity differences
+			\end{itemize}
+{\sl Enhancement- }
+			\begin{itemize}
+				\item{\textbf{Histogram equalization:}} Redistributes the intensities of the image
+			\end{itemize}
+
+
 		\subsection*{Useful Terminology}
 			WE WILL GET THIS WITH MORE RESEARCH
 	
-	\section*{Research}
+	\section{Research}
 		\subsection*{Competing Technologies}
 			There are three general categories: phone apps, scanners, and electronic whiteboards.\\
 			\\
 			% Phone apps
 			\emph{Phone Apps-}\\
-			Phone apps scan an image of a whiteboard and filter out the unnecessary information (See Figure \ref{fig:wbcp-example-ad}). Several examples of phone apps are listed below.
+Phone apps scan an image of a whiteboard and filter out the unnecessary information (See Figure \ref{fig:wbcp-example-ad}). These apps compete directly with our product because they serve many of the same functions and are also highly portable. Portability aside, they also capture informaiton in the same ways that our product will, and can thus provide many valuble insitghts into the possabilities open to us as well. Several examples of phone apps are listed below.
+
 			\begin{itemize}
 				\item WhiteBoard Capture Pro
 				\item WBConference
@@ -66,7 +137,7 @@
 			
 			% Scanners 
 			\noindent \emph{Scanners-}\\
-			Scanners are pieces of hardware that attach to white boards that will tracks movements on the board (some with the usage of an electronic pen). These products will not be fully suited to this project because they require installation and calibration, which violates the idea of portability. Several examples of scanners include:
+Scanners are pieces of hardware that attach to white boards that will tracks movements on the board (some with the usage of an electronic pen). These products will not be fully suited to this project because they require installation and calibration, which violates the idea of portability. Though they compete with our product because they perform the same function of recording everything that is written on a whiteboard, they don't capture the information in the same ways. While their innovations prove interesting from an academic perspective, they don't provide many insights towards the further development of our own products. Several examples of scanners include:
 			\begin{itemize}
 				\item MimioCapture
 				\item eBeam System 3
@@ -85,7 +156,7 @@
 			
 		
 		\noindent \emph{Electronic Whiteboards-} \\
-Smartboards are full sized, touch sensitive whiteboards. You can project images onto them with a projector and then make edits/additions to them with any pointed object. The touch sensitive board senses where you are writing on the board and adds electronic corrections to the image/document. These devices do not compete as directly with our project as the smartphone apps and the scanners because they are not nearly as portable. They are the size of a standard whiteboard and thus cannot be easily moved between classrooms.
+Smartboards are full sized, touch sensitive whiteboards. You can project images onto them with a projector and then make edits/additions to them with any pointed object. The touch sensitive board senses where you are writing on the board and adds electronic corrections to the image/document. These devices compete even less directly with our project than do scanners because they're less portable and capture information in even less applicable ways. They are the size of a standard whiteboard and thus cannot be easily moved between classrooms. Several examples of these touch sensitive whiteboards include:
             \begin{itemize}
                 \item SMART Board
                 \item Panasonic's Panaboard
@@ -96,6 +167,7 @@ Smartboards are full sized, touch sensitive whiteboards. You can project images 
 		\subsection*{Research Data}
 		
 			\subsection*{Smartphone Applications}
+We chose to seek further information about smartphone apps because they are the technology that most directly competes with our product. While scanners and electronic whilteboards meet the same needs as our product, they do so in ways that are completely different from our own approach, and thus won't provide the numer of insights found in smartphone applications.
 
 			\subsection*{Introduction}
 The following paragraphs are descriptions of several smartphone apps that contain features we wish to emulate in our product. They solve many of the needs of our clients and if modified could be used to help more fully meet their needs. \\
@@ -115,7 +187,7 @@ Source: Intsig's Website
 					
 \noindent This is the most downloaded scanner app on the market. The app takes photographs of documents, whiteboards, etc. and then runs through a user prompted editing process in which key portions of the photograph are selected, detail levels are changed, contrast, light/darkness etc are modified as well. It will then save the modified images as new documents in any number of saved folders. Notes can be attached to images they will stay with the image when it is moved. These images can be emaiedl, printed, faxed, or transferred via Bluetooth. The images can also be uploaded to google docs, evernote, skydrive, dropbox, or box.net. These documents are saved as PDFs. There are different enhancement modes: No enhance, low and high enhance, gray mode, and B\&W Document modes. These different modes will do a better job of capturing key information depending on the environment or object photographed. The B\&W mode is particularly helpful when scanning books/papers because it does a better job of removing the background noise. This app allows for batch photo taking and batch photo scanning, so that multiple pictures can be processed at the same time. \\
 				\subsection*{Whiteboard Snap}
-Source: Google Play Shop\\
+Source: Google Play Store\\
 {\color{red} \url{https://play.google.com/store/apps/details?id=com.magnicode.whiteboard&hl=en}} \\
 					
 \noindent This app is a dumbed down version of the previous three. It does the job, it scans and enhances images, it just isnít as well known as the others and thus doesnít have the money or time to invest in extra features. This aside, it does work, it is free, and it saves images as PDFs for later use. The photos can be emailed and stored in different locations. Note attachments are available and enhancement can be used to improfe the quality of the whiteboard imagel.The greatest pro abou this application is its size. it is a much smaller program than the average whiteboard capture app.This app does a decent job as a smaller lighter free alternative. \\
@@ -333,3 +405,4 @@ Secondary goals of this project will include features that can help to make the 
 
 
 \end{document}
+hello
