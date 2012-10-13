@@ -115,7 +115,8 @@ Image processing can be implemented using a variety of different tools.  There a
 \noindent Many techniques currently exist for processing images in numerous different ways.  The techniques in this section seem relevant to the image processing necessary for the ProPANE system. \cite{ndt} \\ \\
 {\sl Image Analysis- \\ \indent Extract information from the image} 
 			\begin{itemize} 
-				\item{\textbf{Image statistics:}} Calculates the maximum, minimum, average, standard deviation, variance, median, and mean-square intensities of the image data					\item{\textbf{Gray-scale mapping:}} Alters the mapping of the intensity of pixels in a file to match the intensity displayed on a computer screen 
+				\item{\textbf{Image statistics:}} Calculates the maximum, minimum, average, standard deviation, variance, median, and mean-square intensities of the image data					
+				\item{\textbf{Gray-scale mapping:}} Alters the mapping of the intensity of pixels in a file to match the intensity displayed on a computer screen 
 				\item{\textbf{Image extraction:}} Extracts a portion or all of an image and creates a new image with the selected area 
 				\item{\textbf{Slice:}} Plots intensity versus position for any direction. Lists intensity versus pixel location from any point along the slice
 			\end{itemize} 
@@ -139,7 +140,7 @@ Image processing can be implemented using a variety of different tools.  There a
 
 \subsection*{Learning Disabilaties}
         \subsubsection*{Introduction}
-One of the major motivating factors behind designing our image capturing system is to help meet the needs of students with disabilities. The term "students with disabilities" is a very broad term, however, so we would like to use the following section to help discribe some of the things that mildly disabled students have trouble with at Bucknell, and would therefore need our system to capture information presented on the board for them. \\
+One of the major motivating factors behind designing our image capturing system is to help meet the needs of students with disabilities. The term "students with disabilities" is a very broad term, however, so we would like to use the following section to help describe some of the things that mildly disabled students have trouble with at Bucknell, and would therefore need our system to capture information presented on the board for them. \\
 Disabilities that students might have that impair their ability to take notes: \cite{disability}
     \begin{itemize}
         \item Visual Impairments
@@ -151,33 +152,32 @@ Disabilities that students might have that impair their ability to take notes: \
         \end{itemize}
         \item Specific Learning Disabilities
         \begin{itemize}
-            \item Reading Disability
-            \item Writing Disability
-            \item Spelling Disability
+            \item Reading disability
+            \item Writing disability
+            \item Spelling disability
             \item Inability to copy what they see
             \item Inability to write what they hear
             \item Inability to write legibly
-            \item Number Reversal problems
+            \item Number reversal problems
         \end{itemize}
         \item Mobility Impairments
         \begin{itemize}
             \item Physically unable to write
             \item Physically unable to write quickly
-            \item May be unable to effectively handle a writing impliment
+            \item May be unable to effectively handle a writing implement
         \end{itemize}
-        \item Partial or Full loss of hearing
+        \item Partial or full loss of hearing
     \end{itemize}
 
-This is just a small portion of the many disabilities faced by students in universities around the world. We hope to help them by giving them full access all information presented on boards during lectures. By providing easily accessible, easily modifiable images, we hope to help even the playing field for students with disabilites.
+This is just a small portion of the many disabilities faced by students in universities around the world. We hope to help them by giving them full access to all information presented on boards during lectures. By providing easily accessible, easily modifiable images, we hope to help even the playing field for students with disabilites.
 Secondary goals of our project will help to make the learning process even easier. Some students get distracted if they see more than one line of text at a time. If we have enough time we will help these students by providing slide bars that will cover portions of the images that students are not currently viewing. This and many other minor features are things that we will accomplish if we have free time after completing our primary objectives. 
 
 	\section{Research}
 		\subsection*{Competing Technologies}
-			There are three general categories: phone apps, scanners, and electronic whiteboards.\\
-			\\
+			
 			% Phone apps
 			\emph{Phone Apps-}\\
-Phone apps scan an image of a whiteboard and filter out the unnecessary information (See Figure \ref{fig:wbcp-example-ad}). These apps compete directly with our product because they serve many of the same functions and are also highly portable. Portability aside, they also capture informaiton in the same ways that our product will, and can thus provide many valuble insitghts into the possabilities open to us as well. Several examples of phone apps are listed below.
+Phone apps scan an image of a whiteboard and filter out the unnecessary information (See Figure \ref{fig:wbcp-example-ad}). These apps compete directly with our product because they serve many of the same functions and are also highly portable. Portability aside, they also capture informaiton in the same ways that our product will, and can thus provide many valuable insights into the possibilities open to us as well. Several examples of phone apps are listed below:
 
 			\begin{itemize}
 				\item WhiteBoard Capture Pro
@@ -189,7 +189,7 @@ Phone apps scan an image of a whiteboard and filter out the unnecessary informat
 			
 			% Scanners 
 			\noindent \emph{Scanners-}\\
-Scanners are pieces of hardware that attach to white boards that will tracks movements on the board (some with the usage of an electronic pen). These products will not be fully suited to this project because they require installation and calibration, which violates the idea of portability. Though they compete with our product because they perform the same function of recording everything that is written on a whiteboard, they don't capture the information in the same ways. While their innovations prove interesting from an academic perspective, they don't provide many insights towards the further development of our own products. Several examples of scanners include:
+Scanners are pieces of hardware that attach to white boards that track movements on the board (some with the usage of an electronic pen). These products will not be fully suited to this project because they require installation and calibration, which violates the idea of portability. Though they compete with our product because they perform the same function (recording everything that is written on a whiteboard), they do not capture the information in the same ways. While their innovations prove interesting from an academic perspective, they do not provide many insights towards the further development of our own products. Several examples of scanners include:
 			\begin{itemize}
 				\item MimioCapture
 				\item eBeam System 3
@@ -198,55 +198,57 @@ Scanners are pieces of hardware that attach to white boards that will tracks mov
 			\end{itemize}
 			
 			
-			% Image of WhiteBoard Capture Pro
+			
+			
+		
+		\noindent \emph{Electronic Whiteboards-} \\
+``Smart'' boards are full sized, touch sensitive whiteboards. images are projected onto them with a projector, and edits or additions can be made to them with any pointed object. The touch-sensitive board senses the location of any manual writing on the board and adds electronic corrections to the image or document. These devices compete even less directly with our project than do scanners because they are less portable and capture information in even less applicable ways. They are the size of a standard whiteboard and thus cannot be easily moved between classrooms. Several examples of these touch-sensitive whiteboards include:
+            \begin{itemize}
+                \item SMART Board
+                \item Panasonic Panaboard
+                \item Hitachi Starboard
+                \item The Promethean Board
+            \end{itemize}
+			
+			\subsection*{Smartphone Applications}
+We chose to seek further information about smartphone apps because they are the technology that most directly competes with our product. While scanners and electronic whiteboards meet the same needs as our product, they do so in ways that are completely different from our own approach, and thus will not provide the number of insights found in smartphone applications. \\
+
+The following paragraphs are descriptions of several smartphone apps that contain features we wish to emulate in our own project. They in many ways solve the needs of our current clients. We therefore hope to take some of these phone app features and modify them to better meet the needs of our own clients. \\
+				\subsubsection*{Whiteboard Capture Pro}
+					
+This is an iPhone app that takes a picture of a white board and then analyzes it for key content. The user selects objects to remove from the photograph. This leaves only the writing on the board behind. The app then analyzes the writing and removes the background image of the whiteboard itself. This sometimes leaves fuzz or imperfections in the white background, so there is then a slider available to filter out this extra fuzz that shows up in the end product. The resulting image is a pure white background with handwriting on it. These photos can then be saved, cropped, shared, and organized with in-app tools. \cite{wcp} \\
+				\subsubsection*{WBConference}
+					
+This is an Android app that competes with our product because it is another whiteboard capturing device. WBConference differs from Whiteboard Capture Pro in that it is able to automatically recognize which sections of the board are whiteboard. This then allows it to apply its ìmagnified keystone correctionî to remove the excess background imagery. In cases that it cannot recognize the board, the user can zoom in on the board boundaries manually before capturing the image. The app has contrast adjustment and image rotation as well so images can be taken from any orientation without problems. This app has editing features as well so postscripts or speech bubbles can be added to the images. The files can then be saved as PDFs along with any additional notes.This app has a widget for the home screen for quick image capturing, and the user can set up an email address for quick delivery of the images to an external source. \cite{wbc} \\
+				\subsubsection*{CamScanner - Phone PDF Creator}
+					
+This is the most downloaded scanner app on the market. It can take photos of any document, whiteboard, etc. There is then an editing process in which the user can select the important portion of the photograph, change the detail level, contrast, light/darkness, etc. It will then save a new document in any number of saved folders. It allows for notes about each image which will be saved with the image. Any of the photos can be sent vie email, print, fax, or Bluetooth transfer. Additionally, it supports uploading to google docs, evernote, skydrive, dropbox, or box.net. These documents get saved as PDFs. There are different enhancement modes: No enhance, low and high enhance, gray mode, and B\&W Document modes. These different modes will be better depending on the environment or object of interest. The B\&W mode is particularly helpful when scanning books or papers because it does a better job of removing the background noise. This app allows for batch photo taking and batch photo scanning, so it can take multiple pictures and scan them all at the same time. \cite{camscan} \\
+				\subsubsection*{Whiteboard Snap}
+					
+This app is a dumbed down version of the previous three. It does scan and enhance images, however it just is not as well known as the other discussed apps, and thus does not have the money or time to invest in extra features. This aside, it does work, it is free, and it does save images as PDFs for later use. The user can email these photos and store them in different folders. Notes can be attached to images and the quality of the whiteboard picture can be enhanced with the auto-enhance tool. On the upside, it is a much smaller program than the average whiteboard capture app. Overall, it is a smaller lighter free alternative. This app was installed by members of the ProPANE group, and its usefulness appeared limited, as it repeatedly crashed upon opening. \cite{wbs}  \\
+
+% Image of WhiteBoard Capture Pro
 			\begin{figure}
 	      			\centering
 	      			\includegraphics[scale=0.3]{./images/wbcp-example-ad.png}
 				\caption{Advertisement demonstrating the image filtering capabilities of the WhiteBoard Capture Pro iPhone app. App eliminates discoloration of board due to glare. Taken from \url{http://www.beetlebugsoftware.com.}}
 				\label{fig:wbcp-example-ad}
 	   		 \end{figure}
-			
-		
-		\noindent \emph{Electronic Whiteboards-} \\
-Smartboards are full sized, touch sensitive whiteboards. You can project images onto them with a projector and then make edits/additions to them with any pointed object. The touch sensitive board senses where you are writing on the board and adds electronic corrections to the image/document. These devices compete even less directly with our project than do scanners because they're less portable and capture information in even less applicable ways. They are the size of a standard whiteboard and thus cannot be easily moved between classrooms. Several examples of these touch sensitive whiteboards include:
-            \begin{itemize}
-                \item SMART Board
-                \item Panasonic's Panaboard
-                \item Hitachi's Starboard
-                \item The Promethean Board
-            \end{itemize}
-			
-			\subsection*{Smartphone Applications}
-We chose to seek further information about smartphone apps because they are the technology that most directly competes with our product. While scanners and electronic whilteboards meet the same needs as our product, they do so in ways that are completely different from our own approach, and thus won't provide the numer of insights found in smartphone applications. \\
-
-The following paragraphs are descriptions of several smartphone apps that contain features wish to emulate in our own project. They in many ways solve the needs of our current clients. We therefore hope to take some of these phone-app features and modify them to better meet the needs of our own clients. \\
-				\subsubsection*{Whiteboard Capture Pro}
-					
-This is an iPhone app that takes a picture of a white board and then analyzes it for key content. The user selects objects to remove from the photograph. This leaves only the writing on the board behind. The App then analyzes the writing and removes the background image of the whiteboard itself. This sometimes leaves fuzz or imperfections in the white background, so there is then a slider available to filter out this extra noise/fuzz that shows up in the end product. The resulting image is a pure white background with handwriting on it.These photos can then be saved, cropped, shared, and organized within-app tools. \cite{wcp} \\
-				\subsubsection*{WBConference}
-					
-This is an Android app that competes with our product because it is another whiteboard capturing device. WBConference differs from Whiteboard Capture Pro in that it is able to automatically recognize which sections of the board are whiteboard. This then allows it to apply its ìmagnified keystone correctionî to remove the excess background imagery. In cases that it cannot recognize the board you can zoom in on just the board boundaries manually before capturing the image. The app has contrast adjustment and image rotation as well so you can take images from any orientation without problems.This app has editing features as well so you can add postscripts or speech bubbles to the images. The files can then be saved as PDFs along with any notes you want to add to them.This app has a widget for the home screen for quick image capturing, and you can set up an email address for quick delivery of the images to an external source. \cite{wbc} \\
-				\subsubsection*{CamScanner -Phone PDF Creator}
-					
-This is the most downloaded scanner app on the market. With it you can take photos of any document, whiteboard, etc that you want. You then go through an editing process in which you can select the important portion of the photograph, change the detail level, contrast, light/darkness etc. It will then save your new document in any number of saved folders. You can make notes about each image and these notes will be saved with the image. You can email, print, fax, or transfer via Bluetooth any of the photos. You can also upload your images to google docs, evernote, skydrive, dropbox, or box.net. These documents get saved as PDFs. There are different enhancement modes: No enhance, low and high enhance, gray mode, and B\&W Document modes. These different modes will be better depending on the environment or object that youíre trying to scan. The B\&W mode is particularly helpful when scanning books/papers because it does a better job of removing the background noise. This app allows for batch photo taking and batch photo scanning, so you can take multiple pictures and it will scan them all at the same time. \cite{camscan} \\
-				\subsubsection*{Whiteboard Snap}
-					
-This app is a dumbed down version of the previous three. It does the job, it scans and enhances images, it just isnít as well known as the others and thus doesnít have the money/time to invest in extra features. This aside, it does work, it is free, and it does save images as PDFs for later use. You can email these photos to yourself and store them in different photos. You can attach notes to your images and you can enhance the quality of the whiteboard picture with their auto-enhance tool. On the upside, it IS a much smaller program than your avg whiteboard capture app. Over all a smaller lighter free alternative. I installed this app on my phone and I had trouble using it because it kept crashing. \cite{wbs}  \\
 
      \subsection*{Conclusion}
-These smart phone apps will be some of the greatest competition to our project because they meet many of our client's needs already. Not only that, they're free applications so our clients wouldnt need to spend money either. The following is a list of features that we should attempt to emulate when designing our own product.
+These smart phone apps will be some of the greatest competition to our project because they meet many of the needs of our clients already. Not only that, the are free applications, so our clients would not need to spend money either. However, they are not nearly as robust as our final system aims to be. The following are features that we should attempt to emulate when designing our own product.
 
 All of these applications contain ways to filter out background noise so that whiteboards appear pure white and text looks crisp and clean. This will be an important aspect of our own product because our image capture device will be subject to a wide variety of lighting situations and will need to be able to adapt to any of them.
 Another key feature is the ability of these apps to save and send the images via email, google docs, and other online mediums. This will be an important point in our project as well.
-Another good feature was the ability for some of the apps (CamScanner for example) to correct for image angles. If the board is photographed from an angle, the smartphone apps will compensate so that the final scanned image looks like it was taken straight on. \\
+Another useful feature was the ability for some of the apps (CamScanner for example) to correct for image angles. If the board is photographed from an angle, the smartphone apps will compensate so that the final scanned image looks like it was taken straight on. \\
 
         \emph{Desirable features not found in smartphone apps:}
         \begin{itemize} \itemsep -2pt
-            \item Photo splicing: These apps do not combine images to add in details covered by professor's body.
+            \item Photo splicing: These apps do not combine images to add in details covered by a professor's body.
             \item Automatic: These apps do not automatically capture images, process them, and then send them away. They instead require user feedback every step of the way.
         \end{itemize}
 
-By adding these features to the functionality currently found in modern apps we hope to create value for our customer.
+By adding these features to the functionality currently found in modern apps, we hope to create value for our clients.
 
 
 			\subsection*{Microsoft Whiteboard Capture System}
