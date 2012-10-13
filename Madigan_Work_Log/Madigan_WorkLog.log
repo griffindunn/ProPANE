@@ -1,9 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.9.23)  11 OCT 2012 11:40
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.9.23)  13 OCT 2012 00:54
 entering extended mode
-**C:/Users/ctm013/Colin/Documents/ELEC*400/Madigan_Work_Log/Madigan_WorkLog.tex
+**C:/Users/ctm013/Colin/Documents/ELEC*400/ProPANE/Madigan_Work_Log/Madigan_Wor
+kLog.tex
 
-("C:/Users/ctm013/Colin/Documents/ELEC 400/Madigan_Work_Log/Madigan_WorkLog.tex
-"
+("C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/Madigan_Wor
+kLog.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -212,8 +213,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 6.
 
-("C:\Users\ctm013\Colin\Documents\ELEC 400\Madigan_Work_Log\Madigan_WorkLog.aux
-")
+("C:\Users\ctm013\Colin\Documents\ELEC 400\ProPANE\Madigan_Work_Log\Madigan_Wor
+kLog.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
@@ -299,10 +300,10 @@ LaTeX Info: Redefining \ref on input line 8.
 LaTeX Info: Redefining \pageref on input line 8.
 LaTeX Info: Redefining \nameref on input line 8.
 
-("C:\Users\ctm013\Colin\Documents\ELEC 400\Madigan_Work_Log\Madigan_WorkLog.out
-")
-("C:\Users\ctm013\Colin\Documents\ELEC 400\Madigan_Work_Log\Madigan_WorkLog.out
-")
+("C:\Users\ctm013\Colin\Documents\ELEC 400\ProPANE\Madigan_Work_Log\Madigan_Wor
+kLog.out")
+("C:\Users\ctm013\Colin\Documents\ELEC 400\ProPANE\Madigan_Work_Log\Madigan_Wor
+kLog.out")
 \@outlinefile=\write3
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 12.
@@ -314,116 +315,138 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 LaTeX Warning: No \author given.
 
-("C:\Users\ctm013\Colin\Documents\ELEC 400\Madigan_Work_Log\Madigan_WorkLog.toc
-")
+
+("C:\Users\ctm013\Colin\Documents\ELEC 400\ProPANE\Madigan_Work_Log\Madigan_Wor
+kLog.toc"
+Overfull \hbox (25.91243pt too wide) in paragraph at lines 2--2
+ [] [][][]\OT1/cmr/bx/n/10 Work on Back-ground Doc-u-ment, Use of git for Doc-u
+-ment Ver-sion Con-trol (10/9/2012)[][] []  
+ []
+
+)
 \tf@toc=\write4
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 19.
+(Font)              <7> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 19.
- [1
+(Font)              <5> on input line 24.
+[1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 38.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
- [2]
-<images/propane_whiteboard.png, id=57, 601.4972pt x 435.87843pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--80
+
+ []
+
+[2] [3] [4] <images/propane_whiteboard.png, id=97, 601.4972pt x 435.87843pt>
 File: images/propane_whiteboard.png Graphic file (type png)
 
 <use images/propane_whiteboard.png>
-Package pdftex.def Info: images/propane_whiteboard.png used on input line 64.
+Package pdftex.def Info: images/propane_whiteboard.png used on input line 131.
 (pdftex.def)             Requested size: 216.53882pt x 156.9161pt.
- [3pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
+
+<images/logo_options.png, id=98, 800.23969pt x 1262.46657pt>
+File: images/logo_options.png Graphic file (type png)
+
+<use images/logo_options.png>
+Package pdftex.def Info: images/logo_options.png used on input line 145.
+(pdftex.def)             Requested size: 176.05327pt x 277.7435pt.
+
+<images/ProPANE_final_logos.png, id=100, 214.55156pt x 356.0803pt>
+File: images/ProPANE_final_logos.png Graphic file (type png)
+
+<use images/ProPANE_final_logos.png>
+Package pdftex.def Info: images/ProPANE_final_logos.png used on input line 150.
+
+(pdftex.def)             Requested size: 150.18506pt x 249.25452pt.
+ [5pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.74 
-      <C:/Users/ctm013/Colin/Documents/ELEC 400/Madigan_Work_Log/images/propane
-_whiteboard.png>] <images/logo_options.png, id=67, 800.23969pt x 1262.46657pt>
-File: images/logo_options.png Graphic file (type png)
-
-<use images/logo_options.png>
-Package pdftex.def Info: images/logo_options.png used on input line 78.
-(pdftex.def)             Requested size: 176.05327pt x 277.7435pt.
-
-<images/ProPANE_final_logos.png, id=69, 214.55156pt x 356.0803pt>
-File: images/ProPANE_final_logos.png Graphic file (type png)
-
-<use images/ProPANE_final_logos.png>
-Package pdftex.def Info: images/ProPANE_final_logos.png used on input line 83.
-(pdftex.def)             Requested size: 150.18506pt x 249.25452pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+l.154 
+       <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/image
+s/propane_whiteboard.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
  []
 
 
-Overfull \hbox (57.77783pt too wide) in paragraph at lines 99--99
+Overfull \hbox (65.87782pt too wide) in paragraph at lines 166--166
 []\OT1/cmr/bx/n/14.4 First Group Meet-ing and Gen-eral Group In-for-ma-tion (08
 /31/2012) 
  []
 
-[4pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+
+ []
+
+[6pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.103 		\subsection
-                   *{Technical Specifications}pdfTeX warning (ext4): destinatio
-n with the same identifier (name{figure.3}) has been already used, duplicate ig
-nored
+l.173 		\subsection
+                   *{Team Name and Logo}pdfTeX warning (ext4): destination with
+ the same identifier (name{figure.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.103 		\subsection
-                   *{Technical Specifications} <C:/Users/ctm013/Colin/Documents
-/ELEC 400/Madigan_Work_Log/images/logo_options.png> <C:/Users/ctm013/Colin/Docu
-ments/ELEC 400/Madigan_Work_Log/images/ProPANE_final_logos.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+l.173 		\subsection
+                   *{Team Name and Logo} <C:/Users/ctm013/Colin/Documents/ELEC 
+400/ProPANE/Madigan_Work_Log/images/logo_options.png> <C:/Users/ctm013/Colin/Do
+cuments/ELEC 400/ProPANE/Madigan_Work_Log/images/ProPANE_final_logos.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
 
  []
 
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
+[7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
-
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 113.
-[5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 113.
-
-("C:\Users\ctm013\Colin\Documents\ELEC 400\Madigan_Work_Log\Madigan_WorkLog.aux
-")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 113.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 113.
+("C:\Users\ctm013\Colin\Documents\ELEC 400\ProPANE\Madigan_Work_Log\Madigan_Wor
+kLog.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
 Package rerunfilecheck Info: File `Madigan_WorkLog.out' has not changed.
-(rerunfilecheck)             Checksum: C80E3600E11276867F34D0A1FA40BCDA;507.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 113.
+(rerunfilecheck)             Checksum: C77C373955EF3D524E94C912AF2C71E2;949.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
  ) 
 Here is how much of TeX's memory you used:
- 5538 strings out of 493921
- 82543 string characters out of 3147279
- 168682 words of memory out of 3000000
- 8768 multiletter control sequences out of 15000+200000
- 8248 words of font info for 29 fonts, out of 3000000 for 9000
+ 5554 strings out of 493921
+ 82804 string characters out of 3147279
+ 169682 words of memory out of 3000000
+ 8774 multiletter control sequences out of 15000+200000
+ 8416 words of font info for 30 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,9n,28p,771b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,9n,28p,779b,320s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -433,10 +456,11 @@ onts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Madigan_WorkLog.pdf (5 pages, 393227 bytes).
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Madigan_WorkLog.pdf (7 pages, 416975 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 178 PDF objects out of 1000 (max. 8388607)
+ 37 named destinations out of 1000 (max. 500000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
