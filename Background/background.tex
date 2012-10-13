@@ -16,7 +16,7 @@
 		\date{October 12, 2012}
 		\maketitle
 		\noindent
-		The purpose of this document is to introduce the BU ProPANE project to a third party with no prior knowledge concerning the project. The document begins with a high-level discussion of the problems that this project is aiming to solve. Next, the document provides relevant background information regarding current practices and relevant terminology. The document concludes with a technical research section that contains ideas that will prove useful during the implementation phase of the project. 
+		The purpose of this document is to introduce the BU ProPANE project to a third party with no prior knowledge concerning the project. The document begins with a high-level discussion of the problems that this project is aiming to solve. Next, the document provides relevant background information regarding current practices and technology. The document concludes with a technical research section that contains ideas that will prove useful during the implementation phase of the project. 
 		
 		\thispagestyle{empty}
 	
@@ -45,15 +45,15 @@
 		
 	\section{Background Information}
 		\subsection*{Signal Processing}
-Source: {\color{red} \url{http://www.signalprocessingsociety.org/about-sps/scope-mission/}} \\ \\
+
 According to the IEEE Signal Processing Society, 
 		{\quotation {\sl \noindent Signal processing is the enabling technology for the generation, transformation, and interpretation of information. It comprises the theory, algorithms, architecture, implementation, and applications related to processing information contained in many different formats broadly designated as signals. Signal refers to any abstract, symbolic, or physical manifestation of information with examples that include: audio, music, speech, language, text, image, graphics...  \\
-\indent Signal processing uses mathematical, statistical, computational, heuristic, and/or linguistic representations, formalisms, modeling techniques and algorithms for generating, transforming, transmitting, and learning from analog or digital signals, which may be performed in hardware or software. Signal generation includes sensing, acquisition, extraction, synthesis, rendering, reproduction and display. Signal transformations may involve filtering, recovery, enhancement, translation, detection, and decomposition. The transmission or transfer of information includes coding, compression, securing, detection, and authentication. Learning can involve analysis, estimation, recognition, inference, discovery and/or interpretation.}} \\
+\indent Signal processing uses mathematical, statistical, computational, heuristic, and/or linguistic representations, formalisms, modeling techniques and algorithms for generating, transforming, transmitting, and learning from analog or digital signals, which may be performed in hardware or software. Signal generation includes sensing, acquisition, extraction, synthesis, rendering, reproduction and display. Signal transformations may involve filtering, recovery, enhancement, translation, detection, and decomposition. The transmission or transfer of information includes coding, compression, securing, detection, and authentication. Learning can involve analysis, estimation, recognition, inference, discovery and/or interpretation.}}  \cite{IEEESPS} \\
 
-Signal processing applies to both analog and digital signals.  Analog signals are sets of continuous values, and can be directly processed using both linear and non-linear electronic circuits.  These signals can be sampled to obtain a signal with the same values, but only at discrete points over an interval in time.  These signals can also be directly processed with electronic circuitry, but they can also be digitized to create digital signals.  Digital signal processing can be done conveniently on computers, or on dedicated digital circuits such as application-specific integrated circuits (ASICs) and field-programmable gate arrays (FPGAs).  For this project, we are interested in digital signal processing, and specifically the field of image processing.\\
+Signal processing applies to both analog and digital signals.  Analog signals are sets of continuous values, and can be directly processed using both linear and non-linear electronic circuits.  These signals can be sampled to obtain a signal with the same values, but only at discrete points over an interval in time.  These signals can also be directly processed with electronic circuitry, but they can also be digitized to create digital signals.  Digital signal processing can be done conveniently on computers, or on dedicated digital circuits such as application-specific integrated circuits (ASICs) and field-programmable gate arrays (FPGAs).  For this project, we are interested in digital signal processing, and specifically the field of image processing. \\
 
 		\subsection*{Image Processing}
-Source: {\color{red} \url{http://www.library.cornell.edu/preservation/tutorial/contents.html}} \\ \\
+
 Digital images are electronic representations of physical media, such as photographs, texts, artwork and more.  The digital image is sampled and mapped as a grid of pixels.  Each pixel is assigned a tonal value (black, white, shades of gray or color) which is represented in binary.  The bits representing each pixel are stored by a computer and can be compressed via mathematical reduction of some kind.  To view an image, the bits are interpreted and read by the computer to produce an analog version for display. \\ 
 
 \begin{figure}[H]
@@ -67,7 +67,7 @@ Digital images are electronic representations of physical media, such as photogr
 
 \noindent The number of bits used to define each pixel is defined as the bit depth.  The greater the bit depth, the greater the number of tones can be represented.  Normally, a color image is represented by a bit depth of 8 to 24.  In a 24-bit image, the bits are often divided into red, green and blue, with 8 bits for each color.  Other colors are obtained from combinations of those bits.  In a 24-bit image, there are 16.7 million color values ($2^{24}$).  	\\ 
 
-\noindent To reduce image file size for storage, processing and transmission, compression is used.  Compression techniques use algorithms to abbreviate the binary code in an uncompressed image.  Both lossless and lossy forms of compression exist. Lossless schemes abbreviate the binary code without discarding any information so that the decompressed image is bit-for-bit identical to the original.  Lossy schemes average and discard the least significant information based on an understanding of visual perception.  JPEG is a common lossy compression scheme.  Some lossy-compressed images may appear identical to the raw image, and are considered ``visually lossless''.  
+\noindent To reduce image file size for storage, processing and transmission, compression is used.  Compression techniques use algorithms to abbreviate the binary code in an uncompressed image.  Both lossless and lossy forms of compression exist. Lossless schemes abbreviate the binary code without discarding any information so that the decompressed image is bit-for-bit identical to the original.  Lossy schemes average and discard the least significant information based on an understanding of visual perception.  JPEG is a common lossy compression scheme.  Some lossy-compressed images may appear identical to the raw image, and are considered ``visually lossless''.  \cite{cornell} 
 
 \begin{figure}[H]
       			\centering
@@ -80,40 +80,39 @@ Digital images are electronic representations of physical media, such as photogr
 
 Image processing can be implemented using a variety of different tools.  There are programs, such as Adobe Photoshop, which provide users with a graphical user interface and on-screen tools to use to edit their images.  While programs like this can achieve desirable high-quality results, the process can be time-consuming for an individual image, and must be repeated for each subsequent image.  A far better option for similar processing of a large quantity of images is to use a programming language with an image processing library.  The user can write a program which performs desired effecs on any number of images.  A variety of libraries exist to add image processing features to many programming languages.  The libraries listed in this section are for common programming languages and seem to have some or all of the functionality required for the ProPANE project.  \\ 
 
-\noindent {\sl Eutecus Signal and Image Processing Library} \\
-Source: {\color{red} \url{http://www.eutecus.com/ProdServ/InstantVision/SILib.html}} \\ \\
-A collection of general-purpose, optimized C++ routines and classes, along with utility classes to aid image and video file manipulation.  These routines are usually used in computationally intensive real-time apptications, where optimal execution speed is critical.  For use, licensing rights must be purchased. \\
+\noindent {\sl Eutecus Signal and Image Processing Library} \cite{eutecus} \\
 
-\noindent {\sl OpenCV} \\
-Source: {\color{red} \url{http://opencv.willowgarage.com/wiki/}} \\ \\ 
-A free library of programming functions for real time computer vision, originally developed by Intel.  It has interfaces for C, C++, Python, and soon Java, running on Windows, Linux, Android and Mac.  There are over 2500 algorithms optimized for image processing.  \\
+\noindent A collection of general-purpose, optimized C++ routines and classes, along with utility classes to aid image and video file manipulation.  These routines are usually used in computationally intensive real-time apptications, where optimal execution speed is critical.  For use, licensing rights must be purchased. \\
 
-\noindent {\sl Aforge.NET Framework} \\
-Source: {\color{red} \url{http://code.google.com/p/aforge/}} \\ \\
-A free, open-source C\# framework, containing libraries for image processing, robotics, and more.  The image processing library, AForge.Imaging, contains different image processing routines, aimed to help with image enhancement and processing.  \\
+\noindent {\sl OpenCV} \cite{opencv} \\
 
-\noindent {\sl Python Imaging Library} \\
-Source: {\color{red} \url{http://www.pythonware.com/products/pil/}} \\ \\
-A free library which adds image processing capabilities to the Python interpreter.  It supports many file formats and provides powerful image processing and graphics capabilities. \\
+\noindent A free library of programming functions for real time computer vision, originally developed by Intel.  It has interfaces for C, C++, Python, and soon Java, running on Windows, Linux, Android and Mac.  There are over 2500 algorithms optimized for image processing.  \\
 
-\noindent {\sl VIPS} \\
-Source: {\color{red} \url{http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS}} \\ \\
-A free image processing system.  Good with large images, with many CPUs.  It needs little memory and runs quickly compared to many libraries.  The library can be used from C, C++, command line, Python, Ruby, JavaScript and others.  Includes a GUI for Photoshop-style editing. Works on Linux/Unix, Windows 7 and MacOS. \\
+\noindent {\sl Aforge.NET Framework} \cite{aforge1} \\
 
-\noindent {\sl MATLAB Image Processing Toolbox} \\ 
-Source: {\color{red} \url{http://www.mathworks.com/products/image/}} \\ \\ 
-A comprehensive set of reference-standard algorithms and graphical tools.  For image processing, analysis, visualization, and algorithm development.  Features include image enhancement, deblurring, feature detection, noise reduction, segmentation, geometric transformations, and image registration.  Using the Image Acquisition Toolbox, images can be acquired directly from a camera and read into MATLAB or Simulink. \\ 
-(image acquisition source: {\color{red} \url{http://www.mathworks.com/products/imaq/}} ) \\
+\noindent A free, open-source C\# framework, containing libraries for image processing, robotics, and more.  The image processing library, AForge.Imaging, contains different image processing routines, aimed to help with image enhancement and processing.  \\
 
-\noindent {\sl Mathematica} \\
-Source: {\color{red} \url{http://reference.wolfram.com/mathematica/guide/ImageProcessing.html}} \\ \\ 
-Mathematica provides built-in support for programmatic modern industrial-strength image processing, fully integrated with its powerful mathematical and algorithmic capabilities.  Mathematica's symbolic architecture and notebook paradigm allow images in visual form to be included and manipulated directly both interactively and in programs.
+\noindent {\sl Python Imaging Library} \cite{pil} \\
+
+\noindent A free library which adds image processing capabilities to the Python interpreter.  It supports many file formats and provides powerful image processing and graphics capabilities. \\
+
+\noindent {\sl VIPS} \cite{vips} \\
+
+\noindent A free image processing system.  Good with large images, with many CPUs.  It needs little memory and runs quickly compared to many libraries.  The library can be used from C, C++, command line, Python, Ruby, JavaScript and others.  Includes a GUI for Photoshop-style editing. Works on Linux/Unix, Windows 7 and MacOS. \\
+
+\noindent {\sl MATLAB Image Processing Toolbox} \cite{matlab_ipt} \\ 
+
+\noindent A comprehensive set of reference-standard algorithms and graphical tools.  For image processing, analysis, visualization, and algorithm development.  Features include image enhancement, deblurring, feature detection, noise reduction, segmentation, geometric transformations, and image registration.  Using the Image Acquisition Toolbox, images can be acquired directly from a camera and read into MATLAB or Simulink. \cite{matlab_iat} \\ 
+
+
+\noindent {\sl Mathematica} \cite{mathematica} \\
+
+\noindent Mathematica provides built-in support for programmatic modern industrial-strength image processing, fully integrated with its powerful mathematical and algorithmic capabilities.  Mathematica's symbolic architecture and notebook paradigm allow images in visual form to be included and manipulated directly both interactively and in programs.
 
 
 	\subsection*{Image Processing Techniques}
-Source: {\color{red} \url{http://www.ndt-ed.org/EducationResources/CommunityCollege/Radiography/AdvancedTechniques/Real_Time_Radiography/ImageProcessingTechniques.htm}} \\ 
 
-\noindent Many techniques currently exist for processing images in numerous different ways.  The techniques in this section seem relevant to the image processing necessary for the ProPANE system. \\ \\
+\noindent Many techniques currently exist for processing images in numerous different ways.  The techniques in this section seem relevant to the image processing necessary for the ProPANE system. \cite{ndt} \\ \\
 {\sl Image Analysis- \\ \indent Extract information from the image} 
 			\begin{itemize} 
 				\item{\textbf{Image statistics:}} Calculates the maximum, minimum, average, standard deviation, variance, median, and mean-square intensities of the image data					\item{\textbf{Gray-scale mapping:}} Alters the mapping of the intensity of pixels in a file to match the intensity displayed on a computer screen 
@@ -138,10 +137,40 @@ Source: {\color{red} \url{http://www.ndt-ed.org/EducationResources/CommunityColl
 				\item{\textbf{Histogram equalization:}} Redistributes the intensities of the image
 			\end{itemize}
 
+\subsection*{Learning Disabilaties}
+        \subsubsection*{Introduction}
+One of the major motivating factors behind designing our image capturing system is to help meet the needs of students with disabilities. The term "students with disabilities" is a very broad term, however, so we would like to use the following section to help discribe some of the things that mildly disabled students have trouble with at Bucknell, and would therefore need our system to capture information presented on the board for them. \\
+Disabilities that students might have that impair their ability to take notes: \cite{disability}
+    \begin{itemize}
+        \item Visual Impairments
+        \begin{itemize}
+            \item May be fully blind and need notes translated into Braille
+            \item May not see well and need large print letters
+            \item May have trouble copying information from whiteboards, projectors, etc.
+            \item May have trouble seeing certain colors when framed by a white or black background
+        \end{itemize}
+        \item Specific Learning Disabilities
+        \begin{itemize}
+            \item Reading Disability
+            \item Writing Disability
+            \item Spelling Disability
+            \item Inability to copy what they see
+            \item Inability to write what they hear
+            \item Inability to write legibly
+            \item Number Reversal problems
+        \end{itemize}
+        \item Mobility Impairments
+        \begin{itemize}
+            \item Physically unable to write
+            \item Physically unable to write quickly
+            \item May be unable to effectively handle a writing impliment
+        \end{itemize}
+        \item Partial or Full loss of hearing
+    \end{itemize}
 
-		\subsection*{Useful Terminology}
-			WE WILL GET THIS WITH MORE RESEARCH
-	
+This is just a small portion of the many disabilities faced by students in universities around the world. We hope to help them by giving them full access all information presented on boards during lectures. By providing easily accessible, easily modifiable images, we hope to help even the playing field for students with disabilites.
+Secondary goals of our project will help to make the learning process even easier. Some students get distracted if they see more than one line of text at a time. If we have enough time we will help these students by providing slide bars that will cover portions of the images that students are not currently viewing. This and many other minor features are things that we will accomplish if we have free time after completing our primary objectives. 
+
 	\section{Research}
 		\subsection*{Competing Technologies}
 			There are three general categories: phone apps, scanners, and electronic whiteboards.\\
@@ -187,33 +216,22 @@ Smartboards are full sized, touch sensitive whiteboards. You can project images 
                 \item The Promethean Board
             \end{itemize}
 			
-		\subsection*{Research Data}
-		
 			\subsection*{Smartphone Applications}
-We chose to seek further information about smartphone apps because they are the technology that most directly competes with our product. While scanners and electronic whilteboards meet the same needs as our product, they do so in ways that are completely different from our own approach, and thus won't provide the numer of insights found in smartphone applications.
+We chose to seek further information about smartphone apps because they are the technology that most directly competes with our product. While scanners and electronic whilteboards meet the same needs as our product, they do so in ways that are completely different from our own approach, and thus won't provide the numer of insights found in smartphone applications. \\
 
-			\subsection*{Introduction}
 The following paragraphs are descriptions of several smartphone apps that contain features wish to emulate in our own project. They in many ways solve the needs of our current clients. We therefore hope to take some of these phone-app features and modify them to better meet the needs of our own clients. \\
-				\subsection*{Whiteboard Capture Pro}
-Source: Beetlebug Software's website\\
-{\color{red} \url{http://www.beetlebugsoftware.com/}} \\
+				\subsubsection*{Whiteboard Capture Pro}
 					
-This is an iPhone app that takes a picture of a white board and then analyzes it for key content. The user selects objects to remove from the photograph. This leaves only the writing on the board behind. The App then analyzes the writing and removes the background image of the whiteboard itself. This sometimes leaves fuzz or imperfections in the white background, so there is then a slider available to filter out this extra noise/fuzz that shows up in the end product. The resulting image is a pure white background with handwriting on it.These photos can then be saved, cropped, shared, and organized within-app tools. \\
-				\subsection*{WBConference}
-Source: Elecom'e website\\
-{\color{red} \url{http://app.elecom.co.jp/en/wbcap/ios/manual.html}} \\
+This is an iPhone app that takes a picture of a white board and then analyzes it for key content. The user selects objects to remove from the photograph. This leaves only the writing on the board behind. The App then analyzes the writing and removes the background image of the whiteboard itself. This sometimes leaves fuzz or imperfections in the white background, so there is then a slider available to filter out this extra noise/fuzz that shows up in the end product. The resulting image is a pure white background with handwriting on it.These photos can then be saved, cropped, shared, and organized within-app tools. \cite{wcp} \\
+				\subsubsection*{WBConference}
 					
-This is an Android app that competes with our product because it is another whiteboard capturing device. WBConference differs from Whiteboard Capture Pro in that it is able to automatically recognize which sections of the board are whiteboard. This then allows it to apply its ìmagnified keystone correctionî to remove the excess background imagery. In cases that it cannot recognize the board you can zoom in on just the board boundaries manually before capturing the image. The app has contrast adjustment and image rotation as well so you can take images from any orientation without problems.This app has editing features as well so you can add postscripts or speech bubbles to the images. The files can then be saved as PDFs along with any notes you want to add to them.This app has a widget for the home screen for quick image capturing, and you can set up an email address for quick delivery of the images to an external source. \\
-				\subsection*{CamScanner -Phone PDF Creator}
-Source: Intsig's Website
-{\color{red} \url{http://www.intsig.com/en/camscanner.html}} \\
+This is an Android app that competes with our product because it is another whiteboard capturing device. WBConference differs from Whiteboard Capture Pro in that it is able to automatically recognize which sections of the board are whiteboard. This then allows it to apply its ìmagnified keystone correctionî to remove the excess background imagery. In cases that it cannot recognize the board you can zoom in on just the board boundaries manually before capturing the image. The app has contrast adjustment and image rotation as well so you can take images from any orientation without problems.This app has editing features as well so you can add postscripts or speech bubbles to the images. The files can then be saved as PDFs along with any notes you want to add to them.This app has a widget for the home screen for quick image capturing, and you can set up an email address for quick delivery of the images to an external source. \cite{wbc} \\
+				\subsubsection*{CamScanner -Phone PDF Creator}
 					
-This is the most downloaded ëscannerí app on the market. With it you can take photos of any document, whiteboard, etc that you want. You then go through an editing process in which you can select the important portion of the photograph, change the detail level, contrast, light/darkness etc. It will then save your new document in any number of saved folders. You can make notes about each image and these notes will be saved with the image. You can email, print, fax, or transfer via Bluetooth any of the photos. You can also upload your images to google docs, evernote, skydrive, dropbox, or box.net. These documents get saved as PDFs. There are different enhancement modes: No enhance, low and high enhance, gray mode, and B\&W Document modes. These different modes will be better depending on the environment or object that youíre trying to scan. The B\&W mode is particularly helpful when scanning books/papers because it does a better job of removing the background noise. This app allows for batch photo taking and batch photo scanning, so you can take multiple pictures and it will scan them all at the same time. \\
-				\subsection*{Whiteboard Snap}
-Source: Google Play Store\\
-{\color{red} \url{https://play.google.com/store/apps/details?id=com.magnicode.whiteboard&hl=en}} \\
+This is the most downloaded scanner app on the market. With it you can take photos of any document, whiteboard, etc that you want. You then go through an editing process in which you can select the important portion of the photograph, change the detail level, contrast, light/darkness etc. It will then save your new document in any number of saved folders. You can make notes about each image and these notes will be saved with the image. You can email, print, fax, or transfer via Bluetooth any of the photos. You can also upload your images to google docs, evernote, skydrive, dropbox, or box.net. These documents get saved as PDFs. There are different enhancement modes: No enhance, low and high enhance, gray mode, and B\&W Document modes. These different modes will be better depending on the environment or object that youíre trying to scan. The B\&W mode is particularly helpful when scanning books/papers because it does a better job of removing the background noise. This app allows for batch photo taking and batch photo scanning, so you can take multiple pictures and it will scan them all at the same time. \cite{camscan} \\
+				\subsubsection*{Whiteboard Snap}
 					
-This app is a dumbed down version of the previous three. It does the job, it scans and enhances images, it just isnít as well known as the others and thus doesnít have the money/time to invest in extra features. This aside, it does work, it is free, and it does save images as PDFs for later use. You can email these photos to yourself and store them in different photos. You can attach notes to your images and you can enhance the quality of the whiteboard picture with their auto-enhance tool. On the upside, it IS a much smaller program than your avg whiteboard capture app. Over all a smaller lighter free alternative. I installed this app on my phone and I had trouble using it because it kept crashing. \\
+This app is a dumbed down version of the previous three. It does the job, it scans and enhances images, it just isnít as well known as the others and thus doesnít have the money/time to invest in extra features. This aside, it does work, it is free, and it does save images as PDFs for later use. You can email these photos to yourself and store them in different photos. You can attach notes to your images and you can enhance the quality of the whiteboard picture with their auto-enhance tool. On the upside, it IS a much smaller program than your avg whiteboard capture app. Over all a smaller lighter free alternative. I installed this app on my phone and I had trouble using it because it kept crashing. \cite{wbs}  \\
 
      \subsection*{Conclusion}
 These smart phone apps will be some of the greatest competition to our project because they meet many of our client's needs already. Not only that, they're free applications so our clients wouldnt need to spend money either. The following is a list of features that we should attempt to emulate when designing our own product.
@@ -232,8 +250,7 @@ By adding these features to the functionality currently found in modern apps we 
 
 
 			\subsection*{Microsoft Whiteboard Capture System}
-Source: Microsoft Research Technical Report MSR-TR-2002-89 \\
-{\color{red} \url{ftp://ftp.research.microsoft.com/pub/tr/tr-2002-89.pdf}} \\
+Source: Microsoft Research Technical Report MSR-TR-2002-89 \cite{WCS} \\
 All images used in this section are from the source document. \\ \\
 This system accomplishes many of the goals we hope to achieve with the ProPANE system, using methods that seem feasible for our project.  Therefore, we present an extensive look into this project, with analysis of methods used and relevance to our project.
 		\subsubsection*{Summary}
@@ -317,7 +334,7 @@ The background must be uniformly color-balanced and the color saturation of the 
 Image noise is reduced by remapping the value of each color channel of each pixel in the key frames according to an S-shaped curve.
 	
 	\subsection*{ReBoard}
-Source: {\color{red} \url{http://arxiv.org/ftp/arxiv/papers/0911/0911.0039.pdf}} \\
+Source: FXPAL TR-09-004 \cite{reboard} \\
 All images used in this section are from the source document. 
 	\subsubsection*{Summary}
 ReBoard is a system developed by FX Palo Alto Laboratory, Inc.  It captures whiteboard content both actively and passively, while providing a robust platform for data retrieval and sharing.  Users can browse captured data by aspects such as time or location of capture, or who was present for data capture.  
@@ -354,7 +371,7 @@ Thanks to these views, users can retrieve data based on who was present during i
 \end{figure}
 
 	\subsubsection*{Technical information}
-The ReBoard system consists of one video camera per whiteboard, an application server, a database to store images and metadata, detectors that sense collaborative activity, detectors that record content changes, and portable user interfaces to manage content and metadata (these are optional).  The video cameras record at 10 fps, with important images captured at times indicated by the detectors and user interfaces.  Cameras are calibrated at installation to correct for geometric distortion due to off-axis camera positioning.  The content change detector is a Java-based service that leverages Java's Media framework and OpenCV's image processing libraries.  The collaboration detector is a C\# Windows Service using the AForge computer vision framework for basic video processing and ``blob'' detection (more information on AForge \href{code.google.com/p/aforge/}{here}).  Event detectors have IDs that link them to a specific camera so they can work independent of each other.  The application server is written in Grails, with the metadata stored in a MySQL database.  The server manages user accounts, sessions and access control, and exposes a set of REST-like web services for AJAX UI clients and for communicating with the event detectors. The persistent UI runs on a portable Chumby device (See Figure \ref{fig:research_reboard_4} below, more information \href{http://en.wikipedia.org/wiki/Chumby}{here}).  It allows for manual image capture, capure disable, and content bookmark.  The persistent UI is not necessary for the system to function.
+The ReBoard system consists of one video camera per whiteboard, an application server, a database to store images and metadata, detectors that sense collaborative activity, detectors that record content changes, and portable user interfaces to manage content and metadata (these are optional).  The video cameras record at 10 fps, with important images captured at times indicated by the detectors and user interfaces.  Cameras are calibrated at installation to correct for geometric distortion due to off-axis camera positioning.  The content change detector is a Java-based service that leverages Java's Media framework and OpenCV's image processing libraries.  The collaboration detector is a C\# Windows Service using the AForge computer vision framework for basic video processing and ``blob'' detection.  Event detectors have IDs that link them to a specific camera so they can work independent of each other.  The application server is written in Grails, with the metadata stored in a MySQL database.  The server manages user accounts, sessions and access control, and exposes a set of REST-like web services for AJAX UI clients and for communicating with the event detectors. The persistent UI runs on a portable Chumby device (See Figure \ref{fig:research_reboard_4} below). \cite{chumby}  It allows for manual image capture, capure disable, and content bookmark.  The persistent UI is not necessary for the system to function.
 
 \begin{figure}[H]
 \centering
@@ -368,63 +385,22 @@ While ReBoard is designed for continuous use in the workplace, as opposed to Pro
 \indent Normally, lectures are led by the professor and do not feature collaboration, sometimes students will contribute to the board by answering questions, or in other ways.  It may be useful for the professor to track when board content is authored by a student, and the identity of that student.  ReBoard's collaboration detection could be useful in implementing a feature like this, although probably not in the initial build of the ProPANE system.  \\
 
 
-  \subsection*{Cameras we could use in our project}
+  \subsection*{Camera Research}
 Here are the current top three cameras that we think could help us the most when building our image capturing system.
 
 \begin{itemize}
-    \item Nikon COOLPIX S800c 16 MP Digital Camera
-    \begin{itemize}
-        \item \url{http://www.amazon.com/Nikon-COOLPIX-Digital-Optical-3-5-inch/dp/B0090SLKUM}
-    \end{itemize}
-    \item Samsung Camera EK-GC100 Galaxy Camera
-    \begin{itemize}
-        \item \url{http://pdadb.net/index.php?m=specs&id=3813&c=samsung_ek-gc100_galaxy_camera}
-    \end{itemize}
-    \item Polaroid SC1630 Smart Camera
-    \begin{itemize}
-        \item \url{http://www.upi.com/Science_News/2012/01/16/Polaroid-joins-digital-camera-arena/UPI-61851326750025/}
-    \end{itemize}
+    \item Nikon COOLPIX S800c 16 MP Digital Camera \cite{nikon}
+   
+    \item Samsung Camera EK-GC100 Galaxy Camera \cite{samsung}
+
+    \item Polaroid SC1630 Smart Camera \cite{polaroid}
+   
 \end{itemize}
 
 We are interested in them because they are cameras running the Android operating system. This means that we could create our own custom application for these devices, greatly simplifying our design process. These cameras would also be useful because they can connect to Bucknell's wifi network. This would allow us to wirelessly transferr information from the cameras to whatever image processing hardware we decide to connect it to. The main drawbacks at the moment with these Android cameras is that two of them haven't been released yet (Samsung and Polaroid). IF they are released in time, they would be the most desireable of the various camera options available.
 
-\subsection*{Details on Learning Disabilaties}
-        \subsubsection*{Introduction}
-One of the major motivating factors behind designing our image capturing system is to help meet the needs of students with disabilities. The term "students with disabilities" is a very broad term, however, so we would like to use the following section to help discribe some of the things that mildly disabled students have trouble with at Bucknell, and would therefore need our system to capture information presented on the board for them.
-\\
-Source: \\
-{\color{red} \url{http://www.sfasu.edu/disabilityservices/facultyandstaff/for_service_providers/note_q_a.asp}} \\
-\\
-Disabilities that students might have that impair their ability to take notes:
-    \begin{itemize}
-        \item Visual Impairments
-        \begin{itemize}
-            \item May be fully blind and need notes translated into Braille
-            \item May not see well and need large print letters
-            \item May have trouble copying information from whiteboards, projectors, etc.
-            \item May have trouble seeing certain colors when framed by a white or black background
-        \end{itemize}
-        \item Specific Learning Disabilities
-        \begin{itemize}
-            \item Reading Disability
-            \item Writing Disability
-            \item Spelling Disability
-            \item Inability to copy what they see
-            \item Inability to write what they hear
-            \item Inability to write legibly
-            \item Number Reversal problems
-        \end{itemize}
-        \item Mobility Impairments
-        \begin{itemize}
-            \item Physically unable to write
-            \item Physically unable to write quickly
-            \item May be unable to effectively handle a writing impliment
-        \end{itemize}
-        \item Partial or Full loss of hearing
-    \end{itemize}
-
-This is just a small portion of the many disabilities faced by students in universities around the world. We hope to help them by giving them full access all information presented on boards during lectures. By providing easily accessible, easily modifiable images, we hope to help even the playing field for students with disabilites.
-Secondary goals of our project will help to make the learning process even easier. Some students get distracted if they see more than one line of text at a time. If we have enough time we will help these students by providing slide bars that will cover portions of the images that students are not currently viewing. This and many other minor features are things that we will accomplish if we have free time after completing our primary objectives.
 
 
+\bibliographystyle{ieeetr}
+\bibliography{bibl}
 \end{document}
