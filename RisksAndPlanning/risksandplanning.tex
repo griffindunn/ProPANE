@@ -1,0 +1,188 @@
+\documentclass[]{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage[top=1in, bottom=1in, right=1.25in, left=1.25in]{geometry}
+\usepackage{hyperref}
+
+\begin{document}
+	\setlength{\parindent}{0pt}
+	%\setlength{\parskip}{4pt}
+
+	% Title Page
+	\begin{titlepage}
+
+
+
+		\title{\textbf{Risks and Planning}}
+		\author{BU ProPane Team:\\Griffin Dunn\\Colin Madigan\\Phillip Stahlfeld}
+		\date{September 12, 2012}
+		\maketitle
+
+
+
+		\noindent
+		The purpose of this document is to show the stages of: brainstorming, identification of risk, prioritization of risk, identification of deliverables, and division of tasks. 
+		\thispagestyle{empty}
+		
+		
+		
+	\end{titlepage}
+	
+	\thispagestyle{empty}
+	
+	
+	% Begin  Real  Document
+	\tableofcontents
+	\newpage
+	
+	
+	\setcounter{page}{1}
+	\thispagestyle{empty}
+	
+	\section{Brainstorming}
+		There are three major sections to our project:
+				\begin{itemize}
+					\item Capturing
+					\begin{itemize}
+						\item All tasks related to capturing all information written on the whiteboard
+					\end{itemize}
+					\item Sending
+					\begin{itemize}
+						\item All tasks related to sending and recieving information between devices
+					\end{itemize}
+					\item Processing
+					\begin{itemize}
+						\item All tasks related to processing the images once they are recieved by the linux machine
+					\end{itemize}
+				\end{itemize}
+			
+			\emph{Capturing} 
+			\begin{itemize}
+				\item Decide on a camera
+				\item Designing/purchasing a stand
+				\item Figure out setup stuff
+				\item Determin min/max distance from board based on camera lense and number of megapixels
+				\item Look into rooting camera (maybe. depends if it can install apps that aren't in the app store)
+				\item Look into making image capturing process automated
+				\item Look into designing android app
+				\item How to take periodic images
+				\item How to communicate with camera using button or sensor
+				\item Adjust shutter speed and/or ISO to accommodate different light levels. (automatic with flash disabled)
+			\end{itemize} 
+			
+			\emph{Sending}
+			\begin{itemize}
+				\item Look into communication between android and linux
+				\item Ways to store/send images
+				\item Ways to make sending info reliable
+				\item How to send data automatically
+				\item How to recieve data on linux
+				\item How to automate linux processes
+				\item How to send to/connect to moodle folder.
+			\end{itemize}
+			
+			\emph{Processing}
+			\begin{itemize}
+				\item How to remove background noise
+				\item How to stitch in information covered by professor
+				\item How to change brightness/contrast
+				\item Look into better ways of processing images
+				\item Look into what image processing libraries are available
+				\item Maybe look into what programs are available to do these sorts of things for us.
+				\item Look into ways to automate actions performed by random programs
+				\item Look into ways to do what we want with pre-made programs and just automate the processes somehow
+				\item What sorts of processing technologies are available to us?
+			\end{itemize}
+
+	\section{Identification of Risk}
+		
+		\subsection{Technically Difficult}
+			\begin{itemize}
+				\item Stitching of images \\ \textbf{Risk Level: High}
+				\item Identification of professor in images \\ \textbf{Risk Level: High}
+				\item Identification information on board \\ \textbf{Risk Level: High}
+				\item Automation of camera \\ \textbf{Risk Level: Medium}
+				\item Identification of key frames  \\ \textbf{Risk Level: Medium}
+			\end{itemize}
+		
+		\subsection{Time Consuming}
+			\begin{itemize}
+				\item Large amounts of coding  \\ \textbf{Risk Level: Low}
+				\item Understanding image processing APIs and libraries  \\ \textbf{Risk Level: Low}
+				\item Automation of camera (repeat)  \\ \textbf{Risk Level: Medium}
+			\end{itemize}
+			
+			
+		\subsection{Unknowns}
+			\begin{itemize}
+				\item Automation of camera (repeat)  \\ \textbf{Risk Level: Medium}
+				\item Capturing 100\% of information on whiteboard  \\ \textbf{Risk Level: Medium}
+			\end{itemize}
+			
+			
+	\section{Prioritize Risk}
+		The following list organizes the risks identified in the previous section ordered by the risk level they pose to the project not meeting the specifications. Order is from high to low risk level.
+		\begin{enumerate}
+			\item Identification of professor in images
+			\item Identification of information on board
+			\item Stitching of images
+			\item Automation of camera
+			\item Identification of key frames
+			\item Capturing 100\% of information on whiteboard
+			\item Large amounts of coding
+			\item Understanding image processing APIs and libraries
+		\end{enumerate}
+		
+	\section{Deliverables}
+		The following is a list of deliverables that demonstrate how the risks from above are mitigated.
+		
+		\subsection{Identification of professor in image}
+			Demonstrate a program that can identify professor shaped and colored objects in front of a whiteboard. The planned approach for this is based on the Microsoft WCS's idea of breaking the board down into hundreds of cells and categorizing the cells as white, mostly white, or other. Any connection of `other' cells constitute a professor.
+		
+		\subsection{Identification of information on board}
+			Demonstration of a program that can identify areas of a whiteboard as information on blank space. The planned approach for this is based on the Microsoft WCS's idea of breaking the board down into hundreds of cells and categorizing each cell as white, mostly white, or other. Mostly white will constitute information.
+			
+		\subsection{Stitching of images}
+			Demonstration of a program that can take two images and stitch them together so that the area blocked by the professor in one will be replaced with the information on the whiteboard on the other image.
+			
+		\subsection{Automation of camera}
+			Demonstration that the capture device can be started, will capture images, store/send them somewhere, and be stopped. The planned approach for this is to program the camera to start capturing images at an interval of 5 seconds until it is stopped. The images will be sent wirelessly to the analysis system.
+			
+		\subsection{Identification of key frames}
+			Demonstration of program that can identify when there is the maximum amount of information written on a whiteboard. The planned approach for this is to count the number of `mostly white' cells in each frame and identifying key frames as frames where the number of `mostly white' cells is a maximum.
+			
+		\subsection{Capturing 100\% of information on whiteboard}
+			Demonstration of a lecture simulation with the capture system started and showing that if a section of the board is uncovered for 5 seconds, the system will capture the information.
+			
+		\subsection{Large amounts of coding}
+			Identification of versions on GitHub showing functioning systems where each version has more features/fewer bugs than the previous.
+			
+		\subsection{Understanding of image processing APIs and libraries}
+			This will be verified through other demonstrations listed above.
+			
+	\section{Division of Tasks}
+		
+		\begin{tabular}{| l | l |}
+			\hline
+			Task 	&	Members\\
+			\hline
+			\hline
+			Design algorithms for image processing	&	Colin, Griffin, Phil\\
+			\hline
+			Investigation into source code of CamScanner	&	Griffin\\
+			\hline
+			Investigation into Python image processing libraries &	Colin, Phil\\
+			\hline
+			Maintaining work logs	&	Colin, Griffin, Phil\\
+			\hline
+			Implementation of image processing &	Colin, Phil\\
+			\hline
+			Implementation of camera automation &	Griffin, Phil\\
+			\hline
+			
+			
+		\end{tabular}
+	
+		
+	
+\end{document}
