@@ -10,9 +10,50 @@
 \date{}
 \maketitle
 	\tableofcontents
+
+	%Twelvth Entry
+	\section{Risk Meeting, Tasks Going Forward (10/18/2012)}
+		\subsection*{Meeting with Prof. Thompson}
+	Today we met with Prof. Thompson about our risk analysis.  I think now we better understand what is expected of us going forward this semester.  We should focus more on proving that certain concepts will work, not necessarily implementing them as we will in our project.  For example, we should see how to do basic relevant image processing using libraries for Java, C++, Python, etc... and compare the processes.  
+		\subsection*{Individual tasks going forward}	
+	Going forward, I first need to contact Microsoft Research to try and acquire the source code from the WCS.  This will hopefully simplify the image processing aspect of our project, since we could use their code as a guideline for our own, or possibly even use entire chunks of their code in our implementation. \\
+	\indent Currently, we need to make a Gantt chart for our semester schedule.  Then I will look into various aspects of image processing and come up with demos to demonstrate progress.  Currently I'm trying to learn Python from \url{codecademy.com}, since background research suggested that it may be the easiest language for the tasks we're trying to complete.
 	
+	
+	%Eleventh Entry
+	\section{Risk Analysis (10/16/2012)}
+		\subsection*{Risk}	
+	In class last week, we worked on risk analysis and planning. Here is the list I came up with of possible risks and their level of risk:
+	\begin{itemize}
+	\item \textbf{HIGH -} What language/framework to use?
+	\item \textbf{HIGH -} Specific image processing libraries?
+	\item \textbf{HIGH -} What camera? Android compatible? (Nikon, Samsung)?
+	\item \textbf{HIGH -} How to interface camera with computer?
+	\item \textbf{HIGH -} Wireless syncing?
+	\item \textbf{MEDIUM -} Database for images? How to add to it from camera
+	\item \textbf{LOW -} Can students access photos directly?
+	\item \textbf{LOW -} How to distribute images? Dropbox? Netspace? Email?
+	\item \textbf{LOW -} Does the camera need a stand?
+	\item \textbf{MEDIUM -} Adjusting for capture angle (second edition)
+	\item \textbf{MEDIUM -} Automatic recognition of board area
+	\item \textbf{MEDIUM -} Key frames: only right before erase (like WCS)?
+	\item \textbf{LOW -} Manual frame capture option
+	\item \textbf{MEDIUM -} Filters for students w/ learning disorders
+	\end{itemize}		
+	
+	Possible Demos: 
+	\begin{itemize}
+	\item Image noise removal 
+	\item Identify person in image
+	\item Remove person/replace with another image
+	\item Rapid automatic image capture
+	\end{itemize}
+	
+		\subsection*{Idea}
+	During class I thought of a possible idea for filtering images on the whiteboard by color and content.  All board content could be displayed as a 3D matrix, as in the Microsoft system.  However, we could take it a step further and filter by color as well, since professors will sometimes write groups of related information in the same color. This is definitely true for civil engineering professors, based on notes provided to us by our client. \\
+	\indent The board could be represented by a matrix of cell images, with the width and height representing the board dimensions, and the depth ``in and out'' of the board representing different groupings.  For instance, the whiteboard cells could all be in the same plane of the matrix, while any foreground (undesirable) objects could be in another plane. The rest of the board content could be in other planes, sorted by color. So for instance, all black writing would be in a particular plane, while blue writing would be in another.  By default, the processed image would remove foreground objects and display whiteboard and all writing, but the user could manually choose to only see, for instance, writing and drawings in red, or everything except green.  This feature could be useful to students with learning disabilities, since it would simplify the image and group relevant information together.
 	% Tenth Entry
-	\section{Final Version of Background Document (10/13/2012)}
+	\section{Final Version of Background Document (10/12/2012)}
 	We uploaded our final version of the Background document to our git repo tonight.  (Speaking of that, our ProPANE site now links to the git hub for all documents, so we don't have to worry about changing that on the site every time.)  I added in all my research about signal processing, including code libraries, basic image processing concepts, and various image processing techniques that can be utilized.  We figured out some hitches with git so that we could successfully merge our separate changes into one document.  \\ \\
 
 I did some more research into the Nikon COOLPIX s800c camera.  It is the only Android-powered camera currently on the market.  I found that it is theoretically available in-store at the Target in Selinsgrove, so I plan on driving down there some time soon to check it out in person.  
