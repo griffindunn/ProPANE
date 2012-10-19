@@ -24,7 +24,7 @@
 	\section{Risk Analysis (10/16/2012)}
 		\subsection*{Risk}	
 	In class last week, we worked on risk analysis and planning. Here is the list I came up with of possible risks and their level of risk:
-	\begin{itemize}
+	\begin{itemize} \itemsep -2pt
 	\item \textbf{HIGH -} What language/framework to use?
 	\item \textbf{HIGH -} Specific image processing libraries?
 	\item \textbf{HIGH -} What camera? Android compatible? (Nikon, Samsung)?
@@ -51,7 +51,16 @@
 	
 		\subsection*{Idea}
 	During class I thought of a possible idea for filtering images on the whiteboard by color and content.  All board content could be displayed as a 3D matrix, as in the Microsoft system.  However, we could take it a step further and filter by color as well, since professors will sometimes write groups of related information in the same color. This is definitely true for civil engineering professors, based on notes provided to us by our client. \\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{images/3D_matrix}
+\caption{Idea similar to this image}
+\end{figure}	
 	\indent The board could be represented by a matrix of cell images, with the width and height representing the board dimensions, and the depth ``in and out'' of the board representing different groupings.  For instance, the whiteboard cells could all be in the same plane of the matrix, while any foreground (undesirable) objects could be in another plane. The rest of the board content could be in other planes, sorted by color. So for instance, all black writing would be in a particular plane, while blue writing would be in another.  By default, the processed image would remove foreground objects and display whiteboard and all writing, but the user could manually choose to only see, for instance, writing and drawings in red, or everything except green.  This feature could be useful to students with learning disabilities, since it would simplify the image and group relevant information together.
+
+
+
+
 	% Tenth Entry
 	\section{Final Version of Background Document (10/12/2012)}
 	We uploaded our final version of the Background document to our git repo tonight.  (Speaking of that, our ProPANE site now links to the git hub for all documents, so we don't have to worry about changing that on the site every time.)  I added in all my research about signal processing, including code libraries, basic image processing concepts, and various image processing techniques that can be utilized.  We figured out some hitches with git so that we could successfully merge our separate changes into one document.  \\ \\

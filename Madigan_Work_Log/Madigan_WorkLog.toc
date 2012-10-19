@@ -6,7 +6,7 @@
 \contentsline {section}{\numberline {6}Panel Feedback, Continued Research (9/30/2012)}{4}{section.6}
 \contentsline {section}{\numberline {7}First Panel, Continued Research (9/27/2012)}{4}{section.7}
 \contentsline {section}{\numberline {8}Additional Information on Microsoft Whiteboard Capture System (9/21/2012)}{4}{section.8}
-\contentsline {section}{\numberline {9}Review of Second Client Meeting, Background Research (9/17/2012)}{5}{section.9}
+\contentsline {section}{\numberline {9}Review of Second Client Meeting, Background Research (9/17/2012)}{6}{section.9}
 \contentsline {section}{\numberline {10}Tech Specs, Second Meeting, Website Design (9/11/2012)}{6}{section.10}
 \contentsline {section}{\numberline {11}Logo Design, Research on Background and Competition (09/05/2012)}{7}{section.11}
 \contentsline {section}{\numberline {12}First Group Meeting and General Group Information (08/31/2012)}{8}{section.12}
