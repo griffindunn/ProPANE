@@ -13,17 +13,87 @@
 	\thispagestyle{empty}
 	
 	
-	% Twelfth Entry
-	\section{Scheduling for Remainder of Semester}
-		With Colin and Griffin
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{6pt}
+	
+	
+	% Thirteenth Entry
+	\section{Examination of PIL 10/19/2012}
+		The Python Imaging Library (PIL)  provides a module for Python for image processing. Colin came across this module and asked me to take a look at the features. To test out some of the features, I downloaded an image (see below) of a whiteboard and ran it through several filters to generate the following images. I am using the Enthought distribution of Python 2.7 and PIL came installed by default.
+	
 		
-		\subsection{Identification of Risk}
+		\subsection{How it is done}
+			The following code shows how an image can be imported, run through a filter, shown, and then saved.
 			
-			\begin{enumerate}
-				\item Image processing to stitch images together to get 100\% of information in one frame \\\textbf{Risk Level: High}
-				\item Image processing to identify information on a white board \\\textbf{Risk Level: High}
-				\item 
-			\end{enumerate}
+			\begin{verbatim}
+			from PIL import Image
+			from PIL import ImageFilter
+			
+			image = Image.open("original.jpg")
+			new = image.filter(ImageFilter.FIND_EDGES)
+			new.show()
+			new.save("find_edges.jpg", "JPEG")
+			
+			\end{verbatim}
+			
+			Note the simplicity of this program. Looking at some of the code to perform the same operation in Java reveals that Java is a much more verbose language when it comes to the basics of image processing.
+		
+		\subsection{Generate Images}
+			All of the images generated during this examination are stored in the "images/python-filters" directory under the Stahlfeld\_Worklog source directory. It is hard to see differences in some of the images in this document.
+		
+			Running the "image.size[0]" gives the width of the image and "image.size[1]" gives the height of the image.
+			
+			The following is the downloaded image from Google Images.
+			
+			\includegraphics{images/python-filters/original.jpg}
+			
+			The following are filters of the different image. Note that all of the filters are built-in and can be found \href{http://www.pythonware.com/library/pil/handbook/imagefilter.htm}{here}.
+			
+			Below is the FIND\_EDGES filter
+			
+			\includegraphics[scale=0.238]{images/python-filters/find-edges.jpg}
+			
+			Below is the EDGE\_ENHANCE\_MORE filter
+			
+			\includegraphics[scale=0.238]{images/python-filters/edge_enhance_more.jpg}
+		
+			Below is the DETAIL filter
+			
+			\includegraphics[scale=0.238]{images/python-filters/detail.jpg}
+		
+	
+	% Twelfth Entry
+	\section{Start Dividing Up Individual Tasks 10/18/2012}
+		Starting to list out all of the tasks that must be accomplished by the end of the semester. Group them based on who is responsible for completing each task. This provides a certain amount of accountability for each part of the project. The tasks have been divided so that there is some evidence that the task was accomplished. Hopefully, the results of these tasks will demonstrate that the project is ready to enter the design phase. Each task is a proof-of-concept to demonstrate that we can accomplish the larger goals of the project.
+		
+		\subsection{Group}
+			\begin{itemize}
+				\item Gantt chart (probably using the following sections)
+				\item Specification for deliverables
+				\item Develop resources document
+			\end{itemize}
+	
+		\subsection{Colin}
+			\begin{itemize}
+				\item Contact Microsoft about WCS
+				\item Divide image into cells using Python
+			\end{itemize}
+		
+		
+		\subsection{Griffin}
+			\begin{itemize}
+				\item Collect images of whiteboards using various cameras
+				\item Examine "CamScanner" app source code to find anything possibly relevant
+				\item Determine settings required for capturing whiteboard information
+			\end{itemize}
+		
+		\subsection{Phil}
+			\begin{itemize}
+				\item Access camera on Android based device
+				\item Determine Java appropriateness for image processing
+					\subitem{If appropriate, divide image into cells using Java}
+				\item Classify cells as "white", "mostly white", or "colored".
+			\end{itemize}
 	
 	
 	% Eleventh Entry
