@@ -8,6 +8,63 @@
 	\tableofcontents
 	\newpage
 	
+	% Eleventh Entry
+	\section{Individual Work Collecting Whiteboard images with various cameras 10/22/12}
+		\subsection{Purpose}
+		Today I worked to collect several images of whiteboards using different cameras. The purpose of this exercise was to gain a better understanding of what is needed from our image capture device. Analyzing the results of a range of devices we hope to better understand what the limiting factors are with indoor image capturing. \\
+		\subsection{Setup}
+		I captured images from two main locations: On a table in front of the whiteboard and on top of the projector. I decided to add images from near the projector just in case the table is too close to the whiteboard.
+		
+		The following images were taken with a 3.3 Megapixel Olympus C-3040ZOOM: \\
+		
+		\includegraphics{images/UnmodifiedClose.jpg} \\
+		\includegraphics{images/ModifiedClose.jpg} \\
+		
+		The following images were taken with the HTC Inspire's 8 Megapixel camera: 
+		
+		\includegraphics{images/UnmodifiedPhoneClose.jpg} \\
+		\includegraphics{images/ModifiedPhoneClose.jpg} \\
+		
+		Note that all modified images were modified using ImageJ, the open source image editor i found that uses java
+	
+	% Tenth Entry
+	\section{Individual Work on Sourcecode 10/20/1023}
+		
+		\subsection{CanScanner Sourcecode}
+		I viewed CamScanner's sourcecode by following the instructions on this forum: \\
+		http://stackoverflow.com/questions/3593420/android-getting-source-code-from-an-apk-file\\
+		
+		\begin{itemize}
+			\item Download .apk
+			\item Rename remove .apk ending from name and put .zip in it's place
+			\item Extract all files
+			\item Download dex2jar
+			\item Run dex2jar on the classes.dex file found in CamScanner's extracted files
+			\item Run java decompiler on the classes.dex.dex2jar file created in step 5
+			\item Save all class files
+		\end{itemize}
+		
+		After attempting to understand CamScanner's code for 1.5 hrs, I decided that the code wasn't readable enough to use in our project. It might have useful information in it somewhere, but the decompiled naming scheme, lables, etc weren't readable enough for easy analysis. Will go back to this sourcecode if other options fail.
+		
+		\subsection{Alternative Program}
+		
+		I found an opensource program called ImageJ. This program has features similar to CamScanner's image filtering options...though they don't work as well. By adjusting the brightness and contrast of an image i was able to greatly enhance text's clarity: \\
+		
+		\includegraphics{images/ImageClarityWithImageJ.jpg} \\
+		
+		I think that this program could be useful if we decide that we want to write an image enhancement progarm in java or if we want to include some enhancement features in an android app. \\
+		
+		\subsection{Python Libraries}
+		
+		I briefly looked into different options we had in python and found two libraries that looked like they might be useful for image enhancement: \\
+		
+		The ImageFilter module has many pre-defined enhancement filters for the 'filter' method. \\
+		http://www.pythonware.com/library/pil/handbook/introduction.htm\\
+		
+		Advanced enhancement features can be found in the ImageEnhance module. \\
+		http://www.pythonware.com/library/pil/handbook/imageenhance.htm \\
+		
+	
 	% Ninth Entry
 	\section{Website updating and Language Editing 10/12/2012}
 
