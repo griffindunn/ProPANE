@@ -18,6 +18,30 @@
 	
 	% Fifteenth Entry
 	\section{Post-Panel 2 Reflection and Memo Creation 10/25/2012}
+		The big thing on my mind is how the image processing is going to work. There are more unknowns regarding the image processing than any other area of the project. Right now as a group, we do not really know enough about image processing to even know what we should be looking at software wise. I found \href{http://en.wikibooks.org/wiki/MATLAB_Programming/Image_Processing_Toolbox}{this} online book that should help with learning about what we will have to do. Although everything in it is written in MATLAB, we should be able to take the concepts away and apply them to the language that we choose. 
+		
+		
+		\subsection{More on WCS}
+			The Microsoft WCS paper is basically the starting point for all of the research that is being done right now. It contains the algorithms used by the team to perform most of their image processing. Most of it seems to be about collecting information on all of the pixels in an image and using that information to alter each pixel for a desired result. This process screams to use Python because of the flexibilities of the builtin list data structure. Although the language is slow, it provides some of the same features as the vectors/arrays in MATLAB. 
+			
+		\subsection{ImageMagick}
+			In Panel 2, a colleague recommended the ImageMagick package since it has bindings for most of the popular languages (see list \href{http://www.imagemagick.org/script/api.php}{here}). The problems right now are that I cannot get it installed on my Mac (time to set up the Linux box) and there is essentially no documentation. Even if I could get it installed, I cannot find any documentation on how to use it in Python or Java.
+			
+		\subsection{OpenCV}
+			OpenCV keeps popping up during my research into image processing services, but I did not look more into it because it is such a large package and my lack of knowledge about the field made learning about the package very prohibitive. The plus side to this is that it has enormous amounts of documentation. The only problem is that I need to learn more about the actual image processing. 
+			
+		\subsection{Overall Image Processing Thoughts}
+			I do not think that we need a massive piece of image processing software that essentially has a command line for Adobe Photoshop. The design of the system right now is to break the image into cells and deal with each cell. This sounds like OO programming. Create a class that represents a cell and a class that represents a collection of cells (i.e. an image). Since PIL, OpenCV, and ImageMagick all seem to be able to split images into cells and gather image information into list/array data structures, it does not seem to matter which service we use. 
+			
+			The biggest risk area that we know of is the image stitching, but I think it should be fairly straightforward (notice: not easy) since we will be using a cell based approach. My thoughts on this part of the project are as follows: 
+			\begin{enumerate}
+				\item Find key image based on number of ``mostly white" cells
+				\item Identify ``foreground" cells
+				\item Replace each "foreground" cell with the most recent version of the cell that is not foreground
+			\end{enumerate}
+			The immediate problem I see with this is if a only a small portion of the cell is foreground and the rest is information. The next most recent cell may not have all of the information in it and the key image would not have all of the information (BAD). I think the solution to this is to make the cells as small as practical. This way, if the above scenario happens, we would only be losing part of a letter instead of possibly a whole word. 
+		
+		
 		
 	
 	
