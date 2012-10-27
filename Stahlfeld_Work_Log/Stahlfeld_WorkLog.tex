@@ -16,6 +16,33 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Fifteenth Entry
+	\section{Post-Panel 2 Reflection and Memo Creation 10/25/2012}
+		
+	
+	
+	% Fourteenth Entry
+	\section{Examination of Android Development 10/23/2012}
+		Since we are planning on using an Android based capture system, it seemed logical to start looking at how apps are developed. I wanted to create a simple camera app as a demonstration that it can be done so I started working on \href{http://developer.android.com/guide/topics/media/camera.html}{this tutorial}.
+			
+			\subsection{Camera App}
+				Based on the number of Google hits for ``android camera tutorial", I figured it would be fairly simple to tell the camera to take a picture and store it somewhere. It looks like there are two ways to take a picture. One is to use an intent to request that another application take the picture. I tried this code, but it just opens the camera app, which does not help the project at all.
+				
+				The other solution looks to be more along the lines of what we need because it essentially creates a camera application that can be controlled directly. I do not know enough about Android at the moment to be able to understand what all the code fragments do and where they need to be located within the app. It is time to start learning how Android works.
+				
+			\subsection{Learning Android}
+				I followed the first tutorial on the Android developers guide mentioned above and have learned several pieces of useful information.
+				
+				\subsubsection{Callback Functions}
+					There is no need to define button listeners. Specify a callback method in the XML document. 
+					
+				\subsubsection{Activities/Intents}
+					Every screen that gets shown in Android is called an Activity. It looks like intents can bind two activities together. For right now, all that means to me is that I can start another Activity using an Intent, which allows me to show a different screen to the user.
+					
+				\subsubsection{Passing Information}
+					Information can be passed from one Activity to another using the Intent.putExtra method, which pairs a key with a value and passes the pair to the receiver of the Intent.
+	
+	
 	
 	% Thirteenth Entry
 	\section{Examination of PIL 10/19/2012}
