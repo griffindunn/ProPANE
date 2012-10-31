@@ -11,6 +11,85 @@
 \maketitle
 	\tableofcontents
 
+	%Fifteenth Entry
+	\section{Post Panel 2, Dividing Images into Cells (10/29/2012)}
+	Note:  I have not yet received a response from anyone involved with the Microsoft project.  If I don't hear back by this week's senior design meeting, I will talk to MST and/or Dr. Watkins about using their contacts.
+		\subsection*{Post Panel 2}
+	Our panel meeting went well - we updated everyone present on our progress, and received some good feedback about our plans going forward.  Bill from the CTDI group suggested that we look into Image Magic (related to J Magic) for image processing applications.  He said it works with Java or Python, so we will have to at least look at it.  
+		\subsection*{Dividing Images into Cells}
+	I was able to take an image and divide it into cells.  Right now, I can divide it arbitrarily into  cells, though in the final project we will choose the number of cells to be a size that is relevant to the size of content on the board.  \\
+	To divide the image into cells, I wrote a script that divides the image width and height into $n$ segments, then goes through and creates $n^2$ cells from the image.  Each cell can then be individually modified.
+	
+\begin{verbatim}
+import Image
+import ImageEnhance
+
+im = Image.open("whiteboard.jpg")
+width=im.size[0]
+height=im.size[1]
+n=5
+cell_width=width/n
+cell_height=height/n
+cell = (n**2)*[0]
+cell_image = (n**2)*[0]
+x=0
+
+for i in range(0,n):
+    for j in range(1,n+1):
+        cell[x]= ((j-1)*cell_width, i*cell_height, j*cell_width, (i+1)*cell_height)
+        cell_image[x] = im.crop(cell[x])
+        x=x+1
+\end{verbatim}
+	
+This code will divide an image into 25 cells.  To illustrate this, consider the image below.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{images/whiteboard}
+\caption{A typical whiteboard. Source: Google Images}
+\end{figure}	
+
+Now, consider the image is divided into cells using the above process. If no operations are done on it, the image looks identical to the original.  Below is the same image, with a brightness filter applied to every other cell.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.15]{images/cell_brightness_5}
+\end{figure}	
+
+The following code was used to create this image: 
+\begin{verbatim}
+checkered = range(0,n**2,2)
+
+for i in checkered:
+    temp = ImageEnhance.Brightness(cell_image[i])
+    temp = temp.enhance(2.0)
+    im.paste(temp, cell[i])
+im.show()
+\end{verbatim}
+
+This can be scaled to any $n$ value, as seen below, but with a contrast filter.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.15]{images/cell_contrast_25}
+\end{figure}
+
+
+	%Fourteenth Entry
+	\section{Gantt Chart, Preparation for Faculty Panel 2 (10/24/2012)}
+		\subsection*{Gantt Chart}
+	I finished the Gantt chart.  I ended up using an online Gantt chart program (\url{tomsplanner.com}).  It is easy to use and looks nice... the only disadvantage is that I can't export it without a paid membership.  For now I'm just screen-capturing it.  I plan on switching the chart to Microsoft Project in the future.
+		\subsection*{Panel 2}
+	The Gantt chart is ready to go, and I used the information from the chart to update our schedule document, which is essentially a narrowed-down text version of the Gantt chart.  
+	
+	%Thirteenth Entry
+	\section{Microsoft, Gantt Chart, Learning Python (10/20/2012)}
+		\subsection*{Contacting Microsoft}
+	I sent an email to the three people listed on the WCS paper explaining to them what we are trying to accomplish, and asking if they could give us any help via access to parts of their work.  I am waiting for a response.
+		\subsection*{Gantt chart}	
+	I am in charge of making the Gantt chart for our group. I am looking into different free options for chart creation. I found something that templates a Gantt chart in Excel, but it doesn't look very good and I'm looking for something better.  As far as assigning tasks, we have talked about it as a group, so people are working on tasks that are most suited to their skills and interests.  Griffin is doing a lot of the work towards identifying a camera, and Phil and I are looking to start doing image processing.
+		\subsection*{Python}
+	I'm still working through lessons on Codecademy.  Mainly, they teach the syntax of Python: The importance of white space, math operations, loops, etc...  They have been helpful so far, but soon I'll just need to jump in to our task and learn the relevant parts as I go.  
 	%Twelvth Entry
 	\section{Risk Meeting, Tasks Going Forward (10/18/2012)}
 		\subsection*{Meeting with Prof. Thompson}

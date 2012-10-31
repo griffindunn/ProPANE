@@ -1,12 +1,15 @@
-\contentsline {section}{\numberline {1}Risk Meeting, Tasks Going Forward (10/18/2012)}{1}{section.1}
-\contentsline {section}{\numberline {2}Risk Analysis (10/16/2012)}{2}{section.2}
-\contentsline {section}{\numberline {3}Final Version of Background Document (10/12/2012)}{3}{section.3}
-\contentsline {section}{\numberline {4}Work on Background Document, Use of git for Document Version Control (10/9/2012)}{3}{section.4}
-\contentsline {section}{\numberline {5}Third Client Meeting (10/5/2012)}{3}{section.5}
-\contentsline {section}{\numberline {6}Panel Feedback, Continued Research (9/30/2012)}{4}{section.6}
-\contentsline {section}{\numberline {7}First Panel, Continued Research (9/27/2012)}{4}{section.7}
-\contentsline {section}{\numberline {8}Additional Information on Microsoft Whiteboard Capture System (9/21/2012)}{4}{section.8}
-\contentsline {section}{\numberline {9}Review of Second Client Meeting, Background Research (9/17/2012)}{6}{section.9}
-\contentsline {section}{\numberline {10}Tech Specs, Second Meeting, Website Design (9/11/2012)}{6}{section.10}
-\contentsline {section}{\numberline {11}Logo Design, Research on Background and Competition (09/05/2012)}{7}{section.11}
-\contentsline {section}{\numberline {12}First Group Meeting and General Group Information (08/31/2012)}{8}{section.12}
+\contentsline {section}{\numberline {1}Post Panel 2, Dividing Images into Cells (10/29/2012)}{1}{section.1}
+\contentsline {section}{\numberline {2}Gantt Chart, Preparation for Faculty Panel 2 (10/24/2012)}{3}{section.2}
+\contentsline {section}{\numberline {3}Microsoft, Gantt Chart, Learning Python (10/20/2012)}{4}{section.3}
+\contentsline {section}{\numberline {4}Risk Meeting, Tasks Going Forward (10/18/2012)}{4}{section.4}
+\contentsline {section}{\numberline {5}Risk Analysis (10/16/2012)}{5}{section.5}
+\contentsline {section}{\numberline {6}Final Version of Background Document (10/12/2012)}{6}{section.6}
+\contentsline {section}{\numberline {7}Work on Background Document, Use of git for Document Version Control (10/9/2012)}{6}{section.7}
+\contentsline {section}{\numberline {8}Third Client Meeting (10/5/2012)}{6}{section.8}
+\contentsline {section}{\numberline {9}Panel Feedback, Continued Research (9/30/2012)}{7}{section.9}
+\contentsline {section}{\numberline {10}First Panel, Continued Research (9/27/2012)}{7}{section.10}
+\contentsline {section}{\numberline {11}Additional Information on Microsoft Whiteboard Capture System (9/21/2012)}{7}{section.11}
+\contentsline {section}{\numberline {12}Review of Second Client Meeting, Background Research (9/17/2012)}{9}{section.12}
+\contentsline {section}{\numberline {13}Tech Specs, Second Meeting, Website Design (9/11/2012)}{9}{section.13}
+\contentsline {section}{\numberline {14}Logo Design, Research on Background and Competition (09/05/2012)}{10}{section.14}
+\contentsline {section}{\numberline {15}First Group Meeting and General Group Information (08/31/2012)}{11}{section.15}
