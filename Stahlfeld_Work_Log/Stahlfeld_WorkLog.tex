@@ -16,6 +16,27 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	%Eighteenth Entry
+	\section{Successful Android Camer App 11/01/2012}
+	
+	
+	% Seventeenth Entry
+	\section{Consideration for Construction of Analysis System 10/31/2012}
+		The best way to implement a project of this size that is maintainable is to use object oriented design. I think this project lends itself well to object oriented design. After talking to Colin and reading his work log, it is clear that he has the ability to write a Python script that can break a JPEG into cells and manipulate those cells. While he is working on the image processing to get the cells normalized, I think it is my responsibility to make sure we have a rough design of how the work we are doing will fit together next semester. \\
+		\\
+		Right now, I see that there will be at least three classes. At the top level, there will be a sequence of images where methods should be available to find key frames, do image stitching, and the other high level tasks. The next level down will be a single image where methods should be available to normalize the JPEGs, retrieve information about different regions of the board, and other single image tasks. The lowest level down will be a cell where methods should be available to do pixel by pixel by pixel manipulation, retrieve values from the overall cell, and any other pixel related tasks. 
+		
+		 
+	
+	
+	% Sixteenth Entry
+	\section{Configuration of Development Environment 10/27/2012}
+	
+		\subsection{OpenCV Python Background Detection}
+			While waiting for Ubuntu to download, I came across \href{http://opencvpython.blogspot.com/}{this} article about background detection using OpenCV and python. It looks like this article provides another way of removing a professor from images by detecting what is background and what is not. Based on my initial reading, it looks like it takes a weighted average of a sequence of images. For situations where traffic is supposed to be removed from the background, it works incredibly well, but I am a bit unsure as to whether it will work for when a professor is in front of the board for extended periods of time without moving. It seems like the "residual" professor coloration would alter the color of the whiteboard in the image. It is possible that we could perform a the weighted average on the images and do the filtering later, but this would not follow the process in the Microsoft WCS paper. 
+	
+	
+	
 	% Fifteenth Entry
 	\section{Post-Panel 2 Reflection and Memo Creation 10/25/2012}
 		The big thing on my mind is how the image processing is going to work. There are more unknowns regarding the image processing than any other area of the project. Right now as a group, we do not really know enough about image processing to even know what we should be looking at software wise. I found \href{http://en.wikibooks.org/wiki/MATLAB_Programming/Image_Processing_Toolbox}{this} online book that should help with learning about what we will have to do. Although everything in it is written in MATLAB, we should be able to take the concepts away and apply them to the language that we choose. 
