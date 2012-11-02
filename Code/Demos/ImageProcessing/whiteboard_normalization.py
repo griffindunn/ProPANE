@@ -1,3 +1,5 @@
+# Remember to "Save Copy" to Code/Demos/Image_Processing at the end of each session
+
 import Image
 import ImageEnhance
 import ImageOps

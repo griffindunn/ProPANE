@@ -11,6 +11,54 @@
 \maketitle
 	\tableofcontents
 
+	%Sixteenth Entry
+	\section{Dividing Images, Whiteboard Color Normalization (11/1/2012)}
+	\subsection*{Dividing Images into Cells}
+		I changed the cell division so that the cell images are put into a two-dimensional array.  Now, the image cells are located spatially in the same place as the images they represent in the picture.  This should make it easier to reference and operate on specific parts of the image.  I also needed a new way to demonstrate the changes that I can make on individual cells.  I used a two for loops (one for each dimension), and one uses modulo division to determine even or odd cells.
+		
+		\subsection*{Whiteboard Color Normalization}
+		Now that we can break images into cells, we need to be able to extract the whiteboard color, and normalize the whiteboard color so that it is uniform across the entire board.  I started by attempting to follow the strategy laid out in Microsoft's paper.  Their method was to take the luminance of every cell image and apply a histogram to obtain the most common color value in each cell.  Then, create a cell with that color value and fill the new image with cells of the whiteboard colors.  A sample of the code I wrote is below:
+
+\begin{verbatim}
+for i in nsize:
+    for j in nsize:
+        lum[i][j] = cell_image[i][j].convert("L")
+        hist[i][j] = lum[i][j].histogram()
+        big[i][j] = max(hist[i][j])
+        white[i][j] = hist[i][j].index(big[i][j])
+        wb[i][j] = Image.new("L",(cell_width,cell_height),white[i][j])
+        bkgd[i][j] = wb[i][j].convert("RGB")
+        im_new.paste(bkgd[i][j], cell[i][j])
+im_new.show()
+\end{verbatim}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{images/whiteboard_cropped}
+\caption{The whiteboard image seen in figure \ref{fig:whiteboard} (from 10/29 work log), cropped so that only the board content is displayed}
+\label{fig:whiteboard_cropped}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/wb_crop_background_1}
+\caption{A 21 by 21 cell image with the whiteboard color extracted}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/wb_crop_background_2}
+\caption{A 41 by 41 cell image with the whiteboard color extracted}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/wb_background}
+\caption{The whiteboard image from figure \ref{fig:whiteboard}, processed by the code seen above.}
+\end{figure}
+
+This image demonstrates that the normalization of the cell images may be useful for more than just whiteboard color normalization.  The edges of the whiteboard are very defined, and may be useful for edge detection.
+
 	%Fifteenth Entry
 	\section{Post Panel 2, Dividing Images into Cells (10/29/2012)}
 	Note:  I have not yet received a response from anyone involved with the Microsoft project.  If I don't hear back by this week's senior design meeting, I will talk to MST and/or Dr. Watkins about using their contacts.
@@ -47,6 +95,7 @@ This code will divide an image into 25 cells.  To illustrate this, consider the 
 \centering
 \includegraphics[scale=0.6]{images/whiteboard}
 \caption{A typical whiteboard. Source: Google Images}
+\label{fig:whiteboard}
 \end{figure}	
 
 Now, consider the image is divided into cells using the above process. If no operations are done on it, the image looks identical to the original.  Below is the same image, with a brightness filter applied to every other cell.
