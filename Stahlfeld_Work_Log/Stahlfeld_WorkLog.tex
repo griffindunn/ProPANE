@@ -33,6 +33,14 @@
 		\\
 		Right now, I see that there will be at least three classes. At the top level, there will be a sequence of images where methods should be available to find key frames, do image stitching, and the other high level tasks. The next level down will be a single image where methods should be available to normalize the JPEGs, retrieve information about different regions of the board, and other single image tasks. The lowest level down will be a cell where methods should be available to do pixel by pixel by pixel manipulation, retrieve values from the overall cell, and any other pixel related tasks. 
 		
+		 \subsection{Image Sequence}
+			Every lecture (each time the capture system is started and stopped) should map to exactly one image sequence that will be composed of numerous images. The purpose of this class is to use the information from the image objects to create the final key frames. The image sequence will keep track of the amount of information on the board based on time. The image sequence will use this information to construct key images by stitching images together to remove the professor from the image with the most information on it. 
+			
+		\subsection{Image}
+			This is class provides a means for the image sequence to manipulate the actual images. For example, the big one for stitching is cutting a cell from one image and pasting it into another image. My idea is to represent the captured JPEG data as cells in a 2 dimensional array like structure so that cells can be pulled from and pasted into images with just an (x,y) coordinate pair. This class will also have to collect the information needed from the individual cells.
+			
+		\subsection{Cell}
+			This should be the only class that has direct interaction with pixels of an image. This class will require methods for finding the data required by the algorithms in the Microsoft WCS such as: maximum pixel value (for finding whites).
 		 
 	
 	
