@@ -1,4 +1,4 @@
-package phil.stahlfeld.propane;
+package bucknell.propane.cameratest;
 
 import java.io.IOException;
 
