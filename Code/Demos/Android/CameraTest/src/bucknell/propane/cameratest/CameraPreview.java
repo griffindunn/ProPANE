@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-// This is the preview the app shows in main
 public class CameraPreview extends SurfaceView implements
 		SurfaceHolder.Callback {
 

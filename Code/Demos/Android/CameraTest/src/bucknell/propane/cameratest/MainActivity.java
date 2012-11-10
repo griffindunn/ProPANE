@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import phil.stahlfeld.propane.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -44,34 +43,42 @@ public class MainActivity extends Activity {
 	}
 
 	public void startCapture(View view) throws InterruptedException {
-
-		mCamera.takePicture(null, null, mPicture);
-		Log.d(TAG, "TAKE PICTURE WAS CALLED");
-
+		takeAPicture();
 	}
 
-	private PictureCallback mPicture = new PictureCallback() {
+	private void takeAPicture() {
+		PictureCallback mPicture = getPictureCallBack();
+		mCamera.takePicture(null, null, mPicture);
+		Log.d(TAG, "TAKE PICTURE WAS CALLED");
+		mCamera.startPreview();
+	}
 
-		public void onPictureTaken(byte[] data, Camera camera) {
+	private PictureCallback getPictureCallBack() {
+		return new PictureCallback() {
 
-			File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
-			if (pictureFile == null) {
-				Log.d(TAG,
-						"Error creating media file, check storage permissions: ");
-				return;
+			public void onPictureTaken(byte[] data, Camera camera) {
+
+				File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+				if (pictureFile == null) {
+					Log.d(TAG,
+							"Error creating media file, check storage permissions: ");
+					return;
+				}
+
+				try {
+					FileOutputStream fos = new FileOutputStream(pictureFile);
+					fos.write(data);
+					fos.close();
+
+				} catch (FileNotFoundException e) {
+					Log.d(TAG, "File not found: " + e.getMessage());
+				} catch (IOException e) {
+					Log.d(TAG, "Error accessing file: " + e.getMessage());
+				}
 			}
+		};
 
-			try {
-				FileOutputStream fos = new FileOutputStream(pictureFile);
-				fos.write(data);
-				fos.close();
-			} catch (FileNotFoundException e) {
-				Log.d(TAG, "File not found: " + e.getMessage());
-			} catch (IOException e) {
-				Log.d(TAG, "Error accessing file: " + e.getMessage());
-			}
-		}
-	};
+	}
 
 	private static File getOutputMediaFile(int type) {
 		// To be safe, you should check that the SDCard is mounted
@@ -80,7 +87,7 @@ public class MainActivity extends Activity {
 		File mediaStorageDir = new File(
 				Environment
 						.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-				"MyCameraApp");
+				"ProPANE");
 		// This location works best if you want the created images to be shared
 		// between applications and persist after your app has been uninstalled.
 
@@ -95,6 +102,7 @@ public class MainActivity extends Activity {
 		// Create a media file name
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
 				.format(new Date());
+		Log.d(TAG, "Timestamp: " + timeStamp);
 		File mediaFile;
 		if (type == MEDIA_TYPE_IMAGE) {
 			mediaFile = new File(mediaStorageDir.getPath() + File.separator
