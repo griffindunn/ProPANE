@@ -16,6 +16,22 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Ninteenth Entry
+	\section{Loop takePicture() in Android 11/06/2012}
+		The goal of this work is to extend the capabilities of the Android app to take multiple pictures with a 5 second delay in between each picture.
+		
+		\subsection{Simple for Loop}
+			My initial attempt at this was to put the code that performs the picture taking in a for loop and call Thread.sleep(5000). Testing this out gave unexpected behavior. The app appears to be taking pictures every 5 seconds (i.e. the preview of what the camera sees pauses for about half a second every five seconds), but checking the output folders shows that one or sometimes two pictures get taken instead of the five or six that that the loop specifies. 
+			
+		\subsection{Online Research}
+			Googling the problem has yielded two pieces of information that appear to be useful. I came across code that is the same for loop that I am using, but does not have a delay at all. The problem with this code is that the next takePicture() is being called when the first one is still taking a picture. The solution is to tell the PictureCallback to call the takePicture(). This ensures that the camera is not busy during the second call, but it means that the number of pictures being taken will have to be kept track of by means of an instance variable instead of a for loop. 
+			
+			The other piece of information that is useful is the postDelayed() method because it seems to do the waiting that is desired. An example of it can be found on StackOverflow \href{http://stackoverflow.com/questions/4111905/how-do-you-have-the-code-pause-for-a-couple-of-seconds-in-android}{here} and the API can be found \href{http://developer.android.com/reference/android/os/Handler.html#postDelayed\%28java.lang.Runnable,\%20long\%29}{here}.
+			
+		\subsection{Future Work}
+			I am going to try to use the above two pieces of information to have the app take a picture on a button press, then the PictureCallBack will use the postDelayed() method to take another picture until the app is killed. Eventually, there will have to be a way to stop the app from taking pictures without killing it. My thoughts on that right now are to include a stop button that will change the state of an instance variable that the PicutreCallBack will examine and not call takePicture() anymore.
+		
+	
 	%Eighteenth Entry
 	\section{Successful Android Camer App 11/01/2012}
 		I was able to get an app running on my phone that would let me push one button from inside the app and it would take a picture. It displays a preview of what the camera sees and saves a picture to the internal SD card. 
