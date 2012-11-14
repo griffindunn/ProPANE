@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import phil.stahlfeld.propane.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -16,6 +15,7 @@ import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -29,11 +29,14 @@ public class MainActivity extends Activity {
 	protected static final String TAG = "PHIL ";
 
 	private Camera mCamera;
+	private Handler mHandler;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		mHandler = new Handler();
 
 		mCamera = getCameraInstance();
 
@@ -62,9 +65,17 @@ public class MainActivity extends Activity {
 			}
 
 			try {
+				mCamera.startPreview();
 				FileOutputStream fos = new FileOutputStream(pictureFile);
 				fos.write(data);
 				fos.close();
+
+				mHandler.postDelayed(new Runnable() {
+					public void run() {
+						mCamera.takePicture(null, null, mPicture);
+					}
+				}, 5000);
+
 			} catch (FileNotFoundException e) {
 				Log.d(TAG, "File not found: " + e.getMessage());
 			} catch (IOException e) {

@@ -6,6 +6,9 @@
 
 \begin{document}
 
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{4pt}
+
 	% Title Page
 	\begin{titlepage}
 
@@ -39,7 +42,54 @@
 	\thispagestyle{empty}
 	
 	\section{Design Overview}
-		hello world
+		As mentioned in previous documentation concerning this project (found here: \url{http://sites.google.com/site/bupropane}), the ProPANE system will be broken down into the capture system and the analysis system. The purpose of the capture system is to collect images of a whiteboard throughout the course of a normal class. The purpose of the analysis system is to process these images for the purpose of generating key images. 
+		
+		\subsection{System Setup}
+		
+	\section{Capture System}
+		The capture system is composed of capture device and capture stand. The BU ProPANE team has decided to use the Samsung Galaxy Camera for the capture device and the INSERT STAND HERE. 
+			
+			\subsection{Camera}
+				The Samsung Galaxy Camera is an Android-based point-and-shoot digital camera. This device was selected for the project because it met the required criteria better than the other cameras that were examined. 
+				
+				\subsubsection{Camera Criteria}
+					The following is a list of criteria that the camera had to meet based on the requirements documented in the technical specifications for this project:
+					\begin{itemize}
+						\item Programmable to allow for automatic, repetitive captures
+						\item Battery capacity to allow for a full lecture of captures
+						\item Portable to allow for transportation between rooms
+						\item High enough resolution to discern characters within specified operating distance
+					\end{itemize}
+				
+				\subsubsection{Camera Comparisons}
+					After coming across a Microsoft Research paper documenting a solution to an extremely similar whiteboard problem, the initial idea was to use the same approach as the Microsoft team and connect a camera via USB to a computer that would signal for the camera to take a picture. Conferring with the clients resulted in this idea violating the programmable requirement for the camera because the clients desired a wireless solution. 
+					
+					Further research into programmable cameras resulted in the discovery of several Android-based cameras. Of the cameras on the market during the research period (beginning of October 2012), the Nikon Coolpix S800 was the forerunner since---according to user reviews---it provided the most suitable interface for programming. However, further research into the camera revealed that the battery for the camera was only capable of taking approximately 150 shots per charge. For a 52 minute class, the camera will be required to take at least 624 pictures (i.e. one picture every five seconds).
+					
+					Continued research yielded an advertisement for the Samsung Galaxy Camera. The Samsung Galaxy Camera has a greater programmability, larger battery (7 hours), and higher resolution than the Nikon Coolpix S800.
+				
+			\subsection{TRIPOD}
+			
+			
+			\subsection{Application}
+				Since the Samsung Galaxy Camera runs Android 4.1 Jelly Bean, the capture system will be based around an Android application. The Android API has an interface for cameras that let the programmer perform actions such as: taking a picture, autofocusing the camera, and saving the resulting picture as a JPEG. The following sections document the proposed design for the application.
+				
+				\subsubsection{Graphical Layout}
+					
+					\includegraphics{images/app-main-layout.eps}
+				
+				\subsubsection{Class Design}
+		
+	
+	\section{Analysis System}
+	
+	
+	\section{Budget}
+	
+	
+	\section{Tentative Schedule}
+		
+		
 		
 			
 \end{document}
