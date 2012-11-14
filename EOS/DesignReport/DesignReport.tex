@@ -75,9 +75,21 @@
 				Since the Samsung Galaxy Camera runs Android 4.1 Jelly Bean, the capture system will be based around an Android application. The Android API has an interface for cameras that let the programmer perform actions such as: taking a picture, autofocusing the camera, and saving the resulting picture as a JPEG. The following sections document the proposed design for the application.
 				
 				\subsubsection{Graphical Layout}
+					The layout for the system was designed to separate the configuration of a capture from the capture itself. The initial screen that the user will see is Figure \ref{img:app-main-layout} where he will be able to configure how often pictures will be taken and the name of the directory where pictures will be stored (the name of the capture). Once the user clicks on the "Continue" button, he will be taken to the screen seen in Figure \ref{img:app-preview-layout} where he will be able to adjust the camera angle/focus/etc to capture the desired portions of a whiteboard. Once the "Start Capture" button is clicked, the system will start capturing images and the "Start Capture" button will change to a "Stop Capture" button. The "Stop Capture" button will stop the system from capturing images and return it to the initial screen. 
 					
-					\includegraphics{images/app-main-layout.eps}
-				
+					\begin{figure}
+						\centering
+						\includegraphics{images/app-main-layout.eps}
+						\caption{This figure shows the planned layout for the capture system's initial screen/Android activity.}
+						\label{img:app-main-layout}
+					\end{figure}
+					
+					\begin{figure}
+						\centering
+						\includegraphics{images/app-preview-layout.eps}
+						\caption{This figure shows the planned layout for the capture system's screen/Android activity that provides the ability to preview what part of the whiteboard will be captured by the system. Note that once the user clicks on the "Start Capture" button, it will change to a "End Capture" button.}
+					\end{figure}
+					
 				\subsubsection{Class Design}
 		
 	
