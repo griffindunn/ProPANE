@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
+import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.PictureCallback;
 import android.os.Bundle;
 import android.os.Environment;
@@ -26,10 +27,12 @@ public class MainActivity extends Activity {
 	private static final int MEDIA_TYPE_IMAGE = 1;
 	private static final int MEDIA_TYPE_VIDEO = 2;
 
-	protected static final String TAG = "PHIL ";
+	protected static final String TAG = "ProPANE ";
 
 	private Camera mCamera;
 	private Handler mHandler;
+
+	private boolean capturing;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,12 +47,34 @@ public class MainActivity extends Activity {
 		FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
 
 		preview.addView(mPreview);
+
+		findViewById(R.id.stop_capture).setEnabled(false);
+		capturing = false;
+	}
+
+	public void stopCapture(View view) {
+		findViewById(R.id.start_capture).setEnabled(true);
+		findViewById(R.id.stop_capture).setEnabled(false);
+		capturing = false;
 	}
 
 	public void startCapture(View view) throws InterruptedException {
+		// Signal to start capturing
+		findViewById(R.id.start_capture).setEnabled(false);
+		findViewById(R.id.stop_capture).setEnabled(true);
+		capturing = true;
 
-		mCamera.takePicture(null, null, mPicture);
-		Log.d(TAG, "TAKE PICTURE WAS CALLED");
+		// When autofocus completes, take picture
+		AutoFocusCallback mAutoFocusCallback = new Camera.AutoFocusCallback() {
+
+			public void onAutoFocus(boolean success, Camera camera) {
+				mCamera.takePicture(null, null, mPicture);
+				Log.d(TAG, "TAKE PICTURE WAS CALLED");
+			}
+		};
+
+		// Start autofocusing
+		mCamera.autoFocus(mAutoFocusCallback);
 
 	}
 
@@ -65,16 +90,22 @@ public class MainActivity extends Activity {
 			}
 
 			try {
+				// Start the preview again
 				mCamera.startPreview();
+
+				// Write the picture to storage
 				FileOutputStream fos = new FileOutputStream(pictureFile);
 				fos.write(data);
 				fos.close();
 
-				mHandler.postDelayed(new Runnable() {
-					public void run() {
-						mCamera.takePicture(null, null, mPicture);
-					}
-				}, 5000);
+				// If still capturing, wait then take another picture
+				if (capturing) {
+					mHandler.postDelayed(new Runnable() {
+						public void run() {
+							mCamera.takePicture(null, null, mPicture);
+						}
+					}, 5000);
+				}
 
 			} catch (FileNotFoundException e) {
 				Log.d(TAG, "File not found: " + e.getMessage());
@@ -91,14 +122,14 @@ public class MainActivity extends Activity {
 		File mediaStorageDir = new File(
 				Environment
 						.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-				"MyCameraApp");
+				"ProPANE");
 		// This location works best if you want the created images to be shared
 		// between applications and persist after your app has been uninstalled.
 
 		// Create the storage directory if it does not exist
 		if (!mediaStorageDir.exists()) {
 			if (!mediaStorageDir.mkdirs()) {
-				Log.d("MyCameraApp", "failed to create directory");
+				Log.d("ProPANE", "failed to create directory");
 				return null;
 			}
 		}
