@@ -1,7 +1,7 @@
 import Image
 import ImageEnhance
 
-im = Image.open("wb_nickel_7_crop.jpg")
+im = Image.open("../../../../Images/NickelImages/wb_nickel_7_crop.jpg")
 width=im.size[0]
 height=im.size[1]
 n=41
@@ -35,19 +35,19 @@ im.show()"""
 
 #Changes contrast for cells in checkerboard pattern
 
-"""for i in range(0,n):
+for i in range(0,n):
     for j in range(i%2,n-(i%2),2): 
         enh = ImageEnhance.Contrast(cell_image[i][j])
         enh = enh.enhance(3.0)
         im.paste(enh, cell[i][j])
-im.show()"""
+im.show()
 
 #Changes brightness for cells in checkerboard pattern
 
-for i in range(0,n):
+"""for i in range(0,n):
     for j in range(i%2,n-(i%2),2): 
         temp = ImageEnhance.Brightness(cell_image[i][j])
         temp = temp.enhance(2.0)
         im.paste(temp, cell[i][j])
-im.show()
+im.show()"""
 

@@ -4,7 +4,7 @@ import Image
 import ImageEnhance
 import ImageOps
 
-im = Image.open("whiteboard.jpg")
+im = Image.open("../../../../Images/test/whiteboard.jpg")
 im = im.resize((1000,1000))
 im_new = im.copy()
 width=im.size[0]

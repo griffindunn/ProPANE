@@ -4,7 +4,7 @@ import Image
 import ImageEnhance
 import ImageOps
 
-im = Image.open("whiteboard_cropped.jpg")
+im = Image.open("../../../../Images/test/whiteboard_cropped.jpg")
 im_new = im.copy()
 width=im.size[0]
 height=im.size[1]

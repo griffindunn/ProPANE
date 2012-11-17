@@ -8,12 +8,12 @@ import ImageEnhance
 import ImageOps
 import ImageStat
 
-im = Image.open("wb_nickel_7_crop.jpg")
+im = Image.open("../../../../Images/StandardImages/P1010054.jpg")
 #im_new = im.copy()
 im_new = im.convert("L")
 width=im.size[0]
 height=im.size[1]
-n=41
+n=61
 cell_width=width/n
 cell_height=height/n
 cell = [ [0 for i in range(n) ] for j in range(n) ]
@@ -43,6 +43,7 @@ for i in nsize:
         cell[i][j]= ((j)*cell_width, i*cell_height, (j+1)*cell_width, (i+1)*cell_height)
         cell_image[i][j] = im.crop(cell[i][j])   
 
+
 for i in nsize:
     for j in nsize:
         lum[i][j] = cell_image[i][j].convert("L")
@@ -56,7 +57,7 @@ for i in nsize:
 #im_new.show()
 bwim = im.convert("L")
 #sigw = ImageStat.Stat(im_new).stddev[0]
-sigw = 12
+sigw = 8
 for  i in nsize:
         for j in nsize:
            
@@ -73,7 +74,17 @@ for  i in nsize:
 
             elif abs(I[i][j][0]-Iw[i][j])/(sig[i][j][0]+sigw) < Tw and sig[i][j][0]/sigw >= Tsig:
                cell_id[i][j] = "stroke cell"
+               temp = ImageEnhance.Brightness(cell_image[i][j])
+               temp = temp.enhance(2.0)
+               im.paste(temp, cell[i][j])
 
             else:
                cell_id[i][j] = "foreground object"
-                                                    
+               temp = ImageEnhance.Brightness(cell_image[i][j])
+               temp = temp.enhance(0)
+               im.paste(temp, cell[i][j])
+im.show()
+                                            
+
+#for i in range(n):
+	#print cell_id[i][15]

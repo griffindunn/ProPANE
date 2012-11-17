@@ -1,7 +1,7 @@
 import Image
 import ImageEnhance
 
-pic = Image.open("whiteboard_cropped.jpg")
+pic = Image.open("../../../../StandardImages/P1010052.jpg")
 width = pic.size[0]
 height = pic.size[1]
 n=41
@@ -23,7 +23,8 @@ for i in nsize:
 
 choice = raw_input("row or column?")
 number = raw_input("Which %s?" % (choice))
-index = int(float(number))
+
+index = int(float(number))  
 
 if choice == "row":
 
