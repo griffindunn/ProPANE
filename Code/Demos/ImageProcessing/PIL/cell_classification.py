@@ -8,7 +8,7 @@ import ImageEnhance
 import ImageOps
 import ImageStat
 
-im = Image.open("../../../../Images/StandardImages/P1010054.jpg")
+im = Image.open("../../../../Images/NickelImages/wb_nickel_7_crop.jpg")
 #im_new = im.copy()
 im_new = im.convert("L")
 width=im.size[0]

@@ -11,6 +11,76 @@
 \maketitle
 	\tableofcontents
 
+	%Seventeenth Entry
+	\section{Cell Classification (11/14/2012)}
+		I continued following Microsoft's image processing algorithm by trying to classify image cells as whiteboard, stroke, or foreground cells.  This is done by calculating the whiteboard color and standard deviation of the whiteboard color, as well as the mean and standard deviation of the current cell color, and using the following comparisons: \\ \\
+	 The cell image is classified as a whiteboard cell if and only if \[ {|\bar{I} - \bar{I}_w| \over (\sigma + \sigma_w)}<T_w \quad \textrm{ and } \quad  {\sigma \over \sigma_w }< T_\sigma \] 
+and as a stroke cell if and only if
+\[{|\bar{I}-\bar{I}_w| \over (\sigma + \sigma_w)}<T_w \quad \textrm{ and } \quad {\sigma \over \sigma_w} \geq T_\sigma \] 
+Otherwise, it's classified as a foreground object cell.  In the WCS implementation, $T_w=2$ and $T_\sigma=2$.	
+
+I came up with some python code to accomplish this, which builds on previously written code.  Important to note is that all images we use are in RGB format, meaning they have three color bands.  Currently, I'm doing all calculations by first converting to greyscale images and then processing them.  This could be responsible for some of the errors I'm getting (it probably is) but it was easier for a first proof of concept.  
+
+\begin{verbatim}
+
+Tw = 2
+Tsig = 2
+bwim = im.convert("L")
+sigw = 8
+for  i in nsize:
+        for j in nsize:
+           
+            cell_bwimage[i][j] = bwim.crop(cell[i][j])
+            Iw[i][j] = white[i][j]            
+            I[i][j] = ImageStat.Stat(cell_bwimage[i][j]).mean
+            sig[i][j] = ImageStat.Stat(cell_bwimage[i][j]).stddev
+          
+            if abs(I[i][j][0]-Iw[i][j])/(sig[i][j][0]+sigw) < Tw and sig[i][j][0]/sigw < Tsig:
+               cell_id[i][j] = "whiteboard cell"
+
+            elif abs(I[i][j][0]-Iw[i][j])/(sig[i][j][0]+sigw) < Tw and sig[i][j][0]/sigw >= Tsig:
+               cell_id[i][j] = "stroke cell"
+               temp = ImageEnhance.Brightness(cell_image[i][j])
+               temp = temp.enhance(2.0)
+               im.paste(temp, cell[i][j])
+
+            else:
+               cell_id[i][j] = "foreground object"
+               temp = ImageEnhance.Brightness(cell_image[i][j])
+               temp = temp.enhance(0)
+               im.paste(temp, cell[i][j])
+\end{verbatim}
+
+Currently, it will make detected stroke cells brighter for ease of detection, and make foreground cells completely black.  Here are some example output images:
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.15]{images/wb_nickel_7_crop}
+\caption{Unaltered image}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.15]{images/cell_id_demo}
+\caption{Image with stroke cells brightened}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.15]{images/cell_id_demo_61}
+\caption{Same image, with smaller whiteboard standard deviation}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.18]{images/cell_id_griffin}
+\caption{Image with Griffin in front.  Note erroneously detected shirt stripes as stroke cells and no detection of foreground cells}
+\end{figure}
+
+Clearly, the stroke cell id works quite well, especially for a lower standard deviation.  Also, the stddev is not being correctly calculated;  I think it's because so far, I've been using single images.  What I need is images over time.  The script will need to be rewritten for that.  It also needs to be object-oriented.  This should also improve foreground cell detection.  
+
+
 	%Sixteenth Entry
 	\section{Dividing Images, Whiteboard Color Normalization (11/1/2012)}
 	\subsection*{Dividing Images into Cells}
