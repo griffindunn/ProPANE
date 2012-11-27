@@ -67,7 +67,7 @@
 			
 		
 	\section{Capture System}
-		The capture system is composed of capture device and capture stand. The BU ProPANE team has decided to use the Samsung Galaxy Camera for the capture device and the INSERT STAND HERE. 
+		The capture system is composed of capture device and capture stand. The BU ProPANE team has decided to use the Samsung Galaxy Camera for the capture device and the Sony VCT-R100 Tripod. 
 			
 			\subsection{Camera}
 				The Samsung Galaxy Camera is an Android-based point-and-shoot digital camera. This device was selected for the project because it met the required criteria better than the other cameras that were examined. 
@@ -88,8 +88,8 @@
 					
 					Continued research yielded an advertisement for the Samsung Galaxy Camera. The Samsung Galaxy Camera has a greater programmability, larger battery (7 hours), and higher resolution than the Nikon Coolpix S800.
 				
-			\subsection{TRIPOD}
-			
+			\subsection{Sony VCT-R100 Tripod}
+				After examining several different tripods, the Sony VCT-R100 seemed to be the best fit for this project. The tripod was designed to fit in a backpack so it complies with the goal of portability for the project. The only other factors that had a significant impact on the decision were weight and size. At 1.8 pounds, the tripod falls well within the 5 pound weight requirement listed in the technical specifications. When collapsed, the tripod is only 14.8 inches and designed to be carried in a backpack so again the tripod met the dimensional requirements laid out in the technical specifications. When extended, the tripod will raise the camera 39 inches above the ground, which is just above the height where the test-bed images were captured from. 
 			
 			\subsection{Application}
 				Since the Samsung Galaxy Camera runs Android 4.1 Jelly Bean, the capture system will be based around an Android application. The Android API has an interface for cameras that let the programmer perform actions such as: taking a picture, autofocusing the camera, and saving the resulting picture as a JPEG. The following sections document the proposed design for the application.
@@ -135,14 +135,70 @@
 						\caption{This figure shows the class diagram for the Android based capture system app}
 						\label{img:uml-capture-system}
 					\end{figure}
-					
-					
-		
+	
 	
 	\section{Analysis System}
-	
+		The purpose of the analysis system is to process the images from the capture system. The input to the system is a collection of images from a class period and the output from the system is a smaller collection of images that represent key frames from the class period. A key frame represents a period in time just before a professor begins to erase a portion of the board. If the professor is covering a portion of the board in one of the key frames, the analysis system is responsible for stitching together previous images to remove the professor from the key frame.  
+		
+		\subsection{Hardware}
+			%TODO
+			The analysis system will be developed and tested on a INSERT SPECS HERE as provided for this project by Bucknell University. Given the initial development being done, these specs should be able to handle the required memory accesses and image processing requirements.
+			
+		\subsection{Software}
+			After researching OpenCV, CamScanner, JMagik, and PIL (Python Imaging Library) as image processing tools, PIL was chosen as the tool for implementing the analysis system. The requirements that the tool would have to meet are as follows:
+			\begin{itemize}
+				\item Provide a means to stitch images
+				\item Provide enough documentation to use the tool effectively
+				\item Install on the Linux operating system
+			\end{itemize}
+			
+			While OpenCV provides image stitching abilities and thousands of other tools, the package was known to cause problems when installing on Linux and the ProPANE team was not able to get the bindings for C++, Java, or Python to work correctly on the development platform. The CamScanner app for Android provided the best tools for filtering images to highlight the information written on whiteboards, but it did not provide image stitching capabilities. JMagik seemed to provide image stitching abilities and installed relatively easily, but there was essentially no documentation that showed how to use the tool effectively. Finally, PIL was included in the Python 2.7 distribution, provided a crop/paste functionality for image stitching, and plenty of documentation is available online for using it. 
+			
+		\subsection{Class Design}
+			Given the size of this project, the best approach is to follow an object oriented design. While Python is known for being a scripting language, it contains many of the same object-oriented features as Java. To see the overall class diagram for the analysis system, see Figure \ref{img:uml-analysis-system}. The following subsections describe the classes seen in the class diagram. 
+			
+				\subsubsection{ImageSequence}
+					This class represents a collection of images that have been taken during a single class period. This is the highest level of the system so it performs the majority of the image processing to generate key images. This is the level of the system where image stitching can take place because this class can copy cells from one image and paste them into another image. 
+					
+				\subsubsection{Image}
+					This class represents a single image that has been taken by the capture system. This level of the system provides an organizational scheme for cells and an interface for accessing individual cells (for image stitching). 
+			
+				\subsubsection{Cell}
+					This class represents a rectangular area on the whiteboard. The purpose of this class is to allow a single image of the whiteboard to be broken down into interchangeable pieces.
+					
+				\subsubsection{CellType}
+					This enumeration is for the purpose of classifying cells. A board cell is just white and does not contain any foreground (i.e. the professor) or marker strokes. A Stroke cell contains information that has been written on the board. A foreground cell is anything that is not part of the whiteboard.
+					
+			
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.5]{images/uml-analysis-system.pdf}
+				\caption{This figure shows the class diagram for the Python based analysis system}
+				\label{img:uml-analysis-system}
+			\end{figure}
+			
+		\subsection{Cell Classification}
+			%TODO
+			COLIN DO THIS
+			
+		\subsection{Image Stitching}
+			Once the amount of information on a board begins to decrease (i.e. the professor is erasing information), the system will identify the previous image as a key frame. The image stitching becomes necessary when a professor is covering part of the board during a key frame. As listed in the risk planning, image stitching presents the greatest challenge for the project. However, the object oriented design of the project has provided a straightforward solution to the problem. 
+			
+			Consider an ImageSequence where Image[N] has been identified as a key image and a cell at Image[N](x,y) is identified as being a foreground cell. To get the information that is being covered by the professor, the system will check to see if the cell at Image[N-1](x,y) is also foreground. The system will keep checking farther and farther back in time until it finds a cell that is not foreground. The system will then copy this cell from Image[N-n](x,y) and insert it in place of the cell at Image[N](x,y). Performing this action with any number of foreground cells will yield a view of the board without a professor covering any of the information being presented.
 	
 	\section{Budget}
+	
+		\begin{tabular}{| c | c | c | c |}
+			\hline
+			Item						&	Unit Cost		&	Quantity		&	Cost		\\
+			\hline
+			Samsung Galaxy Camera	&	\$499.99		&	1			&	\$499.99	\\
+			\hline
+			Sony VCT-R100			&	\$24.00		&	1			&	\$24.00 \\
+			\hline
+			
+		
+		\end{tabular}
 	
 	
 	\section{Tentative Schedule}
