@@ -1,0 +1,103 @@
+\begin{thebibliography}{10}
+
+\bibitem{IEEESPS}
+{IEEE Signal Processing Society}, ``{Scope and Mission}.''
+  \url{http://www.signalprocessingsociety.org/about-sps/scope-mission/}, March
+  2010.
+
+\bibitem{cornell}
+{Cornell University Library Research Department}, ``{Digital Imaging
+  Tutorial}.''
+  \url{http://www.library.cornell.edu/preservation/tutorial/contents.html},
+  2003.
+
+\bibitem{eutecus}
+{Eutecus, Inc.}, ``{Signal and Image Processing Library}.''
+  \url{http://www.eutecus.com/ProdServ/InstantVision/SILib.html}.
+
+\bibitem{opencv}
+{Willow Garage, Inc.}, ``{OpenCVWiki}.''
+  \url{http://opencv.willowgarage.com/wiki/}, May 2012.
+
+\bibitem{aforge1}
+{Andrew Kirillov}, ``{AForge.NET Framework}.''
+  \url{http://www.aforgenet.com/aforge/framework/}, 2012.
+
+\bibitem{pil}
+{Secret Labs AB}, ``{Python Imaging Library}.''
+  \url{http://www.pythonware.com/products/pil/}, 2011.
+
+\bibitem{vips}
+{John Cupitt, Kirk Martinez, Joe Padfield}, ``{VipsWiki}.''
+  \url{http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS}, August 2012.
+
+\bibitem{matlab_ipt}
+{The MathWorks, Inc.}, ``{Image Processing Toolbox - MATLAB}.''
+  \url{http://www.mathworks.com/products/image/}, 2012.
+
+\bibitem{matlab_iat}
+{The MathWorks, Inc.}, ``{Image Acquisition Toolbox - MATLAB}.''
+  \url{http://www.mathworks.com/products/imaq/}, 2012.
+
+\bibitem{mathematica}
+{Wolfram Research, Inc.}, ``{Image Processing and Analysis - Wolfram
+  Mathematica 8 Documentation}.''
+  \url{http://reference.wolfram.com/mathematica/guide/ImageProcessing.html},
+  2012.
+
+\bibitem{ndt}
+{Collaboration for Nondestructive Testing}, ``{Image Processing Techniques}.''
+  \url{http://www.ndt-ed.org/EducationResources/CommunityCollege/Radiography/AdvancedTechniques/Real_Time_Radiography/ImageProcessingTechniques.htm},
+  December 1999.
+
+\bibitem{disability}
+{Stephen F. Austin State University}, ``{Note Taker Q\&A}.''
+  \url{http://www.sfasu.edu/disabilityservices/facultyandstaff/for_service_providers/note_q_a.asp},
+  2012.
+
+\bibitem{wcp}
+{Beetlebug Software}, ``{Whiteboard Capture Pro},'' 2009.
+
+\bibitem{wbc}
+{Elecom Co., Ltd.}, ``{WBConference User Manual}.''
+  \url{http://app.elecom.co.jp/en/wbcap/ios/manual.html}, 2011.
+
+\bibitem{camscan}
+{Instig Information Co., Ltd.}, ``{CamScanner}.''
+  \url{http://www.intsig.com/en/camscanner.html}, 2012.
+
+\bibitem{wbs}
+{Magnicode, Inc.}, ``{Whiteboard Snap - Android Apps on Google Play}.''
+  \url{https://play.google.com/store/apps/details?id=com.magnicode.whiteboard&hl=en},
+  May 2012.
+
+\bibitem{WCS}
+{Li-wei He, Zhengyou Zhang, Zicheng Liu}, ``{Why Take Notes? Use the Whiteboard
+  Capture System}.''
+  \url{ftp://ftp.research.microsoft.com/pub/tr/tr-2002-89.pdf}, September 2002.
+
+\bibitem{reboard}
+{Gene Golovchinsky, Scott Carter, Jacob Biehl}, ``{Beyond the Drawing Board:
+  Toward More Effective Use of Whiteboard Content}.''
+  \url{http://arxiv.org/ftp/arxiv/papers/0911/0911.0039.pdf}, December 2009.
+
+\bibitem{chumby}
+{Chumby Industries}, ``{Chumby Classic}.''
+  \url{https://www.chumby.com/pages/chumby_classic}, 2012.
+
+\bibitem{nikon}
+{Nikon Inc.}, ``{Nikon COOLPIX S800c Digital Camera}.''
+  \url{http://www.nikonusa.com/en/Nikon-Products/Product/Compact-Digital-Cameras/26356/COOLPIX-S800c.html},
+  2012.
+
+\bibitem{samsung}
+{PDAdb.net}, ``{Samsung EK-GC100 Galaxy Camera Specs}.''
+  \url{http://pdadb.net/index.php?m=specs&id=3813&c=samsung_ek-gc100_galaxy_camera},
+  September 2012.
+
+\bibitem{polaroid}
+{United Press International, Inc.}, ``{Polaroid joins digital camera arena}.''
+  \url{http://www.upi.com/Science_News/2012/01/16/Polaroid-joins-digital-camera-arena/UPI-61851326750025/},
+  January 2012.
+
+\end{thebibliography}
