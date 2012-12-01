@@ -10,7 +10,83 @@
 \date{}
 \maketitle
 	\tableofcontents
+\newpage
 
+	%Twentieth Entry
+	\section{Even More Cell Classification Over Time (11/30/2012)}
+		I decided to try processing the image using the same as in the previous entry, except using the whiteboard color calculated from one empty board picture, instead of the one calculated from the sequence of images.  In the future, once we implement some of the error corrections that Microsoft used, we shouldn't get the weird anomalies in the whiteboard color that we're getting now.  However, for now I wanted to see what this gave me.  The results were interesting.  \\
+		 	
+		 	I used the single image whiteboard color calculation instead of the sequential one (see the second and third images in my previous worklog entry).  Here is a comparison of the cell classification from each method:
+		 	
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/griffin_foreground1}
+\caption{Sequence of images}
+\end{figure}
+		
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/griffin_foreground2}
+\caption{Single image}
+\end{figure}	
+	
+	The stroke detection is essentially identical in both images, but the foreground/whiteboard cell detection varies quite a bit.  For some reason, the single image whiteboard test thinks that many cells with nothing in them contain foreground objects.
+	
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/emptyboard_overtime}
+\caption{Sequence of images}
+\end{figure}
+		
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/emptyboard_single}
+\caption{Single image}
+\end{figure}
+
+These are the processed images of the last image in the set, which is an unobstructed view of the board.  Again, stroke cell detection is identical.  However, the single image whiteboard color test correctly determines that there are no foreground cells, while the sequence of images whiteboard color test believes that there is a foreground object.  This is due to the aforementioned anomalies in the whiteboard color detection due to the small image set, and I believe that it will go away as our testbed is expanded.  For reference, look at the whiteboard image from the sequence of images.  The visible anomalies are clearly in the same locations as the erroneously detected foreground cells.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/background_overtime}
+\caption{The image of the whiteboard color as detected over the whole sequence}
+\end{figure}	
+	%Ninteenth Entry
+	\section{More Cell Classification Over Time (11/27/2012)}
+		I implemented numpy to calculate the mean and standard deviation of the whiteboard cells over time.  The idea is similar to before, but I think that earlier I was calculating it wrong.  This did not immediately fix the problem.  However, I did find the solution.  Even with the whiteboard cells having a very small standard deviation, the standard deviation of the stroke cells were all over the place.  Instead of using the value of $Tsig = 2$ as in Microsoft's paper, I looked at some of the values that I was getting and decided to try some higher values of $Tsig$.    This drastically improved the processing of the images.  Now, cell classification works for all three types of cell.  \\
+		
+		One interesting result of these changes is that the whiteboard color used for calculations looks good in most areas, but there are unusually dark patches in a couple places which throw off the uniformity of the board color.  I think that this is due to using a relatively small image set at the moment, so the person in the foreground is in certain spots for a much greater percentage of the time than they would normally be.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/griffin_foreground1}
+\caption{first image in sequence, processed, using Tsig = 40.  Clear foreground, stroke, and whiteboard cell detection}
+\end{figure}
+		
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{images/background_overtime}
+\caption{The image of the whiteboard color as detected over the whole sequence}
+\end{figure}	
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{images/whiteboard_single}
+\caption{The image of the whiteboard color as detected from one image of a whiteboard with no foreground objects}
+\end{figure}		
+	%Eighteenth Entry 
+	\section{Cell Classification Over Time (11/19/2012)}
+		I reworked the code I wrote for cell classification to work on a sequence of images over time.  Now, instead of an image cell being defined as cell\_image[$i$][$j$] (where $i$ and $j$ are width and height dimensions), they are defined as cell\_image[$i$][$j$][$k$], where $k$ is the index of the cell in the sequence of images.  That is, each cell\_image[$i$][$j$] comes from a different image $k$.  \\ 
+		
+		Now that the code is working with a sequence of images, it can detect foreground objects, since their detection requires an unusual change over time of individual cells.  However, a strange problem that I'm encountering now is that the program now seems to think that every non-foreground cell is a stroke cell.  I think it has to do with how the color of the whiteboard is calculated. I'm looking at another way to do some math on it... I think the \href{http://numpy.scipy.org/}{numpy} math library for Python will be very helpful for this. 
+		
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{images/allstrokecells}
+\caption{first image in sequence, processed. Note foreground cell detection and lack of whiteboard detection (brightness indicates stroke cell detection)}
+\end{figure}
+		
+		Clearly, the foreground detection is not perfect either, but without any of the error correction methods implemented by Microsoft, I think it is a good start.
 	%Seventeenth Entry
 	\section{Cell Classification (11/14/2012)}
 		I continued following Microsoft's image processing algorithm by trying to classify image cells as whiteboard, stroke, or foreground cells.  This is done by calculating the whiteboard color and standard deviation of the whiteboard color, as well as the mean and standard deviation of the current cell color, and using the following comparisons: \\ \\

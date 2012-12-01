@@ -3,7 +3,7 @@
 #Currently only works for 1 band (L). Converts im from RGB to L.  Need it to work
 #for 3 separate RGB bands
 
-import os, sys
+#import os, sys
 #image_path = os.path.abspath('../../../../Images/StandardImages')
 #os.path.join(image_path)
 
@@ -112,8 +112,6 @@ for k in imfolder:
 #sigw = 8
 
 
-###WHY DOESN'T IT DETECT WHITEBOARD CELLS ANYMORE???####
-
 for k in imfolder:
     for  i in nsize:
         for j in nsize:
@@ -146,7 +144,3 @@ for k in imfolder:
 for k in range(3,9):
     imname_out = ("test_images/out_P101005%s.jpg" % (k))
     imseq_out[k-3].save(imname_out)
-                                            
-
-#for i in range(n):
-	#print cell_id[i][15]

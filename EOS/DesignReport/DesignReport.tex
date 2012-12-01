@@ -165,7 +165,7 @@
 					This class represents a rectangular area on the whiteboard. The purpose of this class is to allow a single image of the whiteboard to be broken down into interchangeable pieces.
 					
 				\subsubsection{CellType}
-					This enumeration is for the purpose of classifying cells. A board cell is just white and does not contain any foreground (i.e. the professor) or marker strokes. A Stroke cell contains information that has been written on the board. A foreground cell is anything that is not part of the whiteboard.
+					This enumeration is for the purpose of classifying cells. A board cell is just white and does not contain any foreground (i.e. the professor) or marker strokes. A stroke cell contains information that has been written on the board. A foreground cell is anything that is not part of the whiteboard.
 					
 			
 			\begin{figure}
@@ -176,8 +176,7 @@
 			\end{figure}
 			
 		\subsection{Cell Classification}
-			%TODO
-			COLIN DO THIS
+			After an image is divided into cells, the cells must be classified as either board, stroke, or foreground cells, for the purpose of identifying when information is written on the board and when image stitching is necessary.  This is done by using the whiteboard color and standard deviation and the mean and standard deviation of the cell in question to calculate values, which are compared to set threshold values to determine the classification of the cell.  This process is detailed extensively in the background document.
 			
 		\subsection{Image Stitching}
 			Once the amount of information on a board begins to decrease (i.e. the professor is erasing information), the system will identify the previous image as a key frame. The image stitching becomes necessary when a professor is covering part of the board during a key frame. As listed in the risk planning, image stitching presents the greatest challenge for the project. However, the object oriented design of the project has provided a straightforward solution to the problem. 
@@ -202,11 +201,20 @@
 		
 		\end{tabular}
 	
-	Our budget will only require the Galaxy Camera, a Tripod, and a microSD card. We chose the VCT-R100 because it is small, compact, and is relatively inexpensive. The microSD card was chosen because it is the larges memory card our budget can afford. See section 2 for further details on our budget reasoning.
+	Our budget will only require the Galaxy Camera, a Tripod, and a microSD card. We chose the VCT-R100 because it is small, compact, and is relatively inexpensive. The microSD card was chosen because it is the largest memory card our budget can afford. See section 2 for further details on our budget reasoning.
 	
 	\section{Tentative Schedule}
-		
-		
-		
+\subsection*{Panel 4 - 2/4/13}
+\begin{itemize}
+\item{App on Samsung Galaxy Camera}
+\item{Image stitching demo}
+\item{Key Image demo}
+\end{itemize}
+
+\subsection*{Panel 5 - 3/4/13}
+Demonstration of a fully functional Version 1 System.  All subsections should be working together as a whole system.  This leaves room for improvement before panel 6.
+
+\subsection*{Panel 6 - 4/15/13}
+Version 1 will be 100\% complete and functional, and some features of Version 2 will be implemented.  Highest priority V2 features include image keystone correction, whiteboard normalization, automatic image cropping, and Wifi image transfer from camera to server.	
 			
 \end{document}
