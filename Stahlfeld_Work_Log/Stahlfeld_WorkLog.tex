@@ -16,6 +16,62 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Twenty Fourth Entry
+	\section{Panel 3 Preparation 11/28/2012}
+	
+		Tonight's work consisted of generating the Powerpoint that can be accessed on the ProPANE website. We tried to minimize the amount of text that went on the slides so that people would focus on what we were saying rather than trying to read everything on the slides. The major items we wanted to convey in the PowerPoint were:
+		\begin{itemize}
+			\item Camera selection
+			\item Tripod selection
+			\item Analysis system design
+			\item Capture system design
+		\end{itemize}
+	
+	
+	% Twenty Third Entry
+	\section{Work on Design Report 11/19/2012}
+		
+		\subsection{What goes in the design report?}
+			Obviously, some of the major decisions made by the team have to be included in the design report, but the minor ones do not belong in it (they belong in the worklog). The decisions that need to be addressed in the document ares as follows:
+			\begin{itemize}
+				\item Camera selection
+				\item Tripod selection
+				\item PIL selection
+			\end{itemize}
+			
+			
+		\subsection{Layout of Android app}
+			While looking at the technical specifications and considering what the clients would need, I decided that the Android app would need at least one extra screen (in addition to the Start Capture screen). Since professors will want to capture images from different classes, they will want to have the images in some sort of organizational structure so that they can be sent to the analysis system easily. I want to include a screen that will let the professor select a name for the directory where they want to store the images. The addition of this screen will only mean the addition of one more activity and then the second activity will have to retrieve the results of the form in the original activity. This is the same principle as the HelloWorld program written about in a previous work log so it will not add complexity to our design. This could be considered as scope creep since it was not included in the technical specification. However, writing the HelloWorld also was not in the technical specifications, but it had to be done and made my life easier. Adding this other screen should help with testing so for these reasons, I am deeming it necessary.
+	
+	
+	% Twenty Second Entry
+	\section{Cleanup of Android app Code 11/15/2012}
+		
+		\subsection{Making code more readable}
+			Looking through the app I wrote, I realized that it was impossible to read and had several methods, instance variables, and objects that were never used, but looked like they could be used. This seems natural since it was my first attempt with Android. I went through the code and removed all of the unused pieces and added comments so that it is easy to follow. While doing this, I thought of a potential problem addressed in the next section.
+			
+		\subsection{Stack overflow problems}
+			At first, I though that the PictureCallback object would keep pushing new (recursive) stack frames since the takePicture method seems to call itself again through the use of the PictureCallback. Thinking about it in a bit more detail, this should not actually be a problem. The takePicture call will finish in the PictureCallback and since it returns, the stack frame will be removed. Once the image data arrives to the PictureCallback, it will save the data and call the takePicture method again (theoretically in the same place on the stack as the previous call). By using the PictureCallback, we avoid the problems of ``recursively" calling the takePicture method. 
+	
+	% Twenty First Entry
+	\section{Implementation of postDelayed() in Android app 11/13/2012}
+		Altered the Android app so that when the Start Capture button is pressed, the app will start to collet images at the a standard rate.
+		
+		\subsection{startCapture() Implementation}
+			StackOvelflow said not to delay the GUI thread in button callbacks for very long, so I removed the loop and Thread.sleep() lines. The startCapture() method just creates a new PictureCallback that then gets used to take a picture.
+			
+		\subsection{PictureCallback Implementation}
+			The PictureCallback is the place where the actual looping takes place. It saves the returned JPEG data as a file and then calls the takePicture() method with itself as the PictureCallback. To make sure that this does not try to loop infinitely fast, I used the PostDelayed that waits 5000 milliseconds and then calls the takePicture method. 
+	
+	% Twentienth Entry
+	\section{Android Power Management 11/09/2012}
+		
+		\subsection{Galaxy Camera Battery}
+			After reading an article on the Galaxy Camera, I found that the battery should be sufficient for a single class, but it might not be good enough for a professor who has a full day of teaching classes (or just one long class). According to the article, the main use of the battery was the LCD screen since it is so large and bright. We should be able to have the app turn the screen off when it is capturing so that it does not waste battery (and does not distract students in class. 
+			
+		\subsection{Android Services}
+			According to the Android developers website, the capturing activity can start a Service that will run in the background and continue running even when the screen is off. Using a Service, I should be able to alter the ProPANE app so that it does not waste the battery by unnecessarily using the LCD screen. 
+	
 	% Ninteenth Entry
 	\section{Loop takePicture() in Android 11/06/2012}
 		The goal of this work is to extend the capabilities of the Android app to take multiple pictures with a 5 second delay in between each picture.
