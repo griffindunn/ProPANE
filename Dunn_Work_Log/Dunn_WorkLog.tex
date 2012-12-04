@@ -8,10 +8,73 @@
 	\tableofcontents
 	\newpage
 	
+	
+	% 20th Entry
+	\section{Group Work Creating Panel 3 Presentation 11/28/2012}
+	
+	We spent 2.5 hours creating and going over our PowerPoint presentation. The following is a list of the key sections to our presentation: \\
+	
+		\subsection{PowerPoint Sections}	
+			\begin{itemize}
+				\item Project Description
+				\item Specifications and Testing
+				\item High Level Design
+				\item Capture System Overview
+				\item Camera selection
+				\item Tripod selection
+				\item Android App
+				\item Analysis system design
+				\item February Demos
+				\item Rough Spring Schedule
+				\item Budget
+			\end{itemize}
+			
+			After constructing our PowerPoint outline we filled it in with content, assigned sections, and went our separate ways to practice.			
+			
+		\subsection{Practice}
+			Practice for me mostly just involved rehearsing the different points I wanted to make. I must admit that I don't get too nervous about public speaking lately because I've been doing so much of it over the past two semesters. This helped a lot because it meant that I could spend much less time memorizing lines and more time ensuring i had a solid understand of the presentation flow and what general ideas i wanted to get across.
+		
+	
+	% 19th Entry
+	\section{Individual Work Creating a Budget and Brainstorming for Documentation 11/18/2012}
+	
+	Today I created a budget for ProPANE. This was much easier than I expected because I went onto ATandT's website and found that they'd added an option to buy the camera without a data plan. Here is our budget: \\
+	
+		\includegraphics[scale=0.5]{images/budget.png} \\
+		
+		I chose the Sony VCT-R100 because it is small, compact, and durable. While there are cheaper options available I wanted the tripod to last long enough to be worth the purchase.
+		I chose the 32GB microSD card because we want a memory card that is large enough to hold all of the photos taken during a lecture so that if for some reason the transfer of photos to thee analysis server fails partway through the lecture, the images won't be lost.
+		The choice of the Samsung Galaxy Camera was pretty easy at this point since we've been agreed on our camera choice for months now.
+	
+	% 18th Entry
+	\section{Individual Work Exploring more OpenCV filters 11/15/2012}	
+	
+	I spent several hours experimenting with various filters to try to get a pure white background with pure black writing on the board. I found that my best results
+	came when I used a combination of filters. I first converted the image to greyscale. After this i used the cv.Threshhold function on it twice to filter out imperfections in the background, and used cv.Erode to further emphasize the text. The following image was the best I was able to achieve with filters: \\
+	
+		\includegraphics[scale=0.2]{images/bestResult.jpg} \\
+	
+	As you can see there are still issues with the image, but overall it turned out quite well. The elements key to this image's successful conversion were the threshold values chosen for the cv.Threshold section. This is a key weakness for this type of image processing because it required very precise numbers and I currently don't know how to generate the right numbers automatically. Instead i had to guess and check a bit. This means that attempting to run the same code on a different image would likely result in poor image quality.
+
+	Another success I had was in creating a program to detect the edges of a writing in a photograph. It uses a combination of the cv2.GaussianBlur filter and cv2.Canny to detect where the edges are and highlight them in white. after this i set everything else black. Inverting this creates a white image with black outlines of white text. After this i used cv.Erode in an attampt to fill in the outlines so that they looked like black text. Unfortunately, this also detracted from the image's writing clarity as the blacks tended to blur together. I'm currently looking for some method to fill in the inside of the black outlines without eroding outwards as well. The following are the three image results from the three steps: \\
+		
+		\includegraphics[scale=0.27]{images/cannyOriginal.jpg}
+		\includegraphics[scale=0.2]{images/cannydemo.jpg} \\
+		\includegraphics[scale=0.2]{images/cannydemo2.jpg}
+		\includegraphics[scale=0.2]{images/cannydemo3.jpg} \\
+
+	% 17th Entry
+	\section{Individual work creating a standard set of images for our image processing tests 11/12/2012}
+
+	Creating these images actually took a lot more work than I originally expected. Not because they were difficult to photograph, but because obtaining a tripod and finding an empty room in Breakiron took work. The library was out of loaner tripods so i ended up contacting one of my bosses, who happened to know another staff member who had a tripod lying around that i could borrow.\\
+	I then returned to Breakiron only to find that all the classrooms were occupied. I ended up having to leave, and came back a few hours later to take my pictures.\\
+	
+	My test set of photos were of the following: an image of a blank whiteboard,  an image of the whiteboard full of handwriting, and several images of me blocking different sections of the whiteboard. An interesting side effect of this endeavor is that clothing can really effect how Colin's current image processing software works. I was wearing a gray shirt with black horizontal stripes, and his software had a great deal of trouble differentiating my shirt from my actual handwriting.\\
+	
 	% 16th Entry
 	\section{Individual Work Researching OpenCV 11/5/2012 - 11/7/2012}
 		\subsection{Installation}
-			Spent a few hours installing and firmiliarizing myself with OpenCV-Python. It is an add-on library written in C that can be used with Python and C++.
+			Spent a few hours installing and familiarizing myself with OpenCV-Python. It is an add-on library written in C that can be used with Python and C++.
 		\subsection{Image Filtering Overview}
 		There were three filters that i found to be especially useful in OpenCV.
 			\begin{itemize}
