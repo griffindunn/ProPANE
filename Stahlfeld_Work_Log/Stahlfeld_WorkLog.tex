@@ -16,6 +16,14 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% First Entry
+	\section{Object Orienting Python Code 01/21/2013}
+		The ProPANE system can be broken down into three software components: the capture app, the analysis system, and the backend manager. The capture app produces a folder containing images of a white board. The analysis system takes the images and generates key images. The backend manager is the interface between the user and the analysis system.
+		
+		\subsection{Backend Design}
+			The idea for the backend is to have a user connect to a Samba share on the linux computer and drop the folder containing their images into a dropbox type folder. The backend daemon will be monitoring this directory for changes and when it notices the new images, it will move them to the final location and start an instance of the analysis system.
+		
+	
 	% Twenty Fourth Entry
 	\section{Panel 3 Preparation 11/28/2012}
 	

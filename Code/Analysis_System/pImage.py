@@ -41,3 +41,4 @@ class pImage(object):
     """Shows the image in the default system viewer"""
     def show(self):
         self.im.show()
+

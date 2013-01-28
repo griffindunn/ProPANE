@@ -24,7 +24,7 @@ class pCell(object):
         self.y = y
         self.filename = filename
         self.celltype = pCell.UNCLASSIFIED
-        self.cellstate = []
+        self.iw = 0
 
 
     """Static method for setting height and width"""
@@ -37,11 +37,13 @@ class pCell(object):
     # This is where the math goes COLIN
     """Tell cell to classify itself"""
     def classify(self, Iw):
+        im = Image.open(self.filename).convert("L")
+        cell_bwimage = im.crop(self.boundaries())
 
         Tw = 2
         Tsig = 40
-        I = ImageStat.Stat(cell_bwimage).mean
-        sig = ImageStat.Stat(cell_bwimage).stddev
+        I = ImageStat.Stat(cell_bwimage).mean[0]
+        sig = ImageStat.Stat(cell_bwimage).stddev[0]
         #sigw = numpy.std(Iw)   #Ideally something like this
         sigw = 0.1  #Seems to work for this value
         
@@ -70,3 +72,6 @@ class pCell(object):
         im = Image.open(self.filename)
         return im.crop(self.boundaries())
 
+    def histogram(self):
+        lum_hist = self.cellData().convert("L").histogram()
+        return numpy.array(lum_hist)
