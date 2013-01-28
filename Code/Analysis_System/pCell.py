@@ -1,4 +1,8 @@
 import Image
+import ImageEnhance
+import ImageOps
+import ImageStat
+import numpy
 
 class pCell(object):
 
@@ -20,6 +24,7 @@ class pCell(object):
         self.y = y
         self.filename = filename
         self.celltype = pCell.UNCLASSIFIED
+        self.cellstate = []
 
 
     """Static method for setting height and width"""
@@ -31,9 +36,24 @@ class pCell(object):
     
     # This is where the math goes COLIN
     """Tell cell to classify itself"""
-    def classify(self): 
-        pass
+    def classify(self, Iw):
 
+        Tw = 2
+        Tsig = 40
+        I = ImageStat.Stat(cell_bwimage).mean
+        sig = ImageStat.Stat(cell_bwimage).stddev
+        #sigw = numpy.std(Iw)   #Ideally something like this
+        sigw = 0.1  #Seems to work for this value
+        
+        if abs(I-Iw)/(sig+sigw) < Tw and sig/sigw < Tsig:
+            self.celltype = pCell.BOARD
+
+        elif abs(I-Iw)/(sig+sigw) < Tw and sig/sigw >= Tsig:
+            self.celltype = pCell.STROKE
+
+        else:
+            self.celltype = pCell.FOREGROUND
+  
 
     """Returns the boundaries of the cell (left, upper, right, lower)"""
     def boundaries(self):
