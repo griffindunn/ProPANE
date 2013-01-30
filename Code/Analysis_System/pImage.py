@@ -27,7 +27,7 @@ class pImage(object):
 
         for x in range(cellsPerRow):
             for y in range(cellsPerColumn):
-                self.cells[x][y] = pCell(x * pCell.width, y * pCell.height, self.filename)
+                self.cells[x][y] = pCell(x * pCell.width, y * pCell.height, self.im)
 
     """Changes the brightness factor of the cell given by (x,y) by enhanceFactor""" 
     def enhanceCell(self, x, y, enhanceFactor):

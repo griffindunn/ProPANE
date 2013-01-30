@@ -23,6 +23,7 @@ class pCell(object):
         self.x = x
         self.y = y
         self.filename = filename
+        self.im = filename
         self.celltype = pCell.UNCLASSIFIED
         self.iw = 0
 
@@ -36,9 +37,12 @@ class pCell(object):
     
     # This is where the math goes COLIN
     """Tell cell to classify itself"""
-    def classify(self, Iw):
-        im = Image.open(self.filename).convert("L")
+    def classify(self):
+        #im = Image.open(self.filename).convert("L")
+        im = self.im.convert("L")
         cell_bwimage = im.crop(self.boundaries())
+
+        Iw = self.iw
 
         Tw = 2
         Tsig = 40
@@ -49,13 +53,15 @@ class pCell(object):
         
         if abs(I-Iw)/(sig+sigw) < Tw and sig/sigw < Tsig:
             self.celltype = pCell.BOARD
+            print "BOARD CELL"
 
         elif abs(I-Iw)/(sig+sigw) < Tw and sig/sigw >= Tsig:
             self.celltype = pCell.STROKE
+            print "STROKE CELL"
 
         else:
             self.celltype = pCell.FOREGROUND
-  
+            print "FOREGROUND CELL"
 
     """Returns the boundaries of the cell (left, upper, right, lower)"""
     def boundaries(self):
@@ -64,12 +70,14 @@ class pCell(object):
 
     """Show the cell on screen (probably for debugging"""
     def show(self):
-        im = Image.open(self.filename)
+        #im = Image.open(self.filename)
+        im = self.im
         region = self.boundaries()
         im.crop(region).show()
 
     def cellData(self):
-        im = Image.open(self.filename)
+        #im = Image.open(self.filename)
+        im = self.im
         return im.crop(self.boundaries())
 
     def histogram(self):
