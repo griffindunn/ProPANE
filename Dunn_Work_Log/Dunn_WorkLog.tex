@@ -8,6 +8,36 @@
 	\tableofcontents
 	\newpage
 	
+	% 23nd Entry
+	\section{Group Work with Phil on our Linux machine 01/31/2013}
+	
+	Phil and I worked in brki163 on our linux computer. We spent some time tinkering with samba but eventually decided to reinstall ubuntu because it looked like someone had been tinkering with our system while we were away (there were a series of reboots, altered files, etc. during a timeperiod when we weren't around) and because our os was somewhat out of date. After re-installing ubuntu, we set up a samba server so that we can now connect to the machine, transfer files, etc remotely.
+	
+	% 22st Entry
+	\section{Individual Work Researching deamons and other process automation techniques 01/27/2013}	
+	
+	Our goal is to have our program continually scanning a given folder for new picture files. When these images are found we want them to be moved to a separate folder, we want the images processed, and we want the 'key frames' stored in a separate folder as well. The purpose of today's research was to look into different ways that we could automate this process.
+	
+	The task of actually checking for new files will be quite simple. All we have to preform is an 'ls' every once in a while, store the results, and preform 'diff' with the old ls results and the new. If something changes then we know that new files have been added.
+	The more difficult job will be automating the process so that the checks are preformed in the background without user input.
+	
+	I found three methods for doing this that i think will be viable. Each has its advantages and drawbacks:
+	
+	The most obvious and straight forward approach would be to simply run the program and have it sleep for a set amount of time between each check. (sleep1) causes the program to sleep for 1 second). While this approach would be an easy solution, and while we may end up implementing this solution initially, it isn't a good idea in the long run because it requires that the program be running constantly, which tends to take up processing power, etc.
+	
+	
+	While looking into deamons for a solution, I found the 'cron' deamon. This deamon is responsible for running specified programs at a specified time, date, etc. It is used quite a bit for scheduling tasks etc on linux machines. This method is appealing because it would be relatively easy to set up and it would be very reliable for running our program at specified time intervals. The downside to this method is that it will require root access on the machine and would require additional installation. Our goal is to have an all-inclusive program that can be run on any machine, which is somewhat hampered by the requirement of the 'cron' deamon etc.
+	
+	The following code would cause cron to run a program called a.php every 5 minutes: */5 * * * * /home/ramesh/backup.sh
+	
+	Our final option, and the option that would take the most work is creating our own deamon with python. It would be beneficial because we would be able to specify precisely what we want it to do, it would easily mesh with our python code and it would not require root permissions. The downside to this method is that it will require the most setup work and might not run as reliably in the end.
+	
+	\url{<http://www.jejik.com/articles/2007/02/a_simple_unix_linux_daemon_in_python/>}
+	
+	% 21st Entry
+	\section{Group Work Creating Camera Selection Decision Matrix 01/21/2013}
+	
+	Phil Colin and I sat down together after our meeting and created a decision matrix for choosing our final camera. While we had been set on the Galaxy Camera for months now, we still needed to show our decision process better and to justify our our final decision in quantifiable ways.	We did this by comparing a variety of aspects including battery life, optical zoom, resolution, price, having/not the android OS, etc. While our final results did show the Galaxy Camera as a clear winner, we tried to make our decision making process as objective and un-biased as possible. While we were already pretty set on our camera choice we tried not to let this influence our selection process. In an ideal world we would have made this decision matrix much earlier in the process so that we weren't so biased towards the cameras. 
 	
 	% 20th Entry
 	\section{Group Work Creating Panel 3 Presentation 11/28/2012}
