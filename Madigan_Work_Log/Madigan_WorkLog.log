@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.9.23)  1 DEC 2012 18:25
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.9.23)  1 FEB 2013 00:31
 entering extended mode
 **Madigan_WorkLog.tex
 
@@ -317,7 +317,7 @@ LaTeX Warning: No \author given.
 
 ("C:\Users\ctm013\Colin\Documents\ELEC 400\ProPANE\Madigan_Work_Log\Madigan_Wor
 kLog.toc"
-Overfull \hbox (25.91243pt too wide) in paragraph at lines 12--12
+Overfull \hbox (25.91243pt too wide) in paragraph at lines 15--15
  [] [][][]\OT1/cmr/bx/n/10 Work on Back-ground Doc-u-ment, Use of git for Doc-u
 -ment Ver-sion Con-trol (10/9/2012)[][] []  
  []
@@ -327,462 +327,496 @@ Overfull \hbox (25.91243pt too wide) in paragraph at lines 12--12
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
+<images/afterSpatial1.jpg, id=128, 1516.16437pt x 643.6547pt>
+File: images/afterSpatial1.jpg Graphic file (type jpg)
+
+<use images/afterSpatial1.jpg>
+Package pdftex.def Info: images/afterSpatial1.jpg used on input line 20.
+(pdftex.def)             Requested size: 303.2275pt x 128.72865pt.
+
+<images/beforeSpatial1.jpg, id=129, 1516.16437pt x 642.90187pt>
+File: images/beforeSpatial1.jpg Graphic file (type jpg)
+
+<use images/beforeSpatial1.jpg>
+Package pdftex.def Info: images/beforeSpatial1.jpg used on input line 26.
+(pdftex.def)             Requested size: 303.2275pt x 128.5781pt.
+
+Overfull \hbox (80.8755pt too wide) in paragraph at lines 35--35
+[] \OT1/cmtt/m/n/10 if abs(I[i][j][k][0]-Iw[i][j][0][0])/(sig[i][j][k][0]+sigw)
+ < Tw and sig[i][j][k][0]/sigw < Tsig:[] 
+ []
+
+[2pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.39 \end{verbatim}
+                   pdfTeX warning (ext4): destination with the same identifier 
+(name{figure.2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.39 \end{verbatim}
+                    <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_W
+ork_Log/images/afterSpatial1.jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/Pro
+PANE/Madigan_Work_Log/images/beforeSpatial1.jpg>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 42.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 42.
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-<images/griffin_foreground1.jpg, id=113, 1516.16437pt x 640.64343pt>
+<images/griffin_foreground1.jpg, id=137, 1516.16437pt x 640.64343pt>
 File: images/griffin_foreground1.jpg Graphic file (type jpg)
 
 <use images/griffin_foreground1.jpg>
-Package pdftex.def Info: images/griffin_foreground1.jpg used on input line 23.
+Package pdftex.def Info: images/griffin_foreground1.jpg used on input line 56.
 (pdftex.def)             Requested size: 379.04016pt x 160.16046pt.
 
-<images/griffin_foreground2.jpg, id=114, 1513.15312pt x 639.13782pt>
+<images/griffin_foreground2.jpg, id=138, 1513.15312pt x 639.13782pt>
 File: images/griffin_foreground2.jpg Graphic file (type jpg)
 
 <use images/griffin_foreground2.jpg>
-Package pdftex.def Info: images/griffin_foreground2.jpg used on input line 29.
+Package pdftex.def Info: images/griffin_foreground2.jpg used on input line 62.
 (pdftex.def)             Requested size: 378.28735pt x 159.78406pt.
-
-<images/emptyboard_overtime.jpg, id=115, 1512.40031pt x 642.90187pt>
-File: images/emptyboard_overtime.jpg Graphic file (type jpg)
-
-<use images/emptyboard_overtime.jpg>
-Package pdftex.def Info: images/emptyboard_overtime.jpg used on input line 37.
-(pdftex.def)             Requested size: 378.09915pt x 160.72507pt.
- [2pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
- has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.40 
-     pdfTeX warning (ext4): destination with the same identifier (name{figure.2
-}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.40 
-      <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images
-/griffin_foreground1.jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Mad
-igan_Work_Log/images/griffin_foreground2.jpg>]
-<images/emptyboard_single.jpg, id=122, 1514.65875pt x 643.6547pt>
-File: images/emptyboard_single.jpg Graphic file (type jpg)
-
-<use images/emptyboard_single.jpg>
-Package pdftex.def Info: images/emptyboard_single.jpg used on input line 43.
-(pdftex.def)             Requested size: 378.66376pt x 160.91327pt.
-
-<images/background_overtime.jpg, id=123, 1511.6475pt x 641.39626pt>
-File: images/background_overtime.jpg Graphic file (type jpg)
-
-<use images/background_overtime.jpg>
-Package pdftex.def Info: images/background_overtime.jpg used on input line 51.
-(pdftex.def)             Requested size: 377.91095pt x 160.34866pt.
  [3pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.55 	\section
-              {More Cell Classification Over Time (11/27/2012)}pdfTeX warning (
-ext4): destination with the same identifier (name{figure.4}) has been already u
-sed, duplicate ignored
+l.65 
+      <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images
+/griffin_foreground1.jpg>]
+<images/emptyboard_overtime.jpg, id=146, 1512.40031pt x 642.90187pt>
+File: images/emptyboard_overtime.jpg Graphic file (type jpg)
+
+<use images/emptyboard_overtime.jpg>
+Package pdftex.def Info: images/emptyboard_overtime.jpg used on input line 70.
+(pdftex.def)             Requested size: 378.09915pt x 160.72507pt.
+
+<images/emptyboard_single.jpg, id=147, 1514.65875pt x 643.6547pt>
+File: images/emptyboard_single.jpg Graphic file (type jpg)
+
+<use images/emptyboard_single.jpg>
+Package pdftex.def Info: images/emptyboard_single.jpg used on input line 76.
+(pdftex.def)             Requested size: 378.66376pt x 160.91327pt.
+ [4pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
+ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.55 	\section
-              {More Cell Classification Over Time (11/27/2012)} <C:/Users/ctm01
-3/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images/emptyboard_overtime.
-jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images/
-emptyboard_single.jpg>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 56.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 56.
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-
- []
-
-File: images/griffin_foreground1.jpg Graphic file (type jpg)
-<use images/griffin_foreground1.jpg>
-Package pdftex.def Info: images/griffin_foreground1.jpg used on input line 62.
-(pdftex.def)             Requested size: 379.04016pt x 160.16046pt.
-File: images/background_overtime.jpg Graphic file (type jpg)
- <use images/background_overtime.jpg>
-Package pdftex.def Info: images/background_overtime.jpg used on input line 68.
-(pdftex.def)             Requested size: 377.91095pt x 160.34866pt.
-
-[4pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
-has been already used, duplicate ignored
+l.81 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.5
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.71 
+l.81 
      pdfTeX warning (ext4): destination with the same identifier (name{figure.6
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.71 
+l.81 
+      <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images
+/griffin_foreground2.jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Mad
+igan_Work_Log/images/emptyboard_overtime.jpg> <C:/Users/ctm013/Colin/Documents/
+ELEC 400/ProPANE/Madigan_Work_Log/images/emptyboard_single.jpg>]
+<images/background_overtime.jpg, id=155, 1511.6475pt x 641.39626pt>
+File: images/background_overtime.jpg Graphic file (type jpg)
+
+<use images/background_overtime.jpg>
+Package pdftex.def Info: images/background_overtime.jpg used on input line 84.
+(pdftex.def)             Requested size: 377.91095pt x 160.34866pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+
+ []
+
+File: images/griffin_foreground1.jpg Graphic file (type jpg)
+<use images/griffin_foreground1.jpg>
+Package pdftex.def Info: images/griffin_foreground1.jpg used on input line 95.
+(pdftex.def)             Requested size: 379.04016pt x 160.16046pt.
+ [5pdfTeX warning (ext4): destination with the same identifier (name{figure.7})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.98 
       <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images
 /background_overtime.jpg>]
-<images/whiteboard_single.jpg, id=137, 2017.5375pt x 851.18pt>
+File: images/background_overtime.jpg Graphic file (type jpg)
+ <use images/background_overtime.jpg>
+Package pdftex.def Info: images/background_overtime.jpg used on input line 101.
+
+(pdftex.def)             Requested size: 377.91095pt x 160.34866pt.
+
+<images/whiteboard_single.jpg, id=161, 2017.5375pt x 851.18pt>
 File: images/whiteboard_single.jpg Graphic file (type jpg)
 
 <use images/whiteboard_single.jpg>
-Package pdftex.def Info: images/whiteboard_single.jpg used on input line 74.
+Package pdftex.def Info: images/whiteboard_single.jpg used on input line 107.
 (pdftex.def)             Requested size: 403.50035pt x 170.23297pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
-<images/allstrokecells.jpg, id=139, 1513.90594pt x 639.13782pt>
+[6pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.113 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+9}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.113 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+10}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.113 
+       <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/image
+s/whiteboard_single.jpg>]
+<images/allstrokecells.jpg, id=170, 1513.90594pt x 639.13782pt>
 File: images/allstrokecells.jpg Graphic file (type jpg)
 
 <use images/allstrokecells.jpg>
-Package pdftex.def Info: images/allstrokecells.jpg used on input line 85.
+Package pdftex.def Info: images/allstrokecells.jpg used on input line 118.
 (pdftex.def)             Requested size: 454.1753pt x 191.74283pt.
 
-Overfull \hbox (20.55528pt too wide) in paragraph at lines 85--86
+Overfull \hbox (20.55528pt too wide) in paragraph at lines 118--119
  [][] 
  []
 
-[5pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) 
-has been already used, duplicate ignored
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.88 
-     pdfTeX warning (ext4): destination with the same identifier (name{figure.8
-}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.88 
-      <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images
-/whiteboard_single.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
-[6pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) 
-has been already used, duplicate ignored
+[7pdfTeX warning (ext4): destination with the same identifier (name{figure.11})
+ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.128 \end{verbatim}
-                     <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_
-Work_Log/images/allstrokecells.jpg>]
-Overfull \hbox (59.87569pt too wide) in paragraph at lines 128--128
+l.131 I
+        came up with some python code to accomplish this, which builds on pr...
+ <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images/alls
+trokecells.jpg>]
+Overfull \hbox (59.87569pt too wide) in paragraph at lines 161--161
 []            \OT1/cmtt/m/n/10 if abs(I[i][j][0]-Iw[i][j])/(sig[i][j][0]+sigw) 
 < Tw and sig[i][j][0]/sigw < Tsig:[] 
  []
 
 
-Overfull \hbox (75.62555pt too wide) in paragraph at lines 128--128
+Overfull \hbox (75.62555pt too wide) in paragraph at lines 161--161
 []            \OT1/cmtt/m/n/10 elif abs(I[i][j][0]-Iw[i][j])/(sig[i][j][0]+sigw
 ) < Tw and sig[i][j][0]/sigw >= Tsig:[] 
  []
 
-<images/wb_nickel_7_crop.jpg, id=154, 2457.18pt x 1746.525pt>
+<images/wb_nickel_7_crop.jpg, id=178, 2457.18pt x 1746.525pt>
 File: images/wb_nickel_7_crop.jpg Graphic file (type jpg)
 
 <use images/wb_nickel_7_crop.jpg>
-Package pdftex.def Info: images/wb_nickel_7_crop.jpg used on input line 135.
+Package pdftex.def Info: images/wb_nickel_7_crop.jpg used on input line 168.
 (pdftex.def)             Requested size: 368.5611pt x 261.96744pt.
-
-<images/cell_id_demo.jpg, id=155, 2457.18pt x 1746.525pt>
+ [8]
+<images/cell_id_demo.jpg, id=183, 2457.18pt x 1746.525pt>
 File: images/cell_id_demo.jpg Graphic file (type jpg)
 
 <use images/cell_id_demo.jpg>
-Package pdftex.def Info: images/cell_id_demo.jpg used on input line 141.
+Package pdftex.def Info: images/cell_id_demo.jpg used on input line 174.
 (pdftex.def)             Requested size: 368.5611pt x 261.96744pt.
- [7pdfTeX warning (ext4): destination with the same identifier (name{figure.10}
-) has been already used, duplicate ignored
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.144 
-       <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/image
-s/wb_nickel_7_crop.jpg>]
-<images/cell_id_demo_61.jpg, id=162, 2457.18pt x 1746.525pt>
+<images/cell_id_demo_61.jpg, id=184, 2457.18pt x 1746.525pt>
 File: images/cell_id_demo_61.jpg Graphic file (type jpg)
 
 <use images/cell_id_demo_61.jpg>
-Package pdftex.def Info: images/cell_id_demo_61.jpg used on input line 147.
+Package pdftex.def Info: images/cell_id_demo_61.jpg used on input line 180.
 (pdftex.def)             Requested size: 368.5611pt x 261.96744pt.
-
-<images/cell_id_griffin.jpg, id=163, 2055.68pt x 1541.76pt>
-File: images/cell_id_griffin.jpg Graphic file (type jpg)
-
-<use images/cell_id_griffin.jpg>
-Package pdftex.def Info: images/cell_id_griffin.jpg used on input line 153.
-(pdftex.def)             Requested size: 370.00644pt x 277.50482pt.
- [8pdfTeX warning (ext4): destination with the same identifier (name{figure.11}
+ [9pdfTeX warning (ext4): destination with the same identifier (name{figure.12}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.156 
+l.183 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
-12}) has been already used, duplicate ignored
+13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.156 
+l.183 
        <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/image
-s/cell_id_demo.jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_W
-ork_Log/images/cell_id_demo_61.jpg>]
-Overfull \hbox (33.61281pt too wide) in paragraph at lines 161--161
-[]\OT1/cmr/bx/n/14.4 Dividing Im-ages, White-board Color Nor-mal-iza-tion (11/1
-/2012) 
- []
+s/wb_nickel_7_crop.jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madig
+an_Work_Log/images/cell_id_demo.jpg>]
+<images/cell_id_griffin.jpg, id=191, 2055.68pt x 1541.76pt>
+File: images/cell_id_griffin.jpg Graphic file (type jpg)
 
-[9pdfTeX warning (ext4): destination with the same identifier (name{figure.13})
- has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.179 \end{verbatim}
-                     <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_
-Work_Log/images/cell_id_griffin.jpg>]
-<images/whiteboard_cropped.jpg, id=177, 313.4109pt x 227.4096pt>
-File: images/whiteboard_cropped.jpg Graphic file (type jpg)
-
-<use images/whiteboard_cropped.jpg>
-Package pdftex.def Info: images/whiteboard_cropped.jpg used on input line 183.
-(pdftex.def)             Requested size: 313.41013pt x 227.40904pt.
-
-<images/wb_crop_background_1.jpg, id=180, 1285.80376pt x 927.465pt>
-File: images/wb_crop_background_1.jpg Graphic file (type jpg)
-
-<use images/wb_crop_background_1.jpg>
-Package pdftex.def Info: images/wb_crop_background_1.jpg used on input line 190
-.
-(pdftex.def)             Requested size: 321.45015pt x 231.86568pt.
-
-<images/wb_crop_background_2.jpg, id=181, 1274.7625pt x 945.5325pt>
-File: images/wb_crop_background_2.jpg Graphic file (type jpg)
-
-<use images/wb_crop_background_2.jpg>
-Package pdftex.def Info: images/wb_crop_background_2.jpg used on input line 196
-.
-(pdftex.def)             Requested size: 318.68985pt x 236.38254pt.
+<use images/cell_id_griffin.jpg>
+Package pdftex.def Info: images/cell_id_griffin.jpg used on input line 186.
+(pdftex.def)             Requested size: 370.00644pt x 277.50482pt.
  [10pdfTeX warning (ext4): destination with the same identifier (name{figure.14
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.199 
+l.191 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 15}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.199 
+l.191 
        <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/image
-s/whiteboard_cropped.jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Mad
-igan_Work_Log/images/wb_crop_background_1.jpg>]
-<images/wb_background.jpg, id=189, 1204.5pt x 903.375pt>
-File: images/wb_background.jpg Graphic file (type jpg)
+s/cell_id_demo_61.jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madiga
+n_Work_Log/images/cell_id_griffin.jpg>]
+Overfull \hbox (33.61281pt too wide) in paragraph at lines 194--194
+[]\OT1/cmr/bx/n/14.4 Dividing Im-ages, White-board Color Nor-mal-iza-tion (11/1
+/2012) 
+ []
 
-<use images/wb_background.jpg>
-Package pdftex.def Info: images/wb_background.jpg used on input line 202.
-(pdftex.def)             Requested size: 301.12427pt x 225.8432pt.
- [11pdfTeX warning (ext4): destination with the same identifier (name{figure.16
+<images/whiteboard_cropped.jpg, id=198, 313.4109pt x 227.4096pt>
+File: images/whiteboard_cropped.jpg Graphic file (type jpg)
+
+<use images/whiteboard_cropped.jpg>
+Package pdftex.def Info: images/whiteboard_cropped.jpg used on input line 216.
+(pdftex.def)             Requested size: 313.41013pt x 227.40904pt.
+ [11]
+<images/wb_crop_background_1.jpg, id=207, 1285.80376pt x 927.465pt>
+File: images/wb_crop_background_1.jpg Graphic file (type jpg)
+
+<use images/wb_crop_background_1.jpg>
+Package pdftex.def Info: images/wb_crop_background_1.jpg used on input line 223
+.
+(pdftex.def)             Requested size: 321.45015pt x 231.86568pt.
+
+<images/wb_crop_background_2.jpg, id=208, 1274.7625pt x 945.5325pt>
+File: images/wb_crop_background_2.jpg Graphic file (type jpg)
+
+<use images/wb_crop_background_2.jpg>
+Package pdftex.def Info: images/wb_crop_background_2.jpg used on input line 229
+.
+(pdftex.def)             Requested size: 318.68985pt x 236.38254pt.
+ [12pdfTeX warning (ext4): destination with the same identifier (name{figure.16
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.211 		\subsection
-                   *{Post Panel 2}pdfTeX warning (ext4): destination with the s
-ame identifier (name{figure.17}) has been already used, duplicate ignored
+l.232 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+17}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.211 		\subsection
+l.232 
+       <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/image
+s/whiteboard_cropped.jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Mad
+igan_Work_Log/images/wb_crop_background_1.jpg>]
+<images/wb_background.jpg, id=216, 1204.5pt x 903.375pt>
+File: images/wb_background.jpg Graphic file (type jpg)
+
+<use images/wb_background.jpg>
+Package pdftex.def Info: images/wb_background.jpg used on input line 235.
+(pdftex.def)             Requested size: 301.12427pt x 225.8432pt.
+ [13pdfTeX warning (ext4): destination with the same identifier (name{figure.18
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.244 		\subsection
+                   *{Post Panel 2}pdfTeX warning (ext4): destination with the s
+ame identifier (name{figure.19}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.244 		\subsection
                    *{Post Panel 2} <C:/Users/ctm013/Colin/Documents/ELEC 400/Pr
 oPANE/Madigan_Work_Log/images/wb_crop_background_2.jpg> <C:/Users/ctm013/Colin/
 Documents/ELEC 400/ProPANE/Madigan_Work_Log/images/wb_background.jpg>]
-Overfull \hbox (2.12619pt too wide) in paragraph at lines 236--236
+Overfull \hbox (2.12619pt too wide) in paragraph at lines 269--269
 []        \OT1/cmtt/m/n/10 cell[x]= ((j-1)*cell_width, i*cell_height, j*cell_wi
 dth, (i+1)*cell_height)[] 
  []
 
-<images/whiteboard.jpg, id=197, 385.44pt x 289.08pt>
+<images/whiteboard.jpg, id=225, 385.44pt x 289.08pt>
 File: images/whiteboard.jpg Graphic file (type jpg)
 
 <use images/whiteboard.jpg>
-Package pdftex.def Info: images/whiteboard.jpg used on input line 242.
+Package pdftex.def Info: images/whiteboard.jpg used on input line 275.
 (pdftex.def)             Requested size: 231.26578pt x 173.44933pt.
- [12pdfTeX warning (ext4): destination with the same identifier (name{figure.18
+ [14pdfTeX warning (ext4): destination with the same identifier (name{figure.20
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.248 
+l.281 
        <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/image
-s/whiteboard.jpg>] <images/cell_brightness_5.jpg, id=205, 1606.0pt x 1204.5pt>
+s/whiteboard.jpg>] <images/cell_brightness_5.jpg, id=233, 1606.0pt x 1204.5pt>
 File: images/cell_brightness_5.jpg Graphic file (type jpg)
 
 <use images/cell_brightness_5.jpg>
-Package pdftex.def Info: images/cell_brightness_5.jpg used on input line 251.
+Package pdftex.def Info: images/cell_brightness_5.jpg used on input line 284.
 (pdftex.def)             Requested size: 240.8896pt x 180.6672pt.
 
-<images/cell_contrast_25.jpg, id=206, 1606.0pt x 1204.5pt>
+<images/cell_contrast_25.jpg, id=234, 1606.0pt x 1204.5pt>
 File: images/cell_contrast_25.jpg Graphic file (type jpg)
 
 <use images/cell_contrast_25.jpg>
-Package pdftex.def Info: images/cell_contrast_25.jpg used on input line 269.
+Package pdftex.def Info: images/cell_contrast_25.jpg used on input line 302.
 (pdftex.def)             Requested size: 240.8896pt x 180.6672pt.
 
-Overfull \hbox (0.88945pt too wide) in paragraph at lines 274--274
+Overfull \hbox (8.98944pt too wide) in paragraph at lines 307--307
 []\OT1/cmr/bx/n/14.4 Gantt Chart, Prepa-ra-tion for Fac-ulty Panel 2 (10/24/201
 2) 
  []
 
-[13 <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images/c
+[15 <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/images/c
 ell_brightness_5.jpg> <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan
-_Work_Log/images/cell_contrast_25.jpg>] [14]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 302.
+_Work_Log/images/cell_contrast_25.jpg>] [16]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 335.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 302.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 335.
 
-<images/3D_matrix.jpg, id=225, 376.40625pt x 245.41687pt>
+<images/3D_matrix.jpg, id=252, 376.40625pt x 245.41687pt>
 File: images/3D_matrix.jpg Graphic file (type jpg)
 
 <use images/3D_matrix.jpg>
-Package pdftex.def Info: images/3D_matrix.jpg used on input line 330.
+Package pdftex.def Info: images/3D_matrix.jpg used on input line 363.
 (pdftex.def)             Requested size: 150.55983pt x 98.165pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--332
+Underfull \hbox (badness 10000) in paragraph at lines 360--365
 
  []
 
-[15pdfTeX warning (ext4): destination with the same identifier (name{figure.19}
+[17pdfTeX warning (ext4): destination with the same identifier (name{figure.21}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.334 
+l.367 
        <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/image
 s/3D_matrix.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 402--404
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 435--437
 
  []
 
-[17] [18] <images/propane_whiteboard.png, id=259, 601.4972pt x 435.87843pt>
+[19] [20] <images/propane_whiteboard.png, id=287, 601.4972pt x 435.87843pt>
 File: images/propane_whiteboard.png Graphic file (type png)
 
 <use images/propane_whiteboard.png>
-Package pdftex.def Info: images/propane_whiteboard.png used on input line 455.
+Package pdftex.def Info: images/propane_whiteboard.png used on input line 488.
 (pdftex.def)             Requested size: 216.53882pt x 156.9161pt.
- [19]
-<images/logo_options.png, id=271, 800.23969pt x 1262.46657pt>
+ [21]
+<images/logo_options.png, id=298, 800.23969pt x 1262.46657pt>
 File: images/logo_options.png Graphic file (type png)
 
 <use images/logo_options.png>
-Package pdftex.def Info: images/logo_options.png used on input line 469.
+Package pdftex.def Info: images/logo_options.png used on input line 502.
 (pdftex.def)             Requested size: 176.05327pt x 277.7435pt.
 
-<images/ProPANE_final_logos.png, id=273, 214.55156pt x 356.0803pt>
+<images/ProPANE_final_logos.png, id=300, 214.55156pt x 356.0803pt>
 File: images/ProPANE_final_logos.png Graphic file (type png)
 
 <use images/ProPANE_final_logos.png>
-Package pdftex.def Info: images/ProPANE_final_logos.png used on input line 474.
+Package pdftex.def Info: images/ProPANE_final_logos.png used on input line 507.
 
 (pdftex.def)             Requested size: 150.18506pt x 249.25452pt.
- [20pdfTeX warning (ext4): destination with the same identifier (name{figure.20
+ [22pdfTeX warning (ext4): destination with the same identifier (name{figure.22
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.478 
+l.511 
        <C:/Users/ctm013/Colin/Documents/ELEC 400/ProPANE/Madigan_Work_Log/image
 s/propane_whiteboard.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 479--480
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
 
  []
 
 
-Overfull \hbox (65.87782pt too wide) in paragraph at lines 490--490
+Overfull \hbox (65.87782pt too wide) in paragraph at lines 523--523
 []\OT1/cmr/bx/n/14.4 First Group Meet-ing and Gen-eral Group In-for-ma-tion (08
 /31/2012) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--496
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
 
  []
 
-[21pdfTeX warning (ext4): destination with the same identifier (name{figure.21}
+[23pdfTeX warning (ext4): destination with the same identifier (name{figure.23}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.497 		\subsection
+l.530 		\subsection
                    *{Team Name and Logo}pdfTeX warning (ext4): destination with
- the same identifier (name{figure.22}) has been already used, duplicate ignored
+ the same identifier (name{figure.24}) has been already used, duplicate ignored
 
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.497 		\subsection
+l.530 		\subsection
                    *{Team Name and Logo} <C:/Users/ctm013/Colin/Documents/ELEC 
 400/ProPANE/Madigan_Work_Log/images/logo_options.png> <C:/Users/ctm013/Colin/Do
 cuments/ELEC 400/ProPANE/Madigan_Work_Log/images/ProPANE_final_logos.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--502
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 504.
-[22]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 504.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 537.
+[24]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 537.
 
 ("C:\Users\ctm013\Colin\Documents\ELEC 400\ProPANE\Madigan_Work_Log\Madigan_Wor
 kLog.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 504.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 504.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 537.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 537.
 Package rerunfilecheck Info: File `Madigan_WorkLog.out' has not changed.
-(rerunfilecheck)             Checksum: 3E610F503F60CAAA11E20143D1AFC698;1815.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 504.
+(rerunfilecheck)             Checksum: 61F20F20FACF91243EAAA7DD4D0B3A7A;2050.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 537.
  ) 
 Here is how much of TeX's memory you used:
- 5720 strings out of 493921
- 86295 string characters out of 3147279
+ 5740 strings out of 493921
+ 86662 string characters out of 3147279
  168903 words of memory out of 3000000
- 8863 multiletter control sequences out of 15000+200000
+ 8874 multiletter control sequences out of 15000+200000
  8416 words of font info for 30 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,9n,28p,928b,440s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,9n,28p,928b,438s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -794,9 +828,9 @@ cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Madigan_WorkLog.pdf (22 pages, 7133689 bytes).
+Output written on Madigan_WorkLog.pdf (24 pages, 7524737 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
- 94 named destinations out of 1000 (max. 500000)
- 271 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 101 named destinations out of 1000 (max. 500000)
+ 305 words of extra memory for PDF output out of 10000 (max. 10000000)
 
