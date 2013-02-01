@@ -12,6 +12,39 @@
 	\tableofcontents
 \newpage
 
+	%Twenty-Third Entry
+	\section{Spacial Cell Filtering (1/31/2013)}	
+I'm continuing to work on cell classification.  After the basic classification, the next step that Microsoft follows is to implement spatial and temporal cell filtering, which reclassifies some cells that meet specific criteria.  I implemented part of the spatial filtering in the script.  Now, any foreground cells that are completely surrounded by stroke and/or board cells are converted to stroke cells.  This is because in reality, a foreground cell would never appear completely isolated from other foreground cells.  Changing it to a stroke cell minimizes its negative impact on the image, since it is actually not a foreground object.  
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{images/afterSpatial1}
+\caption{After Partial Spatial Filtering}
+\end{figure}
+		
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{images/beforeSpatial1}
+\caption{Before Partial Spatial Filtering}
+\end{figure}	
+This does not affect a lot of cells, which is good as far as our classification method is concerned.  Next, I will implement more spatial filtering, as well as some temporal filtering, which will further improve our cell classification.
+	%Twenty-Second Entry
+	\section{Object-Orienting the Code (1/24/2013)}	
+		We decided that going forward, we should work in an object-oriented coding environment.  Phil is the most experienced working with O-O code, so he is writing the bulk of the program.  I am converting the math that I wrote for cell classification into an O-O format.  Since the separate now divide the image into physical cells and process the images inside those cells, the variables in my code no longer have to be two- and three-dimensional because they are no longer in nested for-loops.  For instance, instead of the statement:
+\begin{verbatim}
+ if abs(I[i][j][k][0]-Iw[i][j][0][0])/(sig[i][j][k][0]+sigw) < Tw and sig[i][j][k][0]/sigw < Tsig:
+\end{verbatim}
+It now looks like:
+\begin{verbatim}
+if abs(I-Iw)/(sig+sigw) < Tw and sig/sigw < Tsig:
+\end{verbatim}
+This line alone is almost enough to show how much easier to read object oriented code can be.  
+\\
+One remaining problem is that for the variable $I_w$ in the above calculations (which represents the luminance of a cell of the whiteboard over time), we need access to all of the cells over time, and as the code is currently written, we don't have a way to do that easily. Phil is looking into solving this.
+	
+	%Twenty-First Entry
+	\section{Camera Selection Decision Matrix ()1/21/2013}
+		With less than a month until Panel 4, we are running out of time to get a camera for our project.  We have been set on the Samsung Galaxy Camera for some time, but we needed to show our decision process better to justify the decision.  I am making a set of decision matrices that compare and contrast various camera options to determine which device will work best with the ProPANE system.  I am comparing many aspects, including battery life, zoom, resolution, price, and many others.  It is completely objective.  That being said, we believe that the best option is still the Galaxy Camera, and this analysis should show that convincingly.
+	
 	%Twentieth Entry
 	\section{Even More Cell Classification Over Time (11/30/2012)}
 		I decided to try processing the image using the same as in the previous entry, except using the whiteboard color calculated from one empty board picture, instead of the one calculated from the sequence of images.  In the future, once we implement some of the error corrections that Microsoft used, we shouldn't get the weird anomalies in the whiteboard color that we're getting now.  However, for now I wanted to see what this gave me.  The results were interesting.  \\
