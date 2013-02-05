@@ -22,3 +22,10 @@ cv.Threshold(inv, inv, 100, 255, cv.CV_THRESH_BINARY_INV)
 #cv.Erode(inv, inv, iterations=1)
 
 cv.SaveImage('cannydemo2.jpg', inv)
+
+
+inv = cv.LoadImageM('cannydemo2.jpg')
+
+cv.Erode(inv, inv)
+
+cv.SaveImage('cannydemo3.jpg', inv)
