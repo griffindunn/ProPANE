@@ -53,15 +53,15 @@ class pCell(object):
         
         if abs(I-Iw)/(sig+sigw) < Tw and sig/sigw < Tsig:
             self.celltype = pCell.BOARD
-            print "BOARD CELL"
+            #print "BOARD CELL"
 
         elif abs(I-Iw)/(sig+sigw) < Tw and sig/sigw >= Tsig:
             self.celltype = pCell.STROKE
-            print "STROKE CELL"
+            #print "STROKE CELL"
 
         else:
             self.celltype = pCell.FOREGROUND
-            print "FOREGROUND CELL"
+            #print "FOREGROUND CELL"
 
     """Returns the boundaries of the cell (left, upper, right, lower)"""
     def boundaries(self):

@@ -31,11 +31,11 @@ class pImage(object):
 
     """Changes the brightness factor of the cell given by (x,y) by enhanceFactor""" 
     def enhanceCell(self, x, y, enhanceFactor):
-        print "Enhancing"
+        #print "Enhancing"
         enhanceCell = ImageEnhance.Brightness(self.cells[x][y].cellData())
         enhanceCell = enhanceCell.enhance(enhanceFactor)
         self.im.paste(enhanceCell, self.cells[x][y].boundaries())
-        print "Enhanced"
+        #print "Enhanced"
 
 
     """Shows the image in the default system viewer"""

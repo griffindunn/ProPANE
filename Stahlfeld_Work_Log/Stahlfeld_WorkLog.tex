@@ -15,6 +15,33 @@
 	
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
+
+    % Fifth Entry
+    \section{Setup Computer in BRKI 163 02/04/2013}
+        Until this point, the entire group had been focused on different aspects of the image processing part of this assignment. Now that we have a working system (that still needs work), it was time to assign someone to work on the backend of the system that will handle the filesystem aspects of the backend system. Griffin was assigned with researching how to do the filesystem monitoring to determine when a new set of images is ready to be processed. Also, the system had not been tested on the linux system up until this point so it was time to start on that.
+
+        \subsection{Need to Change Tech Spec}
+            Currently, the box in 163 is running 10.04 because that is one of the tech specs. While trying to install Samba and SSH, I found that this version of Ubuntu is not suppored by the packages and everything (GDM, Nautilus, ...) stopped working. I then installed Ubuntu 12.04 (LTS) on the box and was able to install Samba and OpenSSH-Server without any problems. Looking at tech spec 5.1.1, I would like to change the requirement from 10.04 to 12.04. The rationale for using 10.04 in the tech spec document is: ``This requirement exists to ensure that the software can be run on a free-of-cost operating system''. Since 12.04 is also a free-of-cost operating system, there is no real reason not to change the spec. Also, the Python analysis system was tested on a 10.04 virtual machine and ran successfully so the analysis system meets the spec and it is only the extra feature to make the end user's life easier that will not work on 10.04. I will send out an email to the clients with a formal requirement change request. 
+
+        \subsection{Server Configuration}
+            After installing 12.04, I installed Samba and configured it so that there is a share in the /home/propane/ProPANE directory where images will be placed for processing. The server is accessible through the URL propane.stahlfeld.com (this was the easiest/fastest way to get things set up for our testbed). Eventually, we hope to get something like propane.bucknell.edu. I was able to access this share through external linux and windows boxes. I also setup the OpenSSH-Server so that we should be able to test things without having to go to the lab.
+
+        \subsection{Testing Analysis System}
+            I installed git and cloned the ProPANE repository into my home directory on the linux box and tried to run the system. I got an error saying that the numpy module could not be installed. To install numpy, I had to install pip using apt and then use pip to install numpy. Once numpy was installed, I ran the system successfully on a set of 6 images. It took just over 200 seconds to run, which would give a runtime of approximately 6 hours for a full set of 600 images. This was expected since the clock speed of the linux box is 1.86 GHz compared with my laptop's 2.4 GHz (both processors are Core 2 Duos). 6 hours is still well within spec.
+
+    % Fourth Entry
+    \section{Python Optimization 01/31/2013}
+        Comparing the script runtime to the O-O code runtime made me believe that I was doing something wrong in one of the objects and that was the reason for the excessively long runtime. I decided to compare the number of different calls from the script to the O-O system. 
+
+        \subsection{Comparison of Calls}
+            The initial comparison revealed that the script did not make calls to anything except for modules in the PIL libraries and the numpy library. These were the same calls that the O-O system used so it could not be the actual calls themselves. I then started comparing the number of calls. There were the same number of calls to perform the math on the cells (generate histogram, adding histograms, getting luminance values...). Finally, I saw that the script calls the Image.open(JPEG FILENAME) once per image. Looking at the O-O program, the Image.open(JPEG FILENAME) gets called everytime a cell needs to access the data so it would be L * W * N where L is the number of cells per column, W is the number of cells per row, and N is the number of images.
+
+        \subsection{Speeding Up the Code}
+            The O-O code calls the Image.open method so many times because I wanted to be able to test the pCell class before writing the pImage and pImageSequence class. Now that everything seems to be working (and it is just slow), I can go back and change this to be smarter. To fix this problem, I changed the constructor for the pCell to take an open PIL file descriptor instead of a filename. This way, there will only be N open calls and the image descriptor will be shared between all pCells of a pImage. Note that this should not dramatically increase the memory footprint of the system because the open call does not load image data into memory, the data is loaded when something makes a call that requires data (e.g. crop()). 
+
+        \subsection{Performance Results}
+            Looking at the code, I made the claim that we could expect O(N) runtime where N is the number of images that have to be analyzed. Running the system on a 6 image set gave a runtime of 182 seconds. I then made the statemnt that it should take approximately 30 seconds to process a single image. Running the system on a set of a single image gave a runtime of 29.5 seconds. This showed that my claim about the system runtime was correct and that we should expect approximately 5 hours to process a 600 image image set (a full class). This is well within the specs, which state that we need to have a turnaround time of 24 hours. 
+            
 	
 	% Third Entry
 	\section{More Implementation 01/28/2013}
