@@ -9,18 +9,19 @@ import java.util.Date;
 
 import phil.stahlfeld.propane.R;
 import android.app.Activity;
-import android.content.Context;
-import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.hardware.Camera;
-import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.PictureCallback;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -31,6 +32,21 @@ public class MainActivity extends Activity {
 
 	private Camera mCamera;
 	private Handler mHandler;
+	private Messenger captureMessenger;
+	private Handler messageHandler = new Handler() {
+		public void handleMessage(Message message) {
+			Object path = message.obj;
+			if (message.arg1 == RESULT_OK && path != null) {
+				Toast.makeText(MainActivity.this,
+						"Downloaded" + path.toString(), Toast.LENGTH_LONG)
+						.show();
+			} else {
+				Toast.makeText(MainActivity.this, "Download failed.",
+						Toast.LENGTH_LONG).show();
+			}
+
+		};
+	};
 
 	private boolean capturing;
 
@@ -56,6 +72,7 @@ public class MainActivity extends Activity {
 		findViewById(R.id.start_capture).setEnabled(true);
 		findViewById(R.id.stop_capture).setEnabled(false);
 		capturing = false;
+
 	}
 
 	public void startCapture(View view) throws InterruptedException {
@@ -64,17 +81,24 @@ public class MainActivity extends Activity {
 		findViewById(R.id.stop_capture).setEnabled(true);
 		capturing = true;
 
+		Intent captureIntent = new Intent(this, CaptureService.class);
+		captureMessenger = new Messenger(messageHandler);
+		captureIntent.putExtra("MESSENGER", captureMessenger);
+		captureIntent.putExtra("CAMERA", );
+		startService(captureIntent);
+
 		// When autofocus completes, take picture
-		AutoFocusCallback mAutoFocusCallback = new Camera.AutoFocusCallback() {
-
-			public void onAutoFocus(boolean success, Camera camera) {
-				mCamera.takePicture(null, null, mPicture);
-				Log.d(TAG, "TAKE PICTURE WAS CALLED");
-			}
-		};
-
-		// Start autofocusing
-		mCamera.autoFocus(mAutoFocusCallback);
+		// AutoFocusCallback mAutoFocusCallback = new Camera.AutoFocusCallback()
+		// {
+		//
+		// public void onAutoFocus(boolean success, Camera camera) {
+		// mCamera.takePicture(null, null, mPicture);
+		// Log.d(TAG, "TAKE PICTURE WAS CALLED");
+		// }
+		// };
+		//
+		// // Start autofocusing
+		// mCamera.autoFocus(mAutoFocusCallback);
 
 	}
 
@@ -159,16 +183,6 @@ public class MainActivity extends Activity {
 
 		}
 		return c;
-	}
-
-	private boolean checkCameraHardware(Context context) {
-		if (context.getPackageManager().hasSystemFeature(
-				PackageManager.FEATURE_CAMERA)) {
-			return true;
-		} else {
-			return false;
-		}
-
 	}
 
 	@Override
