@@ -8,6 +8,39 @@
 	\tableofcontents
 	\newpage
 	
+	% 25th Entry
+	\section{Individual work on process automation 02/07/2013}
+	
+	I spent many hours today working on my python deamon/process automation combo. I felt bad because I hadn't done very much work over the past week, so I put in extra work today.
+	
+	Today's achievements: I created a deamon that checks a given folder every 5 seconds to see if there are any files in it. If there are, it moves them to another folder for further processing. We are now ready to take the processing code that phil/colin have been working on, and auto-run it on whatever files are placed in the picture-submission folder.
+	
+	Aspects of my work that took significant amounts of time:
+	
+	\begin{itemize}
+					\item Getting deamon running initially.
+						\subitem{This took time because i was still getting ahang of the basic deamon layout. once I had it figured out, the actual implementation didn't take too long.}
+					\item Finding the new files and saving their names using diff and ls
+						\subitem{This took time because once I had to figure out how to both get the names, remove the extra text that diff adds on, etc}
+					\item Combining items 1 and 2.
+						\subitem{This took a long time because i forgot how finniky Python can get if you mess up with tabs/spaces. I eventually ended up re-typing the whole program because I couldn't find where my spacing was causing my deamon to crash.}
+					\item Moving files between directories using the names supplied by ls and diff
+						\subitem{This took an embarrassingly long period of time to actually implement. I couldn't figure out why my various implementations kept failing. I finally discovered that it was because i wasn't removing the line end character from my string before adding it to the source address.}
+	\end{itemize}
+		
+	I am happy to report that we're now ready to demonstrate our working deamon as it moves files from a source folder to a destination folder.
+	Looking back i see that it would have been easier to simply make a method that returns true if there are files in the given folder. I could then have simply moved everything with one command. I like my implementation (moving files on a name by name basis) because it will be more useful later when we might not want to move all files in a specific folder.	
+	
+	
+	% 24th Entry
+	\section{Individual work on deamons 02/04/2013}
+	
+	Today I spent time implementing various pieces of my deamon/process automation research from 1/27.
+	I made a script with python that created a file containing all new files in a folder using a combination of ls and diff.
+	Since we'd decided to create our own python deamon in last week's meeting I did some further research on creating deamons in python. I found another site that had a good python deamon example in it, and I plan to try using it to create my own custom deamon.
+	
+	\url{<http://code.activestate.com/recipes/278731-creating-a-daemon-the-python-way/>}
+	
 	% 23nd Entry
 	\section{Group Work with Phil on our Linux machine 01/31/2013}
 	
