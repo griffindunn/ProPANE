@@ -1,12 +1,12 @@
 import Image
 import ImageEnhance
 
-#pic = Image.open("../../../../Images/StandardImages/P1010052.jpg")
-pic = Image.open("P1010053crop.jpg")
+pic = Image.open("../../../../../ImageSets/Test_out/test_out_5.jpg")
+#pic = Image.open("P1010053crop.jpg")
 
 width = pic.size[0]
 height = pic.size[1]
-n=61
+n=60
 cell_width=width/n
 cell_height = height/n
 

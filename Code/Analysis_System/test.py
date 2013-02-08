@@ -9,7 +9,7 @@ CELLS_PER_COLUMN = 64
 print "Starting for loop"
 start = time.time()
 
-imageSeq = pImageSequence("test_images/", CELLS_PER_ROW, CELLS_PER_COLUMN)
+imageSeq = pImageSequence("../../../ImageSets/test/*.jpg", CELLS_PER_ROW, CELLS_PER_COLUMN)
 
 imageSeq.generateLuminance()
 imageSeq.classifyCells()
@@ -20,6 +20,6 @@ for image in imageSeq.images:
 end = time.time()
 
 print "Time elapsed %s" % (end -start)
-
+print len(imageSeq.images)
 
 

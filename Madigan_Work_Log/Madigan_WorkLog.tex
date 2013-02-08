@@ -12,9 +12,51 @@
 	\tableofcontents
 \newpage
 
+	%Twenty-Fourth Entry
+	\section{First Full Lecture Capture (2/6/203)}
+		Today we captured two entire lectures using the app installed on our (finally-acquired) Galaxy Camera.  The app worked well in that it successfully took a picture approx. every 5 seconds for the entire lecture.  Battery life decreased from 100\% to 87\% after one lecture, which is even better than we had expected.  However, there are a few things that need to be sorted out with the app, which directly affect the ability of the analysis system to correctly classify cells.  
+		\subsection*{Color Balance}
+		Currently, for every image taken, the camera is automatically color-balancing the images, even in ou app.  It chooses the setting it deems to be the best for each image.  Not all of the images have the same overall tone  to them, as seen below.  
+	\begin{figure}[H]
+\centering
+\includegraphics[scale=0.1]{images/colorbalance_1}
+
+\end{figure}
+		
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.1]{images/colorbalance_2}
+
+\end{figure}	
+		
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.1]{images/colorbalance_3}
+
+\end{figure}		
+
+As a result of this, the analysis system is having trouble classifying cells.  It calculates the whiteboard color based on the average luminance of all of the images, but since the overall shade keeps changing, this average value is not helpful.  As a result, the images that happen to have a similar tone as the calculated average are classified correctly, but images that have much darker or lighter tones are incorrectly classified with massive amounts of foreground objects.  Phil is working on a fix to this, so when we try to get another image set on Friday, this should be fixed.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{images/badIw_1}
+\caption{Image with $I_w$ similar to calculated average}
+\end{figure}	
+		
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{images/badIw_2}
+\caption{Image with $I_w$ different from calculated average}
+\end{figure}
+
+	\subsection*{Memory Overload}
+	I quickly learned that there is no way for us to process the entire almost-700 image set at once.  The program as currently written will use up all of my available memory when trying to run on a set of 50 images (on my Windows laptop).  The Linux OS we use on our dedicated analysis computer will not even let us open 700 images at once!  Our plan now is to break processing up into sets of (hopefully) 50 images.  We also have ideas to bring down memory consumption, including more diligent opening and closing of the JPEG files.
+
+
+
 	%Twenty-Third Entry
 	\section{Spacial Cell Filtering (1/31/2013)}	
-I'm continuing to work on cell classification.  After the basic classification, the next step that Microsoft follows is to implement spatial and temporal cell filtering, which reclassifies some cells that meet specific criteria.  I implemented part of the spatial filtering in the script.  Now, any foreground cells that are completely surrounded by stroke and/or board cells are converted to stroke cells.  This is because in reality, a foreground cell would never appear completely isolated from other foreground cells.  Changing it to a stroke cell minimizes its negative impact on the image, since it is actually not a foreground object.  
+		I'm continuing to work on cell classification.  After the basic classification, the next step that Microsoft follows is to implement spatial and temporal cell filtering, which reclassifies some cells that meet specific criteria.  I implemented part of the spatial filtering in the script.  Now, any foreground cells that are completely surrounded by stroke and/or board cells are converted to stroke cells.  This is because in reality, a foreground cell would never appear completely isolated from other foreground cells.  Changing it to a stroke cell minimizes its negative impact on the image, since it is actually not a foreground object.  
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.2]{images/afterSpatial1}
@@ -376,7 +418,7 @@ I did some more research into the Nikon COOLPIX s800c camera.  It is the only An
 
 
 	% Ninth Entry	
-	\section{Work on Background Document, Use of git for Document Version Control (10/9/2012)}
+	\section{Work on Background Document, Use of git for Version Control (10/9/2012)}
 	\subsection*{Background Research}
 	I am doing basic research on the field of signal processing, and specifically image processing.  A lot of it is simply looking for reliable sources to cite and take information from.  As far as code libraries go, there are A LOT of different image processing libraries out there for a plethora of different platforms.  I am trying to mainly look at ones that are either free, or that Bucknell has access to (MATLAB and Mathematica).  Speaking of those two, I found a great chart comparing them: \url{http://en.wikipedia.org/wiki/Comparison_of_image_processing_software} 
 

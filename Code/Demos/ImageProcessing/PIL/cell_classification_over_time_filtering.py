@@ -12,16 +12,28 @@ import ImageEnhance
 import ImageOps
 import ImageStat
 import numpy
+import time
+import glob
 
-imnum = 6
+start = time.time()
+imagelist = glob.glob("../../../../../ImageSets/test/*.jpg")
+imnum = len(imagelist)
 imfolder = range(imnum)
 imseq = [0 for i in imfolder]
-for i in range(3,9):
-    imname = ("P101005%scrop.jpg" % (i))
-    imseq[i-3] = Image.open(imname)
-
+#for i in range(1,7):
+    #imname = ("P101005%scrop.jpg" % (i))
+    #imname = ("IMG_20130206_%s.jpg" % (i))
+    #imseq[i-3] = Image.open(imname)
+    #imseq[i-1] = Image.open(imname)
 #im = Image.open("P1010054.jpg")
 #im_new = im.copy()         #ideal
+
+i=0
+
+for image in imagelist:
+    imseq[i] = Image.open(image)
+    i=i+1
+    
 imseq_new = [0 for i in imfolder]
 imseq_out = [0 for i in imfolder]
 for i in imfolder:
@@ -99,9 +111,12 @@ for k in imfolder:
             imseq_new[k].paste(wb[i][j][k], cell[i][j][k])
 
 
-for k in range(3,9):
-    imname_new = ("test_images/P101005%s_new.jpg" % (k))
-    imseq_new[k-3].save(imname_new)
+#for k in range(3,9):
+#for k in range(1,7):
+    #imname_new = ("test_images/P101005%s_new.jpg" % (k))
+    #imseq_new[k-3].save(imname_new)
+    #imname_new = ("../../../../../ImageSets/test/*.jpg" % (k))
+    #imseq_new[k-1].save(imname_new)
 
 bwim = [0 for k in imfolder]    
 for k in imfolder:
@@ -168,6 +183,13 @@ for k in imfolder:
                 imseq_out[k].paste(temp, cell[i][j][k])
 
                
-for k in range(3,9):
-    imname_out = ("test_images/filteredout_P101005%s.jpg" % (k))
-    imseq_out[k-3].save(imname_out)
+#for k in range(3,9):
+    #imname_out = ("test_images/filteredout_P101005%s.jpg" % (k))
+    #imseq_out[k-3].save(imname_out)
+for k in range(1,len(imagelist)+1):
+    imname_out = ("../../../../../ImageSets/Test_out/test_out%s.jpg" % (k))
+    imseq_out[k-1].save(imname_out)
+
+end = time.time()
+
+print "Time elapsed %s" % (end-start)
