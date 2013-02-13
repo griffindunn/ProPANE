@@ -19,11 +19,10 @@ class pCell(object):
 
     
     """Define constructor for cell giving x and y of top left corner"""
-    def __init__(self, x, y, filename):
+    def __init__(self, x, y, im):
         self.x = x
         self.y = y
-        self.filename = filename
-        self.im = filename
+        self.im = im
         self.celltype = pCell.UNCLASSIFIED
         self.iw = 0
 
@@ -44,8 +43,8 @@ class pCell(object):
 
         Iw = self.iw
 
-        Tw = 2
-        Tsig = 40
+        Tw = 30    # Lower gives more foreground
+        Tsig = 300 # Higher gives more Board
         I = ImageStat.Stat(cell_bwimage).mean[0]
         sig = ImageStat.Stat(cell_bwimage).stddev[0]
         #sigw = numpy.std(Iw)   #Ideally something like this

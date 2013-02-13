@@ -42,6 +42,7 @@ class pImageSequence(object):
     def classifyCells(self):
         print "Classifying cells"
 
+        i = 1
         for image in self.images:
             for x in range(self.cpr):
                 for y in range(self.cpc):
@@ -50,4 +51,10 @@ class pImageSequence(object):
                     if image.cells[x][y].celltype == pCell.STROKE:
                         image.enhanceCell(x,y,2.0)
 
+                    if image.cells[x][y].celltype == pCell.FOREGROUND:
+                        image.enhanceCell(x,y,0.0)
+
+            
+            print "Finished image %s of %s" % (i, len(self.images))
+            i = i + 1
 
