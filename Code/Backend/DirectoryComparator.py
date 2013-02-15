@@ -16,10 +16,10 @@ class DirectoryComparator(object):
 
     def waitForTransfer(self, timeout):
         while True:
-            current_files = self.current_files[:]
+            current_files = list(self.current_files)[:]
             new_files = self.getNewFiles()
             print "New files: %s\nCurrent files: %s" % (new_files, current_files)
-            if len(new_files) == 0 and not dir_empty:
+            if len(new_files) == 0 and len(current_files) != 0:
                 break
             time.sleep(timeout)
 
