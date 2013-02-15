@@ -6,7 +6,7 @@ class DirectoryComparator(object):
 
     def __init__(self, directory):
         self.directory = directory
-        self.current_files = set([])
+        self.current_files = set(os.listdir(self.directory))
 
     def addIgnoreFile(self, filename):
         self.current_files.add(filename)

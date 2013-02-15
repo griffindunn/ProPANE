@@ -1,6 +1,8 @@
 from DirectoryComparator import DirectoryComparator
+import time
+import os
 
-DIRECTORY = "./test"
+DIRECTORY = "/home/propane/ProPane/"
 
 listen_dir = DirectoryComparator(DIRECTORY)
 
@@ -15,5 +17,7 @@ while True:
             print "Waiting for transfer"
             img_dir.waitForTransfer(10)
             print "Starting analysis system"
+            command = "python analysis_system.py %s" % sub_dir
+            os.system(command)	
 
     time.sleep(5)

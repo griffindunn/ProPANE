@@ -180,12 +180,6 @@ for k in imfolder:
     for i in nsize:
         for j in nsize:
 
-            
-
-for k in imfolder:
-    for i in nsize:
-        for j in nsize:
-
             if cell_id[i][j][k] == "STROKE":
                 temp = ImageEnhance.Brightness(cell_image[i][j][k])
                 temp = temp.enhance(2.0)
