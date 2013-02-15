@@ -36,5 +36,3 @@ public:
 
 };
 
-int PCell::cell_width = 0;
-int PCell::cell_height = 0;
