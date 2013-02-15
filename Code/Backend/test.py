@@ -16,10 +16,12 @@ while True:
         sub_dir = "%s/%s" % (DIRECTORY, new_file)
         if os.path.isdir(sub_dir):
             img_dir_comp = DirectoryComparator(sub_dir)
+            print "Clearing memory"
+            img_dir_comp.clearMemory()
             print "Waiting for transfer"
             img_dir_comp.waitForTransfer(10)
             print "Starting analysis system"
             command = "python analysis_system.py %s" % sub_dir
-            #os.system(command)	
+            os.system(command)	
 
     time.sleep(5)
