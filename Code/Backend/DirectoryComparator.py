@@ -8,9 +8,6 @@ class DirectoryComparator(object):
         self.directory = directory
         self.current_files = set(os.listdir(self.directory))
 
-    def addIgnoreFile(self, filename):
-        self.current_files.add(filename)
-
     def getNewFiles(self):
         new_file_set = set(os.listdir(self.directory))
         diff_file_set = new_file_set - self.current_files
@@ -19,7 +16,10 @@ class DirectoryComparator(object):
 
     def waitForTransfer(self, timeout):
         while True:
-            if len(self.getNewFiles()) == 0:
+            new_files = self.getNewFiles()
+            current_files = self.current_files
+            print "New files: %s\nCurrent files: %s" % (new_files, current_files)
+            if len(new_files) == 0 and len(current_files) != 0:
                 break
             print "Sleeping"
             time.sleep(timeout)
