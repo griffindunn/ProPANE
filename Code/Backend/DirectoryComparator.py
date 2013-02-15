@@ -21,5 +21,4 @@ class DirectoryComparator(object):
             print "New files: %s\nCurrent files: %s" % (new_files, current_files)
             if len(new_files) == 0 and len(current_files) != 0:
                 break
-            print "Sleeping"
             time.sleep(timeout)

@@ -2,8 +2,8 @@ from DirectoryComparator import DirectoryComparator
 import time
 import os
 
-DIRECTORY = "./test"
-#DIRECTORY = "/home/propane/ProPane/"
+#DIRECTORY = "./test"
+DIRECTORY = "/home/propane/ProPane/"
 
 
 listen_dir = DirectoryComparator(DIRECTORY)
