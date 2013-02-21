@@ -201,12 +201,6 @@ for k in imfolder:
                 key_index = logic.index(True)
                 cell_id[ relevant_cell[key_index][0] ][ relevant_cell[key_index][1] ][ relevant_cell[key_index][2] ] = "FOREGROUND"
 
-            
-
-for k in imfolder:
-    for i in nsize:
-        for j in nsize:
-
             if cell_id[i][j][k] == "STROKE":
                 temp = ImageEnhance.Brightness(cell_image[i][j][k])
                 temp = temp.enhance(2.0)
