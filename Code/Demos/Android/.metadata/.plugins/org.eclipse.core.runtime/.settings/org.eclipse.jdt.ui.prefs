@@ -1,4 +1,4 @@
-#Tue Feb 05 23:49:04 EST 2013
+#Thu Feb 21 16:53:46 EST 2013
 sp_cleanup.remove_unnecessary_casts=true
 sp_cleanup.remove_trailing_whitespaces_ignore_empty=false
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
@@ -6,7 +6,7 @@ sp_cleanup.use_blocks=false
 sp_cleanup.make_private_fields_final=true
 content_assist_disabled_computers=org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000
 sp_cleanup.never_use_parentheses_in_expressions=true
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="android.hardware.Camera$Area"><rhs name\="android.hardware.Camera$Area"/></lhs></history>
 sp_cleanup.always_use_this_for_non_static_field_access=false
 sp_cleanup.never_use_blocks=false
 sp_cleanup.organize_imports=true

@@ -16,6 +16,25 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Eighth Entry
+	\section{Optimizing O-O Python Code 02/20/2013}
+		After optimizing the Python script for the analysis system, I decided to take the knowledge from creating that prototype to the O-O code I have been writing. The end goal of this work is to create a system that has comparable runtime to the Python script.
+		
+		\subsection{Script Optimizations}
+			The big optimizations to the script were achieved by taking code that was being executed on every single cell and trying to perform the same action on an entire image so that each cell has less to do. After looking at my code, I did not really see any of these optimizations, but it was still taking 12 times as long as the script to run.
+			
+		\subsection{Profiling Code}
+			I encapsulated my testing script into a single function so that I could run the Python profiler on the code. To do that, all I had to do was start an interactive Python shell, import profile and my testing file, and then execute ``profile.run(`test.main()', 'profiling-results')". The profiling made the code run even slower (I was testing on a 20 image set), but it ended up yielding valuable results. I then used pstats to reveal the method/function calls that used the most cumulative CPU time. For the 800 second run, the function used to convert the images to black and white used 500 seconds. 
+			
+		\subsection{Modification}
+			The initial change I made was in the pImage class constructor where I set the self.im (the object representing the PIL image) from Image.open(filename) to Image.open(filename).convert("L"), which converts the image to black and white. I ran this and found that it took 60 seconds to run on 20 images, which is very close to the speed at which the script runs. 
+			
+		\subsection{Remaining Problems}
+			Just like the script from a week ago, the O\-O code is leaving the images (now in B\&W) in memory for the entire run. On an 800 image set, the code will throw a too many files open error and if that is solved, it will throw a memory error. 
+			
+		\subsection{Solution to the File/Memory Problem}
+			The solution seems to be fairly straight forward. I need to create a wrapper class for the PIL Image. Basically, it will hold a filename of an Image and provide the data when requested, but also allow for the data to be freed from memory when it is not being used. 
+			
 	% Seventh Entry
 	\section{Python Memory Error 02/14/2013}
 		Since the Python script can process images at a rate of approximately 5 seconds per image, it would take approximately an hour to process all the images for a class, which means that it meets spec. However, the script uses too much memory and causes Python to crash with an ``Out of memory" error. Colin and I sat down to try to fix this error so that we can have a working prototype for 700 images at tomorrow's panel. 
