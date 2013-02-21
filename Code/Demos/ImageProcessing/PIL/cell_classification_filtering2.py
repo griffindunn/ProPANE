@@ -13,6 +13,7 @@ import ImageOps
 import ImageStat
 import numpy
 import time
+from operator import xor
 
 start = time.time()
 print "opening images"
@@ -67,6 +68,11 @@ temp_Iw = [[ 0 for i in range(n) ] for j in range(n)]
 big_cell = [[ [0 for k in imfolder ] for i in range(n+2) ] for j in range(n+2)]
 Tw_1 = [[ [0 for k in imfolder ] for i in range(n) ] for j in range(n)]
 Tsig_1 = [[ [0 for k in imfolder ] for i in range(n) ] for j in range(n)]
+relevant_cell = []
+logic = []
+temp = []
+stroke_count = [0 for k in imfolder]
+foreground_count = [0 for k in imfolder]
 
 nsize = range(0,n)
 
@@ -89,33 +95,33 @@ for k in imfolder:
             hist[i][j][k] = lum[i][j][k].histogram()
             numpyhist[i][j][k] = numpy.array(hist[i][j][k])
 
-"""for i in nsize:
+for i in nsize:
     for j in nsize:
         for k in imfolder:
-            tothist[i][j] += numpyhist[i][j][k]"""
+            tothist[i][j] += numpyhist[i][j][k]
 
 for k in imfolder:
     for i in nsize:
       for j in nsize:
-            #big[i][j] = max(tothist[i][j])
-            temp_big[i][j] = max(hist[i][j][0])  #temporary Iw calculation
-            #Iw[i][j] = numpy.where(tothist[i][j] == big[i][j])
-            temp_Iw[i][j] = hist[i][j][0].index(temp_big[i][j]) #temporary Iw calculation
+            big[i][j] = max(tothist[i][j])
+            #temp_big[i][j] = max(hist[i][j][0])  #temporary Iw calculation
+            Iw[i][j] = numpy.where(tothist[i][j] == big[i][j])
+            #temp_Iw[i][j] = hist[i][j][0].index(temp_big[i][j]) #temporary Iw calculation
 # IDEAL
-#            wb[i][j][k] = Image.new("L",(cell_width[k],cell_height[k]),Iw[i][j][0][0])
+            wb[i][j][k] = Image.new("L",(cell_width[k],cell_height[k]),Iw[i][j][0][0])
 
 # TEMPORARY
-            wb[i][j][k] = Image.new("L",(cell_width[k],cell_height[k]),temp_Iw[i][j])
+#            wb[i][j][k] = Image.new("L",(cell_width[k],cell_height[k]),temp_Iw[i][j])
 
             #bkgd[i][j] = wb[i][j].convert("RGB")       #ideal for RGB
             #im_new.paste(bkgd[i][j], cell[i][j])       #ideal for RGB
             imseq_new[k].paste(wb[i][j][k], cell[i][j][k])
 
-print "creating whiteboard color images"
+print "creating whiteboard color image"
 
-for k in range(1,imnum+1):
-    imname_new = ("../../../../../ImageSets/testIW/test_image_%s_new.jpg" % (k))
-    imseq_new[k-1].save(imname_new)
+#for k in range(1,imnum+1):
+imname_new = ("../../../../../ImageSets/testIW/test_image_Iw.jpg")
+imseq_new[0].save(imname_new)
 
 bwim = [0 for k in imfolder]    
 for k in imfolder:
@@ -126,6 +132,7 @@ for k in imfolder:
 #sigw = 8
 
 print "classifying cells"
+print "initial classification"
 
 for k in imfolder:
     for  i in nsize:
@@ -142,16 +149,9 @@ for k in imfolder:
             I[i][j][k] = ImageStat.Stat(cell_bwimage[i][j][k]).mean
             sig[i][j][k] = ImageStat.Stat(cell_bwimage[i][j][k]).stddev
 
-# IDEAL        
-##            if abs(I[i][j][k][0]-Iw[i][j][0][0])/(sig[i][j][k][0]+sigw) < Tw and sig[i][j][k][0]/sigw < Tsig:
-##                cell_id[i][j][k] = "BOARD"
-##
-##            elif abs(I[i][j][k][0]-Iw[i][j][0][0])/(sig[i][j][k][0]+sigw) < Tw and sig[i][j][k][0]/sigw >= Tsig:
-##                cell_id[i][j][k] = "STROKE"
+# IDEAL   #######
 
-
-# TEMPORARY
-            Tw_1[i][j][k] = abs(I[i][j][k][0]-temp_Iw[i][j])/(sig[i][j][k][0]+sigw)
+            Tw_1[i][j][k] = abs(I[i][j][k][0]-Iw[i][j][0][0])/(sig[i][j][k][0]+sigw)
             Tsig_1[i][j][k] = sig[i][j][k][0]/sigw
 
             if Tw_1[i][j][k] < Tw and Tsig_1[i][j][k] < Tsig:
@@ -159,10 +159,24 @@ for k in imfolder:
 
             elif Tw_1[i][j][k] < Tw and Tsig_1[i][j][k] >= Tsig:
                 cell_id[i][j][k] = "STROKE"
+
+
+# TEMPORARY ######
+
+##            Tw_1[i][j][k] = abs(I[i][j][k][0]-temp_Iw[i][j])/(sig[i][j][k][0]+sigw)
+##            Tsig_1[i][j][k] = sig[i][j][k][0]/sigw
+##
+##            if Tw_1[i][j][k] < Tw and Tsig_1[i][j][k] < Tsig:
+##                cell_id[i][j][k] = "BOARD"
+##
+##            elif Tw_1[i][j][k] < Tw and Tsig_1[i][j][k] >= Tsig:
+##                cell_id[i][j][k] = "STROKE"
                 
+###########
             else:
                 cell_id[i][j][k] = "FOREGROUND"
-                
+
+print "filtering cells"                
 
 for k in imfolder:
 	for i in range(len(cell_id)):
@@ -173,12 +187,19 @@ for k in imfolder:
     for i in nsize:
         for j in nsize:
 
-            if big_cell[i][j][k] == "FOREGROUND" and ((big_cell[i-1][j][k] != "FOREGROUND" and big_cell[i+1][j][k] != "FOREGROUND") or (big_cell[i][j-1][k] != "FOREGROUND" and big_cell[i][j+1][k] != "FOREGROUND")): 
-                cell_id[i-1][j-1][k] = "STROKE" 
+           
+            relevant_cell = [(i,j-1,k), (i-2,j-1,k), (i-1,j,k), (i-1,j-2,k)]
+            temp = [big_cell[i+1][j][k] , big_cell[i-1][j][k] , big_cell[i][j+1][k] , big_cell[i][j-1][k]]
+            logic = [temp[0] != "FOREGROUND", temp[1] != "FOREGROUND", temp[2] != "FOREGROUND", temp[3] != "FOREGROUND"]
 
-for k in imfolder:
-    for i in nsize:
-        for j in nsize:
+            
+            if big_cell[i][j][k] == "FOREGROUND" and ((logic[0] and logic[1]) or (logic[2] and logic[3])): 
+                cell_id[i-1][j-1][k] = "STROKE" 
+            
+            elif big_cell[i][j][k] == "FOREGROUND" and xor(xor(xor(logic[0], logic[1]), logic[2]), logic[3]):
+                
+                key_index = logic.index(True)
+                cell_id[ relevant_cell[key_index][0] ][ relevant_cell[key_index][1] ][ relevant_cell[key_index][2] ] = "FOREGROUND"
 
             
 
@@ -190,12 +211,14 @@ for k in imfolder:
                 temp = ImageEnhance.Brightness(cell_image[i][j][k])
                 temp = temp.enhance(2.0)
                 imseq_out[k].paste(temp, cell[i][j][k])
+                stroke_count[k] = stroke_count[k] + 1
 
             elif cell_id[i][j][k] == "FOREGROUND":
                 temp = ImageEnhance.Brightness(cell_image[i][j][k])
                 temp = temp.enhance(0)
                 imseq_out[k].paste(temp, cell[i][j][k])
-
+                foreground_count[k] = foreground_count[k] + 1
+                
 for k in range(1,imnum+1):
     imname_out = ("../../../../../ImageSets/Test_out/test_out_%s.jpg" % (k))
     imseq_out[k-1].save(imname_out)
