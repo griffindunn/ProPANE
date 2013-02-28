@@ -16,6 +16,31 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Ninth Entry
+	\section{Key Image Detection 02/28/2013}
+		This week I fixed the memory error problem in the object oriented code and began implementing the key image detection. I was also able to resolve the camera control issue using the python script.
+		
+		\subsection{Camera Control Issue Resolution}
+			The problem with the camera was that it was auto adjusting to light settings and the math we were doing to classify cells relied on the fact that the luminance of the whiteboard did not change so we thought we needed to control the camera to not auto adjust. After looking at the classification technique and thinking about how I would do it, I came up with the idea that foreground cells have a lower luminance than board/stroke cells. I basically took the luminance value of each cell and compared it to a scaled down average luminance value for the cell and used that to classify cells. It turns out that 80\% works well as a scaling factor in all sets of images that we have so far. The new method did a much better job of classifying cells than the older method. The only problems that we are having now is that we are still classifying borders of people and certain parts of skin as either board or stroke cells.
+			
+		\subsection{Classification Issue Fixes}
+			The biggest problem we were having was with classifying every cell correctly. If a cell is misclassified as a stroke cell instead of a foreground cell, there is a chance that it will end up in the key image. For this reason, we need to make sure that every cell is classified properly. I know Colin is working on an even better way to distinguish between foreground and stroke cells using standard deviations so I have been working on filtering processes to help with the process. Basically, I have been trying to add an extra layer of foreground cells around a foreground object so that the edges become foreground and not cells. Right now I have to do four passes through a pImage to classify all of the cells, but it has eliminated almost all of the misclassified stroke cells. This worked especially well in the capture taken on 2/27 in Professor Kelley's class. The analysis system was able to classify almost all of the cells in an 800 image set correctly in 45 minutes. The only problems that it had were with the Expo marker that he was using because it would sometimes classify those cells as stroke cells (they really do look like stroke cells). This should not be a problem because the professor most like will not have the Expo marker out when erasing the board (when a key image is detected) so the key image will not contain cells of the Expo marker.
+			
+		\subsection{The Dreaded Key Image Detection}
+			After the Panel 4 feedback, we became worried about the key image detection because the feedback from the panelists showed that this portion of the project would be extremely difficult and the integration with our system would be more than we had bargained for. It made us worry because the panelists that made the comments do not have a strong background in software engineering or any concept of the ProPANE software architecture, but felt strongly enough to repeatedly interrupt the presentation to make their point. To make matters worse, the panelists were not able to back up the point with any evidence so we had to assume that we were missing something and it was going to be one of those infamous ``GOTCHA!" moments that Professor Thompson had warned about. Key image detection became our primary concern since the panel so we went back to our worklogs and looked at our plans from last semester. We were able to generate three different ways of detecting key images last semester and then analyze them to determine the optimal approach to this problem. This week was just about implementing the key image detection, which we were still worried about since two seasoned engineers with years of industry experience had told us that we were missing something. 
+			
+			\subsubsection{The Plan}
+				The basic idea for the image detection is to keep a pImage that represents the board and stroke cells of the current image as we iterate through all of the images that we captured. This will be referred to as a temporary key image (TKI). To determine when we have an actual key image, we count the number of board cells in the current image that we are looking at that map to stoke cells in the TKI. If this number gets past a certain threshold, then some erasing has happened and we save the TKI as a key image.
+				
+			\subsubsection{Additional Needed Feature}
+				While implementing this, I found that there was an extra feature needed. We needed to keep a boolean reference to whether the image was miderase or not. Without this, every image captured during a time when a professor is erasing would be marked as a key image. The criteria for a key image are now: lost stroke cells are greater than threshold and not during an erasing period.
+				
+			\subsubsection{Testing}
+				At this point, I created an artificial testbed from images from Professor Kelley's lecture (had to be artificial because he did not erase the portion of the board that we captured) and ran the analysis system. It was able to detect key images and stitch images together to reveal all of the information on the whiteboard without any of the foreground cells. Colin and I are planning on creating an official testbed that has realworld erasing and rewriting so that we can prove that we met spec.
+		
+		\subsection{Setup Time Spec Met}
+			When we went to Professor Kelley's lecture, I took a video that shows Colin setting up the capture system in 105 seconds. This is proof that we have met our technical specification 3.1.1 (The maximum time required to prepare the capture system for recording shall not exceed 5 minutes).
+	
 	% Eighth Entry
 	\section{Optimizing O-O Python Code 02/20/2013}
 		After optimizing the Python script for the analysis system, I decided to take the knowledge from creating that prototype to the O-O code I have been writing. The end goal of this work is to create a system that has comparable runtime to the Python script.
