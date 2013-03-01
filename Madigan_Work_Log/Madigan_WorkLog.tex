@@ -12,11 +12,21 @@
 	\tableofcontents
 \newpage
 
+	%Twenty-Sixth Entry
+	\section{Standard Deviation Filtering (2/28/2013)}	
+		I found a way to improve cell classification.  Looking at the average luminance values for foreground cells vs stroke cells for a given image, there are a range of different values, and max and min values can vary greatly.  However, the standard deviations of the luminance values of strokes or foregrounds in an image are somewhat revealing of what type of classification a cell should receive.  In general, the standard deviation of the luminance of correctly-classified stroke cells tends to be in the range of 1-10, while foreground cells that are incorrectly classified as stroke cells (for instance, a professor's arm) tend to be within the range of 15-40.  If we look at these numbers, we can catch cells that are incorrectly classified and correct them.  
+	\subsection*{Stroke correction}
+		I think this method can be used to help limit the errors of spatial filtering.  The spatial filtering will go through and change any stroke cells immediately bordering foreground cells to foreground cells too.  This will spread across a foreground object until it is completely covered, but it will also change valid strokes to foreground cells if they border the foreground object. This is where standard deviation filtering comes in.  If we look at the original classification of a cell (say, a correctly-classified stroke), and the new classification (incorrectly changed to a foreground), we can then look at the standard deviation of the luminance.  If it is closer to the average stroke value than the average foreground value, we change the cell back to a stroke.  This way, the filtering is limited only to true foreground objects --- strokes are not changed.
+	
+	%Twenty-Fifth Entry
+	\section{Outline of recent events (2/26/2013)}
+		I haven't updated this in a while, but a lot has happened since then.  The analysis system now can run on a set of images of any length, with constant memory usage.  It takes approximately 40 minutes for an 800 image set, which is well within our specs.  We have also greatly improved our classification algorithm.  The stroke and board cell detection is now based more directly around the luminance value of the cell.  We no longer get erroneous foreground detection for images with increased brightness due to the camera's auto-brightness detection.  We are also working on filtering techniques to correct for wrongly-classified cells on the first pass through.  We are using some of Microsoft's spatial filters and also devising our own.  I am currently analyzing the mean and standard deviation of board, stroke, and foreground luminance values, looking for trends that might help us with filtering.   \\ \\  Our app now lets us fix the color balance, as well as zoom in and out.  This allows us to place the camera in the back of a room for capture. We still have not found a way to lock the auto-brightness detection (in the form of aperture and shutter speed), but our analysis system is now smart enough to work despite changes in brightness when a professor walks into the center of the frame.
+		
 	%Twenty-Fourth Entry
-	\section{First Full Lecture Capture (2/6/203)}
+	\section{First Full Lecture Capture (2/6/2013)}
 		Today we captured two entire lectures using the app installed on our (finally-acquired) Galaxy Camera.  The app worked well in that it successfully took a picture approx. every 5 seconds for the entire lecture.  Battery life decreased from 100\% to 87\% after one lecture, which is even better than we had expected.  However, there are a few things that need to be sorted out with the app, which directly affect the ability of the analysis system to correctly classify cells.  
 		\subsection*{Color Balance}
-		Currently, for every image taken, the camera is automatically color-balancing the images, even in ou app.  It chooses the setting it deems to be the best for each image.  Not all of the images have the same overall tone  to them, as seen below.  
+		Currently, for every image taken, the camera is automatically color-balancing the images, even in our app.  It chooses the setting it deems to be the best for each image.  Not all of the images have the same overall tone  to them, as seen below.  
 	\begin{figure}[H]
 \centering
 \includegraphics[scale=0.1]{images/colorbalance_1}

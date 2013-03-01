@@ -1,7 +1,7 @@
 import Image
 import ImageEnhance
 
-pic = Image.open("../../../../../ImageSets/Test_out/test_out_5.jpg")
+pic = Image.open("../../../../../ImageSets/Test_out/test_out_19_second.jpg")
 #pic = Image.open("P1010053crop.jpg")
 
 width = pic.size[0]
