@@ -26,6 +26,8 @@ class pCell(object):
         self.im = im # pImgMgr
         self.celltype = pCell.UNCLASSIFIED
         self.boundaries = (self.x, self.y, self.x + pCell.width, self.y + pCell.height)
+        self.I = None
+        self.sig = None
 
 
     """Static method for setting height and width"""
@@ -40,22 +42,30 @@ class pCell(object):
     def classify(self, Iw):
         #im = Image.open(self.filename).convert("L")
         #im = self.im.convert("L")
-        cell_bwimage = self.im.getBW().crop(self.boundaries)
 
         #Iw = self.iw
 
         Tw = 2    # Lower gives more foreground
         Tsig = 40 # Higher gives more Board
-        I = ImageStat.Stat(cell_bwimage).mean[0]
-        sig = ImageStat.Stat(cell_bwimage).stddev[0]
+
+        if self.I == None:  
+            print "Doing extra math"
+            cell_bwimage = self.im.getBW().crop(self.boundaries)
+            I = ImageStat.Stat(cell_bwimage).mean[0]
+            sig = ImageStat.Stat(cell_bwimage).stddev[0]
+        else:
+            I = self.I
+            sig = self.sig
+
         #sigw = numpy.std(Iw)   #Ideally something like this
         sigw = 0.1  #Seems to work for this value
+        SFactor = 0.8
         
-        if I > (Iw * 0.8)  and sig/sigw < Tsig:
+        if I > (Iw * SFactor)  and sig/sigw < Tsig:
             self.celltype = pCell.BOARD
             #print "BOARD CELL"
 
-        elif I > (Iw * 0.8) and sig/sigw >= Tsig:
+        elif I > (Iw * SFactor) and sig/sigw >= Tsig:
             self.celltype = pCell.STROKE
             #print "STROKE CELL"
 
@@ -78,5 +88,9 @@ class pCell(object):
 
     def histogram(self):
         data = self.im.getBW().crop(self.boundaries)
+
+        self.I = ImageStat.Stat(data).mean[0]
+        self.sig = ImageStat.Stat(data).stddev[0]
+
         lum_hist = data.histogram()
         return numpy.array(lum_hist)

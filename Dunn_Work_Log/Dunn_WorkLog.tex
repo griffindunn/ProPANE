@@ -7,6 +7,51 @@
 \begin{document}
 	\tableofcontents
 	\newpage
+	%31st Entry
+	\section{Website Improvement 02/28/2013}
+	
+	I updated the website today. We decided to create a demonstrations page for our website.
+	There is now a youtube video of colin setting up the camera in well under 5 minutes, as well as a series of images demonstrating our progress on the image processing software. We decided to add more to our website after looking at our panel 4 feedback. 
+	
+	I also did more research on image filtering. After looking through my past research I brainstormed more ways to make the final images look good. The goal is to have a pure white background with pure black/color text. It seems like the easiest initial step will be to go cell by cell on the key images. If it is a stroke cell, leave it alone, else color it pure white. This will get rid of most grayness. There will still be grey around the text however. 
+	At that point we'll be left with a decision: do we want manual adjustment or auto-adjustment. Automatic would be the ideal situation obviously, but auto-correction might not be as effective/good looking.
+	I'd say that for now we should assume auto. With that in mind, for the stroke cells, it will likely be easiest to simply look at each pixel. If it is a gray value (within a threshold) then make it white, else make it pure black. This would work for most professors, but some like using colored pens. in this case it would be the same, but if it isn't the gray values then leave it alone.
+	
+	I looked into keystone imaging again. I didn't find anything that matched our needs perfectly, but I"m confident I'll find something if I keep looking. I didn't look very long because I had other work to do but there were quite a few sites that described exactly how it works...the tricky part will be finding the right python example.
+	
+	%30th Entry
+	\section{Client meeting 02/25/2013}
+	
+	Phil and I met with Dr. Midkiff today to discuss our fourth panel. He was pleased with our progress and happy to see how far we'd come since our last client meeting. See the minutes for this meeting for more details.
+	
+	%29th Entry
+	\section{Groupwork on image capturing and lighting 02/22/2013}
+	
+	We spent several hours attempting to (programmatically) set manual parameters for our camera before image capturing. We wanted to stop it from auto=adjusting its settings during image capture because it changes the overall lighting of the pictures. This is bad because our image capture system relies on a steady background brightness. When the professor steps into the middle of the shot, and then moved away, the camera was compensating, and the images got very yellowed from that point onward. We could not figure out how to manually access the ISO, shutter speed, and aperture, so instead we've taken to messing with other settings. We attempted to have the cameral only make adjustments if the top rim of the photo's light/brightness changed. Unfortunately the program seems to be ignoring some of the commands we give it. Strangely some commands do work, so it's been rather hit or miss so far.
+	
+	Update: It looks like phil has changed the math behind the stroke detection algorithm so we no longer need the steady brightness like we needed before. It looks like at this point I should start looking back into the image processing software I'd been researching earlier because as soon as the detection is complete it will be time to make the image "pretty" (make the white board a true white, keystone imaging (to adjust for angled images) etc.
+	
+	
+	%28th Entry
+	\section{Client meeting 02/22/2013}
+	
+	We met with Dr. Gabauer today to discuss our progress so far and to summarize the parts demonstration that he was unable to attend. He was pleased with our progress and excited to see how our final product. He asked what we thought about capturing two whiteboards with the camera (zoom out more) and we said we'd look into it. It all depends on how much detail we can capture from the board while zoomed out that far. Another suggestion was that we might consider setting the board's boundaries using the Galaxy Camera's large touchscreen during setup. We're going to look into this as well because this selection would give us a couple options: it might allow us to only photograph certain portions of the board. If that doesn't work, it could at least give us four coordinates on the pictures, so that we can auto-crop them on the back-end, before the actual image processing begins.
+	
+	We will be meeting Dr. Midkiff on monday (02/25/2013) to discuss our panel results and receive feedback from him as well.
+	
+	%27th Entry
+	\section{Parts Demonstration}
+	
+	I was rather disappointed by the parts demonstration today. I was under the impression that we would be demonstrating the functionality of our project to date, and that we would then receive comments on our progress, and maybe a tip or two if we were having trouble implementing our plan.
+	
+	Instead, we were grilled the whole time (and rudely interrupted mid-sentence) about portions of our project that we weren't even closed to finished with yet. It became a "lets critique and criticize the portions of your project that aren't working yet" session rather than a helpful dialogue about our process so far. To top it off, the professors with the most criticism and the most questions were the professors who hadn't bothered to read our documentation. The parts demonstration should not have been focused on how we have implemented our product so far. That implementation is described very clearly in our reports from last semester, our work logs, etc. So is our reasoning and thought process if thats what they were interested in.
+	
+	Finally, the majority of the work that we put in  this semester wasn't even discussed. There were a few questions about the capture system, a couple about out automation system, but the majority were focused entirely on the image processing. One could argue that the image processing is the most important part, but in order to get there we had to get everything else working. We are now focusing more on the processing portion and we've made big leaps since last semester. We deserve praise for what we've done so far, not criticism.
+	
+	%26th Entry
+	\section{Individual work on deamon}
+	
+	I spent a little time working on making the comments/functionality of the Deamon work better for our parts demo. 
 	
 	% 25th Entry
 	\section{Individual work on process automation 02/07/2013}

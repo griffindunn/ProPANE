@@ -4,20 +4,44 @@ from pCell import *
 from pImgMgr import pImgMgr
 
 class pImage(object):
-
+    
+    width = 0
+    height = 0
 
     def __init__(self, filename):
         self.filename = filename
         self.im = pImgMgr(filename)
-        self.width, self.height = self.im.getBW().size
-        self.im.free()
         self.boardCount = 0
         self.strokeCount = 0
         self.foreCount = 0
 
+    def makeDefault(self):
+        pImage.width, pImage.height = self.im.getColor().size
+
+
     @staticmethod
     def setIwMatrix(IwMatrix):
         pImage.IwMatrix = IwMatrix
+
+    def pasteCell(self, cell, x, y):
+        replacedType = self.cellAt(x,y).celltype
+        if replacedType == pCell.BOARD:
+            self.boardCount -= 1
+        elif replacedType == pCell.STROKE:
+            self.strokeCount -= 1
+        else:
+            self.foreCount -= 1
+
+        replacingType = cell.celltype
+        if replacingType == pCell.BOARD:
+            self.boardCount += 1
+        elif replacingType == pCell.STROKE:
+            self.strokeCount += 1
+        else:
+            self.foreCount += 1
+        
+        self.cells[x][y] = cell
+
 
     """Generate pCells for image given number of cells for row and column"""    
     def cellify(self, cellsPerRow, cellsPerColumn):
@@ -25,8 +49,8 @@ class pImage(object):
         self.cellsPerRow = cellsPerRow
         self.cellsPerColumn = cellsPerColumn
 
-        cellWidth = self.width/cellsPerRow
-        cellHeight = self.height/cellsPerColumn
+        cellWidth = pImage.width/cellsPerRow
+        cellHeight = pImage.height/cellsPerColumn
         
         # Set the width and height of cells 
         pCell.setHeightWidth(cellHeight, cellWidth)
@@ -38,34 +62,75 @@ class pImage(object):
             for y in xrange(cellsPerColumn):
                 self.cells[x][y] = pCell(x * pCell.width, y * pCell.height, self.im)
 
-    def classifyCells(self):
+    def classifyCells(self, cell_type = None):
+
+        if cell_type != None:
+            for x in xrange(self.cellsPerRow):
+                for y in xrange(self.cellsPerColumn):
+                    self.cellAt(x, y).celltype = cell_type
+            return 
+
 
         for x in xrange(self.cellsPerRow):
             for y in xrange(self.cellsPerColumn):
                 cellType = self.cells[x][y].classify(pImage.IwMatrix[x][y])
 
         
-        print "Initial Pass complete"
+        print "    Initial Pass complete"
+        self.secondPass()
+        print "    Second pass complete"
+        self.thirdPass()
+        print "    Third pass complete"
+        self.fourthPass()
+        print "    Fourth pass complete"
+        self.enhancePass(False)
+        print "    Enhance pass complete"
 
+                
+
+    def secondPass(self):
         for x in xrange(self.cellsPerRow):
             for y in xrange(self.cellsPerColumn):
                 cellType = self.cells[x][y].celltype
                 nBoard, nStroke, nForeground = self.getNeighboringCells(x,y)
 
+
                 if cellType == pCell.FOREGROUND and nForeground < 3:
-                    pass #self.cells[x][y].celltype = pCell.STROKE
-                elif cellType == pCell.STROKE and nForeground > 1:
-                    pass #self.cells[x][y].celltype = pCell.FOREGROUND
-                
+                    self.cells[x][y].celltype = pCell.STROKE
+
+    def thirdPass(self):
+        for x in xrange(self.cellsPerRow):
+            for y in xrange(self.cellsPerColumn):
+                cellType = self.cells[x][y].celltype
+                nBoard, nStroke, nForeground = self.getNeighboringCells(x,y)
+
+                if cellType == pCell.STROKE and nForeground >= 2:
+                    self.cells[x][y].celltype = pCell.FOREGROUND
+
+    def fourthPass(self):
+        for y in xrange(self.cellsPerColumn):
+            for x in xrange(self.cellsPerRow):
+                nBoard, nStroke, nForeground = self.getNeighboringCells(x,y)
+
+                if nForeground >= 3:
+                    self.cells[x][y].celltype = pCell.FOREGROUND
+
+    def enhancePass(self, shouldEnhance):
+        for x in xrange(self.cellsPerRow):
+            for y in xrange(self.cellsPerColumn):
+                cellType = self.cells[x][y].celltype
                 if cellType == pCell.STROKE:
                     self.strokeCount += 1
-                    self.enhanceCell(x, y, 2)
+
+                    if shouldEnhance:
+                        self.enhanceCell(x, y, 2)
                 elif cellType == pCell.FOREGROUND:
                     self.foreCount += 1
-                    self.enhanceCell(x,y,0)
+
+                    if shouldEnhance:
+                        self.enhanceCell(x,y,0)
                 else:
                     self.boardCount += 1
-
         
 
 
@@ -80,32 +145,28 @@ class pImage(object):
     """ Helper functions grab cell type for neighboring cells """
     def cellAboveType(self, x, y):
         above_y = y - 1
-        try:
-            return self.cells[x][above_y].celltype
-        except IndexError:
+        if above_y < 0 or x < 0 or x >= self.cellsPerRow:
             return pCell.UNCLASSIFIED
+        return self.cells[x][above_y].celltype
 
 
     def cellBelowType(self, x, y):
         below_y = y + 1
-        try:
-            return self.cells[x][below_y].celltype
-        except IndexError:
+        if below_y >= self.cellsPerColumn or x < 0 or x >= self.cellsPerRow:
             return pCell.UNCLASSIFIED
+        return self.cells[x][below_y].celltype
 
     def cellLeftType(self, x, y):
         left_x = x - 1
-        try:
-            return self.cells[left_x][y].celltype
-        except IndexError:
+        if left_x < 0 or y < 0 or y >= self.cellsPerColumn:
             return pCell.UNCLASSIFIED
+        return self.cells[left_x][y].celltype
 
     def cellRightType(self, x, y):
         right_x = x + 1
-        try:
-            return self.cells[right_x][y].celltype
-        except IndexError:
+        if right_x >= self.cellsPerRow or y < 0 or y >= self.cellsPerColumn:
             return pCell.UNCLASSIFIED
+        return self.cells[right_x][y].celltype
 
     """ Returns count of cell types (board, stroke, foreground) """
     def getNeighboringCells(self, x, y):
@@ -129,4 +190,19 @@ class pImage(object):
     """Shows the image in the default system viewer"""
     def show(self):
         self.im.getColor().show()
+
+    def save(self, filename):
+        image = self.im.getColor()
+        for x in xrange(self.cellsPerRow):
+            for y in xrange(self.cellsPerColumn):
+                cell = self.cells[x][y]
+                image.paste(cell.cellData(), cell.boundaries)
+
+        self.im.save(filename)
+
+    def cellAt(self, x, y):
+        return self.cells[x][y]
+
+    def free(self):
+        self.im.free()
 
