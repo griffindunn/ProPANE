@@ -16,6 +16,7 @@ class pImageSequence(object):
         self.histograms = [[numpy.zeros(256) for i in xrange(self.cpc)] for i in xrange(self.cpr)]
 
         jpgs = glob.glob("%s/*.jpg" % self.directory)
+        print "Found %s images" % len(jpgs)
         default = pImage(jpgs[0])
         default.makeDefault()
         default.cellify(self.cpr, self.cpc)
