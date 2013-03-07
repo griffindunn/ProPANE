@@ -70,7 +70,7 @@ class pImageSequence(object):
             # If more board cells and not mid-erase then key image
             if isKey1:
                 print "Saving Key 1"
-                keyImage.save("./test_images/Out/keyimg%s.jpg" % keyImageCount)
+                keyImage.save("%s/Out/keyimg%s.jpg" % (self.directory, keyImageCount))
                 keyImageCount += 1
                 decreasingInformation = True
 
@@ -80,13 +80,13 @@ class pImageSequence(object):
             # Cut and paste necessary cells
             keyImage.updateCleanWith(imLookAhead1)
 
-            keyImage.save("./test_images/Out/debug%s.jpg" % debugCount)
+            keyImage.save("%s/Out/debug%s.jpg" % (self.directory, debugCount))
             debugCount += 1
             imLookAhead1.free()
             imLookAhead2.free()
 
 
-        keyImage.save("./test_images/Out/keyimg%s.jpg" % keyImageCount)
+        keyImage.save("%s/Out/keyimg%s.jpg" % (self.directory, keyImageCount))
         print "Saved %s key images" % keyImageCount
 
     def generateLuminance(self, image):
@@ -130,7 +130,7 @@ class pImageSequence(object):
         i = 1
         for image in self.images:
             image.classifyCells()
-            image.save("./test_images/Out/out%.2d.jpg" % i)
+            image.save("%s/Out/out%.2d.jpg" % (self.directory, i))
             image.free()
             
             print "Finished image %s of %s" % (i, len(self.images))
