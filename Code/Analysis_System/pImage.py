@@ -128,7 +128,7 @@ class pImage(object):
         print "    Third pass complete"
         self.fourthPass()
         print "    Fourth pass complete"
-        self.enhancePass(True)
+        self.enhancePass(False)
         print "    Enhance pass complete"
 
         if noForeground:
