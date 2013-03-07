@@ -7,7 +7,6 @@ from pImgMgr import pImgMgr
 
 class pImageSequence(object):
     
-    @profile
     def __init__(self, directory, CELLS_PER_ROW, CELLS_PER_COLUMN): 
         self.directory = directory
         self.images = []
@@ -26,12 +25,11 @@ class pImageSequence(object):
         default.setBoardArea()
         default.free()
 
-        
-        for jpg in jpgs:
-            pImg = pImage(jpg)
+        self.images = [0 for x in xrange(len(jpgs))]        
+        for index in xrange(len(jpgs)):
+            pImg = pImage(jpgs[index])
             pImg.cellify(self.cpr, self.cpc)
-            self.images.append(pImg)
-            pImg.free()
+            self.images[index] = pImg
 
     def getStartingKeyImage(self):
         keyImage = pImage(self.images[0].filename)

@@ -2,6 +2,7 @@ import ImageEnhance
 import Image
 from pCell import *
 from pImgMgr import pImgMgr
+import sys
 
 class pImage(object):
     
@@ -9,13 +10,13 @@ class pImage(object):
     height = 0
     y_start = None
     y_end = None
-
+    
     def __init__(self, filename):
-        self.filename = filename
-        self.im = pImgMgr(filename)
         self.boardCount = 0
         self.strokeCount = 0
         self.foreCount = 0
+        self.filename = filename
+        self.im = pImgMgr(filename)
 
     def makeDefault(self):
         pImage.width, pImage.height = self.im.getColor().size
