@@ -7,6 +7,8 @@ class pImage(object):
     
     width = 0
     height = 0
+    y_start = None
+    y_end = None
 
     def __init__(self, filename):
         self.filename = filename
@@ -17,6 +19,30 @@ class pImage(object):
 
     def makeDefault(self):
         pImage.width, pImage.height = self.im.getColor().size
+
+    def setBoardArea(self):
+        y1 = 0
+        y2 = 0
+        for x in xrange(self.cellsPerRow):
+            y_start, y_end = self.getBoardInColumn(x)
+            y1 += y_start * 1.0 /self.cellsPerRow
+            y2 += y_end   * 1.0 /self.cellsPerRow
+
+        pImage.y_start = int(round(y1))
+        pImage.y_end   = int(round(y2))
+        print "start %s end %s" % (y1, y2)
+
+    def getBoardInColumn(self, column):
+        y_start = 0
+        while self.cellAt(column, y_start).celltype != pCell.BOARD or self.cellAt(column, y_start + 1).celltype != pCell.BOARD or self.cellAt(column, y_start + 2).celltype != pCell.BOARD :
+            y_start += 1
+
+
+        y_end = self.cellsPerColumn - 1
+        while self.cellAt(column, y_end).celltype != pCell.BOARD or self.cellAt(column, y_end - 1).celltype != pCell.BOARD or self.cellAt(column, y_end - 2).celltype != pCell.BOARD:
+            y_end -= 1
+
+        return (y_start, y_end)
 
 
     @staticmethod
@@ -49,6 +75,10 @@ class pImage(object):
         self.cellsPerRow = cellsPerRow
         self.cellsPerColumn = cellsPerColumn
 
+        if pImage.y_start == None:
+            pImage.y_start = 0
+            pImage.y_end = self.cellsPerColumn - 1
+
         cellWidth = pImage.width/cellsPerRow
         cellHeight = pImage.height/cellsPerColumn
         
@@ -62,17 +92,32 @@ class pImage(object):
             for y in xrange(cellsPerColumn):
                 self.cells[x][y] = pCell(x * pCell.width, y * pCell.height, self.im)
 
-    def classifyCells(self, cell_type = None):
-
-        if cell_type != None:
-            for x in xrange(self.cellsPerRow):
-                for y in xrange(self.cellsPerColumn):
-                    self.cellAt(x, y).celltype = cell_type
-            return 
-
-
+    """ Copies non-foreground cells from arg image to called image """
+    def updateCleanWith(self, image):
         for x in xrange(self.cellsPerRow):
             for y in xrange(self.cellsPerColumn):
+                newCellType = image.cellAt(x,y).celltype
+                if newCellType != pCell.FOREGROUND:
+                    cell = image.cellAt(x,y)
+                    self.pasteCell(cell, x, y)
+
+
+    def nFewerStrokesThan(self, image):
+        nFewerStrokes = 0
+        for x in xrange(self.cellsPerRow):
+            for y in xrange(self.cellsPerColumn):
+                if image.cellAt(x,y).celltype == pCell.STROKE and self.cellAt(x,y).celltype == pCell.BOARD:
+                    nFewerStrokes += 1
+                elif self.cellAt(x,y).celltype == pCell.STROKE and image.cellAt(x,y).celltype == pCell.BOARD:
+                    nFewerStrokes -= 1
+
+        return nFewerStrokes
+
+
+    def classifyCells(self, noForeground = False):
+
+        for x in xrange(self.cellsPerRow):
+            for y in range(pImage.y_start, pImage.y_end + 1):
                 cellType = self.cells[x][y].classify(pImage.IwMatrix[x][y])
 
         
@@ -83,14 +128,22 @@ class pImage(object):
         print "    Third pass complete"
         self.fourthPass()
         print "    Fourth pass complete"
-        self.enhancePass(False)
+        self.enhancePass(True)
         print "    Enhance pass complete"
 
+        if noForeground:
+            for x in xrange(self.cellsPerRow):
+                for y in range(pImage.y_start, pImage.y_end + 1):
+                    cell = self.cellAt(x, y)
+                    if cell.celltype == pCell.FOREGROUND:
+                        self.foreCount -= 1
+                        self.strokeCount += 1
+                        cell.celltype = pCell.STROKE
                 
 
     def secondPass(self):
         for x in xrange(self.cellsPerRow):
-            for y in xrange(self.cellsPerColumn):
+            for y in range(pImage.y_start, pImage.y_end + 1):
                 cellType = self.cells[x][y].celltype
                 nBoard, nStroke, nForeground = self.getNeighboringCells(x,y)
 
@@ -100,19 +153,20 @@ class pImage(object):
 
     def thirdPass(self):
         for x in xrange(self.cellsPerRow):
-            for y in xrange(self.cellsPerColumn):
+            for y in range(pImage.y_start, pImage.y_end + 1)[::-1]:
                 cellType = self.cells[x][y].celltype
                 nBoard, nStroke, nForeground = self.getNeighboringCells(x,y)
 
-                if cellType == pCell.STROKE and nForeground >= 2:
+                if cellType == pCell.STROKE and nForeground >= 3:
                     self.cells[x][y].celltype = pCell.FOREGROUND
 
     def fourthPass(self):
-        for y in xrange(self.cellsPerColumn):
+        for y in range(pImage.y_start, pImage.y_end + 1)[::-1]:
             for x in xrange(self.cellsPerRow):
+                cellType = self.cells[x][y].celltype
                 nBoard, nStroke, nForeground = self.getNeighboringCells(x,y)
 
-                if nForeground >= 3:
+                if cellType == pCell.STROKE and nForeground >= 4:
                     self.cells[x][y].celltype = pCell.FOREGROUND
 
     def enhancePass(self, shouldEnhance):
@@ -129,6 +183,8 @@ class pImage(object):
 
                     if shouldEnhance:
                         self.enhanceCell(x,y,0)
+                elif cellType == pCell.UNCLASSIFIED:
+                    self.enhanceCell(x,y,0.2)
                 else:
                     self.boardCount += 1
         

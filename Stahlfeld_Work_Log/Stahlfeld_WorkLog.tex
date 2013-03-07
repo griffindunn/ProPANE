@@ -16,6 +16,13 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Tenth Entry
+	\section{Refining Key Image Detection 03/06/2013}
+		After looking at the results of the key images, I was not content with how they were being triggered since they would either give too many images or too few. Specifically, when the system gave too few images, it was considering some images from very early in the presentation to be key images. One of the problems that I was able to isolate was that there is a section of the image that is misclassified (Colin's hand and the marker were considered stroke cells). The two options were to refine the cell classification, which I could spend years tweaking, or alter the key image detection scheme. I ran several trials to see if changing the cell size could help with classification (previous trials had not shown much improvement, but I wanted to try on a finer scale). I found that squares of 20 x 20 pixels resulted in the best classification, but there were still problems with the borders. 
+		
+		\subsection{Border Detection}
+			One of the problems I found was that the system was considering the top border and marker rack to be stroke cells or board cells depending on the lighting in the image. Since I am triggering key images based on the percentage of stroke to board cells, the lighting changes were triggering key images. By implementing a detection system to determine the area of the image that is actually whiteboard, I could eliminate the lighting problem as well as cut down on the processing time. To implement this, I went through each column of cells in the image and found the closest to the top and closest to the bottom regions of 3 contiguous board cells in that column. I then averaged the numbers from each column to get the top and bottom vertical boundaries of the whiteboard. 
+	
 	% Ninth Entry
 	\section{Key Image Detection 02/28/2013}
 		This week I fixed the memory error problem in the object oriented code and began implementing the key image detection. I was also able to resolve the camera control issue using the python script.

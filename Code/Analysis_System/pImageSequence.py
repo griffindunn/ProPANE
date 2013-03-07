@@ -18,6 +18,10 @@ class pImageSequence(object):
         jpgs = glob.glob("%s/*.jpg" % self.directory)
         default = pImage(jpgs[0])
         default.makeDefault()
+        default.cellify(self.cpr, self.cpc)
+        self.generateLuminance(default)
+        default.classifyCells(True)
+        default.setBoardArea()
 
         
         for jpg in jpgs:
@@ -25,66 +29,81 @@ class pImageSequence(object):
             pImg.cellify(self.cpr, self.cpc)
             self.images.append(pImg)
 
-    @staticmethod
-    def cert(cellForegroundPct, imageForegroundPct):
-        a = 0.5
-        cert = (1-a)*cellForegroundPct + a * imageForegroundPct
-        return 1 - cert
+    def getStartingKeyImage(self):
+        keyImage = pImage(self.images[0].filename)
+        keyImage.cellify(self.cpr, self.cpc)
+        keyImage.classifyCells(True)
+        return keyImage
 
     def findKeyImages(self):
         # Setup key image 
-        keyImageCount = 0
-        keyImage = pImage(self.images[0].filename)
-        keyImage.cellify(self.cpr, self.cpc)
-        keyImage.classifyCells(pCell.BOARD)
+        keyImage = self.getStartingKeyImage()
 
-        maxDevPct = 10                   # Threshold for identifying key images
-        decreasingInformation = False   # If stroke cells are becoming board cells
-        debugCount = 1                  # Used to generate debugging images
+        # Initialize values
+        keyImageCount = 0                   # Num key images found
+        strokeThresh = 1.2 * keyImage.strokeCount # Baseline misclassified stroke cells
+        decreasingInformation = False       # If currently erasing
+        debugCount = 1                      # Used to generate debugging images
+        devThreshSing = 3                  # Threshold for detecting key image looking at one image
+        devThreshDoub1 = 2                  # Threshold for detecting key image looking at two images
+        devThreshDoub2 = 3
         
-        for image in self.images:
-            
+        sThresh1 = 5
+        sThresh2 = 5
+        
+        for index in range(len(self.images) - 1):
+            imLookAhead1 = self.images[index]
+            imLookAhead2 = self.images[index + 1]
+
             # Check to see how many stroke cells are becoming board cells
-            nFewerStrokes = 0
-            for x in xrange(self.cpr):
-                for y in xrange(self.cpc):
-                    if keyImage.cellAt(x,y).celltype == pCell.STROKE and image.cellAt(x,y).celltype == pCell.BOARD:
-                        nFewerStrokes += 1;
+            nFewerStrokesLA1 = imLookAhead1.nFewerStrokesThan(keyImage)
+            nFewerStrokesLA2 = imLookAhead2.nFewerStrokesThan(keyImage)
 
             # Calculate deviation of stroke cells
-            deviation = nFewerStrokes * 100.0 / (keyImage.strokeCount + 1)
-            print "Deviation %s decreasing %s" %(deviation, decreasingInformation)
+            deviationLA1 = nFewerStrokesLA1 * 100.0 / (keyImage.strokeCount + 1)
+            deviationLA2 = nFewerStrokesLA2 * 100.0 / (keyImage.strokeCount + 1)
+            print "(%s) fewer 1: %s fewer 2: %s" % (debugCount, nFewerStrokesLA1, nFewerStrokesLA2)
+
+            isPossibleKey = keyImage.strokeCount > strokeThresh and not decreasingInformation
+            isKey1 = nFewerStrokesLA1 > sThresh1 and nFewerStrokesLA2 > sThresh2 and isPossibleKey
 
             # If more board cells and not mid-erase then key image
-            if deviation >= maxDevPct and not decreasingInformation:
-                print "Saving images with %s fewer strokes (%s)" % (nFewerStrokes, deviation)
+            if isKey1:
+                print "Saving Key 1"
                 keyImage.save("./test_images/Out/keyimg%s.jpg" % keyImageCount)
                 keyImageCount += 1
                 decreasingInformation = True
 
-            elif deviation < maxDevPct:
+            elif deviationLA1 < devThreshSing:
                 decreasingInformation = False
 
-
-
             # Cut and paste necessary cells
-            for x in xrange(self.cpr):
-                for y in xrange(self.cpc):
-                    imCellType = image.cellAt(x,y).celltype
-                    keyCellType = keyImage.cellAt(x,y).celltype
-
-                    if imCellType != pCell.FOREGROUND:
-                        cell = image.cellAt(x,y)
-                        keyImage.pasteCell(cell, x, y)
+            keyImage.updateCleanWith(imLookAhead1)
 
             keyImage.save("./test_images/Out/debug%s.jpg" % debugCount)
             debugCount += 1
-            image.free()
+            imLookAhead1.free()
+            imLookAhead2.free()
 
 
         keyImage.save("./test_images/Out/keyimg%s.jpg" % keyImageCount)
+        print "Saved %s key images" % keyImageCount
 
-    def generateLuminance(self):
+    def generateLuminance(self, image):
+        #image = self.images[0]
+        for x in xrange(self.cpr):
+            for y in xrange(self.cpc):
+                hist = image.cellAt(x, y).histogram()
+                self.histograms[x][y] += hist
+
+        for x in xrange(self.cpr):
+            for y in xrange(self.cpc):
+                largest = max(self.histograms[x][y])
+                lum = numpy.where(self.histograms[x][y] == largest)[0][0]
+                self.histograms[x][y] = lum
+        pImage.setIwMatrix(self.histograms)
+
+    def generateLuminance2(self):
         
         count = 1
         total = len(self.images)

@@ -49,7 +49,6 @@ class pCell(object):
         Tsig = 40 # Higher gives more Board
 
         if self.I == None:  
-            print "Doing extra math"
             cell_bwimage = self.im.getBW().crop(self.boundaries)
             I = ImageStat.Stat(cell_bwimage).mean[0]
             sig = ImageStat.Stat(cell_bwimage).stddev[0]
