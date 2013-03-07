@@ -6,8 +6,9 @@ import numpy
 from pImgMgr import pImgMgr
 
 class pImageSequence(object):
-
-    def __init__(self, directory, CELLS_PER_ROW, CELLS_PER_COLUMN):
+    
+    @profile
+    def __init__(self, directory, CELLS_PER_ROW, CELLS_PER_COLUMN): 
         self.directory = directory
         self.images = []
         self.cpr = CELLS_PER_ROW
@@ -23,12 +24,14 @@ class pImageSequence(object):
         self.generateLuminance(default)
         default.classifyCells(True)
         default.setBoardArea()
+        default.free()
 
         
         for jpg in jpgs:
             pImg = pImage(jpg)
             pImg.cellify(self.cpr, self.cpc)
             self.images.append(pImg)
+            pImg.free()
 
     def getStartingKeyImage(self):
         keyImage = pImage(self.images[0].filename)
