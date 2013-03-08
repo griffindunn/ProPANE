@@ -11,7 +11,23 @@
 \maketitle
 	\tableofcontents
 \newpage
+	
+	%Twenty-Seventh Entry
+	\section{Whiteboard Normalization (3/7/2013)}	
+		I have been looking for a way to normalize all of the key images, so they have pure white backgrounds with dark, readable text.  One of the issues with this is that when we get key images, some of them have patches of whiteboard and strokes where the brightness varies.  This stems from us not being able to lock the aperture or shutter speed on the camera.  Because of this, the method I currently have for normalization does not work extremely well on these images.  So I have been looking into first making the backgrounds of these images have a uniform board color.  I am essentially mapping the cell color of a base whiteboard image to all of the key images.  Right now I am using the PIL BrightnessEnhance method.  I am still tweaking it, and while it does look promising, I think there are probably other, better ways of doing this.  This is just a stopgap.  
 
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.2]{images/badIw_1}
+%\caption{Image with $I_w$ similar to calculated average}
+%\end{figure}	
+%		
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.2]{images/badIw_2}
+%\caption{Image with $I_w$ different from calculated average}
+%\end{figure}	
+	
 	%Twenty-Sixth Entry
 	\section{Standard Deviation Filtering (2/28/2013)}	
 		I found a way to improve cell classification.  Looking at the average luminance values for foreground cells vs stroke cells for a given image, there are a range of different values, and max and min values can vary greatly.  However, the standard deviations of the luminance values of strokes or foregrounds in an image are somewhat revealing of what type of classification a cell should receive.  In general, the standard deviation of the luminance of correctly-classified stroke cells tends to be in the range of 1-10, while foreground cells that are incorrectly classified as stroke cells (for instance, a professor's arm) tend to be within the range of 15-40.  If we look at these numbers, we can catch cells that are incorrectly classified and correct them.  
@@ -27,7 +43,7 @@
 		Today we captured two entire lectures using the app installed on our (finally-acquired) Galaxy Camera.  The app worked well in that it successfully took a picture approx. every 5 seconds for the entire lecture.  Battery life decreased from 100\% to 87\% after one lecture, which is even better than we had expected.  However, there are a few things that need to be sorted out with the app, which directly affect the ability of the analysis system to correctly classify cells.  
 		\subsection*{Color Balance}
 		Currently, for every image taken, the camera is automatically color-balancing the images, even in our app.  It chooses the setting it deems to be the best for each image.  Not all of the images have the same overall tone  to them, as seen below.  
-	\begin{figure}[H]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.1]{images/colorbalance_1}
 
