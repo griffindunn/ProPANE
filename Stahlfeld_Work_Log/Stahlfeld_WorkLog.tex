@@ -16,6 +16,22 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Eleventh Entry
+	\section{New Memory Leak 03/19/2013}
+		Trying to run the analysis system on a set of ~700 images yielded an out of memory error during the key image detection phase of the processing. Looking at the process, it was consuming 600 MB when trying to process 196 images (total image size is 185 MB). 
+		
+		\subsection{Diagnosis}
+			For a 196 image set, there will be over 1.2 million small objects created (these should NOT have any of the image data). At the most, there should be just over 185 MB of RAM being used (images in memory + objects in memory). The mark of 600 MB indicates that something is going wrong in the code and chewing up too much memory. My initial feeling was that the images are not being freed properly.
+			
+		\subsection{Investigation}
+			Running the code with appropriately placed print statements and monitoring of the memory usage, I was able to determine that the memory usage was spiking during the creation of the pImageSequence. At this point in the process, no images have been opened or closed. To make sure of this, I changed the code so that the program was not capable of opening images and noted that the memory usage was still spiking. I was able to narrow it down to the line of code that breaks down each image into cells. At this point, I figured that somewhere the code must be creating too many cells to I created a static counter variable in the pCell class that increments on creation of a new cell and printed out this counter once the pImageSequence had been created. With 196 images and a 96x54 matrix of cells, I predicted 1,021,248 would be created ((196 + 1) * 96 *54). When I ran the code it gave exactly 1.021,248 cells being created. It turns out that everything seems to be performing properly.
+			
+		\subsection{Conclusion}
+			If there are 600 MB being used for 1 million cells, then each pCell must be ~600 bytes. When I checked the size of a pCell, I found that it is 452 bytes. This means that we are using so many objects that the information we are storing about the images (metadata) has become too large to store in memory. 
+			
+		\subsection{Potential Resolutions}
+			The very obvious solution is to decrease cell count. If we change the number of cells in an image, we still get good results on the cell classification. I do not think this is a good option because it would limit the number of images possible in a set, but it is definitely a quick solution. The other possible solutions involve storing the cell data on disk somewhere (either a file or a database). Using a database seems like the best idea because it will allow for extremely fast accesses to the data and would not require me to write and debug a way of writing/reading to a file. 
+			
 	% Tenth Entry
 	\section{Refining Key Image Detection 03/06/2013}
 		After looking at the results of the key images, I was not content with how they were being triggered since they would either give too many images or too few. Specifically, when the system gave too few images, it was considering some images from very early in the presentation to be key images. One of the problems that I was able to isolate was that there is a section of the image that is misclassified (Colin's hand and the marker were considered stroke cells). The two options were to refine the cell classification, which I could spend years tweaking, or alter the key image detection scheme. I ran several trials to see if changing the cell size could help with classification (previous trials had not shown much improvement, but I wanted to try on a finer scale). I found that squares of 20 x 20 pixels resulted in the best classification, but there were still problems with the borders. 

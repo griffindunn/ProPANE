@@ -1,7 +1,9 @@
 import Image
 import os
+import sys
 
 class pImgMgr(object):
+
 
     def __init__(self, filename):
         self.filename = filename
@@ -34,11 +36,13 @@ class pImgMgr(object):
 
     def free(self):
         try:
+            self.color = None
             del self.color
         except AttributeError:
             pass
 
         try:
+            self.bw = None
             del self.bw
         except AttributeError:
             pass

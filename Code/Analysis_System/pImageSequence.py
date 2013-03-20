@@ -3,7 +3,9 @@ import pCell
 from pCell import *
 import glob
 import numpy
-from pImgMgr import pImgMgr
+import time
+from pImgMgr import *
+import sys
 
 class pImageSequence(object):
     
@@ -30,6 +32,10 @@ class pImageSequence(object):
             pImg = pImage(jpgs[index])
             pImg.cellify(self.cpr, self.cpc)
             self.images[index] = pImg
+            pImg.free()
+
+        print "done"
+        time.sleep(5)
 
     def getStartingKeyImage(self):
         keyImage = pImage(self.images[0].filename)
@@ -127,8 +133,7 @@ class pImageSequence(object):
         pImage.setIwMatrix(self.histograms)
 
     def classifyCells(self):
-        print "Classifying cells"
-
+        
         i = 1
         for image in self.images:
             image.classifyCells()

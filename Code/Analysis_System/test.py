@@ -12,7 +12,7 @@ print "Creating pImageSequence"
 
 imageSeq = pImageSequence("./test_images/", CELLS_PER_ROW, CELLS_PER_COLUMN)
 
-print "Generating luminance values"
+print "Classifying cells"
 #imageSeq.generateLuminance()
 imageSeq.classifyCells()
 
