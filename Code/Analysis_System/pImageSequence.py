@@ -34,9 +34,6 @@ class pImageSequence(object):
             self.images[index] = pImg
             pImg.free()
 
-        print "done"
-        time.sleep(5)
-
     def getStartingKeyImage(self):
         keyImage = pImage(self.images[0].filename)
         keyImage.cellify(self.cpr, self.cpc)
@@ -62,6 +59,9 @@ class pImageSequence(object):
         for index in range(len(self.images) - 1):
             imLookAhead1 = self.images[index]
             imLookAhead2 = self.images[index + 1]
+
+            imLookAhead1.load()
+            imLookAhead2.load()
 
             # Check to see how many stroke cells are becoming board cells
             nFewerStrokesLA1 = imLookAhead1.nFewerStrokesThan(keyImage)
@@ -135,9 +135,11 @@ class pImageSequence(object):
     def classifyCells(self):
         
         i = 1
-        for image in self.images:
+        for index in range(len(self.images) + 1 ):
+            image = self.images[index + 1]
+            image.load()
             image.classifyCells()
-            image.save("%s/Out/out%.2d.jpg" % (self.directory, i))
+            #image.save("%s/Out/out%.2d.jpg" % (self.directory, i))
             image.free()
             
             print "Finished image %s of %s" % (i, len(self.images))

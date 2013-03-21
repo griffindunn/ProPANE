@@ -16,6 +16,17 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Twelveth Entry
+	\section{Memory Error Correction Work 03/20/2013}
+		\subsection{Solution}
+			After doing a bit of research, it looks like the best way to save the cell data is to use the ``dump" method in the ``pickle" python module. The idea is that I should be able to call pickle.dump(cells) on each image when it is not being used and it will write that data to a binary file. I can then use pickle.load() to read the binary file data back into the cells object. This solution is the best because it means that the process of storing the information to disk will not depend on the internal pCell structure. 
+			
+		\subsection{Implementation}
+			I am adding to the ``free" method in the pImage class so that it will write the pCell list to a binary file and then release the list memory. I am also adding a ``load" method to the pImage class so that it can pull the binary pCell list data back in from a file and then delete the file. Updating the pImageSequence to use these load and free methods in the correct places should solve the memory issue.
+			
+		\subsection{Testing}
+			At first it appeared that this solution was working, but then it gave an error saying that an ImageCore object cannot be serialized for the ``pickle.dump" call. I have not been able to resolve where this ImageCore object is, but once I remove it from the data structure, the code should run just fine. 
+	
 	% Eleventh Entry
 	\section{New Memory Leak 03/19/2013}
 		Trying to run the analysis system on a set of ~700 images yielded an out of memory error during the key image detection phase of the processing. Looking at the process, it was consuming 600 MB when trying to process 196 images (total image size is 185 MB). 

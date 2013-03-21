@@ -3,6 +3,8 @@ import Image
 from pCell import *
 from pImgMgr import pImgMgr
 import sys
+import os
+import pickle
 
 class pImage(object):
     
@@ -16,7 +18,15 @@ class pImage(object):
         self.strokeCount = 0
         self.foreCount = 0
         self.filename = filename
+        self.cellFile = "%sout" % filename
         self.im = pImgMgr(filename)
+        self.cells = None
+
+    def load(self):
+        pklFl = open(self.cellFile, 'r')
+        self.cells = pickle.load(pklFl)
+        pklFl.close()
+        os.remove(self.cellFile)
 
     def makeDefault(self):
         pImage.width, pImage.height = self.im.getColor().size
@@ -262,4 +272,9 @@ class pImage(object):
 
     def free(self):
         self.im.free()
+        pklFl = open(self.cellFile, 'w')
+        pickle.dump(self.cells, pklFl)
+        pklFl.close()
+        self.cells = None
+        print "Free worked"
 

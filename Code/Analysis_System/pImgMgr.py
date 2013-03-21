@@ -36,13 +36,11 @@ class pImgMgr(object):
 
     def free(self):
         try:
-            self.color = None
             del self.color
         except AttributeError:
             pass
 
         try:
-            self.bw = None
             del self.bw
         except AttributeError:
             pass
