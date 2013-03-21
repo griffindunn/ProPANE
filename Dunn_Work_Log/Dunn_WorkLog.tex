@@ -7,6 +7,31 @@
 \begin{document}
 	\tableofcontents
 	\newpage
+		
+	%34th Entry
+	\section{Image cleaning work 03/20/2013}
+	
+	I worked to create 2-bit images today.
+	In this process I first converted each image to grayscale (16-bit grayscale). I then defined a threshold and if a pixel was darker than the threshold it was set to pure black and if it was lighter, it went to pure white. This method would have worked perfectly if the board had a uniform background color. Unfortunately, the non-uniform lighting means that some areas of the board are darker than others. Thus a dark board cell on one side of the image often became pure black whereas a black stroke/line on the light side of the board became pure white. What I'll have to do is make decisions based on the color of surrounding cells/pixels rather than the board as a whole so that the conversion process takes into account relative darknesses.
+	%33rd Entry
+	\section{Image cleaning work 03/15/2013}
+	
+	Today I focused primarily on stroke cells. I ran Colin's code to determine which cells had writing in them, and turned all other cells white. As you can see below, while this did a great job isolating the cells, it hasn't gotten me any closer to fixing up the white/gray cells that surround the handwriting.
+	
+	\includegraphics[scale=0.5]{images/Cells1.png}
+	
+	\includegraphics[scale=0.5]{images/Cells2.png}
+	
+	\includegraphics[scale=0.5]{images/Cells3.png}
+	
+	I tried to increase accuracy by increasing the number of cells in each image but this exponentially increased the processing time and did not noticeably improve the quality of the final images.
+	
+	%32nd Entry
+	\section{Image processing work 03/10/2013}
+	
+	Today I re-familiarized myself with my previous work on image cleaning. I worked for a while with the openCV framework that I'd researched extensively in the beginning of last semester but finally decided that the filters offered weren't useful enough to justify using. I then went back to the regular PIL and made some progress. The main roadblock I hit is the fact that the filters rely on a uniform background brightness whereas our stitched together images come in many shades of gray. I decided that I should probably take a new approach when i get back to this. When I work next I think I will try creating two-bit images (pure black or pure white) and I will also look into setting non-stroke cells white automatically so I can just concentrate on the stroke cells.
+	
+	
 	%31st Entry
 	\section{Website Improvement 02/28/2013}
 	
@@ -44,10 +69,9 @@
 	
 	I was rather disappointed by the parts demonstration today. I was under the impression that we would be demonstrating the functionality of our project to date, and that we would then receive comments on our progress, and maybe a tip or two if we were having trouble implementing our plan.
 	
-	Instead, we were grilled the whole time (and rudely interrupted mid-sentence) about portions of our project that we weren't even closed to finished with yet. It became a "lets critique and criticize the portions of your project that aren't working yet" session rather than a helpful dialogue about our process so far. To top it off, the professors with the most criticism and the most questions were the professors who hadn't bothered to read our documentation. The parts demonstration should not have been focused on how we have implemented our product so far. That implementation is described very clearly in our reports from last semester, our work logs, etc. So is our reasoning and thought process if thats what they were interested in.
+	Instead, we were grilled the whole time about portions of our project that we weren't even closed to finished with yet. It became a critique session rather than a dialogue about our process so far. I also noticed that the professors with the most criticism and questions were the professors who weren't familiar with our documentation. The parts demonstration should not have been focused on how we have implemented our product so far. That implementation is described very clearly in our reports from last semester, our work logs, etc.	
 	
-	Finally, the majority of the work that we put in  this semester wasn't even discussed. There were a few questions about the capture system, a couple about out automation system, but the majority were focused entirely on the image processing. One could argue that the image processing is the most important part, but in order to get there we had to get everything else working. We are now focusing more on the processing portion and we've made big leaps since last semester. We deserve praise for what we've done so far, not criticism.
-	
+	There were a few questions about the capture system, a couple about out automation system, but the majority were focused entirely on the image processing. One could argue that the image processing is the most important part, but in order to get there we had to get everything else working. We are now focusing more on the processing portion and we've made big leaps since last semester. 	
 	%26th Entry
 	\section{Individual work on deamon}
 	
