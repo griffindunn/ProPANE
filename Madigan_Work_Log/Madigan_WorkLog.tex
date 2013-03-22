@@ -12,6 +12,10 @@
 	\tableofcontents
 \newpage
 	
+	%Twenty-Eigth Entry
+	\section{Key Image clean-up (3/21/2013)}
+		Building off my last work log entry, I am trying to take all of the key images and present them so that the board in the background is pure white, and the writing on the board is dark and easily readable.  Currently I'm messing around with some key images I acquired from the methods described below.  The white-balanced images that come out of that method are not always very readable -- they can appear washed out.  Running them through a contrast filter, however, makes them much easier to see.  The black strokes appear darker and easier to read, while the whiteboard cells are close to pure white.  I think another filter could be set to go through after this process and make all board cells pure white.
+	
 	%Twenty-Seventh Entry
 	\section{Whiteboard Normalization (3/7/2013)}	
 		I have been looking for a way to normalize all of the key images, so they have pure white backgrounds with dark, readable text.  One of the issues with this is that when we get key images, some of them have patches of whiteboard and strokes where the brightness varies.  This stems from us not being able to lock the aperture or shutter speed on the camera.  Because of this, the method I currently have for normalization does not work extremely well on these images.  So I have been looking into first making the backgrounds of these images have a uniform board color.  I am essentially mapping the cell color of a base whiteboard image to all of the key images.  Right now I am using the PIL BrightnessEnhance method.  I am still tweaking it, and while it does look promising, I think there are probably other, better ways of doing this.  This is just a stopgap.  

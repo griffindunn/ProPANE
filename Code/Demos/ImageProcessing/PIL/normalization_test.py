@@ -1,8 +1,4 @@
-# Remember to "Save Copy" to Code/Demos/Image_Processing at the end of each session
-
-#Currently only works for 1 band (L). Converts im from RGB to L.  Need it to work
-#for 3 separate RGB bands
-
+# Takes key images and makes them pure white and black
 
 import Image
 import ImageEnhance
@@ -23,7 +19,7 @@ imfolder = range(imnum)
 #imseq = [0 for i in imfolder]
 imname = [0 for i in imfolder]
 for i in range(0,imnum):
-    imname[i] = ("../../../../../ImageSets/keyimages/set3/keyimg%s.jpg" % (i))
+    imname[i] = ("../../../../../ImageSets/keyimages/keyimg%s.jpg" % (i))
 
 red = Image.open("red.jpg")    
 print "images open"
@@ -150,6 +146,8 @@ mycount = 0
 def normalization (x):
     if x < 5:
         x = 255
+    if Iw[i][j] == 0:
+        Iw[i][j] = 255
     return min([255,x*255/Iw[i][j]])
 
 for k in imfolder:

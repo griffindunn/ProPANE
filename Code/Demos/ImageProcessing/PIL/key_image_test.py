@@ -9,7 +9,7 @@ start = time.time()
 
 # Check set number, imnum
 
-imnum = 4
+imnum = 15
 
 imfolder = range(imnum)
 
@@ -86,10 +86,11 @@ for k in imfolder:
                   step = neg_step
                   sign = sign*-1
                 if new_Iw[i][j] == 255 or new_Iw[i][j] == 0:
+                  out = cell_image  
                   break
               imseq[0].paste(out,cell[i][j])
               #print "cell (%s,%s) done" % (i,j)
-        print "row %s done" % (i)
+        #print "row %s done" % (i)
     imname_out = ("../../../../../ImageSets/keyimages/keyimg_balanced%s.jpg" % (k))
     imseq[0].save(imname_out)
     print "image %s done" % (k)
