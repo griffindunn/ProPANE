@@ -7,6 +7,33 @@
 \begin{document}
 	\tableofcontents
 	\newpage
+	
+	
+	%35th Entry
+	\section{Image cleaning work 03/26/2013}
+	
+	Today's work focused primarily on the cells that had been classified as stroke cells. My goal was to make each stroke cell into a 2 bit image. This way (I hoped) I would be able to work around/remove the changing brightness issues discussed in previous entries.
+	I think just showing the images explains it all:
+	
+	Original: \\
+	\includegraphics[scale=1]{images/Orig.png}
+	
+	White Background cells: \\
+	\includegraphics[scale=1]{images/WhitBack.png}
+	
+	Static: \\
+	\includegraphics[scale=1]{images/Static.png} \\
+	
+	
+	As you can see, even with smaller areas, using static threshold values isn't going to work.
+	I then looked into various ways of finding the average grey value of a given image. When I found one that worked I implemented it:
+	
+	Best so far: \\
+	\includegraphics[scale=1]{images/Best.png} \\
+	
+	If you notice, there are gaps in the lines of some portions of the drawing. This is because I was using old cell detection software which missed some of the stroke (look closely at the "White Background cells" image to see what I mean).
+	
+	I am pleased with my progress so far...though I'd like to get the accuracy down a bit more before our final product because there are still quite a few errors. I think something that might improve further accuracy will be to find the most common greyscale color value rather than the average greyscale. The average starts mis-classifying when the difference between the board and the stroke is very slight. We shall have to see how much better the common greyscale value is though.
 		
 	%34th Entry
 	\section{Image cleaning work 03/20/2013}
