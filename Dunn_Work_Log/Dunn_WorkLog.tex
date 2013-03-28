@@ -8,6 +8,35 @@
 	\tableofcontents
 	\newpage
 	
+	%36th Entry
+	\section{more work image cleaning 03/28/2013}
+	
+	Today's work focused on further cleaning up the images and on identifying further problems. I cleaned up the images a little more by modifying the dynamically calculated threshold value. I originally calculated this value by finding the average grayscale value within the cell. This value was actually a little too hight, so to compensate i decided to subtract the standard deviation of all the cell values from the average. As it so happened, this value was a little too high, so I divided the stddev by 5. This seems (from the photos I've tested so far) to be the right number. It may need to be adjusted for more extreme images.
+	
+	Before further cleaning: \\
+	\includegraphics[scale=1]{images/withoutStdDev.png} \\
+	
+	After cleaning: \\
+	\includegraphics[scale=1]{images/withStdDev.png} \\
+	
+	Remember that this is still run with the old cell classificationsoftware. Better classifications would capture all pieces of the letters.
+	
+	While testing I noticed a few cases where cells had been misclassified as stroke cells. This is currently not good for my program because it adds unnecessary black to the image:
+	
+	Misclassified Cell Image: \\
+	\includegraphics[scale=1]{images/Misclassify.png} \\
+	
+	Misclassified result: \\
+	\includegraphics[scale=1]{images/misClasResult.png} \\
+	
+	Notice how the misclassified results tend to leave dark patches on the image.  Below is another example. It both shows how well the program works when the strokes are correctly classified and how poorly it deals with misclassified cells: \\ 
+	
+	Before: \\
+	\includegraphics[scale=0.75]{images/origMisBord} \\
+	
+	After: \\
+	\includegraphics[scale=0.90]{images/bordWMisses} \\
+	
 	
 	%35th Entry
 	\section{Image cleaning work 03/26/2013}
