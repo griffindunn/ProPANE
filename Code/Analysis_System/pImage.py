@@ -276,5 +276,4 @@ class pImage(object):
         pickle.dump(self.cells, pklFl)
         pklFl.close()
         self.cells = None
-        print "Free worked"
 

@@ -4,6 +4,14 @@ import sys
 
 class pImgMgr(object):
 
+    def __getstate__(self):
+        state = self.__dict__
+        try:
+            del state['color']
+            del state['bw']
+        except:
+            pass
+        return state
 
     def __init__(self, filename):
         self.filename = filename

@@ -135,8 +135,7 @@ class pImageSequence(object):
     def classifyCells(self):
         
         i = 1
-        for index in range(len(self.images) + 1 ):
-            image = self.images[index + 1]
+        for image in self.images:
             image.load()
             image.classifyCells()
             #image.save("%s/Out/out%.2d.jpg" % (self.directory, i))
