@@ -11,6 +11,14 @@
 \maketitle
 	\tableofcontents
 \newpage
+
+	%Twenty-Ninth Entry
+	\section{More key image correction (3/28/2013)}
+		Griffin and I started the week working on whiteboard normalization for the key images.  We both had separate ideas, so we were comparing results to see which technique would work better.  Griffin came up with some sample images from his method that looked really impressive, so we're probably going to build off that going forward.  Now I am looking into some "Version 2" features, as well as how to improve the whiteboard normalization.  
+	\subsection*{Keystone Correction}	
+	I'm looking at how we can implement keystone correction (taking pictures from the side of the room and correcting the images to be rectangular).  PIL has methods that can rotate, skew and transform images, so i'm looking into those at the moment.  
+	\subsection*{Normalization}
+	One thing that can be improved about the normalization that we currently have is that since it's pixel by pixel, we get some clusters of pixels that are turned to black when they should be white.  One way to fix this could be to alter the threshold above or below which pixels are set to black or white.  Griffin has looked at this and it provided some improvement, but maybe we can do more.  The other way is to do more processing on the key images after the pixel clusters are there.  There are PIL methods that might help, so I'm looking at those.  There may also be a way to do this mathematically, and I'm thinking about that as well.
 	
 	%Twenty-Eigth Entry
 	\section{Key Image clean-up (3/21/2013)}
