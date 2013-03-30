@@ -11,7 +11,7 @@
 	%36th Entry
 	\section{more work image cleaning 03/28/2013}
 	
-	Today's work focused on further cleaning up the images and on identifying further problems. I cleaned up the images a little more by modifying the dynamically calculated threshold value. I originally calculated this value by finding the average grayscale value within the cell. This value was actually a little too hight, so to compensate i decided to subtract the standard deviation of all the cell values from the average. As it so happened, this value was a little too high, so I divided the stddev by 5. This seems (from the photos I've tested so far) to be the right number. It may need to be adjusted for more extreme images.
+	Today's work focused on further cleaning up the images and on identifying further problems. I cleaned up the images a little more by modifying the dynamically calculated threshold value. I originally calculated this value by finding the average grayscale value within the cell. This value was actually a little too hight, so to compensate i decided to subtract the standard deviation of all the cell values from the average. I decided to do it this way only after several hrs of research/browsing. I needed something that would vary from cell to cell based on the distribution of grayscale values, but i also needed it to be small enough that I wouldn't completely throw off my averaging. As it so happened, this standard deviation value, while varying from cell to cell, was a little too high, so I divided the stddev by 5. This seems (from the photos I've tested so far) to be the right number. It may need to be adjusted for more extreme images.
 	
 	Before further cleaning: \\
 	\includegraphics[scale=1]{images/withoutStdDev.png} \\
