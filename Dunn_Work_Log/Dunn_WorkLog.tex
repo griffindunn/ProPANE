@@ -8,6 +8,23 @@
 	\tableofcontents
 	\newpage
 	
+	%37th Entry
+	\section{image cleaning with color  (03/30/2013 and 04/04/2013)}
+	
+	My job for the past week has been to get the image cleaning software working with colored markers. Towards this end I had a couple options: I could use the YCbCr color coding, which comes with its own grayscale values or I could use the RGB encoding and calculate the grayscale based on the RGB values. After looking into YCbCr a bit I decided to stick with RGB because I am more familiar with it and because my code was already opening them in RGB. 
+	
+	After looking at various ways to clean the image based on RGB values I eventually decided to stick with what I already know how to do. I went through each stroke cell and analyzed it pixel by pixel. If the pixel's grayscale value (calculated from its RGB values) was less than the avg grayscale value I made it pure white, else I left it alone.
+	
+	The results (once I got the code to actually work.....) are surprisingly good: \\
+	
+	\includegraphics[scale=1]{images/Color1.png} \\
+	\includegraphics[scale=1]{images/Color2.png} \\
+	\includegraphics[scale=1]{images/Color3.png} \\
+	
+	I realize that the past three images had black markers, but decided to show them because they are in our current testbed of images. Here is an image with colored markers. Please ignore all the mis-classified cells! :D \\
+	
+	\includegraphics[scale=1]{images/Color4.png} \\
+	
 	%36th Entry
 	\section{more work image cleaning 03/28/2013}
 	
