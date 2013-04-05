@@ -12,6 +12,35 @@
 	\tableofcontents
 \newpage
 
+	%Thirtieth Entry
+	\section{Keystone Correction (4/3/2013)}
+		I have been looking into keystone correction, or a way to take a skewed, off-centered image of the board and make it appear as if it was taken straight on.  A google search revealed that this is a common feature built into projectors, but more related to the vertical skewing of the projected image.  I identified some methods built into MATLAB and OpenCV, and was thinking about ways to implement the same concepts in Python, but then I stumbled across the transform method in PIL.  It can take an image, and given the desired output size and coordinates of the four corners of a quadrilateral, it can map that area in the image to a new, rectangular output image.  It took a while to get the method to work, as it did not seem to work the same as the documentation indicated.  After debugging the issue, the method worked quite nicely, and I think this is an acceptable solution to our problem.  
+	
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{images/classroom}
+\caption{A generic picture of a classroom with a board at an angle}
+\end{figure}	
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{images/classroom_out}
+\caption{The board from the first image, after being run through the transform method}
+\end{figure}		
+	
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{images/keystone_before1}
+\caption{A test capture in BRKI 066}
+\end{figure}	
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{images/keystone_after1}
+\caption{A test capture in BRKI 066, after keystone correction}
+\end{figure}	
+	
+	The next step is to automatically identify the corners of the relevant board area within the image. Phil thinks that we can do this by modifying his existing top-bottom board detecting code.  We should be able to use it to identify the top and bottom lines of the board at any angle, and then follow them as far as needed to the edges of the board, and use the relevant coordinates of the cells at those positions.
 	%Twenty-Ninth Entry
 	\section{More key image correction (3/28/2013)}
 		Griffin and I started the week working on whiteboard normalization for the key images.  We both had separate ideas, so we were comparing results to see which technique would work better.  Griffin came up with some sample images from his method that looked really impressive, so we're probably going to build off that going forward.  Now I am looking into some "Version 2" features, as well as how to improve the whiteboard normalization.  
@@ -28,17 +57,13 @@
 	\section{Whiteboard Normalization (3/7/2013)}	
 		I have been looking for a way to normalize all of the key images, so they have pure white backgrounds with dark, readable text.  One of the issues with this is that when we get key images, some of them have patches of whiteboard and strokes where the brightness varies.  This stems from us not being able to lock the aperture or shutter speed on the camera.  Because of this, the method I currently have for normalization does not work extremely well on these images.  So I have been looking into first making the backgrounds of these images have a uniform board color.  I am essentially mapping the cell color of a base whiteboard image to all of the key images.  Right now I am using the PIL BrightnessEnhance method.  I am still tweaking it, and while it does look promising, I think there are probably other, better ways of doing this.  This is just a stopgap.  
 
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.2]{images/badIw_1}
-%\caption{Image with $I_w$ similar to calculated average}
-%\end{figure}	
-%		
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.2]{images/badIw_2}
-%\caption{Image with $I_w$ different from calculated average}
-%\end{figure}	
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.2]{images/keyimg_unigray}
+\caption{A key image with the background color mapped to the background of the first image in the sequence}
+\end{figure}	
+		
+Notice that there are some black cells interspersed.  This is because when the method goes through that cell, it misses the exact Iw number it is shooting for when altering the image, so it continues decreasing the brightness until it arrives at 255, or black, at which point the program is set to exit the while-loop.  I am working on refining this step to not miss as many cells, or to loop back up/down when it misses while going down/up.	
 	
 	%Twenty-Sixth Entry
 	\section{Standard Deviation Filtering (2/28/2013)}	

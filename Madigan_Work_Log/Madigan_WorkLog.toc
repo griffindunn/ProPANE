@@ -1,29 +1,30 @@
-\contentsline {section}{\numberline {1}More key image correction (3/28/2013)}{3}{section.1}
-\contentsline {section}{\numberline {2}Key Image clean-up (3/21/2013)}{3}{section.2}
-\contentsline {section}{\numberline {3}Whiteboard Normalization (3/7/2013)}{3}{section.3}
-\contentsline {section}{\numberline {4}Standard Deviation Filtering (2/28/2013)}{3}{section.4}
-\contentsline {section}{\numberline {5}Outline of recent events (2/26/2013)}{4}{section.5}
-\contentsline {section}{\numberline {6}First Full Lecture Capture (2/6/2013)}{4}{section.6}
-\contentsline {section}{\numberline {7}Spacial Cell Filtering (1/31/2013)}{7}{section.7}
-\contentsline {section}{\numberline {8}Object-Orienting the Code (1/24/2013)}{7}{section.8}
-\contentsline {section}{\numberline {9}Camera Selection Decision Matrix ()1/21/2013}{8}{section.9}
-\contentsline {section}{\numberline {10}Even More Cell Classification Over Time (11/30/2012)}{8}{section.10}
-\contentsline {section}{\numberline {11}More Cell Classification Over Time (11/27/2012)}{10}{section.11}
-\contentsline {section}{\numberline {12}Cell Classification Over Time (11/19/2012)}{12}{section.12}
-\contentsline {section}{\numberline {13}Cell Classification (11/14/2012)}{12}{section.13}
-\contentsline {section}{\numberline {14}Dividing Images, Whiteboard Color Normalization (11/1/2012)}{16}{section.14}
-\contentsline {section}{\numberline {15}Post Panel 2, Dividing Images into Cells (10/29/2012)}{18}{section.15}
-\contentsline {section}{\numberline {16}Gantt Chart, Preparation for Faculty Panel 2 (10/24/2012)}{20}{section.16}
-\contentsline {section}{\numberline {17}Microsoft, Gantt Chart, Learning Python (10/20/2012)}{21}{section.17}
-\contentsline {section}{\numberline {18}Risk Meeting, Tasks Going Forward (10/18/2012)}{21}{section.18}
-\contentsline {section}{\numberline {19}Risk Analysis (10/16/2012)}{22}{section.19}
-\contentsline {section}{\numberline {20}Final Version of Background Document (10/12/2012)}{23}{section.20}
-\contentsline {section}{\numberline {21}Work on Background Document, Use of git for Version Control (10/9/2012)}{23}{section.21}
-\contentsline {section}{\numberline {22}Third Client Meeting (10/5/2012)}{23}{section.22}
-\contentsline {section}{\numberline {23}Panel Feedback, Continued Research (9/30/2012)}{24}{section.23}
-\contentsline {section}{\numberline {24}First Panel, Continued Research (9/27/2012)}{24}{section.24}
-\contentsline {section}{\numberline {25}Additional Information on Microsoft Whiteboard Capture System (9/21/2012)}{24}{section.25}
-\contentsline {section}{\numberline {26}Review of Second Client Meeting, Background Research (9/17/2012)}{26}{section.26}
-\contentsline {section}{\numberline {27}Tech Specs, Second Meeting, Website Design (9/11/2012)}{26}{section.27}
-\contentsline {section}{\numberline {28}Logo Design, Research on Background and Competition (09/05/2012)}{27}{section.28}
-\contentsline {section}{\numberline {29}First Group Meeting and General Group Information (08/31/2012)}{28}{section.29}
+\contentsline {section}{\numberline {1}Keystone Correction (4/3/2013)}{3}{section.1}
+\contentsline {section}{\numberline {2}More key image correction (3/28/2013)}{5}{section.2}
+\contentsline {section}{\numberline {3}Key Image clean-up (3/21/2013)}{6}{section.3}
+\contentsline {section}{\numberline {4}Whiteboard Normalization (3/7/2013)}{6}{section.4}
+\contentsline {section}{\numberline {5}Standard Deviation Filtering (2/28/2013)}{7}{section.5}
+\contentsline {section}{\numberline {6}Outline of recent events (2/26/2013)}{7}{section.6}
+\contentsline {section}{\numberline {7}First Full Lecture Capture (2/6/2013)}{7}{section.7}
+\contentsline {section}{\numberline {8}Spacial Cell Filtering (1/31/2013)}{10}{section.8}
+\contentsline {section}{\numberline {9}Object-Orienting the Code (1/24/2013)}{10}{section.9}
+\contentsline {section}{\numberline {10}Camera Selection Decision Matrix ()1/21/2013}{11}{section.10}
+\contentsline {section}{\numberline {11}Even More Cell Classification Over Time (11/30/2012)}{11}{section.11}
+\contentsline {section}{\numberline {12}More Cell Classification Over Time (11/27/2012)}{13}{section.12}
+\contentsline {section}{\numberline {13}Cell Classification Over Time (11/19/2012)}{15}{section.13}
+\contentsline {section}{\numberline {14}Cell Classification (11/14/2012)}{15}{section.14}
+\contentsline {section}{\numberline {15}Dividing Images, Whiteboard Color Normalization (11/1/2012)}{19}{section.15}
+\contentsline {section}{\numberline {16}Post Panel 2, Dividing Images into Cells (10/29/2012)}{21}{section.16}
+\contentsline {section}{\numberline {17}Gantt Chart, Preparation for Faculty Panel 2 (10/24/2012)}{23}{section.17}
+\contentsline {section}{\numberline {18}Microsoft, Gantt Chart, Learning Python (10/20/2012)}{24}{section.18}
+\contentsline {section}{\numberline {19}Risk Meeting, Tasks Going Forward (10/18/2012)}{24}{section.19}
+\contentsline {section}{\numberline {20}Risk Analysis (10/16/2012)}{25}{section.20}
+\contentsline {section}{\numberline {21}Final Version of Background Document (10/12/2012)}{26}{section.21}
+\contentsline {section}{\numberline {22}Work on Background Document, Use of git for Version Control (10/9/2012)}{26}{section.22}
+\contentsline {section}{\numberline {23}Third Client Meeting (10/5/2012)}{26}{section.23}
+\contentsline {section}{\numberline {24}Panel Feedback, Continued Research (9/30/2012)}{27}{section.24}
+\contentsline {section}{\numberline {25}First Panel, Continued Research (9/27/2012)}{27}{section.25}
+\contentsline {section}{\numberline {26}Additional Information on Microsoft Whiteboard Capture System (9/21/2012)}{27}{section.26}
+\contentsline {section}{\numberline {27}Review of Second Client Meeting, Background Research (9/17/2012)}{29}{section.27}
+\contentsline {section}{\numberline {28}Tech Specs, Second Meeting, Website Design (9/11/2012)}{29}{section.28}
+\contentsline {section}{\numberline {29}Logo Design, Research on Background and Competition (09/05/2012)}{30}{section.29}
+\contentsline {section}{\numberline {30}First Group Meeting and General Group Information (08/31/2012)}{31}{section.30}
