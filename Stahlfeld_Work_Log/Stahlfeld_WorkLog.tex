@@ -2,6 +2,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage[top=1in, bottom=1in, right=1.25in, left=1.25in]{geometry}
 \usepackage{hyperref}
+\usepackage{moreverb}
 \hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
 
 \begin{document}
@@ -16,6 +17,32 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Fourteenth Entry
+	\section{Whiteboard Area Detection Revisited 04/01/2013}
+		Colin was able to find a way to accomplish the keystone correction for off center viewing of the whiteboard, but right now the user will have to somehow input the four coordinates that outline the whiteboard in an image. Ideally, we want the system to be able to automatically perform the keystone correction. 
+		
+		\subsection{Problem with Current Area Detection}
+			The current whiteboard area detection relies on the fact that the camera is facing perpendicular to the board's surface. It generates two horizontal lines that denote the top and bottom of the whiteboard. This only works when the whiteboard top and bottom actually are horizontal lines. The process for determining the values of these lines is outlined elsewhere in this document, but it uses an averaging method that will not work on diagonal lines for the whiteboard. 
+			
+		\subsection{Potential Solution}
+			The previous solution relies on the idea that the top and bottom portions of the board will be detected at roughly the same height for any given width. Averaging all of the heights has shown that it is an effective way of determining the whiteboard areas. Similarly, the slope of the top or bottom of a whiteboard in an off center shot is essentially constant so I have been tackling the problems with implementing this solution.
+			
+		\subsection{Design}
+			We need the coordinates of the quadrilateral in the image that determine the whiteboard area to do the actual keystone correction. Simply getting the slope of the top and bottom of the board will not give these coordinates. We are assuming that in the images from the capture system the whiteboard will extend from one side of the image to the other. This means that we only need to find the height values for the whiteboard at the left and right edges. My idea is to create two lines (one for the top and one for the bottom) that are the internal representation of the whiteboard edges. The method for finding the slope is as follows:
+			\begin{enumerate}
+				\item i, slope = 0
+				\item h1 = findHeightOfBoardForRow(i)
+				\item h2 = findHeightOfBoardForRow(i + 1)
+				\item slope += h2 - h1
+				\item i ++
+				\item Repeat 2-5 for all rows
+				\item slope = slope/i
+			\end{enumerate}
+			This will give the average slope between all adjacent rows and will hopefully be the slope for the edge of the whiteboard. We can then average the heights of the edges and assign that to the middle row of an image, we should have a line (point and slope) defining the top edge of the whiteboard. Finding where the line intersects the left and right side of the board will give the coordinates of the corners of the board that we can pass to the keystone correction algorithm.
+			
+		\subsection{Implementation}
+			I was able to begin implementing this solution as a branch of the project (since we are integrating color normalization) and was able to generate several lines that basically match up with the edges of the whiteboard. The next hurdle is to generate the coordinates of the corners of the white board and do the image correction. Then there will be a bit of time needed to integrate this component with the rest of the system because there will be operations performed on the input images that will have to be loaded again, which is an entirely new idea for the system. 
+			
 	% Thirteenth Entry
 	\section{Memory Error Solved 03/25/2013}
 		\subsection{Initial Attempts}
