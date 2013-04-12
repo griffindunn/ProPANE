@@ -4,6 +4,7 @@
 \usepackage{hyperref}
 \usepackage{float}
 \hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+\newcommand{\comment}[1]{}  							%allows comments of form \comment{text to be removed}
 
 \begin{document}
 \title{Work Log for Colin Madigan}
@@ -12,6 +13,19 @@
 	\tableofcontents
 \newpage
 
+%KEEP THIS TEXT HERE
+Note: Some images have been removed to keep the file size down.  To request these images, please email Colin Madigan at ctm013@bucknell.edu.
+
+	%Thirty-First Entry
+	\section{Multi-Board Feasibility (4/11/2013)}
+
+	This week I did research into whether or not our system can successfully take pictures of an entire three-whiteboard wall, as seen in the Breakiron classrooms, and process them via keystone correction so they are readable, with high enough resolution.  This is a feature that has been requested by our clients in the past, although we do not need to implement it to meet spec.\\
+
+As far as resolution is concerned, two images of a three-paneled board are very similar... the difference is slightly noticeable, but both are legible from straight on photos taken in the back of the room and in keystone-corrected images.  The difficulty with three-board implementation is the keystone correction, when images are taken from the side of the room.  The method used by PIL can take the trapezoidal area and force it to be rectangular, but with all three boards encompassing quite a bit of wall space, the correct proportions are not preserved.  The third of the board closest to the camera ends up being about as wide as the other two-thirds of the board combined after keystone correction is implemented.  \\
+
+After manually keystone correcting the images, it appears that this technique would be valid if this were easily implemented in our system.  However, the problem is that we cannot simply determine distances on the board from our images.  Since the camera is placed to the side, we would need to know the distance from the board and the angle the camera makes with the board in order to determine the correct proportions of the board.  We would also probably need to be able to detect where one section of board ends and another begins, and we don't have any provisions for that in our code, and it doesn't look to be easy to find.  \\
+
+Example images from the above discussion can be found in the Demonstrations section of the ProPANE website (\url{https://sites.google.com/site/bupropane/demonstrations}).
 	%Thirtieth Entry
 	\section{Keystone Correction (4/3/2013)}
 		I have been looking into keystone correction, or a way to take a skewed, off-centered image of the board and make it appear as if it was taken straight on.  A google search revealed that this is a common feature built into projectors, but more related to the vertical skewing of the projected image.  I identified some methods built into MATLAB and OpenCV, and was thinking about ways to implement the same concepts in Python, but then I stumbled across the transform method in PIL.  It can take an image, and given the desired output size and coordinates of the four corners of a quadrilateral, it can map that area in the image to a new, rectangular output image.  It took a while to get the method to work, as it did not seem to work the same as the documentation indicated.  After debugging the issue, the method worked quite nicely, and I think this is an acceptable solution to our problem.  
@@ -79,8 +93,11 @@ Notice that there are some black cells interspersed.  This is because when the m
 	\section{First Full Lecture Capture (2/6/2013)}
 		Today we captured two entire lectures using the app installed on our (finally-acquired) Galaxy Camera.  The app worked well in that it successfully took a picture approx. every 5 seconds for the entire lecture.  Battery life decreased from 100\% to 87\% after one lecture, which is even better than we had expected.  However, there are a few things that need to be sorted out with the app, which directly affect the ability of the analysis system to correctly classify cells.  
 		\subsection*{Color Balance}
-		Currently, for every image taken, the camera is automatically color-balancing the images, even in our app.  It chooses the setting it deems to be the best for each image.  Not all of the images have the same overall tone  to them, as seen below.  
-\begin{figure}[H]
+		Currently, for every image taken, the camera is automatically color-balancing the images, even in our app.  It chooses the setting it deems to be the best for each image.  Not all of the images have the same overall tone  to them, as seen below.   \\
+
+[EDIT: Images removed to keep file size down]	\\	
+
+\comment{\begin{figure}[H]
 \centering
 \includegraphics[scale=0.1]{images/colorbalance_1}
 
@@ -96,7 +113,8 @@ Notice that there are some black cells interspersed.  This is because when the m
 \centering
 \includegraphics[scale=0.1]{images/colorbalance_3}
 
-\end{figure}		
+\end{figure}
+}		
 
 As a result of this, the analysis system is having trouble classifying cells.  It calculates the whiteboard color based on the average luminance of all of the images, but since the overall shade keeps changing, this average value is not helpful.  As a result, the images that happen to have a similar tone as the calculated average are classified correctly, but images that have much darker or lighter tones are incorrectly classified with massive amounts of foreground objects.  Phil is working on a fix to this, so when we try to get another image set on Friday, this should be fixed.
 
@@ -168,8 +186,11 @@ One remaining problem is that for the variable $I_w$ in the above calculations (
 \caption{Single image}
 \end{figure}	
 	
-	The stroke detection is essentially identical in both images, but the foreground/whiteboard cell detection varies quite a bit.  For some reason, the single image whiteboard test thinks that many cells with nothing in them contain foreground objects.
+	The stroke detection is essentially identical in both images, but the foreground/whiteboard cell detection varies quite a bit.  For some reason, the single image whiteboard test thinks that many cells with nothing in them contain foreground objects. \\
 	
+	[EDIT: Images removed to keep file size down] \\
+
+\comment{	
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.25]{images/emptyboard_overtime}
@@ -181,14 +202,18 @@ One remaining problem is that for the variable $I_w$ in the above calculations (
 \includegraphics[scale=0.25]{images/emptyboard_single}
 \caption{Single image}
 \end{figure}
+}
+These are the processed images of the last image in the set, which is an unobstructed view of the board.  Again, stroke cell detection is identical.  However, the single image whiteboard color test correctly determines that there are no foreground cells, while the sequence of images whiteboard color test believes that there is a foreground object.  This is due to the aforementioned anomalies in the whiteboard color detection due to the small image set, and I believe that it will go away as our testbed is expanded.  For reference, look at the whiteboard image from the sequence of images.  The visible anomalies are clearly in the same locations as the erroneously detected foreground cells. \\
 
-These are the processed images of the last image in the set, which is an unobstructed view of the board.  Again, stroke cell detection is identical.  However, the single image whiteboard color test correctly determines that there are no foreground cells, while the sequence of images whiteboard color test believes that there is a foreground object.  This is due to the aforementioned anomalies in the whiteboard color detection due to the small image set, and I believe that it will go away as our testbed is expanded.  For reference, look at the whiteboard image from the sequence of images.  The visible anomalies are clearly in the same locations as the erroneously detected foreground cells.
+[EDIT: Image removed to keep file size down] \\
 
+\comment{
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.25]{images/background_overtime}
 \caption{The image of the whiteboard color as detected over the whole sequence}
 \end{figure}	
+}
 	%Ninteenth Entry
 	\section{More Cell Classification Over Time (11/27/2012)}
 		I implemented numpy to calculate the mean and standard deviation of the whiteboard cells over time.  The idea is similar to before, but I think that earlier I was calculating it wrong.  This did not immediately fix the problem.  However, I did find the solution.  Even with the whiteboard cells having a very small standard deviation, the standard deviation of the stroke cells were all over the place.  Instead of using the value of $Tsig = 2$ as in Microsoft's paper, I looked at some of the values that I was getting and decided to try some higher values of $Tsig$.    This drastically improved the processing of the images.  Now, cell classification works for all three types of cell.  \\
@@ -234,7 +259,7 @@ and as a stroke cell if and only if
 Otherwise, it's classified as a foreground object cell.  In the WCS implementation, $T_w=2$ and $T_\sigma=2$.	
 
 I came up with some python code to accomplish this, which builds on previously written code.  Important to note is that all images we use are in RGB format, meaning they have three color bands.  Currently, I'm doing all calculations by first converting to greyscale images and then processing them.  This could be responsible for some of the errors I'm getting (it probably is) but it was easier for a first proof of concept.  
-
+\comment{
 \begin{verbatim}
 
 Tw = 2
@@ -264,16 +289,16 @@ for  i in nsize:
                temp = temp.enhance(0)
                im.paste(temp, cell[i][j])
 \end{verbatim}
-
+}
 Currently, it will make detected stroke cells brighter for ease of detection, and make foreground cells completely black.  Here are some example output images:
 
-
+\comment{
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.15]{images/wb_nickel_7_crop}
 \caption{Unaltered image}
 \end{figure}
-
+}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.15]{images/cell_id_demo}
@@ -463,11 +488,15 @@ This can be scaled to any $n$ value, as seen below, but with a contrast filter.
 	
 		\subsection*{Idea}
 	During class I thought of a possible idea for filtering images on the whiteboard by color and content.  All board content could be displayed as a 3D matrix, as in the Microsoft system.  However, we could take it a step further and filter by color as well, since professors will sometimes write groups of related information in the same color. This is definitely true for civil engineering professors, based on notes provided to us by our client. \\
+	
+	[EDIT: Image removed to keep file size down] \\
+	\comment{
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{images/3D_matrix}
 \caption{Idea similar to this image}
 \end{figure}	
+}
 	\indent The board could be represented by a matrix of cell images, with the width and height representing the board dimensions, and the depth ``in and out'' of the board representing different groupings.  For instance, the whiteboard cells could all be in the same plane of the matrix, while any foreground (undesirable) objects could be in another plane. The rest of the board content could be in other planes, sorted by color. So for instance, all black writing would be in a particular plane, while blue writing would be in another.  By default, the processed image would remove foreground objects and display whiteboard and all writing, but the user could manually choose to only see, for instance, writing and drawings in red, or everything except green.  This feature could be useful to students with learning disabilities, since it would simplify the image and group relevant information together.
 
 
@@ -586,21 +615,25 @@ I am finalizing a section of research on the Microsoft Whiteboard Capture System
 		I arranged a meeting with Dr. Gabauer and Dr. Midkiff for 3 pm on 9/13/12 \href{https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxidXByb3BhbmV8Z3g6NDMwMGY4NTlmYWQ2NjUx}{(agenda here)}.  I arranged a conference room in Dana through Judy of the EE department.  We are meeting about the technical specifications of our project.  Dr. Midkiff will provide crucial input on the legal requirements we face due to designing a device for special needs students.  Dr. Gabaur's input will help us better understand the scope of the design and whiteboard capture process. The meeting will also help us prioritize the features of the first version of the product.
 
 		\subsection*{ProPANE Site Changes}
-		I made one small change to the website.  The homepage was extremely empty (prior to the project description being there) so I designed and added a graphic to fill space, while also helping viewers to understand our project at such an early stage.  It attracts the reader's attention with appropriately-colored text, it explains the ProPANE acronym, and it includes our logo.  This graphic is seen below.
+		I made one small change to the website.  The homepage was extremely empty (prior to the project description being there) so I designed and added a graphic to fill space, while also helping viewers to understand our project at such an early stage.  It attracts the reader's attention with appropriately-colored text, it explains the ProPANE acronym, and it includes our logo.  This graphic is seen below. \\
 
+[EDIT: Image removed to keep file size down] \\
+\comment{
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.36]{images/propane_whiteboard}
 \caption{Homepage image}
 \end{figure}
- 
+ }
 
 	% Second Entry
 	\section{Logo Design, Research on Background and Competition  (09/05/2012)}
 
 		\subsection*{Logo Design}
-		Worked on the ProPANE logo.  Tried different color schemes ranging anywhere from black and white, orange and blue (Bucknell) and black and gold.  Design was done in Adobe Photoshop and MS Paint.
-
+		Worked on the ProPANE logo.  Tried different color schemes ranging anywhere from black and white, orange and blue (Bucknell) and black and gold.  Design was done in Adobe Photoshop and MS Paint. \\
+		
+		[EDIT: Image removed to keep file size down] \\
+\comment{
 \begin{figure}[H]
 \begin{minipage}[b]{0.45\linewidth}
 \centering
@@ -613,7 +646,7 @@ I am finalizing a section of research on the Microsoft Whiteboard Capture System
 \caption{Current ProPANE logos}
 \end{minipage}
 \end{figure}
-
+} 
 Eventually the group settled on the current logos above, because they are easy on the eyes yet they still stand out.  \\
 
 		\subsection*{Background Research}
