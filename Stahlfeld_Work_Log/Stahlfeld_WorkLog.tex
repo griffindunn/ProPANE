@@ -17,6 +17,26 @@
 	\setlength{\parindent}{0pt}
 	\setlength{\parskip}{6pt}
 	
+	% Sixteenth Entry
+	\section{Integration with Color Normalization and Camera App Resolution Button 04/11/2013}
+		
+		\subsection{Color Normalization}
+			Long story short, I integrated Griffin's code for color normalization into the actual analysis system. Now, the key images feature a white background and the stroke cells are dichromatic. 
+			
+		\subsection{Camera App Resolution Button}
+			In an attempt to improve the keystone correction, Colin wanted to be able to capture at a higher resolution. I updated the app so that pushing a new button toggles the camera between capturing in high resolution ~4600x2100 to low resolution 1920x1080.
+	
+	% Fifteenth Entry
+	\section{Cell Classification Improvement 04/08/2013}
+		The first pass through an image for cell classification bases the classification entirely on math (the stddev, var of the luminance of a cell). Subsequent passes use logic from surrounding cells to reclassify and eliminate anomalies.
+		
+		\subsection{Problem}
+			Using the logic to add buffers around foreground objects has been helpful for eliminating misclassified stroke cells, but the method being used causes the reclassification to propagate through too much of the image (direction depending on the way the iteration is setup for going through all the cells in an image). This means that on one side there will be too much of a buffer and on the other side there will be too little. My goal for this work session is to get an even buffer around foreground objects.
+			
+		\subsection{Implementation}
+			During the second through fourth classification passes, I added a way of telling a cell that it had been updated in the current pass. The method for doing this was to create an array with the same dimensions as cells in an image. Each entry in an array is a boolean representing whether the cell has been updated during the current pass. This array is reset for every pass and values get set when a cell gets reclassified. This data will be used in the ``getNeighboringCells" method that will not count cells that have been changed recently. This will prevent spreading of the reclassification and will allow for more passes that will add a more accurate buffer to foreground objects. 
+			
+	
 	% Fourteenth Entry
 	\section{Whiteboard Area Detection Revisited 04/01/2013}
 		Colin was able to find a way to accomplish the keystone correction for off center viewing of the whiteboard, but right now the user will have to somehow input the four coordinates that outline the whiteboard in an image. Ideally, we want the system to be able to automatically perform the keystone correction. 

@@ -78,7 +78,6 @@ class pImageSequence(object):
             # If more board cells and not mid-erase then key image
             if isKey1:
                 print "Saving Key 1"
-                keyImage.cleanPass()
                 keyImage.save("%s/Out/keyimg%s.jpg" % (self.directory, keyImageCount), True)
                 keyImageCount += 1
                 decreasingInformation = True

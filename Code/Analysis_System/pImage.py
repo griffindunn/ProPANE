@@ -221,15 +221,12 @@ class pImage(object):
 
 
     def makeWhite(self, x, y):
-        print "Making white"
         #makeWhiteCell = ImageEnhance.Brightness(self.cells[x][y].cellData())
         #makeWhiteCell = makeWhiteCell.enhance(100)
         makeWhiteCell = self.cells[x][y].cellData().convert('L')
         lut = [255 if v < 254 else 0 for v in range(256)]
         makeWhiteCell = makeWhiteCell.point(lut, '1')
-        makeWhiteCell.show()
         self.im.getColor().paste(makeWhiteCell, self.cells[x][y].boundaries)
-    
 
     def make2D(self, x, y):
         make2D = self.cells[x][y].cellData().convert('L')
@@ -346,10 +343,6 @@ class pImage(object):
                     self.boardCount += 1
                     if keyimage:
                         self.makeWhite(x, y)
-
-
-                cell = self.cells[x][y]
-                image.paste(cell.cellData(), cell.boundaries)
 
         image.save(filename)
 
