@@ -220,45 +220,6 @@ class pImage(object):
                     self.makeWhite(x, y)
 
 
-    def makeWhite(self, x, y):
-        #makeWhiteCell = ImageEnhance.Brightness(self.cells[x][y].cellData())
-        #makeWhiteCell = makeWhiteCell.enhance(100)
-        makeWhiteCell = self.cells[x][y].cellData().convert('L')
-        lut = [255 if v < 254 else 0 for v in range(256)]
-        makeWhiteCell = makeWhiteCell.point(lut, '1')
-        self.im.getColor().paste(makeWhiteCell, self.cells[x][y].boundaries)
-
-    def make2D(self, x, y):
-        make2D = self.cells[x][y].cellData().convert('L')
-        color = self.cells[x][y].cellData()
-        stat = ImageStat.Stat(make2D)
-		#average = stat.mean[0]
-		#im = self.cells[x][y].cellData()
-		#image = self.cells[x][y].cellData()
-        pixels = make2D.load()
-        colPix = color.load()
-        width = self.cells[x][y].width
-        height = self.cells[x][y].height
-		#all_pixels = []
-        for xx in range(width):
-            for yy in range(height):
-                cpixel = colPix[xx, yy]
-                if round(sum(cpixel)/float(len(cpixel))) > stat.mean[0]:
-                    color.putpixel((xx, yy), (255, 255, 255))
-        #else:
-        #all_pixels.append(0)
-        #pixels[x,y] = (0, 0, 0)
-        #pixels[x, y] = cpixel
-
-		#hope = Image.fromarray(all_pixels, 'RGB')
-		#stat = ImageStat.Stat(make2D)
-		#lut = [255 if v > stat.mean[0] else 0 for v in range(256)]
-		#make2D = make2D.point(lut, '1')
-        make2D = make2D.point(lambda i: i > (stat.mean[0]-stat.stddev[0]/5) and 255)
-		#invert = PIL.ImageOps.invert(make2D)
-		#im.putdata(all_pixels)
-
-        self.im.getColor().paste(color, self.cells[x][y].boundaries)
 
     
 
@@ -322,27 +283,29 @@ class pImage(object):
         self.im.getColor().show()
 
     def save(self, filename, keyimage = False):
-        image = self.im.getColor()
+        #image = self.im.getColor()
+        image = Image.open(self.filename)
         for x in xrange(self.cellsPerRow):
             for y in xrange(self.cellsPerColumn):
                 cellType = self.cells[x][y].celltype
+                cell = self.cells[x][y]
                 if cellType == pCell.STROKE:
                     self.strokeCount += 1
                     if keyimage:
-                        self.make2D(x, y)
+                        image.paste(cell.make2D(), cell.boundaries)
 
                 elif cellType == pCell.FOREGROUND:
                     self.foreCount += 1
                     if keyimage:
-                        self.makeWhite(x, y)
+                        image.paste(cell.makeWhite(), cell.boundaries)
                     
                 elif cellType == pCell.UNCLASSIFIED:
                     if keyimage:
-                        self.makeWhite(x, y)
+                        image.paste(cell.makeWhite(), cell.boundaries)
                 else:
                     self.boardCount += 1
                     if keyimage:
-                        self.makeWhite(x, y)
+                        image.paste(cell.makeWhite(), cell.boundaries)
 
         image.save(filename)
 

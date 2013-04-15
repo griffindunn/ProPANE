@@ -85,3 +85,30 @@ class pCell(object):
 
         lum_hist = data.histogram()
         return numpy.array(lum_hist)
+
+    def makeWhite(self):
+        #makeWhiteCell = ImageEnhance.Brightness(self.cells[x][y].cellData())
+        #makeWhiteCell = makeWhiteCell.enhance(100)
+        makeWhiteCell = self.cellData().convert('L')
+        lut = [255 if v < 254 else 0 for v in range(256)]
+        makeWhiteCell = makeWhiteCell.point(lut, '1')
+        #self.im.getColor().paste(makeWhiteCell, self.cells[x][y].boundaries)
+        return makeWhiteCell
+
+    def make2D(self):
+        make2D = self.cellData().convert('L')
+        color = self.cellData()
+        stat = ImageStat.Stat(make2D)
+        pixels = make2D.load()
+        colPix = color.load()
+        width = pCell.width
+        height = pCell.height
+        for xx in range(width):
+            for yy in range(height):
+                cpixel = colPix[xx, yy]
+                if round(sum(cpixel)/float(len(cpixel))) > stat.mean[0]:
+                    color.putpixel((xx, yy), (255, 255, 255))
+        make2D = make2D.point(lambda i: i > (stat.mean[0]-stat.stddev[0]/5) and 255)
+
+        #self.im.getColor().paste(color, self.cells[x][y].boundaries)
+        return color
