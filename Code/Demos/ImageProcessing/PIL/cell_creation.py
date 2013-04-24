@@ -1,10 +1,10 @@
 import Image
 import ImageEnhance
 
-im = Image.open("../../../../Images/StandardImages/P1010053.jpg")
+im = Image.open("../../../../../ImageSets/test_sets/star_wars/IMG_20130228_175848.jpg")
 width=im.size[0]
 height=im.size[1]
-n=3
+n=60
 cell_width=width/n
 cell_height=height/n
 #cell = (n**2)*[0]
@@ -47,7 +47,7 @@ im.show()"""
 for i in range(0,n):
     for j in range(i%2,n-(i%2),2): 
         temp = ImageEnhance.Brightness(cell_image[i][j])
-        temp = temp.enhance(2.0)
+        temp = temp.enhance(0.9)
         im.paste(temp, cell[i][j])
-im.show()
-
+#im.show()
+im.save("../../../../../ImageSets/cells.jpg")
