@@ -1,0 +1,58 @@
+\begin{thebibliography}{10}
+
+\bibitem{IEEESPS}
+{IEEE Signal Processing Society}, ``{Scope and Mission}.''
+  \url{http://www.signalprocessingsociety.org/about-sps/scope-mission/}, March
+  2010.
+
+\bibitem{cornell}
+{Cornell University Library Research Department}, ``{Digital Imaging
+  Tutorial}.''
+  \url{http://www.library.cornell.edu/preservation/tutorial/contents.html},
+  2003.
+
+\bibitem{eutecus}
+{Eutecus, Inc.}, ``{Signal and Image Processing Library}.''
+  \url{http://www.eutecus.com/ProdServ/InstantVision/SILib.html}.
+
+\bibitem{opencv}
+{Willow Garage, Inc.}, ``{OpenCVWiki}.''
+  \url{http://opencv.willowgarage.com/wiki/}, May 2012.
+
+\bibitem{aforge1}
+{Andrew Kirillov}, ``{AForge.NET Framework}.''
+  \url{http://www.aforgenet.com/aforge/framework/}, 2012.
+
+\bibitem{pil}
+{Secret Labs AB}, ``{Python Imaging Library}.''
+  \url{http://www.pythonware.com/products/pil/}, 2011.
+
+\bibitem{vips}
+{John Cupitt, Kirk Martinez, Joe Padfield}, ``{VipsWiki}.''
+  \url{http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS}, August 2012.
+
+\bibitem{matlab_ipt}
+{The MathWorks, Inc.}, ``{Image Processing Toolbox - MATLAB}.''
+  \url{http://www.mathworks.com/products/image/}, 2012.
+
+\bibitem{matlab_iat}
+{The MathWorks, Inc.}, ``{Image Acquisition Toolbox - MATLAB}.''
+  \url{http://www.mathworks.com/products/imaq/}, 2012.
+
+\bibitem{mathematica}
+{Wolfram Research, Inc.}, ``{Image Processing and Analysis - Wolfram
+  Mathematica 8 Documentation}.''
+  \url{http://reference.wolfram.com/mathematica/guide/ImageProcessing.html},
+  2012.
+
+\bibitem{ndt}
+{Collaboration for Nondestructive Testing}, ``{Image Processing Techniques}.''
+  \url{http://www.ndt-ed.org/EducationResources/CommunityCollege/Radiography/AdvancedTechniques/Real_Time_Radiography/ImageProcessingTechniques.htm},
+  December 1999.
+
+\bibitem{disability}
+{Stephen F. Austin State University}, ``{Note Taker Q\&A}.''
+  \url{http://www.sfasu.edu/disabilityservices/facultyandstaff/for_service_providers/note_q_a.asp},
+  2012.
+
+\end{thebibliography}
