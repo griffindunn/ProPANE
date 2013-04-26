@@ -377,15 +377,104 @@ Secondary goals of our project will help to make the learning process even easie
 			\end{figure}
 			
 		\subsection{Capture System}
-			The requirements from the technical specifications that the capture system had to meet are listed below:
-			\begin{itemize}
-				\item The maximum time required to prepare the capture system for recording shall not exceed 5 minutes.
-				\item The ProPANE system shall capture all of the information written on a board and within the capture field provided that there exists a clear line of sight from the capture device to the information for a minimum of 5 continuous seconds.
-				\item The total weight of the capture device shall not exceed 2.5 kg.
-				\item The capture device shall fit inside of a cube with 0.75 m sides in its most collapsed and fully assembled state. 
-			\end{itemize}
+		
+			\subsubsection{Capture Device Decision process}
+				The requirements from the technical specifications that the capture system had to meet are listed below:
+				\begin{itemize}
+					\item The maximum time required to prepare the capture system for recording shall not exceed 5 minutes.
+					\item The ProPANE system shall capture all of the information written on a board and within the capture field provided that there exists a clear line of sight from the capture device to the information for a minimum of 5 continuous seconds.
+					\item The total weight of the capture device shall not exceed 2.5 kg.
+					\item The capture device shall fit inside of a cube with 0.75 m sides in its most collapsed and fully assembled state. 
+				\end{itemize}
+				
+				\noindent
+				The ProPANE team compared the following list of capture devices against the specifications in an attempt to determine the optimal one for the project:
+				\begin{itemize}
+					\item Logitech HD Pro Webcam C920
+					\item Nikon CoolPix S800C
+					\item Samsung Galaxy Camera
+					\item Samsung WB150F Smart Wi-Fi Digital Camera
+					\item Canon PowerShot G15 connected via USB to laptop
+				\end{itemize}
+				
+				\noindent
+				The Logitech webcam was ruled out due to lack of resolution (violating the requirement for capturing all of the information on the whiteboard). The Nikon CoolPix S800C was ruled out due to the fact that it had an automatic shutdown timer so that it would not be capable of capturing images throughout an entire lecture. The remaining three systems would all meet specification so the following criterion were used to select the optimal capture device:
+				\begin{itemize}
+					\item Decreasing the number of steps in the setup will increase usability
+					\item Decreasing number of discrete components in system will increase usability
+				\end{itemize}
+				The Samsung WB150F (Galaxy Camera without Android and touchscreen) would require a battery pack and a laptop to control it via Wi-Fi. The Canon PowerShot G15 would require a laptop to control it. The Samsung Galaxy Camera (see Figure \ref{img:galaxy-camera} could operate entire independently so it was the logical choice for the capture device. 
+				
+				\begin{figure}[h]
+					\centering
+					\includegraphics[scale=0.45]{images/galaxy-camera.jpg}
+					\caption{Three views of the Samsung Galaxy Camera. The left view shows the camera running a full Android 4.1 operating system. The other two images show that it has a telescopic lense that will allow for physical zooming so that the camera can be placed anywhere in the classroom and still capture high resolution images.}		
+					\label{img:galaxy-camera}
+				\end{figure}
+			
+			\subsubsection{Android App v1}
+				The first iteration of the capture system app allowed the user to start capturing images and to stop the capture. The images were all timestamped and were taken every 5 seconds. They were stored in the Pictures directory all together and were not separated from any of the other capture sets.
+				
+			\subsubsection{Android App v2}
+				The second iteration of the capture system app created a timestamped directory every time a new capture was started and placed the images from that capture into the directory. This separated the captures from each other. The problem with this version of the app is that when the screen turned off, it would stop the app. Adjusting the settings for the camera made it possible to keep the screen on at all times, but the battery drain would not allow for captures of longer classes.
+				
+			\subsubsection{Android App v3}
+				The third iteration of the capture system utilized a wakelock to keep the app running even when the screen turned off. Zoom functionality was also added to the app so that the camera could be placed in different places is the room. This version was buggy and if the app was closed the wrong way, the camera became unreachable without a restart. 
+				
+			\subsubsection{Android App v4}
+				The fourth iteration of the capture system used the onPause, onStop, and onResume calls in Android to correctly lock and release the camera so that if the app is closed at any time, the camera will still be useable without a restart. There was also a button added to this version to toggle between high resolution and low resolution capture modes. This feature was requested for the keystone correction feature of the analysis system. This was the final version of the app that was developed since it went beyond meeting specification and the team wanted to focus more on the analysis system improvements. The final version of the app can be seen in Figure \ref{img:camera-app}.
+				
+				\begin{figure}[h]
+					\centering
+					\includegraphics[scale=0.8]{images/camera-app.png}
+					\caption{Three views of the Samsung Galaxy Camera. The left view shows the camera running a full Android 4.1 operating system. The other two images show that it has a telescopic lense that will allow for physical zooming so that the camera can be placed anywhere in the classroom and still capture high resolution images.}		
+					\label{img:camera-app}
+				\end{figure}
+				
 		
 		\subsection{Analysis System}
+			The analysis system was designed using an object-oriented approach so that: the subsystems could be swapped in and out if necessary, new features could be added seamlessly, and the design would be language/platform independent. The system was prototyped in Python and the performance issues typically associated with Python were not apparent in the prototypes so it was used for the overall construction of the system. The analysis system can be broken down into three major classes:
+			\begin{itemize}
+				\item pCell: responsible for manipulating image data on a pixel level
+				\item pImage: responsible for holding and manipulating image data on a regional level
+				\item pImageSequence: responsible for organizing images
+			\end{itemize}
+			When dealing with 800 images, memory becomes an issue so the idea going into the system was to manipulate images in the following manner:
+			\begin{enumerate}
+				\item Read in an image from disk
+				\item Analyze the image
+				\item Manipulate the image
+				\item Write the image back to disk
+				\item Remove image data from memory
+			\end{enumerate} 
+			Using this strategy allowed the ProPANE team to ignore memory concerns. The following sections describe the major components in the analysis system. Most of the initial work on the analysis system followed the approach found in the Microsoft Research Lab's paper. The core idea in their paper was to break each image into a rectangular cell, which could then be classified as a board, stroke, or foreground cell. Using rectangular regions in an image make the analysis and manipulation of those images easier since each region is the same size and they can be interchanged easily. 
+			
+			\subsubsection{Python Imaging Library (PIL)}
+				One of the decisions that had to be made for the analysis system was what framework/language to use for the image processing. The object oriented nature of the design made this decision less critical, but the team did evaluate several different languages:
+				\begin{itemize}
+					\item Python with PIL
+					\item C++ with ImageMagik
+					\item C++ with CImg
+					\item Java with OpenCV
+				\end{itemize}
+			
+			\subsubsection{pCell Class v1}
+				The pCell class represents a single rectangular region in a single image. It contains data about the location and size of the region as well as the current classification level. The methods on the cell allow for extraction of data such as average luminance and standard deviation of color in the cell. This version of the pCell was used up to the point of color normalization where additional methods were needed.
+				
+			\subsubsection{pCell Class v2}
+				For the color normalization, two methods were added to this class. The first allowed the pCell to return its data where board areas in the cell are made white and stroke regions maintain their color. The second method allowed the pCell to return its data where the cell has been made white except for rare instances such as small amounts of strokes that are on the border of the cell. These two methods allowed for color normalization of the key images.
+				
+			\subsubsection{pImage Class v1}
+				The pImage class represents a collection of cells as grouped by an actual image on disk. The pImage contains a reference to the file name so that the image data does not have to reside in memory at all times. Creating a pImage automatically allocates a matrix of pCells to hold the information about the actual image. It also contains a method that can be called to classify cells. The problem with this version of the system is that there was no good way to release image data from memory. Additionally, with 800 images and several thousand pCells per image, the data about the actual image data becomes too large for the operating system to handle. The next version of the pImage was aimed at resolving this problem.
+			
+			\subsubsection{pImage Class v2}
+				The second iteration of the pImage class contained a reference to the pImgMgr class (see below) in addition to the filename for the image it is representing. This solved the problem of how to remove image data from memory. To solve the problem of having too many pCell objects, the methods open and close were added to the class to deal with the pCells. When close is called, the pCell matrix is serialized, written to a file, and then deleted from memory. When open is called, the pCell matrix is read back in from the binary file created from the call to close. These additions to the pImage class allowed the system to run using constant memory. 
+			
+			\subsubsection{pImageSequence Class}
+				Each capture event creates a single pImageSequence. A pImageSequence represents a collection of pImages over time. The pImageSequence class has methods that: generate a set of pImages for a given directory, tell all of the pImages to classify cells, and generate key images. While the pImageSequence changed throughout the course of development, the core principles did not change.
+				
+			\subsubsection{pImgMgr Class}
+				The pImgMgr class is responsible for managing whether image data is in memory or not. It contains a method that will return the image data. If the data is in memory, it returns the data. If not, it loads the data into memory and returns it. The other method is close where it deletes the data from the class and sets the pointer to None so that the memory is freed. This class allowed the system to successfully run in constant memory. 
 		
 		\subsection{Backend System}
 
