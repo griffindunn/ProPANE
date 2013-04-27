@@ -330,6 +330,7 @@ Secondary goals of our project will help to make the learning process even easie
 	\section{Specification Verification}
 	
 	
+	
 		\subsection{Results from Specification Testing}
 			The table in Figure \ref{fig:specreview} shows the results from the testing done to verify that the deliverable met the proposed specifications. 
 			
@@ -457,6 +458,15 @@ Secondary goals of our project will help to make the learning process even easie
 					\item C++ with CImg
 					\item Java with OpenCV
 				\end{itemize}
+				Going into the project, the ProPANE team knew what features would be required from the image processing software and selected a few additional criteria that would be desirable in the software. These features (listed below) were used to determine the optimal software to use.
+				\begin{itemize}
+					\item Straight forward installation process on Ubuntu
+					\item Handle JPEG images
+					\item Crop/paste images
+					\item Retrieve luminance data from an image
+					\item Fully documented
+				\end{itemize}
+				The installation process for OpenCV on Ubuntu was difficult and not well documented so the ProPANE team was unable to install and configure the package. CImg was easy to install (everything is in a single header file), but it did not have the capabilities to retrieve the necessary luminance data from the captured images. ImageMagik was easy to install, but the documentation was so sparse that it was impossible to even start working with the software. PIL is part of the Python distribution (2.3 and higher), which is required for Ubuntu so it was already installed. There is also a large handbook documenting how to use the software as well as numerous posts on StackOverflow on how to use it. PIL was the logical choice for this project. 
 			
 			\subsubsection{pCell Class v1}
 				The pCell class represents a single rectangular region in a single image. It contains data about the location and size of the region as well as the current classification level. The methods on the cell allow for extraction of data such as average luminance and standard deviation of color in the cell. This version of the pCell was used up to the point of color normalization where additional methods were needed.
@@ -475,6 +485,33 @@ Secondary goals of our project will help to make the learning process even easie
 				
 			\subsubsection{pImgMgr Class}
 				The pImgMgr class is responsible for managing whether image data is in memory or not. It contains a method that will return the image data. If the data is in memory, it returns the data. If not, it loads the data into memory and returns it. The other method is close where it deletes the data from the class and sets the pointer to None so that the memory is freed. This class allowed the system to successfully run in constant memory. 
+				
+			\subsubsection{Image Analysis Process}
+				The overall concept for producing key images from a set of images captured in a lecture is as follows:
+				\begin{enumerate}
+					\item Create pImageSequence from captured images directory
+					\item Divide each image into cells
+					\item Classify cells
+					\item Generate temporary key image from first image
+					\item Copy board and stroke cells from next image in sequence into temporary key image
+					\item Repeat step 5 until erasing has been detected
+					\item Save key image and return to step 5
+				\end{enumerate}
+				The two main parts of the algorithm are classifying cells and detecting when to trigger a key image. The following two sections explain the algorithm.
+				
+			\subsubsection{Cell Classification v1}
+				The original classification was based entirely off of the Microsoft Research Lab's paper. The algorithm in the paper divided each image into cells, found the luminance value that occurred most frequently in each cell of each image, and then averaged each luminance over time. This eventual luminance value was used as the ``color" of the whiteboard. The standard deviation of the board color was also assumed to be 0.1. Comparing several of the different ratios of whiteboard color and standard deviation in a cell to the two above values, the algorithm could distinguish between board, stroke, and foreground cells. The ProPANE team found that this algorithm failed when the lighting in the room changed over the course of a lecture. 
+			
+			\subsubsection{Cell Classification v2}
+				The second iteration of cell classification was designed around the fact that the Samsung Galaxy Camera automatically adjusted the brightness of pictures when it took them leading to what appears to be changing lighting in the room. The system determines the color of the whiteboard based off of the luminance that occurs most frequently in each cell in the first image (this assumes that there are no foreground objects in the first image and the whiteboard is clean). The goal of this algorithm was to distinguish between board/stroke cells and foreground cells. The idea behind the algorithm is that foreground has a lower luminance than stroke/board. The first comparison is that if the luminance of the cell is less than 0.8 times the luminance value that occurred most frequently in the first image, then the cell is foreground. It is easy to distinguish between board and stroke cells because stroke cells have a much higher standard deviation than board cells. If the standard deviation of a cell is greater than 4 and it is not a foreground cell, then it is classified as a stroke cell. The numbers 4 and 0.8 were chosen based off of testing that was done on 5 different image sets. On average, these numbers appeared to classify the cells most correctly. 
+								
+			\subsubsection{Detecting Key Images}
+				The algorithm for detecting key images uses a two image lookahead, sliding window scheme for analyzing changes in the amount of information written on the whiteboard. When looking at an image, the system assigns a value for looking ahead to the next image and a value for looking ahead two images as follows:
+				\begin{itemize}
+					\item The value is incremented by one for every stroke cell that becomes a foreground cell
+					\item The value is decremented by one for every board cell that becomes a stroke cell
+				\end{itemize}
+				If the value rises above 5 for the looking ahead to the next image, a key image is triggered. If the value rises above 3 for looking ahead to the next image and above 5 for looking ahead two images, then a key image is triggered. When a key image is not detected, all of the stroke and board cells from the next image are copied into the current image and iteration through the image sequence continues. The numbers 3 and 5 were picked based on testing as the values that will typically generate at least one extra key image, but will almost guarantee that no key images are missed. 
 		
 		\subsection{Backend System}
 
