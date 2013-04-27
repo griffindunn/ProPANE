@@ -580,7 +580,86 @@ return topOfBoard
 
 	\section{Bill of Materials}
 	
+		\subsection{Final Product Cost}
+		
+			Item Description			Cost		Count	Total
+			Samsung Galaxy Camera	539.99	1		539.33
+			Tripod					0		1		0
+			Dell Optiplex 475			0		1		0
+			Monitor and Keyboard		0		1		0
+									Total Project Cost	539.99
+	
+		\subsection{Total Product Cost}
+		
+			Item Description			Cost		Count	Total
+			Samsung Galaxy Camera	539.99	1		539.33
+			Tripod					0		1		0
+			Dell Optiplex 475			0		1		0
+			Monitor and Keyboard		0		1		0
+									Total Project Cost	539.99
+		
+		\subsection{Discussion}
+		
+		Our only real cost for this project was the camera. While there were other components such as the backend computer and tripod, these were provided by the school and did not affect our budget. As a result we were well under budget and could have purchased extra memory (a micro sd card) for the camera. Our budget was more than adequate for our project because we really only needed the capturing system. Aside from that everything was in the analysis of the images so extra hardware wasn’t needed.
+			
 	\section{In Retrospect}
+	
+		\subsection{Reflection}
+		
+			“Engineering projects are never finished, just abandoned” – Cheville
+			This quote really sums up our experience with our senior design project. While we succeeded in developing a working product for our end of semester panel, there is still so much that we could do to improve it. The more we developed our programs the more improvements we thought of that were outside the spec of our project. It would also be fair to say that more we learned about image processing the more we realized we didn’t know. A deeper understanding of digital photography and image processing might have also helped in determining optimal solutions to our engineering problems. As is, we are quite proud of our final product and are excited to show it to the Bucknell community.
+
+			We were impressed with how much we were able to accomplish in a year. While we fully expected to finish from day one, we were sometimes overwhelmed by the breadth of knowledge necessary to complete every aspect of the system. There were three make or break elements to our project. The first was cell classification. We had to figure out how to correctly identify the portions of the board with writing on it. If we hadn’t succeeded in this our project would not have worked because we would not have known what to save. The second was image stitching. This was an important development because it was necessary if we were going to edit out the professor from each image. Third and final was the key image detection. We needed a way to determine/filter out the key images so that the professors wouldn’t need to scan through 500 images to choose the frames that mattered.
+			
+			If we were going to do this project again we would have looked at the different languages available to us before choosing Python. While Python ended up being a good choice due to the time constraints of this project, there are many benefits to using languages that are slightly lower level. Our memory issues (which Phil had to work on for a week before resolving) would never have happened because C++ gives more control of the memory procedures. While Python was nice because it gave us a good way to quickly throw all the different components of the project together, it has very high overhead costs which are a big problem with memory intensive processes like our image processing. At the same time, Python was a very good language to use when learning about basic image processing. It had enough built in procedures that we didn’t end up feeling overwhelmed with the number of image processing processes we had to implement ourselves.
+		
+		\subsection{Next Steps}
+		
+			\begin{itemize}
+				\item The next major steps we could take would be in optimization. It would be nice to have a stand-alone analysis system that you could install by double clicking on it.
+					\begin{itemize}
+						\item This would require pulling the correct python libraries into the subfolders of the program so that it looks there rather than the python installed on the machine.
+					\end{itemize}
+				\item Automatic wireless transfer to analysis system while image capture is in progress
+					\begin{itemize}
+						\item All images would then be uploaded at the end of the lecture.
+					\end{itemize}
+			\end{itemize}
+		
+		
+		\subsection{List of future features / improvements / changes for the next version}
+		
+			\begin{itemize}
+				\item Keystone Imaging
+					\begin{itemize}
+						\item We have this working somewhat, but we never got it working to the point where we would be comfortable publishing it with our final project
+					\end{itemize}
+				\item Improve stroke cell recognition
+					\begin{itemize}
+						\item Our image cleaning relies heavily on having correctly identified stroke cells, so anything that isn’t in a stroke cell is lost.
+					\end{itemize}
+				\item Make strokes a solid blue/green/red/black color rather than leaving them as captured
+					\begin{itemize}
+						\item We did this with the black and white version of the cleaning code and it made the text stand out even more than it already does with the white background. This would make the color strokes look better as well.
+					\end{itemize}
+				\item Color vs B/W optimization in analysis system.
+					\begin{itemize}
+						\item If we know that there will not be any color, there are steps we could take to further optimize the stroke cleaning software
+					\end{itemize}
+				\item Multiple Boards
+					\begin{itemize}
+						\item Professors (generally) like to use all whiteboards in the classroom. Our system is only really optimized for one board, but if we could get all three boards in the image, crop the image, and then analyze it, it would be a much more useful final product.
+					\end{itemize}
+				\item Remote controlled key image
+					\begin{itemize}
+						\item If we had some sort of signal or remote control, we could allow the professor to take a key image during a lecture if he felt a board image was especially important.
+					\end{itemize}
+				\item Rewrite project in C++ (or even C if motivated)
+					\begin{itemize}
+						\item This would dramatically improve performance for the backend analysis.
+					\end{itemize}
+			\end{itemize}
+		
 	
 	\newpage
 	\bibliographystyle{ieeetr}
