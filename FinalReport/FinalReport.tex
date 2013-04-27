@@ -512,7 +512,25 @@ Secondary goals of our project will help to make the learning process even easie
 					\item The value is decremented by one for every board cell that becomes a stroke cell
 				\end{itemize}
 				If the value rises above 5 for the looking ahead to the next image, a key image is triggered. If the value rises above 3 for looking ahead to the next image and above 5 for looking ahead two images, then a key image is triggered. When a key image is not detected, all of the stroke and board cells from the next image are copied into the current image and iteration through the image sequence continues. The numbers 3 and 5 were picked based on testing as the values that will typically generate at least one extra key image, but will almost guarantee that no key images are missed. 
-		
+				
+			\subsubsection{Color Normalization}
+				Once the key images have been detected, the system goes through the image to make the portions of the whiteboard pure white and leaves the strokes alone. At this point in the process, no cell has been classified as foreground so the only types that need to be dealt with are board and stroke. If a cell is counted as a board cell, then the algorithm goes through each pixel and makes each white unless it is greater than a certain (high) threshold. If a cell is classified as a stroke cell, then the same process is applied, but the threshold for leaving the pixel alone is lower. The effects of color normalization on an image can be seen in Figure \ref{img:before-norm.jpg} and \ref{img:after-norm.jpg}.
+				
+				\begin{figure}[h]
+					\centering
+					\includegraphics[scale=0.22]{images/before-norm.jpg}
+					\caption{This figure shows a key image before the color normalization has taken place. Note that the areas on the board where the foreground objects were are discolored.}		
+					\label{img:before-norm.jpg}
+				\end{figure}
+						
+				
+				\begin{figure}[h]
+					\centering
+					\includegraphics[scale=0.22]{images/after-norm.jpg}
+					\caption{This figure shows a key image after the color normalization has taken place. Note that the areas on the board where the foreground objects were has been normalized to a pure white color.}
+					\label{img:after-norm.jpg}
+				\end{figure}
+						
 		\subsection{Backend System}
 
 	
