@@ -1,6 +1,7 @@
 \documentclass[]{article}
 
 \usepackage[pdftex]{graphicx}
+\usepackage{listings}
 \usepackage[top=1in, bottom=1in, right=1.25in, left=1.25in]{geometry}
 \usepackage{hyperref}
 
@@ -361,13 +362,15 @@ Secondary goals of our project will help to make the learning process even easie
 	\section{Design Evolution}
 		
 		\subsection{System Architecture}
+		
+		
 			The high level view of the system is depicted in Figure \ref{img:concept-of-operation}. The system in broken down into the following three subsystems:
 			\begin{itemize}
 				\item Capture System: responsible for capturing images of the whiteboard
 				\item Analysis System: responsible for processing the images from the capture system
 				\item Backend System: responsible for detecting new capture sets and file system manipulations
 			\end{itemize}
-			\\
+			\noindent
 			Each of these subsystems is discussed in greater detail in the following sections of the document. 
 			
 			\begin{figure}[h]
@@ -514,13 +517,13 @@ Secondary goals of our project will help to make the learning process even easie
 				If the value rises above 5 for the looking ahead to the next image, a key image is triggered. If the value rises above 3 for looking ahead to the next image and above 5 for looking ahead two images, then a key image is triggered. When a key image is not detected, all of the stroke and board cells from the next image are copied into the current image and iteration through the image sequence continues. The numbers 3 and 5 were picked based on testing as the values that will typically generate at least one extra key image, but will almost guarantee that no key images are missed. 
 				
 			\subsubsection{Color Normalization}
-				Once the key images have been detected, the system goes through the image to make the portions of the whiteboard pure white and leaves the strokes alone. At this point in the process, no cell has been classified as foreground so the only types that need to be dealt with are board and stroke. If a cell is counted as a board cell, then the algorithm goes through each pixel and makes each white unless it is greater than a certain (high) threshold. If a cell is classified as a stroke cell, then the same process is applied, but the threshold for leaving the pixel alone is lower. The effects of color normalization on an image can be seen in Figure \ref{img:before-norm.jpg} and \ref{img:after-norm.jpg}.
+				Once the key images have been detected, the system goes through the image to make the portions of the whiteboard pure white and leaves the strokes alone. At this point in the process, no cell has been classified as foreground so the only types that need to be dealt with are board and stroke. If a cell is counted as a board cell, then the algorithm goes through each pixel and makes each white unless it is greater than a certain (high) threshold. If a cell is classified as a stroke cell, then the same process is applied, but the threshold for leaving the pixel alone is lower. The effects of color normalization on an image can be seen in Figure \ref{img:before-norm} and \ref{img:after-norm}.
 				
 				\begin{figure}[h]
 					\centering
 					\includegraphics[scale=0.22]{images/before-norm.jpg}
 					\caption{This figure shows a key image before the color normalization has taken place. Note that the areas on the board where the foreground objects were are discolored.}		
-					\label{img:before-norm.jpg}
+					\label{img:before-norm}
 				\end{figure}
 						
 				
@@ -528,11 +531,56 @@ Secondary goals of our project will help to make the learning process even easie
 					\centering
 					\includegraphics[scale=0.22]{images/after-norm.jpg}
 					\caption{This figure shows a key image after the color normalization has taken place. Note that the areas on the board where the foreground objects were has been normalized to a pure white color.}
-					\label{img:after-norm.jpg}
+					\label{img:after-norm}
+				\end{figure}
+				
+			\subsubsection{Automatic Whiteboard Area Detection}
+				After executing the analysis system on several captures, it became evident that the top and bottom borders of the whiteboard were being classified as stroke cells. Later on in the captures, when the lighting changed, some of these cells would then be reclassified as board cells and could possibly trigger a key image that does not actually exist. This phenomenon also happened in reverse meaning there would be some key images that went undetected by the system. To correct for this, the ProPANE team added a feature to detect where the whiteboard was located in each image and ignore the borders. The following algorithm was used to detect the top of the whiteboard (it assumes that all cells have been classified):
+				\begin{lstlisting}
+columnIndex = 0
+rowIndex = 0
+topOfBoard = 0
+
+for every column{
+	do{
+		cell1 = cellAt(rowIndex, columnIndex)
+		cell2 = cellAt(rowIndex + 1, columnIndex)
+		cell3 = cellAt(rowIndex + 2, columnIndex)
+		
+		rowIndex++
+	}while(cell1 & cell2 & cel3 are not board cells);
+	
+	topOfBoard += rowIndex / numberOfColumns
+	
+	rowIndex = 0
+	columnIndex++
+}		
+
+return topOfBoard
+				\end{lstlisting}
+				The idea is that the top of the board can be identified by the three cells below the top being board cells. Since there can be problems with classification, the algorithm finds the top of the board for each column and then averages the values to give the final topOfBoard value. The same algorithm was used to find the bottom of the board except that the rowIndex starts at its maximum value and decrements. Figure \ref{img:whiteboard-area-detection} shows an example of the whiteboard area detection. Note that the algoritm is limited to when the camera is facing directly at the board (so that the borders of the whiteboard are essentially horizontal). 
+				
+				\begin{figure}[h]
+					\centering
+					\includegraphics[scale=0.22]{images/whiteboard-area-detection.jpg}
+					\caption{This figure shows whiteboard area detection. The area between the blacked out regions are considered to be the whiteboard. The highlighted area is an example of how some cells near the borders can be misclassified. }
+					\label{img:whiteboard-area-detection}
 				\end{figure}
 						
 		\subsection{Backend System}
+			The backend subsystem of the ProPANE system is responsible for detecting when new captures need to be processed and then start the analysis system. The goal of the ProPANE system was to allow multiple capture systems to submit jobs to the analysis system so the analysis system needed to be located on a system that is accessible to multiple people. The natural course of action was to set it up on a server. The ProPANE team decided to use a Samba server as the means for submitting ProPANE jobs because Samba clients are installed by default on Windows, OS X, and Ubuntu. The cycle the backend subsystem performs is as follows:
+			\begin{enumerate}
+				\item Obtain list of files in Samba share root directory
+				\item Compare to list of files from previous check to obtain list of new files
+				\item If a new file is a directory, navigate into it and continue algorithm. Otherwise do nothing
+				\item Wait in directory until a period of 10 seconds has elapsed where no new files are created in that directory
+				\item Fork off a new process to start the analysis system on that directory
+			\end{enumerate}
+			This process allows a professor to simply drag a directory of images to the Samba share in order to start the analysis system. The backend system will detect the new directory and wait for the transfer of images to complete before starting the analysis system. The backend system also uses SMTP to send an email/SMS message to the professor once their ProPANE job is complete. 
 
+	\section{Bill of Materials}
+	
+	\section{In Retrospect}
 	
 	\newpage
 	\bibliographystyle{ieeetr}
