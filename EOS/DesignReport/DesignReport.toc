@@ -8,10 +8,10 @@
 \contentsline {subsection}{\numberline {2.2}Sony VCT-R100 Tripod}{2}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Application}{2}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}Graphical Layout}{2}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Class Design}{4}{subsubsection.2.3.2}
-\contentsline {section}{\numberline {3}Analysis System}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Hardware}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Software}{5}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {2.3.2}Class Design}{3}{subsubsection.2.3.2}
+\contentsline {section}{\numberline {3}Analysis System}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Hardware}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Software}{4}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Class Design}{5}{subsection.3.3}
 \contentsline {subsubsection}{\numberline {3.3.1}ImageSequence}{5}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Image}{6}{subsubsection.3.3.2}

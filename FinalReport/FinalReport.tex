@@ -136,7 +136,7 @@ Digital images are electronic representations of physical media, such as photogr
 			\begin{itemize}
 				\item{\textbf{High-pass filter:}} Emphasizes regions with rapid intensity changes
 				\item{\textbf{Low-pass filter:}} Smooths images, blurs regions with rapid change
-				\item{\textbf{Adaptive smoothing filter:}} Sets pixel intensity to a value between original and mean values, corrected by degree of noisiness. Good for decreasing statistical, especiall signal-dependent noise
+				\item{\textbf{Adaptive smoothing filter:}} Sets pixel intensity to a value between original and mean values, corrected by degree of noisiness. Good for decreasing statistical, especially signal-dependent noise
 				\item{\textbf{Median filter:}} Sets pixel intensity to the median intensity of pixels in a neighborhood. Excellent for eliminating intensity spikes
 				\item{\textbf{Sigma filter:}} Sets pixel intensity equal to the mean of the intensities in a neighborhood within two of the mean.  Good for signal-independent noise
 			\end{itemize}
@@ -189,7 +189,7 @@ Secondary goals of our project will help to make the learning process even easie
 	\section{Specification}
 		The following subsections contain the specifications created in the fall for this project.
 		\subsection{Overview}
-			The goal of this project is to create a system that captures information written on whiteboards throughout the course of a class. The system should be useable by professors during a standard lecture. The system must be portable so that it can be transported from classroom to classroom.
+			The goal of this project is to create a system that captures information written on whiteboards throughout the course of a class. The system should be usable by professors during a standard lecture. The system must be portable so that it can be transported from classroom to classroom.
 			
 		\subsection{System Breakdown}
 			The ProPANE system will be composed of two subsystems: the capture system and the analysis system. There will be a single analysis system for multiple capture systems. This ensures a centralized location for data storage and accessibility.
@@ -412,7 +412,7 @@ Secondary goals of our project will help to make the learning process even easie
 				\begin{figure}[h]
 					\centering
 					\includegraphics[scale=0.45]{images/galaxy-camera.jpg}
-					\caption{Three views of the Samsung Galaxy Camera. The left view shows the camera running a full Android 4.1 operating system. The other two images show that it has a telescopic lense that will allow for physical zooming so that the camera can be placed anywhere in the classroom and still capture high resolution images.}		
+					\caption{Three views of the Samsung Galaxy Camera. The left view shows the camera running a full Android 4.1 operating system. The other two images show that it has a telescopic lens that will allow for physical zooming so that the camera can be placed anywhere in the classroom and still capture high resolution images.}		
 					\label{img:galaxy-camera}
 				\end{figure}
 			
@@ -426,12 +426,12 @@ Secondary goals of our project will help to make the learning process even easie
 				The third iteration of the capture system utilized a wakelock to keep the app running even when the screen turned off. Zoom functionality was also added to the app so that the camera could be placed in different places is the room. This version was buggy and if the app was closed the wrong way, the camera became unreachable without a restart. 
 				
 			\subsubsection{Android App v4}
-				The fourth iteration of the capture system used the onPause, onStop, and onResume calls in Android to correctly lock and release the camera so that if the app is closed at any time, the camera will still be useable without a restart. There was also a button added to this version to toggle between high resolution and low resolution capture modes. This feature was requested for the keystone correction feature of the analysis system. This was the final version of the app that was developed since it went beyond meeting specification and the team wanted to focus more on the analysis system improvements. The final version of the app can be seen in Figure \ref{img:camera-app}.
+				The fourth iteration of the capture system used the onPause, onStop, and onResume calls in Android to correctly lock and release the camera so that if the app is closed at any time, the camera will still be usable without a restart. There was also a button added to this version to toggle between high resolution and low resolution capture modes. This feature was requested for the keystone correction feature of the analysis system. This was the final version of the app that was developed since it went beyond meeting specification and the team wanted to focus more on the analysis system improvements. The final version of the app can be seen in Figure \ref{img:camera-app}.
 				
 				\begin{figure}[h]
 					\centering
 					\includegraphics[scale=0.8]{images/camera-app.png}
-					\caption{Three views of the Samsung Galaxy Camera. The left view shows the camera running a full Android 4.1 operating system. The other two images show that it has a telescopic lense that will allow for physical zooming so that the camera can be placed anywhere in the classroom and still capture high resolution images.}		
+					\caption{Three views of the Samsung Galaxy Camera. The left view shows the camera running a full Android 4.1 operating system. The other two images show that it has a telescopic lens that will allow for physical zooming so that the camera can be placed anywhere in the classroom and still capture high resolution images.}		
 					\label{img:camera-app}
 				\end{figure}
 				
@@ -558,7 +558,7 @@ for every column{
 
 return topOfBoard
 				\end{lstlisting}
-				The idea is that the top of the board can be identified by the three cells below the top being board cells. Since there can be problems with classification, the algorithm finds the top of the board for each column and then averages the values to give the final topOfBoard value. The same algorithm was used to find the bottom of the board except that the rowIndex starts at its maximum value and decrements. Figure \ref{img:whiteboard-area-detection} shows an example of the whiteboard area detection. Note that the algoritm is limited to when the camera is facing directly at the board (so that the borders of the whiteboard are essentially horizontal). 
+				The idea is that the top of the board can be identified by the three cells below the top being board cells. Since there can be problems with classification, the algorithm finds the top of the board for each column and then averages the values to give the final topOfBoard value. The same algorithm was used to find the bottom of the board except that the rowIndex starts at its maximum value and decrements. Figure \ref{img:whiteboard-area-detection} shows an example of the whiteboard area detection. Note that the algorithm is limited to when the camera is facing directly at the board (so that the borders of the whiteboard are essentially horizontal). 
 				
 				\begin{figure}[h]
 					\centering
